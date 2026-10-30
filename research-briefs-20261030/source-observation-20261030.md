@@ -1,0 +1,5 @@
+# SEC source observation / Проверка списка SEC
+
+Запись сделана 30 октября 2026, 07:50 UTC по результату публичного чтения в ходе подготовки FAQ. Прочитан [список подач SEC](https://data.sec.gov/submissions/CIK0002130357.json) для Anthropic, PBC, CIK 0002130357. В возвращённом списке последняя позиция — S-1 от 26 октября 2026; после неё S-1/A или 10-Q не отображались. Список доступен по ссылке и может измениться. Это заметка о полученном результате, не сохранение оригинальных HTTP-байтов, не независимая печать и не гарантия отсутствия публикации в другом источнике.
+
+Recorded on 30 October 2026 at 07:50 UTC from a public read during preparation of the FAQ. The [SEC submissions listing](https://data.sec.gov/submissions/CIK0002130357.json) for Anthropic, PBC, CIK 0002130357, returned the S-1 filed October 26, 2026 as its latest entry; no subsequent S-1/A or 10-Q was displayed. The listing may change. This note records the observation; it does not retain the original HTTP bytes, create an independent seal, or prove that no information was published elsewhere.
