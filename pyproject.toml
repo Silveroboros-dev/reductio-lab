@@ -1,0 +1,12 @@
+[project]
+name = "reasoning-research"
+version = "0.1.0"
+description = "Local research prototype for inspectable model reasoning"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

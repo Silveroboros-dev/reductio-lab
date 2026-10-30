@@ -4,6 +4,21 @@ Reductio Lab explores how AI can help people examine consequential claims, uncov
 
 The project investigates whether structured reasoning and contrary-case analysis make model outputs easier to inspect and challenge. Its early controllers were inspired by [Selection–Inference](https://arxiv.org/abs/2205.09712) and [Faithful Reasoning](https://arxiv.org/abs/2208.14271); they orchestrate model calls and do not reproduce all trained components described in those papers.
 
+## Offline prototype
+
+This repository includes an experimental Python controller and a stricter v3 variant. The included demonstration and tests use scripted callbacks and saved-source fixtures; they make no model or source calls. The code is a research prototype, not a production system or a reproduction of the papers.
+
+```sh
+python3 -m reasoning_engine.demo
+python3 -m unittest discover -s tests -p test_strict_v3.py -v
+```
+
+See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and limitations. Live provider use and historical private data are not included.
+
+## Architecture
+
+[Faithful Engine architecture and limitations](docs/architecture.md) (English and Russian).
+
 ## Research notes
 
 - [Experiment history: English](research-briefs-20261030/01-experiment-history-en.md) · [Русский](research-briefs-20261030/01-experiment-history-ru.md)
