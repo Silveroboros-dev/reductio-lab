@@ -6,7 +6,7 @@ from typing import Any, Callable
 
 from reasoning_engine.prompts import build_request as old_build_request
 
-VERSION = 'faithful-v3-prompts-4'
+VERSION = 'faithful-v3-prompts-6'
 
 
 def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
@@ -31,8 +31,11 @@ def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
             "Return {'alternatives': [[item, ...], ...]}. For each structured saved source, "
             "select {'id': source_id, 'spans': [{'passage_id': id, 'start_char': start, 'end_char': end}]}; "
             'offsets must lie within a supplied passage, with an exclusive end. '
-            "For an unstructured source select {'id': source_id, 'spans': [{'start_char': start, 'end_char': end}]}; "
-            'offsets are Unicode code points into the supplied evidence text, with an exclusive end. '
+            "For an unstructured source select {'id': source_id, 'spans': [{'quote': exact_verbatim_substring}]}; "
+            'the quote must occur exactly once in that source\'s supplied available_statements text. '
+            'Copy its exact characters, including whitespace and JSON escaping; do not paraphrase, normalize, '
+            'use ellipses, or guess numeric offsets. The controller derives Unicode code-point offsets into '
+            'the saved evidence text, not the original document. '
             'Derived statements and whole unstructured responses may also be selected by ID string. '
             'Do not invent IDs, passage IDs or offsets. The question is the user target, not an established fact. '
             'candidate_findings are unverified source-decision notes with context references, '
@@ -43,8 +46,15 @@ def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
         )
     elif stage == 'halter':
         request['instruction'] = (
-            'Given the exact question and the current inference, determine whether the '
-            'inference answers that question. Return {"sufficient": boolean, "reason": string}. '
+            'Given the question and current inference, judge whether the inference factually '
+            'answers the human target. Respect substantive constraints in the question, '
+            'including entity, metric, period, information boundary, source restrictions, and '
+            'polarity. A supported '
+            'negative answer to a thesis can be sufficient. Do not require final-answer wording, '
+            'presentation, or citation IDs in the inference; Formatter renders the answer and '
+            'attaches citations later. Do not assume factual sufficiency merely because formatting '
+            'can be added, or treat source ancestry as proof of entailment. '
+            'Return {"sufficient": boolean, "reason": string}. '
             'Optionally add evidence_assessment: "insufficient", "conflicting", or "not_determined"; '
             'this is an unverified model judgment about the current inference, not a stopping reason. '
             'Do not treat a nearby metric, entity, period, or a proxy as the requested answer. '

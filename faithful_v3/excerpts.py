@@ -111,9 +111,21 @@ def resolve_selection(items: list, nodes: dict, source_ids: set[str], registry: 
         seen = set()
         for span in spans:
             if ident not in registry:
-                if not isinstance(span, dict) or set(span) != {'start_char', 'end_char'}:
+                if not isinstance(span, dict):
                     raise InvalidOutput('invalid unstructured text span')
-                start, end = span['start_char'], span['end_char']
+                if set(span) == {'quote'}:
+                    quote = span['quote']
+                    if not isinstance(quote, str) or not quote.strip():
+                        raise InvalidOutput('unstructured text quote must contain non-whitespace text')
+                    start = node['text'].find(quote)
+                    if start < 0 or node['text'].find(quote, start + 1) >= 0:
+                        raise InvalidOutput('unstructured text quote is absent or ambiguous')
+                    end = start + len(quote)
+                elif set(span) == {'start_char', 'end_char'}:
+                    # Historical model responses remain readable; new requests use exact quotes.
+                    start, end = span['start_char'], span['end_char']
+                else:
+                    raise InvalidOutput('invalid unstructured text span')
                 if not _int(start) or not _int(end) or not 0 <= start < end <= len(node['text']) or (start, end) in seen:
                     raise InvalidOutput('unstructured text span is duplicate or out of bounds')
                 seen.add((start, end))
