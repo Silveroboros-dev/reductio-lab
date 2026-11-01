@@ -213,16 +213,34 @@ class Engine:
         self.calls += 1
         self.events.append({"event": "model_started", "stage": stage, "ordinal": self.calls,
                             "branch_id": branch_id, "payload": copy.deepcopy(payload)})
+        # Only the explicit journal adapter can supply operation receipts.
+        # The source-loop wrapper exposes the adapter without adding it to a
+        # role's model-visible payload.
+        from reasoning_engine.journal_callback import JournaledCallback
+        journal = self.generate if isinstance(self.generate, JournaledCallback) else getattr(self.generate, 'journal_callback', None)
+        if not isinstance(journal, JournaledCallback):
+            journal = None
+        previous_receipt = journal.last_receipt if journal is not None else None
         try:
             output = self.generate(stage, copy.deepcopy(payload))
         except Exception as exc:
-            self.events.append({"event": "callback_failed", "stage": stage, "ordinal": self.calls,
-                                "branch_id": branch_id, "exception_type": type(exc).__name__})
+            event = {"event": "callback_failed", "stage": stage, "ordinal": self.calls,
+                     "branch_id": branch_id, "exception_type": type(exc).__name__}
+            receipt = journal.last_receipt if journal is not None else None
+            if receipt is not None and receipt != previous_receipt:
+                event['operation_receipt'] = receipt
+            self.events.append(event)
             raise
+        receipt = journal.last_receipt if journal is not None else None
+        if receipt == previous_receipt:
+            receipt = None
+        event = {"event": "model_returned", "stage": stage, "ordinal": self.calls,
+                 "branch_id": branch_id, "result": copy.deepcopy(output)}
+        if receipt is not None:
+            event['operation_receipt'] = receipt
+        self.events.append(event)
         if not isinstance(output, dict):
             raise InvalidOutput("model response must be an object")
-        self.events.append({"event": "model_returned", "stage": stage, "ordinal": self.calls,
-                            "branch_id": branch_id, "result": copy.deepcopy(output)})
         return copy.deepcopy(output)
 
     def _outcome(self, task: dict, status: str, reason: str, **extra: Any) -> dict:

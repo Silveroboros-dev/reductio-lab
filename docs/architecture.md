@@ -24,6 +24,12 @@ flowchart TD
     H -.-> T
     V -.-> T
     F -.-> T
+    D -.-> E["Optional journaled callback: role request and operation receipt"]
+    S -.-> E
+    I -.-> E
+    H -.-> E
+    V -.-> E
+    F -.-> E
     O --> J["Separate review / human judgment"]
     T --> J
 ```
@@ -38,6 +44,8 @@ An absent saved capture yields a scoped preflight `unknown` before any model cal
 
 The role outputs and trace are **unreviewed**, and a trace is not proof of entailment, causal faithfulness, factual correctness or alignment. An independent review and the human's own judgment remain separate. When a run stops for budget, invalid output or uncertainty, those outcomes must remain distinguishable. The offline demo uses scripted callbacks and is not evidence of model performance.
 
+The optional `JournaledCallback` binds each v3 role request, including its fixed instruction, to a durable `EffectExecutor` operation. Use a unique, non-sensitive session ID per run; reuse it only to replay the identical ordered sequence. The adapter records a canonical role request, not the actual provider wire request. Its single-shot transport returns an `HttpResponse` whose body must be the role-output JSON object; the journal stores those returned bytes, which need not be the provider's original response. Disable retries in transport. The integration has only been tested with offline fixtures; it is not a Vertex adapter or proof of provider dispatch, billing, or response authenticity. A receipt is attached to its exact role call; default rendering hides operation IDs and hashes. Unknown outcomes are not automatically retried.
+
 ## Русский
 
 Диаграмма показывает локальный исследовательский контроллер `faithful_v3` и воспроизведение ранее сохранённых источников; это не развёрнутый продукт FitCheck. Каждая модельная роль — отдельный вызов через callback; в офлайн-тестах ответы могут быть заранее заданными. Python проверяет структуру, направляет вызовы, сохраняет происхождение и ограничивает выполнение. Он не заменяет модельные роли и не устанавливает истинность выводов.
@@ -51,3 +59,5 @@ The role outputs and trace are **unreviewed**, and a trace is not proof of entai
 Отсутствие сохранённого ответа даёт ограниченный `unknown` до вызова модели; это не утверждение об отсутствии информации у внешнего источника. Таймаут или разрыв соединения внутри callback записывается как прерванный callback с неустановленным эффектом; вход в callback не доказывает отправку запроса. Другие ошибки callback сохраняют технический статус и отдельную пометку, что эффект не установлен. Необязательный журнал эффектов ведёт свои устойчивые состояния попыток и повторяет только явно разрешённый 429. Безопасный вид различает лимит вызовов и лимит глубины.
 
 Результаты ролей и трасса **не проверены содержательно**. Трасса не доказывает логическую корректность, причинную верность рассуждения, истинность фактов или соответствие ценностям человека. Независимая оценка и собственное суждение человека остаются отдельными. Исчерпание бюджета, некорректный ответ и неопределённость необходимо различать. Офлайн-демо использует заранее заданные ответы и не является результатом испытания модели.
+
+Необязательный `JournaledCallback` связывает каждый запрос роли v3, включая фиксированную инструкцию, с устойчивой операцией `EffectExecutor`. Для каждого запуска нужен уникальный нечувствительный идентификатор сессии; повторно его можно использовать только для воспроизведения той же последовательности. Записывается канонический запрос роли, а не обязательно HTTP-запрос провайдеру. Однократный transport возвращает `HttpResponse` с JSON-объектом ответа роли; журнал хранит эти байты, которые не обязательно являются исходным ответом провайдера. Повторы в transport должны быть отключены. Интеграция проверена только на офлайн-фикстурах; она не является адаптером Vertex и не подтверждает отправку, биллинг или подлинность ответа провайдера. Квитанция привязана к конкретному вызову роли; обычный вид скрывает идентификаторы операций и хеши. Неопределённые операции автоматически не повторяются.

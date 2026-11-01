@@ -12,6 +12,7 @@ from typing import Callable, Any
 
 from reasoning_engine.engine import EngineConfig, prepare_task
 from reasoning_engine.replay_sources import MissingReplayCapture, ReplayCase, digest
+from reasoning_engine.journal_callback import JournaledCallback, JournaledCallError
 from faithful_v3.engine import StrictEngine, _stop_kind
 
 VERSION = 'faithful-v3-source-loop-5'
@@ -156,7 +157,17 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                 for item in current['observed']
             ]
             if history and history[-1].get('kind') == 'model_decision_failed':
-                explanation['callback_effect_state'] = 'not_established'
+                receipt = history[-1].get('operation_receipt')
+                if receipt is None:
+                    explanation['callback_effect_state'] = 'not_established'
+                else:
+                    explanation['effect_receipt'] = copy.deepcopy(receipt)
+            elif history and history[-1].get('kind') == 'model_decision_invalid':
+                receipt = history[-1].get('operation_receipt')
+                if receipt is not None:
+                    explanation['effect_receipt'] = copy.deepcopy(receipt)
+                else:
+                    explanation['callback_effect_state'] = 'not_established'
             if reason == 'source_decision_uncertain':
                 last = next((x for x in reversed(history) if x.get('kind') == 'model_decision'
                              and x.get('output', {}).get('choice') == 'UNKNOWN'), None)
@@ -177,6 +188,11 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
         model_calls += 1
         return generate(stage, copy.deepcopy(payload))
 
+    # Preserve the optional trusted journal adapter through this call-budget
+    # wrapper; it is metadata for orchestration, never a model premise.
+    if isinstance(generate, JournaledCallback):
+        call.journal_callback = generate
+
     try:
         while True:
             visible = replay.visible()
@@ -193,15 +209,26 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
             try:
                 raw = call('source_decision', visible)
             except Exception as exc:
-                history.append({'kind': 'model_decision_failed', 'stage': 'source_decision',
-                                'input': copy.deepcopy(visible), 'exception_type': type(exc).__name__})
+                event = {'kind': 'model_decision_failed', 'stage': 'source_decision',
+                         'input': copy.deepcopy(visible), 'exception_type': type(exc).__name__}
+                if isinstance(generate, JournaledCallback) and generate.last_receipt is not None:
+                    event['operation_receipt'] = copy.deepcopy(generate.last_receipt)
+                history.append(event)
                 raise
-            history.append({'kind': 'model_decision', 'stage': 'source_decision',
+            decision_event = {'kind': 'model_decision', 'stage': 'source_decision',
                             'call_ordinal': model_calls,
                             'input': copy.deepcopy(visible), 'output': copy.deepcopy(raw),
                             'callback_input_sha256': digest(visible),
-                            'callback_output_sha256': digest(raw)})
-            choice = _decision(raw, allowed)
+                            'callback_output_sha256': digest(raw)}
+            if isinstance(generate, JournaledCallback) and generate.last_receipt is not None:
+                decision_event['operation_receipt'] = copy.deepcopy(generate.last_receipt)
+            history.append(decision_event)
+            try:
+                choice = _decision(raw, allowed)
+            except ValueError:
+                history.append({'kind': 'model_decision_invalid',
+                                'operation_receipt': copy.deepcopy(decision_event.get('operation_receipt'))})
+                raise
             if choice == 'UNKNOWN':
                 return outcome('unknown', 'source_decision_uncertain')
             if choice == 'STOP':
@@ -231,6 +258,9 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
         history.append({'kind': 'final', 'outcome': final})
         extra = {'unknown_explanation': final['unknown_explanation']} if 'unknown_explanation' in final else {}
         return outcome(final['status'], final['reason'], final.get('result'), **extra)
+    except JournaledCallError as exc:
+        status = 'unknown' if exc.kind in {'uncertain', 'journal_error'} else 'technical_failure'
+        return outcome(status, 'journal_call_' + exc.kind)
     except (TimeoutError, ConnectionError) as exc:
         if history and history[-1].get('kind') == 'model_decision_failed':
             return outcome('unknown', 'source_callback_interrupted:' + type(exc).__name__)

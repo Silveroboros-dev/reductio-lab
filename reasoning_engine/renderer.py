@@ -119,6 +119,23 @@ def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any], *, k
         lines += ['No final answer was produced.', condition]
         if explanation.get('callback_effect_state') == 'not_established':
             lines.append('Callback effect state is not established; dispatch is not proven.')
+        receipt = _mapping(explanation.get('effect_receipt'))
+        journal_states = {
+            'ready': 'registered; no started attempt recorded',
+            'started': 'attempt recorded; final journal state not established',
+            'uncertain': 'outcome uncertain; no automatic retry',
+            'failed': 'response failure recorded',
+            'succeeded': 'HTTP 200 response recorded',
+        }
+        state = receipt.get('state')
+        if isinstance(state, str) and state in journal_states:
+            lines.append('Local operation journal: ' + journal_states[state] + '.')
+            response_status = receipt.get('response_status')
+            if type(response_status) is int and 100 <= response_status <= 599:
+                lines.append('Recorded HTTP status: ' + str(response_status) + '.')
+            if receipt.get('parse_status') == 'invalid_json':
+                lines.append('The recorded response was not valid JSON.')
+            lines.append('This journal does not establish provider billing or response authenticity.')
     else:
         lines.append('Result withheld from the default view.')
     lines.append('')

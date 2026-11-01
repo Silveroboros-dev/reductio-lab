@@ -14,11 +14,14 @@ from typing import Any, Callable
 from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, InvalidOutput,
                                      _Branch, _ancestry, prepare_task)
 from faithful_v3.excerpts import resolve_selection, source_registry
+from reasoning_engine.journal_callback import JournaledCallError
 
 VERSION = 'faithful-v3-strict-5'
 
 
 def _stop_kind(status: str, reason: str) -> str:
+    if reason == 'journal_call_uncertain':
+        return 'effect_uncertain'
     if 'callback_interrupted' in reason:
         return 'callback_interrupted'
     if 'callback_effect_uncertain' in reason:
@@ -41,6 +44,7 @@ class StrictEngine(Engine):
         self._ready: list[_Branch] = []
         self._active_final: _Branch | None = None
         self._halter_feedback: dict[str, dict] = {}
+        self._failure_receipt: dict | None = None
 
     def _outcome(self, task: dict, status: str, reason: str, **extra: Any) -> dict:
         out = super()._outcome(task, status, reason, **extra)
@@ -51,7 +55,9 @@ class StrictEngine(Engine):
         out['candidate_findings'] = copy.deepcopy(self.candidate_findings)
         if status in {'unknown', 'technical_failure'}:
             out['unknown_explanation'] = self._explain_stop(task, status, reason)
-            if self.events and self.events[-1].get('event') == 'callback_failed':
+            if self._failure_receipt is not None:
+                out['unknown_explanation']['effect_receipt'] = copy.deepcopy(self._failure_receipt)
+            elif self.events and self.events[-1].get('event') == 'callback_failed':
                 out['unknown_explanation']['callback_effect_state'] = 'not_established'
         return out
 
@@ -120,6 +126,12 @@ class StrictEngine(Engine):
             return self._run(prepared)
         except BudgetExhausted:
             status, reason = 'unknown', 'generation_cap_exhausted'
+        except JournaledCallError as exc:
+            self._failure_receipt = copy.deepcopy(exc.receipt)
+            if exc.kind in {'uncertain', 'journal_error'}:
+                status, reason = 'unknown', 'journal_call_' + exc.kind
+            else:
+                status, reason = 'technical_failure', 'journal_call_' + exc.kind
         except (TimeoutError, ConnectionError) as exc:
             # Callback entry does not prove dispatch; the effect is not established.
             if self.events and self.events[-1].get('event') == 'callback_failed':
@@ -127,6 +139,8 @@ class StrictEngine(Engine):
             else:
                 status, reason = 'technical_failure', 'local_error:' + type(exc).__name__
         except InvalidOutput as exc:
+            if self._failure_receipt is None and self.events and self.events[-1].get('event') == 'model_returned':
+                self._failure_receipt = copy.deepcopy(self.events[-1].get('operation_receipt'))
             status, reason = 'technical_failure', str(exc)
         except Exception as exc:
             status, reason = 'technical_failure', 'callback_failed:' + type(exc).__name__
@@ -189,9 +203,18 @@ class StrictEngine(Engine):
                     raise InvalidOutput('invalid selection alternatives')
                 signatures = set()
                 for position, selected_items in enumerate(alternatives, 1):
-                    if not isinstance(selected_items, list) or not selected_items:
-                        raise InvalidOutput('selection has unknown, duplicate or empty IDs')
-                    ids, texts, refs = resolve_selection(selected_items, branch.nodes, source_ids, registry)
+                    try:
+                        if not isinstance(selected_items, list) or not selected_items:
+                            raise InvalidOutput('selection has unknown, duplicate or empty IDs')
+                        ids, texts, refs = resolve_selection(selected_items, branch.nodes, source_ids, registry)
+                    except InvalidOutput:
+                        # This alternative came from the earlier Selection call,
+                        # even if other roles have run since it returned.
+                        event = next((e for e in reversed(self.events)
+                                      if e.get('event') == 'model_returned'
+                                      and e.get('ordinal') == selection_call), {})
+                        self._failure_receipt = copy.deepcopy(event.get('operation_receipt'))
+                        raise
                     signature = json.dumps({'ids': ids, 'refs': refs}, sort_keys=True, ensure_ascii=False)
                     if signature in signatures:
                         continue
