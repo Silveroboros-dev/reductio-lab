@@ -1,0 +1,51 @@
+{
+  "version": "market-rule-observations-v1",
+  "created_at_utc": "2026-10-29T22:16:55.932764+00:00",
+  "status": "NOT_CURRENT_UI_VERIFIED",
+  "scope": "public read-only; no trades and no paid API",
+  "warning": "Text transcribed from search index of official pages, not a current direct-view or complete source receipt. Treat as candidate only, not frozen confirmed resolution terms. The 3 Polymarket rules accordions could not be opened in the browser.",
+  "markets": [
+    {
+      "source_candidate_id": "M3",
+      "official_url": "https://polymarket.com/event/anthropic-ipo-by?marketSlug=will-anthropic-ipo-by-december-31-2026-546-128&outcomeIndex=0",
+      "source_type": "official Polymarket page indexed copy shown by web search",
+      "direct_ui_rules_opened": false,
+      "direct_ui_status": "Chrome navigation to Polymarket timed out; UI Rules not opened; fresh web page rendering did not expose collapsed Rules",
+      "completeness_status": "indexed excerpts appear complete but full or current rules cannot be confirmed without opening Rules directly",
+      "price_status": "not captured or verified",
+      "observed_at_utc_approx": "2026-10-29T22:12:00Z",
+      "observed_at_precision": "minute",
+      "index_age_indicator": "official page search result; result labelled last month",
+      "text_transcribed_from_index": "This market will resolve to \"Yes\" if Anthropic shares are listed on a public securities exchange and open for trading by 11:59 PM ET on the listed date. Otherwise, this market will resolve to \"No.\"\n\nIf Anthropic is acquired by another company that is already public, this market will immediately resolve to \"No.\"\n\nThe primary resolution source for this market is official filings and announcements from Anthropic and the relevant securities exchange on which the shares are listed, including SEC filings (e.g., Form S-1, Form 8-A), exchange listing confirmations, and official press releases from Anthropic; however a consensus of credible reporting may also be used.",
+      "text_sha256": "e9b2133f0cfbb81c01abed0a2399a2626e8d2af8bb7aded66a37a9ca83db3190"
+    },
+    {
+      "source_candidate_id": "M4",
+      "official_url": "https://polymarket.com/event/what-will-anthropics-ipo-valuation-be/will-anthropics-ipo-valuation-be-between-2pt00t-and-2pt25t-12",
+      "source_type": "official Polymarket page indexed copy shown by web search",
+      "direct_ui_rules_opened": false,
+      "direct_ui_status": "Chrome navigation to Polymarket timed out; UI Rules not opened; fresh web page rendering did not expose collapsed Rules",
+      "completeness_status": "indexed excerpts appear complete but full or current rules cannot be confirmed without opening Rules directly",
+      "price_status": "not captured or verified",
+      "observed_at_utc_approx": "2026-10-29T22:15:00Z",
+      "observed_at_precision": "minute",
+      "index_age_indicator": "official page search result; result labelled last month",
+      "text_transcribed_from_index": "This market will resolve according to the implied equity valuation of Anthropic at its initial public offering (IPO) price. Anthropic refers to Anthropic PBC or the corporate successor or parent holding company whose listing represents Anthropic's business.\n\nThe IPO price will be the final offering price to the public as stated in the final prospectus filed with the U.S. Securities and Exchange Commission. Trading prices after listing, including the opening trade, intraday prices, or closing price on the first day of trading, will not be considered. Indicated or preliminary price ranges, including any ranges disclosed in earlier filings or amendments, will not be considered.\n\nThe IPO valuation will be determined in the following order of precedence: (1) the implied fully diluted valuation at the final IPO price, as stated in the final prospectus or in an official Anthropic announcement; (2) if no such figure is stated, the final IPO price per share multiplied by the total number of shares outstanding on a fully diluted basis as disclosed in the final prospectus, where the fully diluted count includes all outstanding shares of every class and all shares underlying outstanding options, restricted stock units, warrants, and convertible instruments, regardless of vesting or exercise status and without applying the treasury stock method; (3) if the fully diluted share count cannot be determined from the final prospectus, the implied fully diluted IPO valuation as reported by a consensus of credible reporting.\n\nIf the determined valuation falls exactly on a boundary between two ranges, this market will resolve to the higher range. If Anthropic's IPO has not priced by December 31, 2027, 11:59 PM ET, the market will resolve to \"No IPO by December 31, 2027\". If the IPO prices by the deadline, the market will resolve according to the final prospectus even if it is published after the end date. If Anthropic becomes publicly traded without a priced initial public offering, including through a direct listing or through a merger, acquisition, or absorption by an entity that is already publicly traded, this market will resolve to \"No IPO by December 31, 2027\". The primary resolution source will be the final prospectus filed with the SEC; however, a consensus of credible reporting may also be used.",
+      "text_sha256": "61f32bf7179ca01f5cff1ce4ea21f66bb651aaa8021d5076daa01f66c4f7bb6f"
+    },
+    {
+      "source_candidate_id": "M5",
+      "official_url": "https://polymarket.com/event/anthropic-ipo-closing-market-cap-higher-strikes?r=cbpm",
+      "source_type": "official Polymarket page indexed copy shown by web search",
+      "direct_ui_rules_opened": false,
+      "direct_ui_status": "Chrome navigation to Polymarket timed out; UI Rules not opened; fresh web page rendering did not expose collapsed Rules",
+      "completeness_status": "indexed excerpts appear complete but full or current rules cannot be confirmed without opening Rules directly",
+      "price_status": "not captured or verified",
+      "observed_at_utc_approx": "2026-10-29T22:15:00Z",
+      "observed_at_precision": "minute",
+      "index_age_indicator": "official page search result; result labelled last month",
+      "text_transcribed_from_index": "This market will resolve based on Anthropic's market capitalization at the closing price on its first day of trading.\n\nIf no IPO occurs by December 31, 2027, 11:59 PM ET, the market will resolve to \"No IPO by December 31, 2027\".\n\nMarket capitalization expresses the monetary value of a company’s outstanding shares, stated in its pricing currency. It is calculated as the number of shares outstanding multiplied by the closing share price on the first trading day.\n\nIf the relevant value falls exactly between two brackets, then this market will resolve to the higher range bracket.\n\nResolution will be based on the primary exchange’s official listing page. In the event that the relevant figure is not displayed, another reliable source will be used.\n\nIn the event of an interruption in the course of the normal trading session on Anthropic’s first day of trading (e.g., a circuit breaker or half-day), the market will resolve according to the official closing price of the abbreviated session. If no such official closing price is published, the market will resolve according to the next trading day on which an official closing price is published, treating that as the first day of trading for purposes of this market.",
+      "text_sha256": "2c663ce90df8ec63aabcd52c3c4d9af12545e80c726206441013ec6e4f1eab7a"
+    }
+  ]
+}

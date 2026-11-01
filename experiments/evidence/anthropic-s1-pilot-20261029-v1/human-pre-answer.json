@@ -1,0 +1,9 @@
+{
+  "schema": "human-pre-answer-v1",
+  "origin": "user reply in this chat",
+  "recorded_at_utc": "2026-10-29T22:25:30.907536+00:00",
+  "timing": "after case/model inputs were frozen and after some models completed, before user received any model answer",
+  "used_as_model_input": false,
+  "user_response": "1. Есть проблемы с ликвидностью, но они устранимы, если применять методы comodity traders и использовать реальные опционы (например, продавать страховку от банкротств стартапов, чьи продукты канибализировал/ует Claude), 2. Ничего страшного кроме того, что будет давление на акции в первые месяцы (будут выходить с прибылью те, кто получил акции вместо денег от Антропика в качестве оплаты) 3. Много чего. Нужно придумыать новую бизнес-модель. Что-то типа compute settlement house 4. no strong opinion 5. Должны разместиться до 12 ноября, иначе придлется раскрывать 3 квартал 6. Могут быть проблемы",
+  "qualification": "these are user hypotheses, not verified facts or authorized trades"
+}

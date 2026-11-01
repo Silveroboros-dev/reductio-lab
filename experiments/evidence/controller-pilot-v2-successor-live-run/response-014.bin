@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"issue\": false,\n  \"critique\": \"The proposed action is the most direct and logical next step to find the annual run rate for the combined Trainium, Graviton, and Nitro business from the primary public source on Amazon's AI chips business history.\"\n}",
+            "thoughtSignature": "AY89a18cgvCNYz9TSdpqja/af+uHQyYYS3Orwe6iN/LLGU38acBWkKMiKCgf3wxpA5jZ38h95wZry4WB35pyKdm4oGHB4ZStM4UuvhuJIbEwY20BnEngPxPrnNUJUBscL3sRqP5E3IlWwXAlpUnmS4yz0MgjZa5sG37A32PlR31djVkfsDGnHMGanImwDyUuMmD4bNt1Ft9N0nOc/OmOpi/xZk+qnArf/FNif6JwU3EmmMrIQbbI8TAk91oMTyZUl1XxZ0L99OrR/iAbuSMqFz6qlBXCHCuKvs90JHrRAA5cWKnGGL0NOYEZLlg1CySCFtVqngxKslyLVvoQndWNoJsq4vwlXNSYcudhUyYfFV9xdjMhkH8up3uDQyGoi2ksrs7/pgRu7ExLZCvQi0mhQyjEZTKHCEBMqA2s8fn57Q+9wnkv5bGIO8EubX2c+6kMzIEL8o8U5nQuk7HdH/w1855FOB8nxkbcQEWxgfRH3UPYp7Ig5A2Sr9kIUx93gF3F41DiklLu2KNSTS+VGo9HF4CEkaIgDTWfqDd9jdOjhf1rZ4iKU8X75WKHlDdvLq3ouDvsze8mSS3Y6aU2idplhwgxgOjTkvsGLx2iqqL033J4ca1latzpR+vUfb3Um04iuDQkZ5W88K0fNPzV4FiiWS1/kwR3v8NGBDvrHDa+rTZ35JzTVwMjJIm4iYEnGP62SjF5V1ZkMNvOFByUXRuDMnjzvlpGabHmA0pcZXnH4+YKdi2hpFHmgGAeRSAa97bLVi1uWPxOzZC2UgU9w4CIrJpaqJTbu49aMK6euXV0ZQZYkRiMnW3daVNZGUWL9Mof9X6F+widauheBj3zKUkGqvYI2B0DrkdjmeW4a39B/T29GOJE108j0wA7eEtMY5Ial9TwFs+ZvVb/sepHk5FQll1QiGj5Wf44iVLAkaQxn5H0VjuV2XyiZMBkW2L1chqYDQO8b5n8cjViulnjR56fQMzDUlmnQOAsKeeYr4mzY0bVXtsbw8mR6J/jPCaQNwNc4bwmX0XrHW6Nku1VhhpbyhVv3Z5UhlqyOh+sr7J3R9+wHpLocLWnwXrQydo/YmenEmvSq9x39ggoYfvx4silTBPFLx2y08sTv3RK+EK6JdfECANo7AGsSV8tsYJmoXxrotKYj0polycpjGfEK8ekGRpwI7q9XRYmdvufsko9HN/iIduGzaWB+I/LZwvxMJhDuTUuxsWdXCoSQCcnznecv3WhBfEgUTBThLf4QDejcACNmM3CeG2JP5uXzpnslhZsK4hqOfIoJgD4BgifGXeUf4cHzA4f2/uFpe3PIzij87BMWn3PQnU8jWsyM0wiexU1EGgNpE+W9aLjNQlXJzkvw6osJIRNhWCanSAID/zhXdcOHLCVNFtoVk0gkezxQ+mvxQvILRECI6vabM6/H4G0hpuDLkVfEK+5uiPC53e6tdXjuTM80AL4Ll3TTKMSP6UpsBPvXTJOxiP3uNS7rVf+18bobOYJz1G+JTxKKdvISaKZLz0WLGAHfap5pC0kfS67Njh94WkzecPkhad4bzCtjKp4Xzln+AaCI6b0Gnr2yxEmFrsldsmyZYuu9TT0Q7fbfjY4HS71w6/LfeJAx49Bw0ZIqhju8tlqEsrjL/3wEZ3Skrdn6fKeMCXo+sKhaaiVaMaIkEP3/JF8M6syMGauWoOFT8prMBXsrpn4VUMWmW6md023L/ve3J71nMByb38nyyXp6R/kSp2S9FgA5nzfFuajGL20CpBC42wbVqcTSVDBV8WVKPggpmMPiBpynr0czz/YIJA4YQ21kjVJmz3yvhV+3hpPckNiX89Gp9A/jGnU73j4Zbd2uznJpvcE3soYwA=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 448,
+    "candidatesTokenCount": 60,
+    "totalTokenCount": 870,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 448
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 60
+      }
+    ],
+    "thoughtsTokenCount": 362
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:29.350965Z",
+  "responseId": "Le3iavW1Fe7ImLAP4-DZsAQ"
+}

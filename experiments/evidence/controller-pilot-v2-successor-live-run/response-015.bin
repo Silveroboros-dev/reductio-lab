@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The evidence retrieved clearly states that the combined chip business (Trainium, Graviton, and Nitro) recently exceeded a $25 billion annual revenue run rate. It does not isolate AI-only revenue, as it includes Graviton (general cloud computing CPUs) and Nitro (networking, storage, and security infrastructure).\",\n  \"expected_result\": \"\",\n  \"answer\": \"The primary source reports that the combined Trainium, Graviton, and Nitro business (referred to as Amazon's custom silicon/chip business) has exceeded a $25 billion annual revenue run rate. This figure does not isolate AI-only revenue; rather, it spans Trainium (for AI training and inference), Graviton (for general cloud computing and agentic AI), and the Nitro System (for networking, storage, and security infrastructure).\",\n  \"stop_reason\": \"The question has been fully answered with the retrieved evidence.\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The previous query successfully retrieved the exact annual run rate ($25 billion) and confirmed that it represents the entire custom chip business including non-AI general cloud and networking/security silicon, meaning it does not isolate AI-only revenue.\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 6499,
+    "candidatesTokenCount": 279,
+    "totalTokenCount": 7218,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 6499
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 279
+      }
+    ],
+    "thoughtsTokenCount": 440
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:33.656373Z",
+  "responseId": "Me3iavWHKNWUhcIP_67bmQc"
+}

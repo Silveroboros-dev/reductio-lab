@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"alternatives\":[[{\"id\":\"source:synthetic-rule-lark7-v1\",\"spans\":[{\"quote\":\"For batch LARK-7, the target is met only if at least 7 of 10 final checks pass.\"}]},{\"id\":\"source:synthetic-final-tally-lark7-v1\",\"spans\":[{\"quote\":\"Final audit of batch LARK-7: 6 of 10 checks passed; 4 failed.\"}]}]]}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1025,
+    "candidatesTokenCount": 101,
+    "totalTokenCount": 1708,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1025
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 101
+      }
+    ],
+    "thoughtsTokenCount": 582
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:45:48.444088Z",
+  "responseId": "nFDnariNG7nYmLAP7vjDiAk"
+}

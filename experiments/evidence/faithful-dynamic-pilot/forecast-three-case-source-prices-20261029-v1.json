@@ -1,0 +1,25 @@
+{
+  "observations": [
+    {
+      "api": "serper",
+      "path": "/news",
+      "rate_usd": "0.002 per call",
+      "url": "https://www.orthogonal.com/discover/serper"
+    },
+    {
+      "api": "you/search",
+      "path": "/v1/search",
+      "rate_usd": "0.005 per call",
+      "url": "https://www.orthogonal.com/discover/you/df932f19-de68-446e-8b8d-3408883b33f6"
+    },
+    {
+      "api": "linkup",
+      "path": "/search",
+      "rate_usd": "0.01 per call",
+      "url": "https://www.orthogonal.com/discover/linkup/58751bfa-150b-485b-9f33-7bacd67c3c32"
+    }
+  ],
+  "observed_at_utc": "2026-10-29T12:19:17.310856+00:00",
+  "qualification": "Observed via rendered Orthogonal Chrome UI. Displayed quote is not enforceable charge cap or confirmed invoice; compare priceCents and chargedPriceCents of each provider response.",
+  "schema": "three-case-source-ui-prices-v1"
+}

@@ -1,0 +1,65 @@
+{
+  "admission": "Search results are raw discovery candidates only. Publication time must be proven strictly after the case-specific actual durable P0, with exact first appearance, source bytes and causal relevance before any P1. Index dates, relative dates and local retrieval time are not proof. A news item which itself immediately resolves the market is not pre-resolution intervention. Confirm same rules and active/unresolved venue after news capture, keep fresh status/quotes out of both P1 model conditions. For case-01 IPO contract is partial thesis fit, and P(YES contract) is not P(thesis).",
+  "cases": [
+    {
+      "case_id": "case-01",
+      "durable_before_utc": "2026-10-29T11:57:21.899944+00:00",
+      "hypothesis": "A confirmed SEC effectiveness, ticker assignment or pricing may affect IPO-contract resolution; a new primary funding or valuation event may affect the separate ≥$1T thesis and financing incentives, without establishing either a causal link or IPO YES.",
+      "payload": {
+        "api": "serper",
+        "body": {
+          "q": "Anthropic IPO S-1 effective pricing ticker funding valuation 2026"
+        },
+        "path": "/news",
+        "query": {}
+      },
+      "topic": "Anthropic IPO and valuation"
+    },
+    {
+      "case_id": "case-03",
+      "durable_before_utc": "2026-10-29T11:24:43.776392+00:00",
+      "hypothesis": "An attributable launch-roadmap or deployment/compute-capacity development could plausibly affect public Astra 6.1 release timing, but the link must be specifically reasoned and Terra or GPT-6 Astra must not be equated with Astra 6.1.",
+      "payload": {
+        "api": "you/search",
+        "body": {
+          "count": 5,
+          "freshness": "day",
+          "query": "OpenAI Astra 6.1 launch roadmap model availability AI compute capacity"
+        },
+        "path": "/v1/search",
+        "query": {}
+      },
+      "topic": "Astra 6.1 release and availability"
+    },
+    {
+      "case_id": "case-04",
+      "durable_before_utc": "2026-10-29T12:08:10.597327+00:00",
+      "hypothesis": "A new credible supply, production or inventory development could affect the November 3 front-month WTI settlement above $97.99; OPEC+ compliance or causality is not the market resolution condition.",
+      "payload": {
+        "api": "linkup",
+        "body": {
+          "depth": "standard",
+          "outputType": "searchResults",
+          "q": "WTI front month oil futures OPEC+ production supply inventory October 29 2026 latest"
+        },
+        "path": "/search",
+        "query": {}
+      },
+      "topic": "WTI and OPEC+ supply"
+    }
+  ],
+  "created_at_utc": "2026-10-29T12:18:12.989615+00:00",
+  "expected_prices_usd": {
+    "linkup/search": 0.01,
+    "serper/news": 0.002,
+    "you/search/v1/search": 0.005
+  },
+  "max_reservation_micro_each": 150000,
+  "max_source_attempts": 3,
+  "price_qualification": "Rates observed earlier on the Orthogonal UI, not fresh authorization or guaranteed bill; refresh UI and freeze exact tickets before dispatch.",
+  "schema": "three-existing-case-post-p0-news-search-proposal-v1",
+  "scope": "Three new one-shot searches only, no retry, no model/canary, no fetch or market status under this proposal. Real source contract + independent review + live price observation needed. Further operations consume shared remaining source attempts.",
+  "status": "offline_proposal_only",
+  "supersedes_sha256": "067e8202bb5cdce5db02a497bc911cd2094cc3531741019c35e930893082f1a0",
+  "supersession_reason": "v1 truncated WTI durable timestamp; preserve exact microseconds."
+}

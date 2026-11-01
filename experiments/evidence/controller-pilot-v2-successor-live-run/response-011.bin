@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-256732afca0344a1ae6ed270\",\n  \"rationale\": \"The source 'amazon-ai-chips-business-history' likely contains information about the combined Trainium, Graviton, and Nitro business run rate and whether it isolates AI-only revenue.\",\n  \"expected_result\": \"Details on the annual run rate of Trainium, Graviton, and Nitro, and clarification on whether it isolates AI-only revenue.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"Currently unknown without looking at the source.\"\n}",
+            "thoughtSignature": "AY89a1/BLaYlH5dNTvgWwRWzlSlupemRxCXHVLVA4CDPKBQEfgbiEWpN20dFLVOwVQQ9Js/erYa+sFITnZMVNGiRy9xjlsUWA1w6DQPTtznTew1chw3zGOHMkkNU/D0/1nAN7e5HUFPy8Us4oaXj3ffXRSW1Gcf11+xexHLb4wiUQLL06Exo7bojbwMyMT0qGjURdbXusIw27SDUTm6FJz8fD4a3FvXH+l0hKQGm7FlTV+aKvDJfMWUMIx6UX8xB5ij6tGPFeiYHamQegkG4+KPCxrlo7eF+AFz0umJdiuXNog21VO9O8qDxpqe6qtBRsL+bCsnj6jy3CaxfMF15BFwH7F89Q2BQOexYkabsmolIgwuneZRIZqJ9FXuJrayKp9k19ztyOpkyCT42c5YCrfabVKvUeIBFeq1ycoL5ZcUJy4gfRzvjdkgx53m/2T0ikvjYhOO3jBLpmiEFQaTnHMzr8UNbg/TtcgrjfmqlJMzrOV/FWyYcTMnvqDYBNPPH0AueloBzl0+Sn2FWOHdMQ71BJG9d+RTI/SYoVa+c9SwQEjTRW85BBBTRTA=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 680,
+    "candidatesTokenCount": 152,
+    "totalTokenCount": 917,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 680
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 152
+      }
+    ],
+    "thoughtsTokenCount": 85
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:20.414419Z",
+  "responseId": "JO3iatOlGe_ZmLAP5_nEmAQ"
+}

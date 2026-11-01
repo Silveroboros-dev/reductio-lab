@@ -1,0 +1,9 @@
+{
+  "controller_sha256": "ac06ac1a8dfea20adae23733fbda54e658f952b7aa20aee089b642455f826c6f",
+  "harness_sha256": "ce0a4355a736daef542fdf9ee8d24f5b6b6ea845bb4c228eded8115ff1653a57",
+  "label_guide_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+  "manifest_sha256": "0913794a06838067e14bb54aa5852fcd4c322b7c33714100c2e802b638862fce",
+  "protocol_sha256": "2f7c554cfa8cd2b49267c8843c972c3d356ae792a64184e3771b874a8100d491",
+  "runner_sha256": "c046d5d4b2fdb8e89f547fa3fc0ef16c1caa37c087b0c2cb4ede3b31d51f0bf6",
+  "schedule_sha256": "c4d0a7ebf7bd97280efc2e887d5d6116f232d02f93ccefa1bdf42d96c66ff4e2"
+}

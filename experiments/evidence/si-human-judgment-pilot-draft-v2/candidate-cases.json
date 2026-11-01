@@ -1,0 +1,355 @@
+[
+  {
+    "case_id": "P01",
+    "title": "Credit amendment: two increases",
+    "question": "How do the September 2026 changes in revolving commitments and the minimum-liquidity covenant compare in dollar terms?",
+    "prepared_advice": "The September amendment raised the minimum-liquidity covenant by a larger dollar amount than it raised the revolving commitment. This comparison alone does not measure cash available.",
+    "evidence": [
+      {
+        "id": "P01-E1",
+        "text": "Before the September 2026 amendment, revolving commitments were $3.3 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: increasing the revolving commitments from $3.3 billion to $15.0 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P01-E2",
+        "text": "The September 2026 amendment raised revolving commitments to $15.0 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: increasing the revolving commitments from $3.3 billion to $15.0 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P01-E3",
+        "text": "Before the same amendment, the minimum-liquidity covenant was $0.5 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: increases the minimum liquidity covenant from $500 million to $5.0 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P01-E4",
+        "text": "The amendment raised the minimum-liquidity covenant to $5.0 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: increases the minimum liquidity covenant from $500 million to $5.0 billion",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P02",
+    "title": "RSU illustrative expense split",
+    "question": "In the June 30, 2026 hypothetical IPO illustration, what proportion of the combined RSU expense remains to be recognized later?",
+    "prepared_advice": "In the June 30 hypothetical offering illustration, the later-recognized $23.7 billion RSU amount is about 11% of the combined immediate and later RSU amounts.",
+    "evidence": [
+      {
+        "id": "P02-E1",
+        "text": "If the offering had completed on June 30, 2026, $2.9 billion cumulative RSU expense would have been recorded on that date.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; find: recorded $2.9 billion of cumulative stock-based compensation expense",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P02-E2",
+        "text": "Another $23.7 billion of unrecognized RSU expense would be recognized over a weighted-average period of about 2.1 years.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; find: additional $23.7 billion of unrecognized stock-based compensation expense",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P03",
+    "title": "Board seat majority",
+    "question": "For the proposed seven-seat board, do the seats elected by the Class F and Class A holders form a majority?",
+    "prepared_advice": "The Class F and Class A holders elect the seats outside Class T; these seats form a majority of the proposed seven-seat board.",
+    "evidence": [
+      {
+        "id": "P03-E1",
+        "text": "After the offering, the board is proposed to have seven authorized directors.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors; find: seven authorized directors",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P03-E2",
+        "text": "The Long-Term Benefit Trust, as Class T holder, generally has authority to elect and remove four Class T directors, subject to stated procedures.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors; find: elect and remove the four Class T directors",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P03-E3",
+        "text": "Class F and Class A holders together elect and remove the remaining directors.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors; find: elect and remove the remaining three directors",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P04",
+    "title": "Compute commitments",
+    "question": "How should future compute payments under the disclosed agreements be interpreted?",
+    "prepared_advice": "All future compute payments are already included in the $265.6 billion figure; payments under other agreements will be zero.",
+    "evidence": [
+      {
+        "id": "P04-E1",
+        "text": "As of June 30, 2026, expected future fixed or minimum guaranteed commitments under specified agreements were approximately $265.6 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 13 Purchase Commitments, F-59; find: expected future fixed or minimum guaranteed commitments under these agreements were approximately $265.6 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P04-E2",
+        "text": "Other compute and infrastructure agreements have no fixed or minimum dollar commitment; their payments are not determinable and were excluded from the $265.6 billion amount, though expected to be significant.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 13 Purchase Commitments, F-59; find: The Company does not include any estimated obligation for these agreements in the amount above",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P04-E3",
+        "text": "H1 2026 revenue was $16.286 billion and compute/infrastructure expense $8.945 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 148–150; find: Compute and infrastructure 433 2,522 7,326 2,334 8,945",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  },
+  {
+    "case_id": "P05",
+    "title": "Infrastructure financing notes",
+    "question": "How should the disclosed infrastructure financing instrument be interpreted?",
+    "prepared_advice": "As of June 30, the company already held $42 billion of unrestricted cash available for any expense.",
+    "evidence": [
+      {
+        "id": "P05-E1",
+        "text": "A March 2026 agreement permits, subject to conditions, up to $42.0 billion of convertible notes solely to finance rent obligations under a compute/infrastructure agreement.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 9 Other Note Purchase Agreements 2026, F-43; find: up to $42.0 billion of convertible promissory notes solely to finance rent obligations",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P05-E2",
+        "text": "As of June 30, 2026, the draw period had not yet begun and no amount was outstanding under that agreement.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 9 Other Note Purchase Agreements 2026, F-43; find: As of June 30, 2026 , no amounts were outstanding under the note purchase agreement",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P05-E3",
+        "text": "In September 2026, revolving commitments increased from $3.3 billion to $15.0 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: increasing the revolving commitments from $3.3 billion to $15.0 billion",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  },
+  {
+    "case_id": "P06",
+    "title": "Customer concentration across periods",
+    "question": "What does the disclosed nine-month customer concentration establish about Q3?",
+    "prepared_advice": "Because no individual customer exceeded 10% of nine-month revenue, no individual customer exceeded 10% in Q3.",
+    "evidence": [
+      {
+        "id": "P06-E1",
+        "text": "No individual customer exceeded 10% of revenue for the nine months ended September 30, 2026.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; find: No single customer represented more than 10% of our revenue for the nine months ended September 30, 2026",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P06-E2",
+        "text": "Approximately 79% of Q3 2026 revenue came from customers outside the top five.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; find: Approximately 79% of our revenue came from customers outside of our top five customers",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P06-E3",
+        "text": "Approximately 64% of Q1 2026 revenue came from customers outside the top five.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; find: approximately 64% for the three months ended March 31, 2026",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  },
+  {
+    "case_id": "P07",
+    "title": "Dividend policy",
+    "question": "How should the dividend policy affect an assessment of possible shareholder returns?",
+    "prepared_advice": "The prospectus does not expect dividends in the foreseeable future, but does not rule them out forever. The policy alone cannot establish total share return, which also depends on an unknown future share price.",
+    "evidence": [
+      {
+        "id": "P07-E1",
+        "text": "As of the prospectus, the company had never declared or paid cash dividends on its capital stock.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Dividend Policy, p. 126; find: We have never declared or paid any cash dividends on our capital stock",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P07-E2",
+        "text": "The company does not expect dividends in the foreseeable future; future declarations are at board discretion subject to applicable law and other factors.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Dividend Policy, p. 126; find: do not expect to pay any dividends in the foreseeable future",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P07-E3",
+        "text": "H1 2026 operating cash flow was positive $3.929 billion and investing cash flow negative $17.181 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, F-13; find: Net cash provided by (used in) operating activities",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  },
+  {
+    "case_id": "P08",
+    "title": "Class F voting fallback",
+    "question": "Under what conditions does the Class F voting fallback apply?",
+    "prepared_advice": "For an applicable general matter, if a majority of Continuing Founders gives no instruction and the required Class A quorum is present, Class F votes track the Class A votes proportionally; this need not hold for special matters.",
+    "evidence": [
+      {
+        "id": "P08-E1",
+        "text": "For specified general matters, absent a majority Continuing Founder instruction, Class F votes proportionally with Class A votes cast, subject to a quorum of a majority of outstanding Class A shares.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Class F Common Stock Voting Mechanics; find: our Class F common stock will be voted proportionately with the votes of Class A common stock cast",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P08-E2",
+        "text": "Other matters carry distinct special voting thresholds.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Class F Common Stock Voting Mechanics; find: If a proposal requires both a Supermajority and a Trust Amendment Supermajority",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P08-E3",
+        "text": "The proposed board has seven authorized seats; the LTBT as Class T holder generally elects four, subject to described procedures.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors; find: seven authorized directors",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  },
+  {
+    "case_id": "P09",
+    "title": "Net short-term investment purchases",
+    "question": "How do net purchases of short-term investments compare with net cash used in investing activities for H1 2026?",
+    "prepared_advice": "For H1 2026, net short-term investment purchases were $16.362 billion, smaller in magnitude than the $17.181 billion net investing cash outflow. This does not identify the whole remainder as capital spending.",
+    "evidence": [
+      {
+        "id": "P09-E1",
+        "text": "H1 2026 purchases of short-term investments were $18.972 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, F-13; find: Purchases of short-term investments",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P09-E2",
+        "text": "H1 2026 sales and maturities of short-term investments provided $2.610 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, F-13; find: Sales and maturities of short-term investments",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P09-E3",
+        "text": "H1 2026 net cash used in investing activities was $17.181 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, F-13; find: Net cash used in investing activities",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P10",
+    "title": "Revenue remaining after two expense categories",
+    "question": "For H1 2026, how much revenue remains after compute/infrastructure and personnel expenses, before other operating expenses?",
+    "prepared_advice": "From $16.286 billion of H1 revenue, $4.189 billion remains after the $8.945 billion compute/infrastructure and $3.152 billion personnel expense categories; other expenses still apply.",
+    "evidence": [
+      {
+        "id": "P10-E1",
+        "text": "H1 2026 revenue was $16.286 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, p. 148; Statements of Operations, F-7; find: Revenue $ 41 $ 386 $ 4,585 $ 1,163 $ 16,286",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P10-E2",
+        "text": "H1 2026 compute/infrastructure expense was $8.945 billion.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 148–150; Statements of Operations, F-7; find: Compute and infrastructure 433 2,522 7,326 2,334 8,945",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P10-E3",
+        "text": "H1 2026 personnel expense was $3.152 billion; other operating expense categories were also reported.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 148–150; Statements of Operations, F-7; find: Personnel 95 454 1,839 538 3,152",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P11",
+    "title": "Top-five revenue share change",
+    "question": "How did the approximate top-five customer share change between Q1 and Q3 2026?",
+    "prepared_advice": "The approximate top-five share fell from 36% in Q1 to 21% in Q3, a decline of about 15 percentage points; this does not establish future diversification.",
+    "evidence": [
+      {
+        "id": "P11-E1",
+        "text": "Approximately 64% of Q1 2026 revenue came from customers outside the top five.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Usage Patterns, p. 144; find: approximately 64% for the three months ended March 31, 2026",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P11-E2",
+        "text": "Approximately 79% of Q3 2026 revenue came from customers outside the top five.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Usage Patterns, p. 144; find: Approximately 79% of our revenue came from customers outside of our top five customers",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Russian paraphrase of local original S-1; not a verbatim quotation. These are disclosed figures/conditions, not observed outcomes of this pilot."
+  },
+  {
+    "case_id": "P12",
+    "title": "RSU vesting conditions",
+    "question": "Does registration effectiveness alone guarantee immediate full vesting of the disclosed RSU grants?",
+    "prepared_advice": "Effectiveness satisfies the performance condition, but does not replace the separate service condition; effectiveness alone does not guarantee immediate full vesting of every grant.",
+    "evidence": [
+      {
+        "id": "P12-E1",
+        "text": "The described RSUs have both service-based and performance-based vesting conditions.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: The RSUs are subject to both service-based and performance-based vesting conditions",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P12-E2",
+        "text": "Registration effectiveness satisfies the performance condition; the service condition generally runs quarterly over four years, with a new-hire cliff and continuous-service requirement.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; find: The performance-based vesting condition of the RSUs will be satisfied upon the effectiveness",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P12-E3",
+        "text": "The S-1 also describes a separate hypothetical June 30, 2026 offering-completion scenario with $2.9 billion cumulative RSU expense.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; find: If this offering had been completed on June 30, 2026",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "English paraphrase of local original S-1, not a verbatim quotation. Prospectus statements and historical/hypothetical periods retain their original scope."
+  }
+]

@@ -1,0 +1,15 @@
+# SI / human judgment pilot — candidate draft v3
+
+Status: **candidate development material; not frozen, dispatched, run, or independently human-reviewed**. This is a new successor of draft-v2; draft-v1 and draft-v2 remain untouched. Created offline on 30 October 2026 from the locally saved original S-1 snapshot. No network, provider, or paid model calls were made.
+
+- `candidate-cases.json`: 12 English participant-side records using the predecessor case/evidence field schema. Neutral opaque case/evidence IDs are mixed in presentation order. It contains prepared memos, so project each field only at the intended pilot stage. It contains no status labels, graph nodes, reviewer mappings, or expected answers.
+- `reviewer-key.json`: reviewer-only labels, predecessor ID mapping, exact source bindings, expected reviews, six reference DAGs, and hypothetical counterfactuals. Never load into participant or model prompts.
+- `reviewer-only-CASES-AND-KEYS.md`: readable reviewer packet that **reveals answers**.
+- `validate_reference_dags_offline.py`: standard-library-only integrity and structure challenge. Run `python3 validate_reference_dags_offline.py` from any directory.
+- `draft-manifest.json`: local provenance and exposure declaration. A same-directory digest is integrity metadata, not an independent seal.
+
+Each of six reference DAGs has exactly three distinct original, model-visible evidence IDs and two sequential binary local inferences: first two evidence IDs → `n1`; then `n1` plus the third evidence ID → final target. This fits the planned `max_depth=2`, `beam_width=1`, and two premise IDs per inference *as a graph shape*. The source binding for each atomic fact identifies its period and a phrase or table cell in the original S-1. The validator removes an actual projected evidence ID, checks that the target cannot be built, and uses a hypothetical changed evidence text to show that the prepared memo's error/clean classification could change. Counterfactual text is a test world, not a factual S-1 claim.
+
+The bounded binary grammar is an explicit measurement convention. **One LLM call can perform multiple elementary operations**, and the actual SI engine may select different evidence, stop, or fail; no live two-step behavior is proven. The full original S-1 also contains broader context and, in some places, directly stated aggregates. These DAGs prove only ancestry under the three-fact evidence projection, not a general information-theoretic necessity. The six other cases make no necessary-two-step claim.
+
+The earlier S-1 was already exposed. Draft-v1 and draft-v2 material may also have appeared in tool output; actual human viewing is unknown. Treat v3 as exposed development material for the same participant, not a blind holdout. Before use, an independent human must check every source paraphrase, date, source binding, intended error/clean label, alternative answer, and materiality. No such review, random assignment, frozen packet, or run authority exists in v3. The original HTML remains at `../anthropic-s1-pilot-20261029-v1/sec-s1-original.html` and is bound by SHA-256 in the manifest.

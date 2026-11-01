@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"action\":\"query\",\"action_id\":\"disc-action-v1-24bf993fdeb165a3e32dfb43\",\"rationale\":\"The user wants to find estimated total U.S. water withdrawals in 2015 in billion gallons per day. Action 'disc-action-v1-24bf993fdeb165a3e32dfb43' specifically contains a USGS fragment on estimated U.S. total withdrawals in 2015.\",\"expected_result\":\"The estimated total U.S. water withdrawals in 2015 in billion gallons per day.\",\"answer\":\"\",\"stop_reason\":\"\",\"uncertainty\":\"The exact withdrawal value for 2015 is currently unknown.\"}",
+            "thoughtSignature": "AY89a18B+3z+RTYQhQMyrWi+n7ZjB17ukTDubaacnnQzmCNh1m60zsqGV3badfGo0iQI/hm0Zi4FAY3hBXHzrTwYrFTFmNZl7T9uxz0H+7juyDDCHmyz"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 476,
+    "candidatesTokenCount": 166,
+    "totalTokenCount": 642,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 476
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 166
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:07:52.656776Z",
+  "responseId": "2P7iaoiLKMbPmLAP0YKM4Qs"
+}

@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"answer\": \"Batch LARK-7 did not meet the target.\",\n  \"citations\": [\n    \"source:synthetic-final-tally-lark7-v1\",\n    \"source:synthetic-rule-lark7-v1\"\n  ]\n}",
+            "thoughtSignature": "AY89a18yxs0UdJIE/Rfhrc9iuAKwBQIynfw1mv7QpSDjBO3F1uqrUbsJBddhAbPBTQLTRmFsQXCAv6mKU6bptj0h2O0Ltm7ApVPO8Nd+eZT6Flp7Nfz3M79cggr5EDrJiy6tfRPirHJDSiyyhTrhd+pMTKv5leB2hCpeSy7UnhkEu6KCV+XfI0FmnGWSX9XIgGUYzbsqFyk4AGyRgfgoGQnqnwDklnIPGUO4rrgT29PRISqGTBS8uUXszE5P/AmOPDxmD18frYqf3ZiG0ZEpzxq/PdZcN5Xh7j+wVKvuSMNkHpCuUH2SaZSbkblqOIndbrCQrhefoYQIzuz832RxLwOb41B3cWbnTlhtb9CIoS8pkW41v5ltFY4pFuzi9YGWCURkvSu1YvPwKnuZ/YyEsq/+zJrR1dA5x+gkVueUhYyUwwluwsLxb6mPQQ/ImGOSTNG79EeIuvvd9odBReIHSP6gLFoGpQytFkl51UDX2oqYVn2kGiuGUzTQt+c2J+WaLMf89dj1yamHTqDs0HPiegjyFNYKG/NnQHgpf9/UiMeDAJkzUI/nUyKrubokv3G9fTAwFXyYwekyG15MuFexcQ5BCjL6JoMpSqY27RfNVIgvw2jZWyjKnS0baT0rdFkdp4PmaF7PYVbUlbrGDIlr"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 167,
+    "candidatesTokenCount": 64,
+    "totalTokenCount": 344,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 167
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 64
+      }
+    ],
+    "thoughtsTokenCount": 113
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:15:30.448422Z",
+  "responseId": "gknnaqavG7248uMP19qSuAQ"
+}

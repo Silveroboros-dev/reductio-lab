@@ -1,0 +1,21 @@
+{
+  "schema": "official-bea-pce-observation-v1",
+  "official_url": "https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026",
+  "published": true,
+  "source": "BEA official page",
+  "observed_at_utc": "2026-10-29T12:30:52.390403+00:00",
+  "observed_via": "in-app browser accessibility state following BEA current-releases link; observation is rendered text, not raw HTTP bytes",
+  "title": "Personal Income and Outlays, September 2026",
+  "release_id": "BEA 26–46",
+  "source_time_statement": "EMBARGOED UNTIL RELEASE AT 8:30 a.m. EDT, Thursday, October 29, 2026",
+  "scheduled_embargo_release_utc": "2026-10-29T12:30:00Z",
+  "actual_first_publication_time_utc": null,
+  "time_qualification": "The official text states an embargo release time; the actual first public visibility was not independently monitored. Page observed after 12:30Z; do not claim a measured first-publication timestamp.",
+  "values": {
+    "pce_monthly_percent": 0.5,
+    "pce_yearly_percent": 3.6,
+    "core_pce_monthly_percent": 0.3,
+    "core_pce_yearly_percent": 3.1
+  },
+  "causality_qualification": "September PCE is a possible signal about October CPI, not the same measure or contract resolution."
+}

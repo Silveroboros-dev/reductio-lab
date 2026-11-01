@@ -1,0 +1,90 @@
+{
+  "cases": [
+    {
+      "case_id": "case-01",
+      "event_group_id": "KXFEDDECISION-26DEC",
+      "human_attestation_path": "human/case-01-decision-line.json",
+      "human_attestation_sha256": "88b4f0b201916922922072f89a8a9ea15f7fe3bbcfc4eaa9ecb4c1350d9e05f2",
+      "input_path": "cases/case-01.json",
+      "input_sha256": "64b36324726a817a0de0831f1e78537fdb5aadd8286d20fe0b9cf5db6d561470",
+      "split": "dev"
+    },
+    {
+      "case_id": "case-02",
+      "event_group_id": "KXIPO-26",
+      "human_attestation_path": "human/case-02-decision-line.json",
+      "human_attestation_sha256": "8b370f86d1c12dc9e59c60392825403c044c861b298b9a1e8b909bfa2a1973f8",
+      "input_path": "cases/case-02.json",
+      "input_sha256": "fb9584c3ebd9de0caecad5cfb332e792a8ef445121f2d2329119400767c95b01",
+      "split": "dev"
+    },
+    {
+      "case_id": "case-03",
+      "event_group_id": "KXHIGHINFLATION-26DEC",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-03.json",
+      "input_sha256": "45a1d0defe0cb840e0e23fd7875e512f642c7a6a73b9b6f156ae435da4374d44",
+      "split": "test"
+    },
+    {
+      "case_id": "case-04",
+      "event_group_id": "KXUSGDPSHARE-27JUL01",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-04.json",
+      "input_sha256": "0a91fc407b7b8fd29e85ce3cd79e67eb6557f791d930e466ba01d6779a8753e6",
+      "split": "test"
+    },
+    {
+      "case_id": "case-05",
+      "event_group_id": "KXANTHROPICRESCIND-26JUN",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-05.json",
+      "input_sha256": "4316ca2e19572a39aa96ea1c72ab19f407d79b2c20b39e5bf13dc1b55ddd596f",
+      "split": "test"
+    },
+    {
+      "case_id": "case-06",
+      "event_group_id": "KXCLAUDE-CLAUDE6",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-06.json",
+      "input_sha256": "617b7f240880d74a0bdfc1f7231c20e712f0cfd4ecd88ab8af4d43284a0020e0",
+      "split": "test"
+    },
+    {
+      "case_id": "case-07",
+      "event_group_id": "KXGDPNOM-US26",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-07.json",
+      "input_sha256": "d57c028b3afb5a68e3468a05ba2432a9ba11698e78c849fd72e170d1e39f3c99",
+      "split": "test"
+    },
+    {
+      "case_id": "case-08",
+      "event_group_id": "KXRSIANNOUNCE-29",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-08.json",
+      "input_sha256": "401fc39abdc178db59d37ac76dbde43698938ca227e090acbacab86e18866647",
+      "split": "test"
+    }
+  ],
+  "external_seal": "not established",
+  "limitations": [
+    "manual Kalshi origin user-relayed",
+    "Fed source conflict unresolved",
+    "one market per event",
+    "semantic novelty not established",
+    "callback truth and independence require external evidence"
+  ],
+  "predecessor_sha256": "7219ea98341b5dcaa025653cfcc70e68edc593ca8cde5fa2170cdc1f598dd8cd",
+  "protocol_amendment": "After observing the first response returned 10 despite num=3, select first min(3,N) in provider order for every case; full raw retained; no semantic filtering or date inference.",
+  "refresh_ui_quote_sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac",
+  "schema": "faithful-dynamic-pilot-manifest-v1",
+  "semantic_review": "not performed",
+  "ui_quote_sha256": "b77cd7bd9f5264879dc3b4b7db3cd73f1d2a836995258c4a206a91671e0e8ac9"
+}

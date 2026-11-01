@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-256732afca0344a1ae6ed270\",\n  \"rationale\": \"I will fetch the complete saved page for the Amazon AI chips business history to confirm the exact annual run rate figure stated in the primary source and any further details on whether it isolates AI-only revenue.\",\n  \"expected_result\": \"The full text of the article outlining the run rate (such as $25 billion) and the breakdown of chips included (Trainium, Graviton, and Nitro) to confirm if non-AI revenue is included.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2953,
+    "candidatesTokenCount": 162,
+    "totalTokenCount": 3828,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2953
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 162
+      }
+    ],
+    "thoughtsTokenCount": 713
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:00.803774Z",
+  "responseId": "EO3iar6HMZuUhcIP2-6ioAo"
+}

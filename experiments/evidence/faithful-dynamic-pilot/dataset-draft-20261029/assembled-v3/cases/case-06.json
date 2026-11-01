@@ -1,0 +1,318 @@
+{
+  "attachments": [
+    {
+      "path": "source/targeted-markets.json",
+      "sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+    },
+    {
+      "path": "source/user-reported-capture.json",
+      "sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890"
+    },
+    {
+      "path": "source/label-guide.md",
+      "sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f"
+    },
+    {
+      "path": "human/test-thesis-acceptance.json",
+      "sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac"
+    },
+    {
+      "path": "source/case-06-serper-response.json",
+      "sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe"
+    },
+    {
+      "path": "source/ui-price-observation-refresh-v2.json",
+      "sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac"
+    }
+  ],
+  "draft_paid_source": {
+    "action_id": "news",
+    "api": "serper",
+    "capture_kind": "paid_api",
+    "endpoint": "/news",
+    "predeclared_relevance_gap": "Whether an official release occurred, whether it is public and whether free users can access it; announcements and beta do not settle each condition.",
+    "provider": "orthogonal",
+    "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+    "quote_status": "not obtained",
+    "quoted_cost_micro_usd": null,
+    "request_body": {
+      "num": 3,
+      "q": "Anthropic Claude 6 release publicly available free tier official 2026"
+    },
+    "response": null,
+    "response_status": "not captured"
+  },
+  "manual_source_limitations": {
+    "completeness": "not established",
+    "origin": "user-relayed Grok claim; not independently verified",
+    "secondary_field_empty": false
+  },
+  "paid_capture": {
+    "actual_micro_usd": 2000,
+    "news_item_fields": 15,
+    "provider_request_id": "run_1793266071632_p4pvot390c",
+    "provider_returned_count": 10,
+    "quote_evidence_sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac",
+    "response_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+    "selected_count": 3,
+    "selection": "provider order, first up to 3; content-independent",
+    "source_effect_id": "source:case-06:serper"
+  },
+  "replay": {
+    "manual-rules": {
+      "evidence": [
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "primary-rule",
+          "source": "user-relayed Kalshi field; source completeness not established",
+          "text": "If Anthropic releases Claude 6+ (any family) before Dec 31, 2026, then the market resolves to Yes.",
+          "verbatim_parts": [
+            "If Anthropic releases Claude 6+ (any family) before Dec 31, 2026, then the market resolves to Yes."
+          ]
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "secondary-rule",
+          "source": "user-relayed Kalshi field; source completeness not established",
+          "text": "Release must be to the public, outside of a closed beta, though limiting it to a high-cost subscription tier is acceptable.\n\n",
+          "verbatim_parts": [
+            "Release must be to the public, outside of a closed beta, though limiting it to a high-cost subscription tier is acceptable.\n\n"
+          ]
+        }
+      ]
+    },
+    "news": {
+      "evidence": [
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:metadata",
+          "source": "Mechanical projection of captured Serper response",
+          "text": "Provider returned_count=10; selected_count=3. Selection: first up to 3 in provider order.",
+          "verbatim_parts": []
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:0:title",
+          "source": "Serper News via Orthogonal; news:0:title",
+          "text": "Best Free AI Models in 2026: Which Ones Cost Nothing and Where to Use Them",
+          "verbatim_parts": [
+            "Best Free AI Models in 2026: Which Ones Cost Nothing and Where to Use Them"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:0:link",
+          "source": "Serper News via Orthogonal; news:0:link",
+          "text": "https://felloai.com/free-ai-models/",
+          "verbatim_parts": [
+            "https://felloai.com/free-ai-models/"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:0:source",
+          "source": "Serper News via Orthogonal; news:0:source",
+          "text": "Fello AI",
+          "verbatim_parts": [
+            "Fello AI"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:0:date",
+          "source": "Serper News via Orthogonal; news:0:date",
+          "text": "5 hours ago",
+          "verbatim_parts": [
+            "5 hours ago"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:0:snippet",
+          "source": "Serper News via Orthogonal; news:0:snippet",
+          "text": "ChatGPT Free now runs GPT-6 Luna, Claude Free runs Sonnet 5.5, and since 9 October 2026 free Gemini no longer lets you pick a model at all.",
+          "verbatim_parts": [
+            "ChatGPT Free now runs GPT-6 Luna, Claude Free runs Sonnet 5.5, and since 9 October 2026 free Gemini no longer lets you pick a model at all."
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:1:title",
+          "source": "Serper News via Orthogonal; news:1:title",
+          "text": "Gemini 4 Carbon: 1 Employee Quote, 0 Specs [2026]",
+          "verbatim_parts": [
+            "Gemini 4 Carbon: 1 Employee Quote, 0 Specs [2026]"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:1:link",
+          "source": "Serper News via Orthogonal; news:1:link",
+          "text": "https://tech-insider.org/gemini-4-carbon-google-jetski-testing-opus-5-5-unconfirmed-2026/",
+          "verbatim_parts": [
+            "https://tech-insider.org/gemini-4-carbon-google-jetski-testing-opus-5-5-unconfirmed-2026/"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:1:source",
+          "source": "Serper News via Orthogonal; news:1:source",
+          "text": "https://tech-insider.org/",
+          "verbatim_parts": [
+            "https://tech-insider.org/"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:1:date",
+          "source": "Serper News via Orthogonal; news:1:date",
+          "text": "16 hours ago",
+          "verbatim_parts": [
+            "16 hours ago"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:1:snippet",
+          "source": "Serper News via Orthogonal; news:1:snippet",
+          "text": "Google has not announced Gemini 4 Carbon. Business Insider reports internal Jetski testing and one \"feels like Opus 5.5\" remark.",
+          "verbatim_parts": [
+            "Google has not announced Gemini 4 Carbon. Business Insider reports internal Jetski testing and one \"feels like Opus 5.5\" remark."
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:2:title",
+          "source": "Serper News via Orthogonal; news:2:title",
+          "text": "ChatGPT vs Claude Pricing: $500 Pro vs $4/$20 API [2026]",
+          "verbatim_parts": [
+            "ChatGPT vs Claude Pricing: $500 Pro vs $4/$20 API [2026]"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:2:link",
+          "source": "Serper News via Orthogonal; news:2:link",
+          "text": "https://shattered.io/chatgpt-vs-claude-pricing-usage-limits-pro-500-opus-5-5-2026/",
+          "verbatim_parts": [
+            "https://shattered.io/chatgpt-vs-claude-pricing-usage-limits-pro-500-opus-5-5-2026/"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:2:source",
+          "source": "Serper News via Orthogonal; news:2:source",
+          "text": "shattered.io",
+          "verbatim_parts": [
+            "shattered.io"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:2:date",
+          "source": "Serper News via Orthogonal; news:2:date",
+          "text": "2 days ago",
+          "verbatim_parts": [
+            "2 days ago"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:53.741458+00:00",
+          "content_sha256": "70d088d6d6417abfddeb3bce2e592b1aebcad902b985e9245c5d0478ef5fa5fe",
+          "id": "news:2:snippet",
+          "source": "Serper News via Orthogonal; news:2:snippet",
+          "text": "ChatGPT now sells three Pro tiers at $100, $200 and $500 a month, while Claude's flagship Opus 5.5 lists at $4 per million input tokens and...",
+          "verbatim_parts": [
+            "ChatGPT now sells three Pro tiers at $100, $200 and $500 a month, while Claude's flagship Opus 5.5 lists at $4 per million input tokens and..."
+          ]
+        }
+      ]
+    }
+  },
+  "source_conflicts": [],
+  "task": {
+    "actions": [
+      {
+        "capture_kind": "manual_capture",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "id": "manual-rules",
+        "manual_receipt_path": "source/user-reported-capture.json",
+        "manual_receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "quoted_cost_micro_usd": null
+      },
+      {
+        "capture_kind": "paid_api",
+        "captured_at": "2026-10-29T09:27:53.741458+00:00",
+        "description": "Read Serper News results for query: Anthropic Claude 6 release publicly available free tier official 2026",
+        "id": "news",
+        "quoted_cost_micro_usd": 2000,
+        "source_effect_id": "source:case-06:serper"
+      }
+    ],
+    "allowed_labels": [
+      "direct",
+      "indirect",
+      "weak_proxy",
+      "not_an_expression",
+      "unknown"
+    ],
+    "case_id": "case-06",
+    "contract_ids": [
+      "KXCLAUDE-CLAUDE6-26DEC31"
+    ],
+    "initial_evidence": [
+      {
+        "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+        "id": "thesis",
+        "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+        "text": "Claude 6+ станет публично доступна бесплатным пользователям до 31 декабря 2026 года.",
+        "verbatim_parts": [
+          "Claude 6+ станет публично доступна бесплатным пользователям до 31 декабря 2026 года."
+        ]
+      },
+      {
+        "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+        "id": "market-id",
+        "source": "user-relayed Kalshi response; origin not independently verified",
+        "text": "KXCLAUDE-CLAUDE6-26DEC31",
+        "verbatim_parts": [
+          "KXCLAUDE-CLAUDE6-26DEC31"
+        ]
+      },
+      {
+        "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+        "id": "market-title",
+        "source": "user-relayed Kalshi response; origin not independently verified",
+        "text": "Will Anthropic release Claude 6+ (any family) before Dec 31, 2026?",
+        "verbatim_parts": [
+          "Will Anthropic release Claude 6+ (any family) before Dec 31, 2026?"
+        ]
+      },
+      {
+        "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+        "id": "label-guide",
+        "source": "active FitCheck label guide",
+        "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n",
+        "verbatim_parts": [
+          "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        ]
+      }
+    ],
+    "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown."
+  }
+}

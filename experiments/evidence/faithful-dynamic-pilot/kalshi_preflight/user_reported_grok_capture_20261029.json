@@ -1,0 +1,12 @@
+{
+  "evidence_type": "user-relayed Grok claim, not independently verified",
+  "source_file": "user_supplied_kalshi_events_external.json",
+  "source_sha256": "782eb55ee53f316ca97a2e1bbc1b979f0cd9b089a9b7acb0408f120e0cb9586a",
+  "utc_request_time_reported": "2026-10-29T08:52:28Z",
+  "http_status_reported": 200,
+  "url_reported": "https://external-api.kalshi.com/trade-api/v2/events?limit=30&status=open&with_nested_markets=true",
+  "reported_response_length_bytes": 456254,
+  "reported_direct_http": true,
+  "report_attribution": "user relaying Grok statement",
+  "independent_attestation": false
+}

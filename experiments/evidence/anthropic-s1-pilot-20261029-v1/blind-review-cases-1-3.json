@@ -1,0 +1,691 @@
+{
+  "schema": "blind-review-cases-1-3-v1",
+  "provenance": {
+    "packet": "blind-review-packet.json",
+    "method": "model-assisted semantic review against frozen case evidence and rubric; reviewer curated sources, so not independent and not human review; reviewer did not access branch mapping or outcome files",
+    "blindness": "partial: response identifiers and answers visible; branch mapping not read",
+    "post_freeze_hypothesis": "No penalty for not addressing subsequently user-supplied hypothesis, absent from frozen model inputs",
+    "scoring_note": "pass/mixed/issue are qualitative reviewer judgments, not established ground-truth or a quantitative branch ranking; mixed indicates limitation, issue material unsupported claim; supplied source packet itself may contain limitations."
+  },
+  "cases": [
+    {
+      "case_id": "S1-01-liquidity",
+      "response_id": "01-01",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L1",
+            "L6"
+          ],
+          "review": "Приток за полугодие близок к конечному остатку, но сам по себе не устанавливает происхождение остатка; начало периода и остальные потоки не представлены. Названы даты и суммы, но июньский остаток назван текущим.",
+          "reviewer_summary_of_response": "«текущий объем наличности практически полностью сформирован недавним внешним финансированием»",
+          "verified_verbatim_excerpt": "текущий объем наличности практически полностью сформирован недавним внешним финансированием"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "L1",
+            "L4",
+            "L6"
+          ],
+          "review": "Долгосрочные, частично условные недисконтированные суммы нельзя напрямую сравнивать с денежным остатком для доказательства дефицита; «долгосрочный долг» не эквивалентен обязательствам аренды.",
+          "reviewer_summary_of_response": "«создают структурный дефицит фондирования»",
+          "verified_verbatim_excerpt": "создают структурный дефицит фондирования"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L4",
+            "L5"
+          ],
+          "review": "Сценарии и условия приведены, но право реструктурировать L4 не устанавливает; менеджмент говорит о вере в достаточность, не доказывает ее.",
+          "reviewer_summary_of_response": "«могут быть реструктурированы»",
+          "verified_verbatim_excerpt": "могут быть реструктурированы"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "Нужные графики и доступ к кредитной линии названы.",
+          "reviewer_summary_of_response": "«График распределения платежей ... точные триггеры условий»",
+          "verified_verbatim_excerpt": "График распределения платежей"
+        },
+        "user_values_preserved": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L1",
+            "L5"
+          ],
+          "review": "Критерии рассмотрены без ранжирования, однако фактическое бесконтрольное управление или ущерб данным не подтверждаются; лучше формулировать условную гипотезу.",
+          "reviewer_summary_of_response": "«создает риски бесконтрольного ... в ущерб процедурам безопасности»",
+          "verified_verbatim_excerpt": "в ущерб процедурам безопасности"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "ID позволяют сверить ключевые факты; ссылки не подтверждают все выводы.",
+          "reviewer_summary_of_response": "«$321,4 млрд ... [L4]»",
+          "verified_verbatim_excerpt": "$321,4 млрд"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "L1",
+            "L6"
+          ],
+          "review": "Ложная определенность в объяснении происхождения средств и дефицита; технический статус usable.",
+          "reviewer_summary_of_response": "«практически полностью сформирован ... финансированием»",
+          "verified_verbatim_excerpt": "практически полностью сформирован"
+        }
+      }
+    },
+    {
+      "case_id": "S1-01-liquidity",
+      "response_id": "01-02",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L1",
+            "L6"
+          ],
+          "review": "Финансовый поток и остаток сами по себе не подтверждают долю источника; L4 излагает обязательства без оговорки об отлагательных условиях.",
+          "reviewer_summary_of_response": "«денежная подушка сформирована преимущественно за счет внешнего финансирования»",
+          "verified_verbatim_excerpt": "денежная подушка сформирована преимущественно за счет внешнего финансирования"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "L1",
+            "L5"
+          ],
+          "review": "Без сроков платежей и условий линии это сильнее утверждения менеджмента; не равняется доказанному прогнозу. «невозможным без постоянных размывающих раундов» исключает другие источники без основания.",
+          "reviewer_summary_of_response": "«риск острой нехватки ликвидности действительно низок»",
+          "verified_verbatim_excerpt": "риск острой нехватки ликвидности действительно низок"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "Альтернатива есть, но сравнение 2,4× не учитывает сроки и не устанавливает дефицит.",
+          "reviewer_summary_of_response": "«Альтернативная интерпретация ...»",
+          "verified_verbatim_excerpt": "Альтернативная интерпретация"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "Названы график, условия и cash flow; отсутствие cash flow только в предоставленном пакете, не во всей S‑1.",
+          "reviewer_summary_of_response": "«Требуется точная разбивка выплат по годам»",
+          "verified_verbatim_excerpt": "Требуется точная разбивка выплат по годам"
+        },
+        "user_values_preserved": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "Три критерия сохранены, но предположение о давлении на безопасность не подтверждает реальное нарушение.",
+          "reviewer_summary_of_response": "«могут вынудить руководство срезать углы»",
+          "verified_verbatim_excerpt": "могут вынудить руководство срезать углы"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "L4"
+          ],
+          "review": "Источники указаны и проверяемы; цитирование не делает оценку низкого риска доказанной.",
+          "reviewer_summary_of_response": "«$321,4 млрд ... [L4]»",
+          "verified_verbatim_excerpt": "$321,4 млрд"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "L1",
+            "L5"
+          ],
+          "review": "Необоснованная уверенность в краткосрочной оценке при признанных пробелах; status usable.",
+          "reviewer_summary_of_response": "«действительно низок»",
+          "verified_verbatim_excerpt": "действительно низок"
+        }
+      }
+    },
+    {
+      "case_id": "S1-01-liquidity",
+      "response_id": "01-03",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L1",
+            "L6"
+          ],
+          "review": "Данные на 30 июня, не текущий остаток; размеры конечного запаса и потока не доказывают происхождение средств. Лишь некоторые договоры зависят от условий.",
+          "reviewer_summary_of_response": "«текущий объем денежных средств ... сформирован ... за счет ... финансирования»",
+          "verified_verbatim_excerpt": "текущий объем денежных средств"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "L6"
+          ],
+          "review": "Отдельного потока финансирования недостаточно, чтобы исключить операционную самоокупаемость. Риск 2,5× из разносрочных величин не является измерением дефицита.",
+          "reviewer_summary_of_response": "«устойчивость привязана к доступу к рынкам капитала, а не к самоокупаемости»",
+          "verified_verbatim_excerpt": "устойчивость привязана к доступу к рынкам капитала, а не к самоокупаемости"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "L1",
+            "L4",
+            "L5"
+          ],
+          "review": "Контрастные альтернативы и условия пересмотра есть; характеристика «разовый» не установлена L6.",
+          "reviewer_summary_of_response": "«оптимистичная ... скептическая»",
+          "verified_verbatim_excerpt": "Оптимистичная"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "L4",
+            "L5"
+          ],
+          "review": "Материальные пробелы обозначены в границах данного пакета.",
+          "reviewer_summary_of_response": "«Точный график выплат ... условия и доступные лимиты»",
+          "verified_verbatim_excerpt": "условия и доступные лимиты"
+        },
+        "user_values_preserved": {
+          "status": "pass",
+          "evidence_ids": [
+            "L5"
+          ],
+          "review": "Три аспекта отражены без навязывания приоритета; риск безопасности выражен условно.",
+          "reviewer_summary_of_response": "«вопрос детального контроля безопасности ... остается неоцененным»",
+          "verified_verbatim_excerpt": "вопрос детального контроля безопасности"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "L1"
+          ],
+          "review": "Проверяемые ID, хотя вывод о финансовой устойчивости превышает L6.",
+          "reviewer_summary_of_response": "«неаудированные данные ... [L1]»",
+          "verified_verbatim_excerpt": "неаудированные данные"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "L6"
+          ],
+          "review": "Ложная дихотомия о способности финансировать бизнес; status usable.",
+          "reviewer_summary_of_response": "«а не к самоокупаемости»",
+          "verified_verbatim_excerpt": "а не к самоокупаемости"
+        }
+      }
+    },
+    {
+      "case_id": "S1-02-loss-cash",
+      "response_id": "02-01",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "F5"
+          ],
+          "review": "F5 предупреждает о возможности, а не прогнозирует достоверный отрицательный поток. Остальные ключевые суммы H1 из F1–F4 переданы.",
+          "reviewer_summary_of_response": "«операционный поток станет отрицательным (как прогнозирует менеджмент в F5)»",
+          "verified_verbatim_excerpt": "операционный поток станет отрицательным (как прогнозирует менеджмент в F5)"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "F2"
+          ],
+          "review": "Расход на переоценку не определяет доли капитала или размер будущего разводнения без условий инструментов. «устойчивость» нельзя установить одним полугодием.",
+          "reviewer_summary_of_response": "«значительная часть будущей капитализации уже распределена среди инвесторов предыдущих раундов»",
+          "verified_verbatim_excerpt": "значительная часть будущей капитализации уже распределена среди инвесторов предыдущих раундов"
+        },
+        "material_alternatives": {
+          "status": "pass",
+          "evidence_ids": [
+            "F3",
+            "F5",
+            "F6"
+          ],
+          "review": "Рассмотрены позитивный и скептический сценарии, включая возможные причины; их нельзя выдавать за подтвержденные факты.",
+          "reviewer_summary_of_response": "«позитивные денежные метрики ... могут быть временными»",
+          "verified_verbatim_excerpt": "позитивные денежные метрики"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "F3"
+          ],
+          "review": "Запрошены компоненты OCF, условия конвертации и будущие обязательства.",
+          "reviewer_summary_of_response": "«структуры операционного денежного потока»",
+          "verified_verbatim_excerpt": "структуры операционного денежного потока"
+        },
+        "user_values_preserved": {
+          "status": "mixed",
+          "evidence_ids": [
+            "F5"
+          ],
+          "review": "Критерии учтены, но не дано прямых фактов об управленческих злоупотреблениях; риск остается гипотезой.",
+          "reviewer_summary_of_response": "«создает стимулы приоритизировать монетизацию ... над протоколами безопасности»",
+          "verified_verbatim_excerpt": "создает стимулы приоритизировать монетизацию"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "F3"
+          ],
+          "review": "Ключевые факты и источник мнения F6 атрибутированы.",
+          "reviewer_summary_of_response": "«$3,929 млрд ... [F3]»",
+          "verified_verbatim_excerpt": "$3,929 млрд"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "F2"
+          ],
+          "review": "Преждевременный вывод о долях; status usable.",
+          "reviewer_summary_of_response": "«значительная часть будущей капитализации уже распределена»",
+          "verified_verbatim_excerpt": "значительная часть будущей капитализации уже распределена"
+        }
+      }
+    },
+    {
+      "case_id": "S1-02-loss-cash",
+      "response_id": "02-02",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "F1",
+            "F2"
+          ],
+          "review": "Арифметическая доля расходов F2 от чистого убытка верна, но формулировка причинности упрощает бухгалтерское сочетание доходов и расходов. Денежные показатели периода переданы.",
+          "reviewer_summary_of_response": "«на ~89,6% ... обусловлен переоценкой»",
+          "verified_verbatim_excerpt": "обусловлен переоценкой"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "F3",
+            "F4"
+          ],
+          "review": "Связывание конкретных покупок активов с конкретным источником финансирования не следует только из агрегированных потоков. Переоценка не определяет размер разведения.",
+          "reviewer_summary_of_response": "«профинансированным за счет привлечения капитала»",
+          "verified_verbatim_excerpt": "профинансированным за счет привлечения капитала"
+        },
+        "material_alternatives": {
+          "status": "pass",
+          "evidence_ids": [
+            "F3",
+            "F5",
+            "F6"
+          ],
+          "review": "Обе альтернативы и условия изменения описаны, хотя одна метрика одного периода не устанавливает устойчивость.",
+          "reviewer_summary_of_response": "«Улучшение базовой экономики» ... «Риск высокой капиталоемкости»",
+          "verified_verbatim_excerpt": "Риск высокой капиталоемкости"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "F2"
+          ],
+          "review": "Показаны пробелы в договорных условиях, будущих затратах и поквартальной разбивке в пакете.",
+          "reviewer_summary_of_response": "«условия конвертации/погашения»",
+          "verified_verbatim_excerpt": "Условия конвертации/погашения"
+        },
+        "user_values_preserved": {
+          "status": "pass",
+          "evidence_ids": [
+            "F2",
+            "F3"
+          ],
+          "review": "Риск давления сформулирован как возможный; ценности сохранены без приоритизации.",
+          "reviewer_summary_of_response": "«источники не содержат прямых свидетельств управленческих злоупотреблений»",
+          "verified_verbatim_excerpt": "Источники не содержат прямых свидетельств управленческих злоупотреблений"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "F3"
+          ],
+          "review": "Ключевые числа связываются с IDs.",
+          "reviewer_summary_of_response": "«операционный денежный поток ... +$3,929 млрд [F3]»",
+          "verified_verbatim_excerpt": "операционный денежный поток"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "F3",
+            "F4"
+          ],
+          "review": "Присвоение источника конкретному использованию денег не обосновано; status usable.",
+          "reviewer_summary_of_response": "«профинансированным за счет привлечения капитала»",
+          "verified_verbatim_excerpt": "профинансированным за счет привлечения капитала"
+        }
+      }
+    },
+    {
+      "case_id": "S1-02-loss-cash",
+      "response_id": "02-03",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "issue",
+          "evidence_ids": [
+            "F1",
+            "F2"
+          ],
+          "review": "F2 составляет $72,388 млрд против чистого убытка $80,748 млрд; исключительно — ошибочное утверждение даже внутри оптимистичного сценария. Название формы S-X1 не подтверждено пакетом; остальные суммы периода совпадают.",
+          "reviewer_summary_of_response": "«убыток обусловлен исключительно бумажной переоценкой»",
+          "verified_verbatim_excerpt": "убыток обусловлен исключительно бумажной переоценкой"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "F1",
+            "F3"
+          ],
+          "review": "Один период положительного OCF не доказывает устойчивую масштабируемость; выше также неправильно употреблено «исключительно».",
+          "reviewer_summary_of_response": "«демонстрирует устойчивую масштабируемость»",
+          "verified_verbatim_excerpt": "демонстрирует устойчивую масштабируемость"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "F3",
+            "F5"
+          ],
+          "review": "Альтернативы и условия пересмотра даны, но позитивная опирается на избыточное причинное утверждение о чистом убытке.",
+          "reviewer_summary_of_response": "«Оптимистическая ... Скептическая»",
+          "verified_verbatim_excerpt": "Оптимистическая"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "F2",
+            "F6"
+          ],
+          "review": "Названы неизвестные и данные для проверки, включая оборотный капитал.",
+          "reviewer_summary_of_response": "«структура и условия конвертации ... устойчивость квартальной ... прибыльности»",
+          "verified_verbatim_excerpt": "Структура и условия конвертации"
+        },
+        "user_values_preserved": {
+          "status": "pass",
+          "evidence_ids": [
+            "F5"
+          ],
+          "review": "Не устанавливает приоритеты пользователя и явно ограничивает выводы по безопасности.",
+          "reviewer_summary_of_response": "«источники не содержат прямых фактов о злоупотреблениях»",
+          "verified_verbatim_excerpt": "источники не содержат прямых фактов о злоупотреблениях"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "F2"
+          ],
+          "review": "Присутствуют IDs; неверное «исключительно» не следует из них.",
+          "reviewer_summary_of_response": "«$72,388 млрд ... [F2]»",
+          "verified_verbatim_excerpt": "$72,388 млрд"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "F1",
+            "F2"
+          ],
+          "review": "Конкретная финансовая ошибка; status usable.",
+          "reviewer_summary_of_response": "«исключительно бумажной переоценкой»",
+          "verified_verbatim_excerpt": "исключительно бумажной переоценкой"
+        }
+      }
+    },
+    {
+      "case_id": "S1-03-compute",
+      "response_id": "03-01",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Числа и дата верны, но «не вступили в силу» может путать возникновение договоров с началом аренды; C4 касается leases not yet commenced.",
+          "reviewer_summary_of_response": "«$265,6 млрд ... $321,4 млрд»",
+          "verified_verbatim_excerpt": "$265,6 млрд"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Суммирование требует доказать непересечение и сопоставимость категорий; пакет этого не устанавливает. Нельзя также приравнивать суммы к долгу.",
+          "reviewer_summary_of_response": "«обязательств свыше $580 млрд (в совокупности по C3 и C4)»",
+          "verified_verbatim_excerpt": "обязательств свыше $580 млрд (в совокупности по C3 и C4)"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C1",
+            "C3",
+            "C4"
+          ],
+          "review": "Указаны две стороны, но гарантированность поставки/наличия не доказана; C6 — мнение поста, не проверенные условия каждого договора.",
+          "reviewer_summary_of_response": "«гарантируют доступ к критической инфраструктуре»",
+          "verified_verbatim_excerpt": "гарантируют доступ к критической инфраструктуре"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Нужны сроки, условия выхода, спрос, unit economics и документы об управлении.",
+          "reviewer_summary_of_response": "«график погашения ... штрафные санкции»",
+          "verified_verbatim_excerpt": "график погашения"
+        },
+        "user_values_preserved": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C5",
+            "ON1"
+          ],
+          "review": "Ценовая премия не является доказанно необходимым условием: возможны иные источники экономической отдачи. Три критерия сохранены без приоритета.",
+          "reviewer_summary_of_response": "«только в том случае, если ... удерживать ценовую премию»",
+          "verified_verbatim_excerpt": "только в том случае, если"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "C4"
+          ],
+          "review": "Источники идентифицируемы, но не обосновывают сложение и гарантию.",
+          "reviewer_summary_of_response": "«некоторые ... содержат контрактные условия [C4]»",
+          "verified_verbatim_excerpt": "некоторые"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Неустановленная аддитивность и завышенная уверенность; status usable.",
+          "reviewer_summary_of_response": "«свыше $580 млрд»",
+          "verified_verbatim_excerpt": "свыше $580 млрд"
+        }
+      }
+    },
+    {
+      "case_id": "S1-03-compute",
+      "response_id": "03-02",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Отдельные оценки верны, но сумму нельзя считать установленным общим обязательством без подтверждения отсутствия перекрытия.",
+          "reviewer_summary_of_response": "«$265,6 млрд + $321,4 млрд»",
+          "verified_verbatim_excerpt": "$265,6 млрд + $321,4 млрд"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Условия части аренды и неустановленная непересекаемость категорий не допускают безусловной обязанности платить сумму.",
+          "reviewer_summary_of_response": "«необходимостью оплачивать ... ($265,6 млрд + $321,4 млрд)»",
+          "verified_verbatim_excerpt": "($265,6 млрд + $321,4 млрд)"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C1",
+            "C3"
+          ],
+          "review": "В позитивном сценарии эксклюзивность не подтверждена; рассматриваются downsides и возможность более гибких контрактов со ссылкой на мнение C6.",
+          "reviewer_summary_of_response": "«гарантирует эксклюзивный доступ»",
+          "verified_verbatim_excerpt": "гарантирует эксклюзивный доступ"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "C3",
+            "C4",
+            "C6"
+          ],
+          "review": "Содержание контрактов, штрафы, график и экономика выделены как неизвестные.",
+          "reviewer_summary_of_response": "«Доля контрактов типа take-or-pay»",
+          "verified_verbatim_excerpt": "Доля контрактов типа «take-or-pay»"
+        },
+        "user_values_preserved": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C1",
+            "C2"
+          ],
+          "review": "Гипотеза о конфликте стимулов сформулирована как возможность, не как факт; все три критерия рассмотрены без ранжирования.",
+          "reviewer_summary_of_response": "«могут ... создать стимулы ... в ущерб ... безопасности»",
+          "verified_verbatim_excerpt": "создать стимулы"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Обе группы цитируются; доказательство их аддитивности отсутствует.",
+          "reviewer_summary_of_response": "«[C3, C4]»",
+          "verified_verbatim_excerpt": "[C3, C4]"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "C1",
+            "C3"
+          ],
+          "review": "Необоснованная гарантия и сумма обязательств; status usable.",
+          "reviewer_summary_of_response": "«гарантирует эксклюзивный доступ»",
+          "verified_verbatim_excerpt": "гарантирует эксклюзивный доступ"
+        }
+      }
+    },
+    {
+      "case_id": "S1-03-compute",
+      "response_id": "03-03",
+      "technical_status": "usable",
+      "dimensions": {
+        "source_accuracy_and_dates": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Отдельные числа и дата верны, но C4 частично условны, а независимость категорий не доказана.",
+          "reviewer_summary_of_response": "«фиксированные ... в сумме свыше $580 млрд»",
+          "verified_verbatim_excerpt": "в сумме свыше $580 млрд"
+        },
+        "supported_inference": {
+          "status": "issue",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Обозначение всего C4 фиксированным и сложение без проверки перекрытия превышают свидетельства.",
+          "reviewer_summary_of_response": "«фиксированные ... обязательства (в сумме свыше $580 млрд ...)»",
+          "verified_verbatim_excerpt": "обязательства (в сумме свыше $580 млрд"
+        },
+        "material_alternatives": {
+          "status": "mixed",
+          "evidence_ids": [
+            "C1",
+            "C4"
+          ],
+          "review": "Сопоставлены позитивный и негативный сценарии, однако гарантия поставки и генерализация C6 не доказаны.",
+          "reviewer_summary_of_response": "«Гарантированные долгосрочные мощности»",
+          "verified_verbatim_excerpt": "Гарантированные долгосрочные мощности"
+        },
+        "justified_unknown": {
+          "status": "pass",
+          "evidence_ids": [
+            "C3",
+            "C4",
+            "C6"
+          ],
+          "review": "Приведены ключевые неизвестные и документы, разрешающие неопределенность.",
+          "reviewer_summary_of_response": "«точная доля жестких take-or-pay ... условными/гибкими»",
+          "verified_verbatim_excerpt": "точная доля жестких take-or-pay"
+        },
+        "user_values_preserved": {
+          "status": "pass",
+          "evidence_ids": [
+            "C1",
+            "C2"
+          ],
+          "review": "Безопасность описана как гипотеза; три критерия отражены без решения за человека.",
+          "reviewer_summary_of_response": "«способно создать конфликт стимулов»",
+          "verified_verbatim_excerpt": "способно создать конфликт стимулов"
+        },
+        "checkable_citations": {
+          "status": "pass",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Привязка к ID воспроизводима; они не доказывают сумму и безусловность.",
+          "reviewer_summary_of_response": "«[C3, C4]»",
+          "verified_verbatim_excerpt": "[C3, C4]"
+        },
+        "false_positive_and_failure": {
+          "status": "issue",
+          "evidence_ids": [
+            "C3",
+            "C4"
+          ],
+          "review": "Необоснованная агрегация и условность преобразована в безусловность; status usable.",
+          "reviewer_summary_of_response": "«фиксированные ... в сумме свыше $580 млрд»",
+          "verified_verbatim_excerpt": "в сумме свыше $580 млрд"
+        }
+      }
+    }
+  ]
+}

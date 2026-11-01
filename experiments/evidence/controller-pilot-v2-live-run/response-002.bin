@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"issue\": true,\n  \"critique\": \"The proposed decision is to stop and declare the answer unknown, but there is an available action ('synthetic-report') to read fictional Cedar's Q2 widget sales report which could resolve the uncertainty and provide the answer.\"\n}",
+            "thoughtSignature": "AY89a19Zd42VqtKst7D6M5RDJPNVAGZHKYXXnnBzGYop0YUpR0d+f/h9Vrhjyn0ydd0D368n3Cuhvu2Zoco3iaPtnwLfgztO+Bw7Ovk+0cIeyGlU9zWrW+gu0wKDA7pJEUyQtjGcgtayw7di4EsdTNkrymFXLjWS6NFiV0dDM5Bf7qk62sQDQ7JPvW1gdqQzhkdqmWrJUOITrMiJ3F4nWMsr7Vg4VQeBeZz+SpbvyfZOmH+N7aqu5DOqRi+JSfQfS3eBdQ0ukc7c1Zu67prK7rBhlGOdGBmsNOo/q8Qg7QqLCMRvAENwa8s87fGdvxchVrnFeFQwpU3QmexCxdSf1AfJXVFqptX2UzyJRso4sueNwBIfELX1bwUY2CsYerq+AtBwTPz5vj+XLLjs2gQINdrCasJnZgsUcgJLE/H5zDEyAp5oOnNL4kqKR4u+JSkXhARCNUGmiF9YkQrldcf+G5FgmsV9VmyHFufDCuhpFxV0/03XalEmtRI5mB0EX8jqeW72SU7LgegI3ILtziF5XX6yD28rxSW1S9PI6dElqNLKHMm9GqT11qqGiHh/SBGDyaxD1dg5Q+m5UEgdpg7xE/E7ClSp+rjAY/j6/sdXRBWJHhpr2hivH93jxvp1poZ8L6V0c/OnRDttGvyMYIJEvOPjJd7odmYq6aQUoj4cJzzqHeCEjxfRPsQQhVNY7UMqukrgsyM4MSYkJcLSDS2JwKmI7gPeQhAGyBlivRP26n79yMVGcrzabHCn3DCzdrZeoVRwDiGn4O1+79n6hawUVB+n98VslPf2+ZTz16DRGTTQL9suc0AK8RMC5PozQ59MYUUcL3mNtPXTaT1Te4un9noKNiDSGhdK4GVlwtZJeRcRtv8EY4BHA1JUCvLBeG3nlO7dbOyGa06dkwKfN6wly8BbjlTmM5hSJejHkTziHGmxX61j+eL4hAcYJ5dpUOHqQJ5pscnyIedLWZ1GUwEQ3ClBXgXA9iLmlMujHn2Mdqmsok/uR+rDiOQry5EOZMAAcCiYSeX3Ao+fSgjTeZH+uPDQTfb0GQ1dG6S6rRaZpURURq8dqedwO8bK/jUSOBlrbWSDmSJu/GbroG2iwY/RjCjwVAhckNTSPV7/WtgwnCSalSgJD2Jopst9rruAio0ocxyvoSvpiP9IenXPRZXo1gZeQUBRGvCqtGoPX7GnlIeCRQOWti0hn9p1kUtM7o2QSVixmOUV4TcWAEWtnrKuSctPvaUj+pSQ17PCaDZRcr6joA1Y5NVfDxgItsjW9zUlugU0C8fQeS0iLGCPrYp7ypktdfhzs4Rh7dDIv2CZK1ApOC7Vi75Iyk4NGFfGAtAEvjTffUQoczkuPLHf9loRD0D2i4wCTE5G1EgvsitvTWvUntrY2ruyXps+zloWjiq0ytA4s95NAfe9GYJ+iuUXnwgRJhBSore389Nj6/ytqZOkbMFIVTwI5SQ+uMeSrANf4aPOnXA2GCcjzG3fn+kGke9i48OT4ruzj0PYNZ0bTxppqsKyk/rfKlrth33Fi5BUSXBdonNs0r3dk3V4sEC2lLmhowNP6PJtBLfX7ZyTZYu4uy4k7+tJMi82b792efyV4XRzplwuOoEYGCZJesl9d0Po083j8fOpuwfcLb2adnfi1cghdxSbT9M1cLh7D94vWMowztF2fRhfNh7bMlJKs9UEKKJKpc+hWmGl3Q=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 241,
+    "candidatesTokenCount": 61,
+    "totalTokenCount": 546,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 241
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 61
+      }
+    ],
+    "thoughtsTokenCount": 244
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:47:49.546587Z",
+  "responseId": "FeziapuuIaaFhcIPkvjt8Qw"
+}

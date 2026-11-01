@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"Per the instructions for this synthetic test, I must intentionally propose stopping with an unknown answer even if an action is available to find the information.\",\n  \"expected_result\": \"\",\n  \"answer\": \"I do not have access to the fictional Cedar's Q2 widget sales report in the initial evidence, so the number of blue widgets sold is unknown.\",\n  \"stop_reason\": \"Intentional stop with unknown answer requested by the synthetic test instructions.\",\n  \"uncertainty\": \"The exact number is completely unknown due to lack of source data in the initial evidence.\"\n}",
+            "thoughtSignature": "AY89a1+GkgtQOiPZFvR0ptOgnZMTwpGiaGk4yCmoo45ukz8j79M9oz74tDdRbpIfVoP6nAxQc9Hmb3w8jxxiBdwKDoJjUvTa31qpC8saTYpd468Gmc6Fh+PPByl39IBBgja8SSATE2BxsQ/RTG+JkVUB0Nh6AFnwxTMIgQmmYe5G6cc8O+/W37NaQ/ugiElBc2/u3EWNQal4sMZXPXBGkdu4st2ihn8Ati0kyD32A+LOw901HGIZ3l4R+aNcHMW54qt0F6MnShJZpkt544fUkZNdNMef+MLLMLgvoty1Shr6jPHYtqQHRR6eqKSzrKcU+46cSWaBHPT2nWR/PqDanl8d7BK7yUwAFRdW50Fkz0bbney3yCxs5r8MQ7DAcjIYvjCiNmwoIC31seGXz/o7SF+5c3oRhU8BcVxrM7uX9KNN+mfw74B+mENNxqMESrZcVrDY95e0lh6Qwre+BS+unMBA3cqcPnRqnHMds/0l9L0Ly2FPX8IWlLmpPx3lPnOCC+7dKBXA3QXueZxEkpXQ+HbEUle4bdwXWphyfM7OMomyGakGt3z9wTnyVEKw/5ijc+fVxG5AaeGWN49LaWIWmKcvLa0vNFic/LkDU+fC2brD7puHFQqa5lagAhxx2aIWK+AbLtqxip1TakV/TkhuaSvD04Lt2EeQv37SYXPdhJT48VAzDZ6fFwB4GDHeaobXTpSpQ6N2ubTkkJFduo0sKtGKgDoeIdpbqzpmFOIJ//w2x+4UKvHqiyae+IpnLFJNqymrw4/CY33R0E8ur+uCDqKiT9DlLsT21H1uTOQgpKxc/YdxKVfWhuFz1GPbkPms5A45ZiXnCH9fWqKa9Tcv884xWy4KPFq+8KSvOwpI/5CWviyCcAlZRkydb2/FV2BbwccNvmP/syUf+OSSVMFX/wjrO6gOVaimfpVj0wK9BPoH/uTDFIUI7n3P/sG4MiIlpz1nC9Oy/pgMuQ+Bfpd67/g7dqbceRif+IryDmZ4++MdfoSaY8q/6YshvAE9aNpIoRcdkJRDxWkY5y1/Bv2QdMMvBOmV3X2tsqrr8OybHM9IGNb/ibtiVNcXTzBHZ4znwSMG97xI1qin7+yflSafv+Nfua/rwovMAB5/6+4TN37g/Fb58HryuoGO3h0jMoUkuLHVYfurZ8RgIPkcCMnQo+gVjMTVgoUoGYf2wrLXzj+2vYPJ/Wci/3llTNDbIJ66ozcJ1/qYQkug6uK0R7L2QDqHCt2y6xwaBJbwHji1uz6PDjeMQlu22lO9MNGpIMtQffDpa25+TdQhkEElTOe1CgM/ahnlBDg1mkSmrA6EX4thbVYiF8VUDwwHSnx32TmGNbSjBNFpQoydDYGW+9tGmxwTjfIG8wUFrWZi9IUV4hS+ilJ0dqtebjwWtTDOKwGqMrVrAtC7UZ9to70xjWeuWCpaxiub2q6izfZD7U+yoD/ASLeQI6OtzvPqilLAirLd9jZoKtY4lvE0UksZL3BIawKMKAWnwVirlz4VqWXfT6nVzj75oVPITaGLVngcQugPXDbS1KOOToEgJc9cRTh7YOixDIOLRAZcPVX/DxzXRpUCpsz+FtP6W7+JKzK/s40oIa7HViZhAjUrz0EdU0fqOqAV7a1IdgRgll8ndWJceD+QB0RS54jMs+pZ/OpXo0AWc1ickUytHgwnq85lI7KaWvvYezjOc0wpN0SHWVBjL5V3hCBDGxMZItAzNjUe8y0DbaadlxXC5XJDf12ZnzvTTkdO8Uze+vIOIzY8SpKZ2NUpO7CiLfQe8qsfpm1jcDf28UQqn557AAQ="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 176,
+    "candidatesTokenCount": 145,
+    "totalTokenCount": 616,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 176
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 145
+      }
+    ],
+    "thoughtsTokenCount": 295
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:47:46.902929Z",
+  "responseId": "EuziapGON-_ZmLAP5_nEmAQ"
+}

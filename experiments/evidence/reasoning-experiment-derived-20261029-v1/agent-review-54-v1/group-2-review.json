@@ -1,0 +1,231 @@
+{
+  "reviewer": "review_group2 (gpt-6-luna)",
+  "input_sha256": "41520f4bf581d9863e96472bed256997ba6fbf832bd8e7d76249f67abe549cf5",
+  "role": "agent, not human",
+  "results": [
+    {
+      "id": "R-061b1d4b8cea9834",
+      "case_id": "source-choice-v7-8f4f456fc619e25bd4eab2f6",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The answer accurately attributes “more than 3 million airline passengers” to the retained FAA excerpt and says “Every day”; the update date July 30, 2025 and capture date October 27, 2026 are accurately distinguished. It correctly discloses incomplete fragment coverage and does not claim an itemized count.",
+      "action_reason": "The taken fragment contains the exact passenger figure plus “Every day”; that closes the stated factual gap.",
+      "alignment_reason": "It answers the thesis from the saved evidence and preserves the requested source/time/uncertainty bounds.",
+      "source_refs": [
+        "p-dfade8585a6d59185a15",
+        "p-6b5bb86f1ede30bcd0ef",
+        "p-ec99eb23247632d6555e",
+        "coverage.source_document_complete=false"
+      ],
+      "limitations": [
+        "Literal captured fragments only; not complete or rendered source."
+      ]
+    },
+    {
+      "id": "R-27ab70457f838633",
+      "case_id": "source-choice-v7-8f4f456fc619e25bd4eab2f6",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The quoted daily passenger figure, date, capture timing and fragment limitations match the observed FAA text. “Any additional context ... remain unverified” is appropriately scoped.",
+      "action_reason": "The executed fragment contains the exact requested passenger figure; it is sufficient for this question.",
+      "alignment_reason": "The response meets the saved-evidence-only request and preserves material uncertainty.",
+      "source_refs": [
+        "p-dfade8585a6d59185a15",
+        "p-6b5bb86f1ede30bcd0ef",
+        "p-ec99eb23247632d6555e",
+        "coverage.source_document_complete=false"
+      ],
+      "limitations": [
+        "Literal captured fragments only; not complete or rendered source."
+      ]
+    },
+    {
+      "id": "R-2e848bebc2cc4861",
+      "case_id": "source-choice-v7-0745ea0d6c6e5fc5629cab2c",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The cited row/header hierarchy identifies nominal 3-month Treasury constant maturities, with col1 Oct 19 = 4.27 and col5 Oct 23 = 4.22 percent per annum. 4.22−4.27 = −0.05 percentage points. It correctly notes omitted footnote 9 and bounded table coverage.",
+      "action_reason": "The observed action provides the dates, units, row hierarchy and both endpoint values needed to calculate the requested change.",
+      "alignment_reason": "The calculation and sign answer the requested change without extending beyond the saved table.",
+      "source_refs": [
+        "table-header",
+        "table-row-1",
+        "table-row-2",
+        "table-row-3",
+        "table-row-4",
+        "p-b92308771781f08f1319"
+      ],
+      "limitations": [
+        "Non-rendered selected rows; footnote 9 omitted."
+      ]
+    },
+    {
+      "id": "R-7bc7ad90dbfe909e",
+      "case_id": "source-choice-v7-0745ea0d6c6e5fc5629cab2c",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed table supports Oct 19 4.27 and Oct 23 4.22 percent per annum; the signed difference −0.05 pp is arithmetically correct. The response discloses selected HTML fragments and omitted footnote 9.",
+      "action_reason": "The executed table fragment includes all needed endpoint values and labels.",
+      "alignment_reason": "It answers the specific maturity/date question and preserves the table’s coverage limits.",
+      "source_refs": [
+        "table-header",
+        "table-row-1",
+        "table-row-2",
+        "table-row-3",
+        "table-row-4",
+        "p-b92308771781f08f1319"
+      ],
+      "limitations": [
+        "Non-rendered selected rows; footnote 9 omitted."
+      ]
+    },
+    {
+      "id": "R-4366b0a229de1359",
+      "case_id": "source-choice-v7-ff59b8a886ae8b57f6c52647",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The table rows give September 2026 426.07 ppm and September 2025 424.37 ppm; their difference is +1.70 ppm. The same observed fragments say the last year of data remain preliminary pending recalibration/QC, which the answer reports.",
+      "action_reason": "The taken action supplies both month/year values and the required preliminary-data caveat.",
+      "alignment_reason": "The answer sticks to the requested comparison and does not hide the provisional status.",
+      "source_refs": [
+        "table-row-1",
+        "table-row-2",
+        "p-ce774bb29109818e91f2",
+        "p-75f01f1fcf3bc14f8b1f",
+        "p-2eee4a27571f7f25ebd8"
+      ],
+      "limitations": [
+        "Selected table rows and bounded text fragments; not full dataset."
+      ]
+    },
+    {
+      "id": "R-e3ff5a264adbcd20",
+      "case_id": "source-choice-v7-ff59b8a886ae8b57f6c52647",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "Both values and +1.70 ppm arithmetic are supported by the observed rows. The preliminary status, last-updated date, and limited coverage are attributed to the observed literal fragments; no later/final status is asserted.",
+      "action_reason": "The executed fragment gives both values and the caveat needed to answer.",
+      "alignment_reason": "It fulfills the comparison while retaining uncertainty relevant to interpreting the latest year.",
+      "source_refs": [
+        "table-row-1",
+        "table-row-2",
+        "p-ce774bb29109818e91f2",
+        "p-75f01f1fcf3bc14f8b1f",
+        "p-2eee4a27571f7f25ebd8"
+      ],
+      "limitations": [
+        "Selected table rows and bounded text fragments; not full dataset."
+      ]
+    },
+    {
+      "id": "R-350305e976a27795",
+      "case_id": "source-choice-v7-2a2b9cf07e8702ec8adae441",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The answer faithfully reports two non-identical saved figures: “about 355 Bgal/d” for 2010 and a later comparison’s “354 Bgal/d” baseline, and notes their discrepancy. But the question asks what exact total can be established; these excerpts do not resolve one exact total. The stated 354.3 sum of 306 and 48.3 is arithmetically correct but the source labels both component quantities rounded percentages/values, so it is not an independently established exact total.",
+      "action_reason": "Both taken excerpts are material: one gives the 2010 estimate and the other the later cited baseline, exposing rather than concealing the inconsistency.",
+      "alignment_reason": "It avoids falsely selecting a definitive exact value and preserves the observed conflict, consistent with the exactness constraint.",
+      "source_refs": [
+        "usgs-6",
+        "usgs-5"
+      ],
+      "limitations": [
+        "Fragments are incomplete; why values differ (rounding, revision, scope) is not evidenced. Human review of whether the task’s “exact” wording admits a reported estimate is needed."
+      ]
+    },
+    {
+      "id": "R-7f27b2d34da6e5ef",
+      "case_id": "source-choice-v7-2a2b9cf07e8702ec8adae441",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The response accurately distinguishes 2010 “about 355” from the later “354 Bgal/d” baseline and avoids inventing a cause. Because the question asks for an exact total, the conflicting approximate/reported numbers do not establish a unique exact answer.",
+      "action_reason": "The two executed fragments substantively support the qualified values and reveal the unresolved conflict.",
+      "alignment_reason": "It preserves attribution, units, scope and unresolved uncertainty instead of presenting one number as exact.",
+      "source_refs": [
+        "usgs-6",
+        "usgs-5"
+      ],
+      "limitations": [
+        "Incomplete excerpts do not establish whether discrepancy is rounding, revision, or scope. Human review advisable on exact-total interpretation."
+      ]
+    },
+    {
+      "id": "R-189169426a25fa2b",
+      "case_id": "source-choice-v7-df3287ee17ba8235b3df3206",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "unclear",
+      "alignment_verdict": "respected",
+      "answer_reason": "The passage supports the state real-GDP endpoints (+4.0% New York, −2.3% West Virginia) and 6.3 pp spread, but it does not identify the reference quarter. The answer explicitly leaves Q2 2026 unverified, so the requested quarter-specific result remains unknown rather than established.",
+      "action_reason": "The executed A fragment lacks the quarter; available B is described only as a release-headline/US-GDP fragment. Its description suggests potential relevance but is not evidence of its content or whether it would close the gap; no pre-action rationale is supplied.",
+      "alignment_reason": "The answer resists attributing the fragment to Q2 2026 without evidence and states the limitation clearly.",
+      "source_refs": [
+        "bea-2",
+        "coverage.source_document_complete=false",
+        "action-v5-74183265a852e7812ab117e6 (description only; not observed)"
+      ],
+      "limitations": [
+        "Captured passage has no period label. A full-release relationship cannot be inferred from the action description. Human review needed for quarter attribution."
+      ]
+    },
+    {
+      "id": "R-ee4fd587b060928a",
+      "case_id": "source-choice-v7-df3287ee17ba8235b3df3206",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "unclear",
+      "alignment_verdict": "respected",
+      "answer_reason": "The range endpoints and arithmetic are supported by the observed passage, but the excerpt does not state Q2 2026. The answer properly reports this unresolved period attribution.",
+      "action_reason": "Stopping after A leaves the quarter gap open, while B’s description indicates possible headline context; however the B outcome is unseen and there is no recorded ex-ante rationale, so action quality cannot be determined confidently.",
+      "alignment_reason": "The response does not claim a quarter-specific association unsupported by the observed excerpt.",
+      "source_refs": [
+        "bea-2",
+        "coverage.source_document_complete=false",
+        "action-v5-74183265a852e7812ab117e6 (description only; not observed)"
+      ],
+      "limitations": [
+        "No observed evidence establishes B’s content or its relation to A. Human review needed for quarter attribution."
+      ]
+    },
+    {
+      "id": "R-063b9935ebec9582",
+      "case_id": "eia-candidate-v1-77203da7db5528be804903db",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The fragment states 3Q26 total consumption rose 4% versus the same quarter last year and residential rose 6%; it also links cooling demand in 3Q26 particularly to residential/commercial sectors. The answer preserves the period and national scope. It correctly flags that the fragment does not specify forecast versus reported status.",
+      "action_reason": "The executed EIA fragment contains the requested residential change, comparison framing and contextual cooling statement.",
+      "alignment_reason": "It answers from the bounded outlook fragment, distinguishes the unresolved status, and does not overstate the 6% as total consumption.",
+      "source_refs": [
+        "eia-node-fb3f7aa9dd1598917789",
+        "eia-node-d40f9532834724ed8e3c"
+      ],
+      "limitations": [
+        "Saved bounded fragment does not reveal forecast-versus-reported classification or complete document context."
+      ]
+    },
+    {
+      "id": "R-90766e60adf5a883",
+      "case_id": "eia-candidate-v1-77203da7db5528be804903db",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The source explicitly says residential sector 6% in 3Q26 and compares 3Q26 with “the same quarter last year”; interpreting that as 3Q25 is a straightforward calendar inference. Cooling needs during the hot summer are in the adjacent source text.",
+      "action_reason": "The taken action contains all substantive figures and comparison basis requested.",
+      "alignment_reason": "The answer retains the requested population, period and relative change, with no material extrapolation beyond the saved fragment.",
+      "source_refs": [
+        "eia-node-fb3f7aa9dd1598917789",
+        "eia-node-d40f9532834724ed8e3c"
+      ],
+      "limitations": [
+        "It does not identify whether this is forecast or final reported data; 3Q25 is inferred from “same quarter last year.”"
+      ]
+    }
+  ]
+}

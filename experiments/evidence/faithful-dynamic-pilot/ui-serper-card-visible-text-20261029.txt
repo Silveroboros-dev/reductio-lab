@@ -1,0 +1,8 @@
+Observed in authenticated Orthogonal dashboard, 2026-10-29, Europe/Zurich. Transcription of rendered UI, not raw HTTP or a provider-signed quote.
+URL: https://www.orthogonal.com/dashboard/discover/serper/91fb13eb-b5bd-4602-849f-a87d7df01e75
+POST /news
+Google News Search
+Serper · $0.002 per call
+Google News search - returns news articles with titles, links, sources, dates, and snippets. Use for current events, press coverage, competitor monitoring, or media research. Pagination billing: call the first page normally and save billing.requestId from the Orthogonal /v1/run response. For later page, offset, or cursor calls on the same logical search, pass parentRequestId with unchanged non-pagination parameters. Valid continuation calls still get their own request IDs and quoted price, but are charged 0. Changing filters starts a new billable request.
+BODY PARAMETERS q REQUIRED string Search query; num number Number of results (default 10, max 100).
+RESPONSE priceCents number Actual Orthogonal credits charged for this /v1/run call; billing.requestId string Unique Orthogonal request ID for this page or poll call.

@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"issue\":false,\"critique\":\"The proposed action directly targets the specific evidence fragment that describes estimated U.S. total withdrawals in 2015, which is necessary to answer the question.\"}",
+            "thoughtSignature": "AY89a19dOQXW0j6JR9CAZSYx3cfme7CluqaiyzEnONH49raoe0StbIEoNtRSm4bVRBWmKJuuqKAiQWd5GaxB57yABKhhjHBXlPyiC11E3WSE6dPGCuo+"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 396,
+    "candidatesTokenCount": 42,
+    "totalTokenCount": 438,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 396
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 42
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:08:09.534674Z",
+  "responseId": "6f7iapLRIIaUhcIP3LCecQ"
+}

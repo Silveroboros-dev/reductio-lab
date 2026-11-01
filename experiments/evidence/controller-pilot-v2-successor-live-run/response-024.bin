@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-5065a498a0c50c1e01407234\",\n  \"rationale\": \"I will fetch the press release for NVIDIA's Fourth Quarter and Fiscal 2026 financial results to verify the exact Data Center revenue, the reporting quarter details, and check if customer H100 rental prices are mentioned.\",\n  \"expected_result\": \"Details of Q4 Fiscal 2026 Data Center revenue and any mentions of H100 rental prices.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "AY89a19BF7HSNZe3leKPH3J5dtKjxVH5CR4u6KZUR/ADziS/3dpz5H61hrR53ffDpnuxA5nS45w6Bj9oqGJx4zYswQWQG/dD3+Dhf4P1OdU84RMUYD+wfCkBj0sCiM5uocDod9xtfwUQaKI9jUdh8LwZEsCd7KesJ16KKdUcEFHtKakvc6uhlqQv/pa/Qi6BRvuSIFabaxekPF5BPxuWGSZikkNv196t1+cePZQ2lHW7Y9Qpz/QcJaNnDa3LxYB40K4EGrv7R0HfDMFFvUSqAJcVQ+ECUxDS4pizA+a0MHUzC7CIRBxcIYufUH8b6q/Y1bh8iisGAP5epngSXRgUp4RJrpCL2PnK6wvAVLVY/02id8iX6dky4txygZq4S3BuKiyweF4s1yOx54eyGaMd1xgXJrGkYLtB5K003nNCGODSwnrfqyQkxPabX763ravWI89fymriH8BOKAmHiQX6cfVTuTPAQctuCDOE57Pv6xdGLQB6L4RjPSJEf2lcpbjEo3j4FgFZR+Ukaq1HzmZzgCMjYZmttoHYhdBOSpQZksVsyVkZjRo717zK1Mw0N2TO"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2130,
+    "candidatesTokenCount": 153,
+    "totalTokenCount": 2393,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2130
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 153
+      }
+    ],
+    "thoughtsTokenCount": 110
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:53:05.047670Z",
+  "responseId": "Ue3iarb0Aq6IhcIPy629oAs"
+}

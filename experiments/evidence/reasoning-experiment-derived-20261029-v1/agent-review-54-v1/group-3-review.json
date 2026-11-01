@@ -1,0 +1,203 @@
+{
+  "reviewer": "review_group3 (gpt-6-luna)",
+  "input_sha256": "1eaddbdbd6c2d0145c66804c3b7e46170b0ff45be5bd58c7b4f78eaebba409c9",
+  "role": "agent, not human",
+  "results": [
+    {
+      "id": "R-355a4953200eae6c",
+      "case_id": "source-choice-v7-7f3f27ad35200380203eb59e",
+      "answer_verdict": "supported",
+      "action_verdict": "problem",
+      "alignment_verdict": "respected",
+      "answer_reason": "The quoted fragment states ATO serves “more than 3 million airline passengers” every day and dates the page update July 30, 2025. It gives no exact CY2025 total; the answer correctly refuses extrapolation and notes incomplete coverage.",
+      "action_reason": "The selected fragment repeats the daily passenger wording already visible in the initial fragment; no meaningful gap closure is evidenced. The second query was avoidable given the stated stop direction.",
+      "alignment_reason": "The answer stays within the confirmed thesis and distinguishes a daily lower bound from an exact annual total.",
+      "source_refs": "initial p-6b5bb86f1ede30bcd0ef; initial p-ec99eb23247632d6555e; action p-26cece6173f376608785; payload coverage flags.",
+      "limitations": [
+        "Partial projection cannot establish what the full FAA page contains."
+      ]
+    },
+    {
+      "id": "R-ef955b1a8a1b2bb8",
+      "case_id": "source-choice-v7-7f3f27ad35200380203eb59e",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed FAA text supports a daily lower bound, not an exact annual total. The response says the exact CY2025 total is indeterminable from the excerpt, provides update/capture timing, and avoids unsupported extrapolation.",
+      "action_reason": "STOP follows a justified scoped unknown: only a daily metric is visible and the year is not fully covered.",
+      "alignment_reason": "It respects the exact-total thesis and states source coverage and uncertainty.",
+      "source_refs": "initial p-6b5bb86f1ede30bcd0ef; initial p-ec99eb23247632d6555e; coverage saved_object_complete=false and source_document_complete=false.",
+      "limitations": [
+        "Cannot conclude the full FAA source lacks an annual figure."
+      ]
+    },
+    {
+      "id": "R-1e7ec70167a9bc34",
+      "case_id": "source-choice-v7-5d8e35ecbc6f27e61d005338",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The table header maps col5 to Oct 23, 2026; nested row labels specify U.S. government securities / Treasury constant maturities / Nominal / 2-year, with 4.69 in col5. Initial excerpt states yields are percent per annum.",
+      "action_reason": "The selected fragment directly supplies the requested date and series; stopping is adequate.",
+      "alignment_reason": "Metric, date and unit match the thesis; omitted footnote is disclosed.",
+      "source_refs": "p-d2a4d1ff2ca1f5e69f52; p-b92308771781f08f1319; table-header; table-row-1, table-row-2, table-row-3, table-row-4.",
+      "limitations": [
+        "Footnote 9 and full rendered release are not visible."
+      ]
+    },
+    {
+      "id": "R-ea41b4e38c6fb8b0",
+      "case_id": "source-choice-v7-5d8e35ecbc6f27e61d005338",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The table fragment maps Oct 23 col5 to the nominal 2-year Treasury constant maturity row and shows 4.69; initial excerpt states percent per annum.",
+      "action_reason": "Chosen fragment directly answers the requested series/date; no additional query is needed.",
+      "alignment_reason": "Concise response preserves metric, date, unit and fragment limitation.",
+      "source_refs": "p-b92308771781f08f1319; table-header; table-row-1 through table-row-4.",
+      "limitations": [
+        "Footnote 9 is omitted; no interpretation of it is made."
+      ]
+    },
+    {
+      "id": "R-45a21a69bf8ea28b",
+      "case_id": "source-choice-disc-v1-fb65b72808abd6bc63c35cc3",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed NOAA fragments identify a Mauna Loa monthly series and explicitly caution it “may not be the same as the globally averaged CO2 concentration at the surface”; no numeric September 2026 or global value is visible. The response limits its claim to supplied excerpts.",
+      "action_reason": "STOP is justified: the available action descriptions offer local Mauna Loa rows, not the requested global surface average.",
+      "alignment_reason": "It stays within the global metric and does not substitute a local proxy or claim global data are nowhere published.",
+      "source_refs": "p-cb038dbafb840a9fde63; p-2eee4a27571f7f25ebd8; p-bca2e362c1e3e37e1508; p-6539b8be049be99f4901; p-aec099bb6c09c1a2e19b; action descriptions.",
+      "limitations": [
+        "No numeric row is observed; do not infer global concentration from Mauna Loa."
+      ]
+    },
+    {
+      "id": "R-f5b31aec7a0c62f3",
+      "case_id": "source-choice-disc-v1-fb65b72808abd6bc63c35cc3",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed NOAA fragments identify a Mauna Loa monthly series and explicitly caution it “may not be the same as the globally averaged CO2 concentration at the surface”; no numeric September 2026 or global value is visible. The response limits its claim to supplied excerpts.",
+      "action_reason": "STOP is justified: the available action descriptions offer local Mauna Loa rows, not the requested global surface average.",
+      "alignment_reason": "It stays within the global metric and does not substitute a local proxy or claim global data are nowhere published.",
+      "source_refs": "p-cb038dbafb840a9fde63; p-2eee4a27571f7f25ebd8; p-bca2e362c1e3e37e1508; p-6539b8be049be99f4901; p-aec099bb6c09c1a2e19b; action descriptions.",
+      "limitations": [
+        "No numeric row is observed; do not infer global concentration from Mauna Loa."
+      ]
+    },
+    {
+      "id": "R-1de5ce092e90c661",
+      "case_id": "source-choice-disc-v1-6f163022466b0539ac21bb8a",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The answer correctly distinguishes 322 Bgal/d total withdrawals (with 281 Bgal/d freshwater withdrawals) from consumptive use, and says the requested numeric measure is not present.",
+      "action_reason": "Both executed fragments contribute: one defines consumptive use and the other supplies withdrawal figures that help distinguish the metrics; no unsupported substitution is made.",
+      "alignment_reason": "It preserves the target metric and 2015 period, reports units for the proxy, and leaves the target unknown.",
+      "source_refs": "usgs-2; usgs-4; action descriptions disc-action-v1-658ae13a8f892ef503d135b9 and disc-action-v1-24bf993fdeb165a3e32dfb43.",
+      "limitations": [
+        "Fragments do not establish the numeric consumptive-use estimate."
+      ]
+    },
+    {
+      "id": "R-a0e3b2fbca2cd7a8",
+      "case_id": "source-choice-disc-v1-6f163022466b0539ac21bb8a",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The answer accurately reports the observed proxy values (322 Bgal/d total withdrawals; 281 Bgal/d freshwater, 87%) and definition, but does not mistake them for consumptive-use quantity.",
+      "action_reason": "The two actions provide context and the relevant metric distinction; stopping after these bounded results is justified.",
+      "alignment_reason": "It preserves the thesis target and says the numeric consumptive-use result is unresolved.",
+      "source_refs": "usgs-2; usgs-4; action descriptions disc-action-v1-658ae13a8f892ef503d135b9 and disc-action-v1-24bf993fdeb165a3e32dfb43.",
+      "limitations": [
+        "No exact value can be derived from the observed passages."
+      ]
+    },
+    {
+      "id": "R-338e40dfbb4d8adf",
+      "case_id": "source-choice-v7-f7cd06453b4b01e1b810aff5",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "problem",
+      "alignment_verdict": "respected",
+      "answer_reason": "It correctly identifies that observed 2.2% is real GDP, not requested current-dollar GDP, and leaves nominal value unknown within the fragment.",
+      "action_reason": "The action description already labels the result real GDP, so retrieving it did not address the known nominal metric gap; the reviewed direction was to stop without a query.",
+      "alignment_reason": "It preserves current-dollar GDP as the target and states only bounded absence from visible ranges.",
+      "source_refs": "thesis; action description action-v5-42b89f03d531b9b839a190c4; observed bea-1; source_reference_rubric.case_reference.",
+      "limitations": [
+        "Does not establish nominal GDP absent from the full publication."
+      ]
+    },
+    {
+      "id": "R-54ddd960dc317a24",
+      "case_id": "source-choice-v7-f7cd06453b4b01e1b810aff5",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "It correctly says the supplied BEA fragment has no direct current-dollar GDP change, and identifies the 2.2% real GDP figure only as a proxy/contrast. No nominal figure is invented.",
+      "action_reason": "It reads the specifically described Q2 real-GDP fragment, then stops; the received evidence confirms a metric mismatch. The extra state-real-GDP option is described as another real-GDP source and is not needed for the nominal target.",
+      "alignment_reason": "It preserves the thesis metric and leaves the answer unresolved within bounded evidence.",
+      "source_refs": "thesis; action description action-v5-42b89f03d531b9b839a190c4; observed bea-0 and bea-1; source_reference_rubric.case_reference.",
+      "limitations": [
+        "Fragment incompleteness prevents whole-publication absence claims."
+      ]
+    },
+    {
+      "id": "R-c1804a3279c6aa91",
+      "case_id": "source-choice-v7-f7cd06453b4b01e1b810aff5",
+      "answer_verdict": "unsupported",
+      "action_verdict": "problem",
+      "alignment_verdict": "concern",
+      "answer_reason": "The thesis asks current-dollar (nominal) GDP change. The only observed passage reports real GDP +2.2% annual rate in Q2 2026. The answer presents that different metric as the answer, despite separately noting real GDP; nominal GDP remains unknown in this evidence.",
+      "action_reason": "The action description itself identifies the available fragment as real GDP, so querying it could not close the known nominal-GDP gap; the packet’s reviewed direction was to stop without a query.",
+      "alignment_reason": "It substitutes real for current-dollar GDP, violating the confirmed target metric even though the number and period are correctly sourced.",
+      "source_refs": "thesis; action description eia? BEA action-v5-42b89f03d531b9b839a190c4; observed bea-1; source_reference_rubric.case_reference.",
+      "limitations": [
+        "Does not imply nominal GDP is absent from the full publication; only the supplied fragment lacks it."
+      ]
+    },
+    {
+      "id": "R-0f46c700d54602da",
+      "case_id": "eia-candidate-v2-dc80e5d7e143f6f5be722a8c",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "Observed EIA passage explicitly forecasts U.S. coal stocks averaging 106 MMst during “November–March” and mentions a “late-winter rise in March 2027.” Response retains both source statements and gives the requested average and unit.",
+      "action_reason": "The chosen fragment directly answers the question; the seasonal-pattern option is unnecessary. Stopping after A is reasonable.",
+      "alignment_reason": "The response matches forecast metric, population, stated period, unit, and preserves the source’s March wording without adding a monthly trajectory.",
+      "source_refs": "eia-node-a1efe7270046125cf540; action description eia-action-v2-ef5e45802adb3ed1c3ae06fc; source_reference_rubric.case_reference.",
+      "limitations": [
+        "The source itself places March in the November–March averaging period and also mentions a March 2027 rise; exact month-by-month relationship remains unresolved."
+      ]
+    },
+    {
+      "id": "R-7a26840da7d3f977",
+      "case_id": "eia-candidate-v2-dc80e5d7e143f6f5be722a8c",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "Observed EIA passage explicitly forecasts U.S. coal stocks averaging 106 MMst during “November–March” and mentions a “late-winter rise in March 2027.” Response retains both source statements and gives the requested average and unit.",
+      "action_reason": "The chosen fragment directly answers the question; the seasonal-pattern option is unnecessary. Stopping after A is reasonable.",
+      "alignment_reason": "The response matches forecast metric, population, stated period, unit, and preserves the source’s March wording without adding a monthly trajectory.",
+      "source_refs": "eia-node-a1efe7270046125cf540; action description eia-action-v2-ef5e45802adb3ed1c3ae06fc; source_reference_rubric.case_reference.",
+      "limitations": [
+        "The source itself places March in the November–March averaging period and also mentions a March 2027 rise; exact month-by-month relationship remains unresolved."
+      ]
+    },
+    {
+      "id": "R-a6a077163460f044",
+      "case_id": "eia-candidate-v2-dc80e5d7e143f6f5be722a8c",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The answer accurately distinguishes the observed September estimate (100 MMst, versus 105 MMst in September 2025) from the forecast average 106 MMst over November–March, and states the unit.",
+      "action_reason": "The forecast fragment directly closes the requested gap; the unchosen seasonal-pattern option is not required.",
+      "alignment_reason": "It preserves estimated versus forecast values and the target period/unit; it does not resolve the source’s March overlap.",
+      "source_refs": "eia-node-48b190e62fcb4bebf5a2; eia-node-a1efe7270046125cf540; source_reference_rubric.case_reference.",
+      "limitations": [
+        "Monthly trajectory and the relation between the March rise and the November–March average are not specified."
+      ]
+    }
+  ]
+}

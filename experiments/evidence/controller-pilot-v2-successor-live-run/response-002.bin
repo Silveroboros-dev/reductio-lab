@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"issue\": true,\n  \"critique\": \"The proposed action is to stop with an 'Unknown' answer, but there is an available action ('synthetic-report') to read the fictional Cedar's Q2 widget sales report which could directly answer the question.\"\n}",
+            "thoughtSignature": "AY89a1+iWC8JGCthGTuB5Zo77eAAslS8s+JXrnnuGENF0dGCu1rYbPB1CSfVIarG0NyHK2mXCL5AufuwxWOC8NpWsmgRBTPwKO2yRW2EHDii21cVtaj5LlGUGePDhr3NBQ28uTckK36BRJ2tqyIIlQs7R/BUoHnb8wGaDvUBjKMfe8QGSR9FdWMnQEgLFB4pm4JaHyD0dBOYHAlW5ZhuQH7Xyt/exxR7xbPstKP8fQpYfHLiTEqhBplZZQNVDjvL66puce/XfvZPiYVVrJxrPonJptF/X5f+pK+v0Jn0ZOzmAEaO1JtH1c1nl4IPd//3SlJ2T+WAVadqt+6+dydDHNcKMNtIq0I8l5FFi77cXlCYl6lUxOXGPJ+69EXBfZ/p2v1cWjFV7xKpYeuRGYiuWC47YL0WRfogMeY2ERmPjOkqQWHVPy4xy1HGxS+UBszD2CK1FwV6OnbeXWh7kuAvbmwRkwj/0oIMgf2AqJKRU7FQN5Bmz8ltdEIkARdxvalsjmGI/npV0I7x1F8LHzyF3YnVSY3PX9ci3sc6rz1T4NGYSGqeepth6sjhZsb+cVVRdluBuHWuxQNlS5mrWMXcUaDUt9aTHY2DDEljwBsP+2+gAmQA1q8i8KWsBPpb3MKoAEKdRVogQQ+o3bLh4dYGtndckThXvZu43LQknZAp/DK5a3dfC4ViBacYNZD3Kqg5z8lgzcJkyzrgqDqBobyiJ+JOttn29zyQCZ0j/gl1SOtK2TduXdsQt6on7gPJvB50vzT6Ej0Ky+hfKzvCBOCQOETXh85dr8ijw7JT3RmxwPSxXWDEBKzTiGwI38AIsDxsQDlAtYbD0A8pRQJh1UgVBpsuHClNMT3VmMrjLDTECxA5ERMMYMWexUYbIVxc1OgaSLVEI/CAZ+ZBKRsot+HoEXcKQFVeglrrN6Q49drPq8tlWRZ6coaHcTttIk2u+fPR6ZxCChjOs5GDv0Rhxp9eoMzW41V7gPxz3bsYfTG+Fjh6RX/P4NAkfkjmEYoFN1g="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 204,
+    "candidatesTokenCount": 60,
+    "totalTokenCount": 400,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 204
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 60
+      }
+    ],
+    "thoughtsTokenCount": 136
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:51:47.118923Z",
+  "responseId": "A-3iaouhB47ShcIPzsyi0As"
+}

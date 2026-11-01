@@ -1,0 +1,129 @@
+{
+  "status": "proposed_not_yet_challenged",
+  "title": "Eight frozen Orthogonal source captures for Faithful dynamic pilot",
+  "created_at_utc": "2026-10-29T09:11:28.377124+00:00",
+  "user_authorization": "User authorized $40 including prior and 8-group experiment; UI account price inspected at user request.",
+  "known_prior_exposure_micro_usd": 721593,
+  "total_cap_micro_usd": 40000000,
+  "source_budget_micro_usd": 5000000,
+  "per_source_reserve_micro_usd": 250000,
+  "ui_price_micro_usd": 2000,
+  "ui_price_evidence_path": "ui-serper-price-20261029.json",
+  "ui_price_evidence_sha256": "b77cd7bd9f5264879dc3b4b7db3cd73f1d2a836995258c4a206a91671e0e8ac9",
+  "draft_sha256": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845",
+  "source_requests": [
+    {
+      "case_id": "case-01",
+      "event_group_id": "KXFEDDECISION-26DEC",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Federal Reserve interest rate decisions 2026 2027 latest target range changes"
+      },
+      "relevance_gap": "Whether any officially reported cut or policy event has occurred in the relevant window; cannot establish future no-cut proposition or rewrite the contract."
+    },
+    {
+      "case_id": "case-02",
+      "event_group_id": "KXIPO-26",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic funding round valuation IPO announcement 2026 latest"
+      },
+      "relevance_gap": "Whether a primary funding round or IPO valuation has been reported and with what date/source; IPO announcement alone does not establish $1T."
+    },
+    {
+      "case_id": "case-03",
+      "event_group_id": "KXHIGHINFLATION-26DEC",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "2026 consumer price index year over year inflation reports 4.2 percent official"
+      },
+      "relevance_gap": "Whether any relevant year-over-year CPI report already exceeded 4.2%; a partial year cannot establish future absence."
+    },
+    {
+      "case_id": "case-04",
+      "event_group_id": "KXUSGDPSHARE-27JUL01",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "World Bank 2026 United States world GDP current US dollars WDI latest revision"
+      },
+      "relevance_gap": "Whether a 2026 first or revised WDI estimate is published and which version it is; absence or a forecast is not a final revision."
+    },
+    {
+      "case_id": "case-05",
+      "event_group_id": "KXANTHROPICRESCIND-26JUN",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026"
+      },
+      "relevance_gap": "Whether a documented official action fully rescinds the designation or only waives/modifies it; a headline alone may not establish scope."
+    },
+    {
+      "case_id": "case-06",
+      "event_group_id": "KXCLAUDE-CLAUDE6",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic Claude 6 release publicly available free tier official 2026"
+      },
+      "relevance_gap": "Whether an official release occurred, whether it is public and whether free users can access it; announcements and beta do not settle each condition."
+    },
+    {
+      "case_id": "case-07",
+      "event_group_id": "KXGDPNOM-US26",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "BEA 2026 annual nominal GDP first nonpreliminary estimate World Bank GDP release"
+      },
+      "relevance_gap": "Whether BEA and World Bank official annual data and their versions are available; avoid equating forecasts, preliminary data and distinct sources."
+    },
+    {
+      "case_id": "case-08",
+      "event_group_id": "KXRSIANNOUNCE-29",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "OpenAI Anthropic recursive self improvement independent verification public demonstration 2026"
+      },
+      "relevance_gap": "Whether there is a dated official announcement, a public demonstration and genuinely independent verification; these conditions are distinct."
+    }
+  ],
+  "source_capture_operation": "POST https://api.orthogonal.com/v1/run, body {api:serper,path:/news,body:{q,num:3},query:{}}",
+  "source_attempts": 8,
+  "max_source_attempts": 18,
+  "max_generation_attempts_including_prior": 835,
+  "max_countTokens_including_prior": 767,
+  "model": "gemini-3.8-flash",
+  "location": "global",
+  "input_rate_per_million_usd": 1.5,
+  "output_rate_per_million_usd": 7.5,
+  "input_limit": 16384,
+  "max_output_tokens": 4096,
+  "output_reserve": 8192,
+  "retry_policy": "none",
+  "uncertain_policy": "stop and retain reserve",
+  "manual_market_source": "user-relayed Grok, 2026-10-29 08:58:06–07 UTC, captured bytes sha256 2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+  "user_confirmation": "6 explicitly accepted conditional theses, two historical normalization approvals",
+  "quality_limits": "2 exposed dev + 6 diagnostic candidates; novelty unestablished; same-source conditional comparisons; 1 market per group; one chosen source; no clean expression pool claims; human independent semantic labels absent",
+  "blockers_before_start": [
+    "independent challenge on exact contract and code",
+    "source adapter UI quote and ledger integration tests",
+    "create-only durable ledger and fixed runtime/evidence binding",
+    "verify account identity and no-retry transport",
+    "reconcile current USD provider charges from receipts; unknown effect stops"
+  ],
+  "cost_bound_caveat": "UI price is a direct account context observation; local per-call reserve 0.25 USD is not an enforced provider cap. Bill overruns beyond quoted price are recorded and stop after receipt."
+}

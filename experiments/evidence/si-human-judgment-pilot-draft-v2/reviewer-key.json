@@ -1,0 +1,507 @@
+[
+  {
+    "case_id": "P01",
+    "status": "error",
+    "expected_review": "The disclosed dollar increases are $11.7bn and $4.5bn respectively, so the memo reverses their order. It makes no justified cash-availability conclusion.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P01",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P01-E1",
+          "value": 3.3
+        },
+        "b": {
+          "evidence": "P01-E2",
+          "value": 15.0
+        },
+        "c": {
+          "evidence": "P01-E3",
+          "value": 0.5
+        },
+        "d": {
+          "evidence": "P01-E4",
+          "value": 5.0
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "b",
+            "a"
+          ],
+          "value": 11.7
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "d",
+            "c"
+          ],
+          "value": 4.5
+        },
+        {
+          "id": "n3",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "n2"
+          ],
+          "value": 7.2
+        }
+      ],
+      "target": "n3",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c",
+        "d"
+      ],
+      "counterfactuals": {
+        "a": 11.0,
+        "b": 3.3,
+        "c": 1.0,
+        "d": 20.0
+      },
+      "interpretation": "Both increases need their two endpoints; comparing the derived increases is a downstream step. The memo reverses their ordering. The graph says nothing about cash availability.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 11.0,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        },
+        "n2": {
+          "changed_source_input": "c",
+          "alternative_value": 1.0,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P02",
+    "status": "error",
+    "expected_review": "The later $23.7bn is about 89% of the $26.6bn illustrative combination, not about 11%; the amounts are a June 30 hypothetical.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P02",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P02-E1",
+          "value": 2.9
+        },
+        "b": {
+          "evidence": "P02-E2",
+          "value": 23.7
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "add",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 26.6
+        },
+        {
+          "id": "n2",
+          "op": "divide",
+          "inputs": [
+            "b",
+            "n1"
+          ],
+          "value": 0.8909774436090225
+        }
+      ],
+      "target": "n2",
+      "critical_source_inputs": [
+        "a",
+        "b"
+      ],
+      "counterfactuals": {
+        "a": 213.3,
+        "b": 0.33
+      },
+      "interpretation": "The reference target is the later-recognized fraction of this historical hypothetical total. The memo assigns the complementary fraction to the later amount. No forecast of actual IPO expense is made.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 213.3,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P03",
+    "status": "error",
+    "expected_review": "The residual Class F/A seats are three of seven; the four Class T seats are the majority, subject to the disclosed procedures.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P03",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P03-E1",
+          "value": 7
+        },
+        "b": {
+          "evidence": "P03-E2",
+          "value": 4
+        },
+        "c": {
+          "evidence": "P03-E3",
+          "value": "F/A elect remaining"
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 3
+        },
+        {
+          "id": "n2",
+          "op": "attach_right",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": {
+            "holder": "F/A",
+            "count": 3
+          }
+        },
+        {
+          "id": "n3",
+          "op": "greater_than",
+          "inputs": [
+            "b",
+            "n2"
+          ],
+          "value": true
+        }
+      ],
+      "target": "n3",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 9,
+        "b": 2,
+        "c": "T elect remaining"
+      },
+      "interpretation": "Under the disclosed proposed board, four Class T seats exceed the three residual F/A seats. The allocation condition is needed to identify the residual seats; procedures and vacancies still matter.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 9,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        },
+        "n2": {
+          "changed_source_input": "a",
+          "alternative_value": 9,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P04",
+    "status": "error",
+    "expected_review": "Из суммы исключены договоры без фиксированного минимума. Исключение из оценки не означает нулевые расходы; величина оставшихся платежей неизвестна.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  },
+  {
+    "case_id": "P05",
+    "status": "error",
+    "expected_review": "Это условная возможность финансирования целевого назначения, а не уже имеющиеся свободные деньги; на дату по конкретному соглашению нот не было.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  },
+  {
+    "case_id": "P06",
+    "status": "error",
+    "expected_review": "The nine-month threshold does not establish the same threshold separately for Q3. The Q3 claim is unsupported by this evidence, not proven historically false.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  },
+  {
+    "case_id": "P07",
+    "status": "clean",
+    "expected_review": "Совет допустим в пределах данных: ближайшее ожидание не является бессрочным запретом; отсутствие ожидаемых дивидендов не устанавливает общую доходность. Не интерпретировать его как прогноз роста.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  },
+  {
+    "case_id": "P08",
+    "status": "clean",
+    "expected_review": "Совет верен для указанных условий. Нельзя переносить fallback на все специальные вопросы или опускать условие кворума.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  },
+  {
+    "case_id": "P09",
+    "status": "clean",
+    "expected_review": "$18.972bn less $2.610bn is $16.362bn, below the $17.181bn net investing outflow magnitude. The memo does not assign the remainder to capex.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P09",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P09-E1",
+          "value": 18.972
+        },
+        "b": {
+          "evidence": "P09-E2",
+          "value": 2.61
+        },
+        "c": {
+          "evidence": "P09-E3",
+          "value": 17.181
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 16.362
+        },
+        {
+          "id": "n2",
+          "op": "less_than",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": true
+        }
+      ],
+      "target": "n2",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 28.972,
+        "b": 0.61,
+        "c": 10.0
+      },
+      "interpretation": "Compare net purchases with the magnitude of the net investing cash outflow, both H1 2026. This comparison does not allocate every other investing line.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 28.972,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P10",
+    "status": "clean",
+    "expected_review": "$16.286bn minus $8.945bn minus $3.152bn is $4.189bn before other operating expenses. The memo does not label this profit.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P10",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P10-E1",
+          "value": 16.286
+        },
+        "b": {
+          "evidence": "P10-E2",
+          "value": 8.945
+        },
+        "c": {
+          "evidence": "P10-E3",
+          "value": 3.152
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 7.341
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 4.189
+        }
+      ],
+      "target": "n2",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 17.286,
+        "b": 7.945,
+        "c": 4.152
+      },
+      "interpretation": "This is a two-category arithmetic remainder, not operating profit; S-1 lists other expenses.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 17.286,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P11",
+    "status": "clean",
+    "expected_review": "The complements of approximately 64% and 79% are approximately 36% and 21%, a decline of about 15 percentage points. Future composition is unknown.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "bounded_formal_DAG_checked_offline; actual SI behavior untested",
+    "reference_dag": {
+      "case_id": "P11",
+      "formalism": "typed arithmetic/comparison DAG; one binary primitive per node; no hidden constants except 100% for complements; no source passthrough of a derived value",
+      "inputs": {
+        "a": {
+          "evidence": "P11-E1",
+          "value": 64
+        },
+        "b": {
+          "evidence": "P11-E2",
+          "value": 79
+        },
+        "hundred": {
+          "constant": 100,
+          "value": 100
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "hundred",
+            "a"
+          ],
+          "value": 36
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "hundred",
+            "b"
+          ],
+          "value": 21
+        },
+        {
+          "id": "n3",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "n2"
+          ],
+          "value": 15
+        }
+      ],
+      "target": "n3",
+      "critical_source_inputs": [
+        "a",
+        "b"
+      ],
+      "counterfactuals": {
+        "a": 70,
+        "b": 75
+      },
+      "interpretation": "Approximate outside-top-five shares become approximate inside-top-five shares, then a percentage-point difference. It does not identify customers or predict future concentration.",
+      "scope_limit": "A minimal reference trace inside this operation grammar, not a proof that an LLM needs multiple calls or that the actual SI engine will form this graph.",
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 70,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        },
+        "n2": {
+          "changed_source_input": "b",
+          "alternative_value": 75,
+          "meaning": "With the precursor omitted, the apparent target lacks this discriminating computation; the changed source input gives a different or unbuildable target under the full graph."
+        }
+      }
+    }
+  },
+  {
+    "case_id": "P12",
+    "status": "clean",
+    "expected_review": "Оба условия применяются совместно; одного события effectiveness недостаточно для гарантии полного vesting всех грантов. Некоторые service-порции могут уже быть выполнены; никаких фактических продаж из этого не следует.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All 12 anchor strings found in local original S-1; agent paraphrase, dates, scope, error/clean status, and materiality still require independent human review.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null
+  }
+]

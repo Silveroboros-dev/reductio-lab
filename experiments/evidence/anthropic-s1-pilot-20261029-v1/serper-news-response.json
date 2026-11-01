@@ -1,0 +1,109 @@
+{
+  "billing": {
+    "aggregateChargedPriceCents": 0.2,
+    "billable": true,
+    "chargedPriceCents": 0.2,
+    "continuation": false,
+    "parentRequestId": null,
+    "quotedPriceCents": 0.2,
+    "requestId": "run_1793312301152_cjr1mj48u4",
+    "rootRequestId": "run_1793312301152_cjr1mj48u4"
+  },
+  "data": {
+    "credits": 1,
+    "news": [
+      {
+        "date": "2 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOKsPE7R228OzzHPyFAElTxDfWIicQ0bhEM0M6-0Cm2U7t_OIJs-C2bNhDBkoXaLYMlNmY9PaW0DIhTeZjAEeU-5vJBWNC9mhsDvZFcs_giTJU&s",
+        "link": "https://www.reuters.com/legal/litigation/anthropics-ipo-close-look-ai-frontrunners-rapid-growth-spiraling-costs-2026-10-26/",
+        "snippet": "Anthropic unveiled its US initial public offering paperwork on Monday, setting up for a blockbuster market debut that would test investors'...",
+        "source": "Reuters",
+        "title": "Anthropic's IPO: A close look at AI frontrunner's rapid growth, spiraling costs"
+      },
+      {
+        "date": "3 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyZuNvy3FX-af72AIj3JAdOcQjdYeOPLrR2cMASwW-nZS8gAXVKMtjunsWdsx7maG71DBjQmUwNOVwvfMS0w1myes0MydxIDIc63UufDeERICe&s",
+        "link": "https://www.theinformation.com/articles/anthropics-s-1-takeaways-giant-compute-commitments-complex-lock-ups",
+        "snippet": "Anthropic publicly filed a preliminary prospectus for its planning initial public offering, providing a look inside its business for the...",
+        "source": "The Information",
+        "title": "Anthropic’s S-1 Takeaways: From Giant Compute Commitments to Complex Lock-Ups"
+      },
+      {
+        "date": "2 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT59g2imgEG0FzmkR5yMewhQPi4saHItrsbkQ2upuF2qrusONcDwW6AO6Ik-b66B7mXK4cPNaaD1UFT4BND3petYshPOo0cjMenZF7N35Cz7uQ&s",
+        "link": "https://www.morningstar.com/stocks/3-charts-anthropics-historic-ipo-filing",
+        "snippet": "As Anthropic prepares to sell stock to the public, the S-1 reveals important information for investors on revenue growth, profitability,...",
+        "source": "Morningstar",
+        "title": "3 Charts on Anthropic’s Historic IPO Filing"
+      },
+      {
+        "date": "3 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq3XuMFdYk6KAHRtv_8wJUtaRTjQo_z2JfdvFm96DPi-Csx-QVSCFGduF4mPacFzUA6M7JZ_2nQAWKpHVexxWZ6XOb_aCXkX1TcEcKQbbzBtLM&s",
+        "link": "https://www.ft.com/content/a6c43402-719e-4295-ae5f-541edb0aeb29?syn-25a6b1a6=1",
+        "snippet": "Prospectus details AI lab's 'mission', $800bn data centre commitments and extraordinary governance structure.",
+        "source": "Financial Times",
+        "title": "‘Bold but sane’: what we learnt from Anthropic’s 240,000-word IPO filing"
+      },
+      {
+        "date": "3 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbdkc0XvcMyH4XVFxR2GaMoOQdMxUoU-jnFLdh3xFkPsMyOUw2mHWvkGHukOqb0OAZ-U-HnggwDcnJWqYE3H8DAHYO_yX66wMZ1gW6HrQCN9dD&s",
+        "link": "https://fortune.com/2026/10/26/anthropic-s1-risk-factors-existential-risk-pentagon-dario-amodei/",
+        "snippet": "Anthropic's long awaited IPO prospectus was made public on Monday. The document lays out the company's losses, revenue, governing structure,...",
+        "source": "Fortune",
+        "title": "Anthropic’s risk factors include the end of humanity, a feud with the Pentagon, and CEO Dario Amodei’s reputation"
+      },
+      {
+        "date": "2 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi5WGLX-eiOZBCKBR8M0vtYV9gBfb3dRsm92FhUp2S39Vj5WI41-I5qSbSyEFD2_Z7EMzDgGYk9-TaRWFMGZp-SzmloXV16qJjDxw1eOSwF60s&s",
+        "link": "https://theaiinsider.tech/2026/10/27/anthropics-s-1-the-bull-case-the-bear-case-and-what-both-mean-for-ai/",
+        "snippet": "Anthropic's IPO proposal highlights rapid revenue growth and narrowing operating losses alongside substantial computing commitments.",
+        "source": "AI Insider",
+        "title": "Anthropic’s S-1: The Bull Case, The Bear Case And What Both Mean For AI"
+      },
+      {
+        "date": "3 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4Rj8nPF3-hqu6R34COFx5b51bYqF2JF6b9qTV0_Lm2NoUkMB4bsBSyNCY2rJEnbhDs0C9RM992PtjJupzwGzL4uX5kdFGbEBlRyB0FVJeFadK&s",
+        "link": "https://www.datacenterdynamics.com/en/news/anthropic-files-s-1-for-ipo-with-417bn-in-compute-commitments/",
+        "snippet": "Anthropic is set to go public and has filed its S-1 IPO paperwork. The generative AI firm revealed several details about its operations in...",
+        "source": "Data Center Dynamics",
+        "title": "Anthropic files S-1 for IPO, with $417bn in compute commitments"
+      },
+      {
+        "date": "1 day ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO70tJp4fipLaslzD8B2qgvxmjSYd1pU9mu7Hj6zTiKdS0G14hAgeNG4PV8ki61eeBSL5MJJMCg-E1PYpBgTAsD9IVmEJPs44lrjAdlPOIAnwH&s",
+        "link": "https://michaelparekh.substack.com/p/ai-anthropics-s-1-more-on-mo-money",
+        "snippet": "revenue now outruns compute, ~$800B of commitments, five classes of stock, and 94 pages of risks.",
+        "source": "AI: Reset to Zero",
+        "title": "AI: Anthropic’s S-1, more on “Mo’ Money & Mo’ Problems”. AI-RTZ #1253"
+      },
+      {
+        "date": "1 day ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8lcoxMSOY4tq_zQ4QBrvkjKHYC65uTGQWf83sleef_enzKix6fPL29_MneqUe-war-wDDhUHudwMdHY_BtNafxgMzP3dMNJ0oYAsEePnX-Nw&s",
+        "link": "https://vocal.media/trader/anthropic-filed-for-a-trillion-dollar-ipo-the-s-1-shows-what-claude-costs",
+        "snippet": "Revenue is up 13-fold. The net loss is $80.7 billion. Compute commitments exceed $500 billion. Wall Street finally has to price the business...",
+        "source": "Vocal",
+        "title": "Anthropic filed for a trillion-dollar IPO. The S-1 shows what Claude costs."
+      },
+      {
+        "date": "2 days ago",
+        "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4unNUmY1k7-IKq9b1ycR-9ZH3lCAeg6SRwbD-YOhse_vRcvKbVkC5cJYA1ZM5O_mUl7MuQ5O3Y6tm63kNjzzxpcunmig_Bk2W5MDyYsbqVk8&s",
+        "link": "https://mlq.ai/news/anthropics-s-1-shows-explosive-growth-a-quarterly-profit-and-enormous-compute-exposure/",
+        "snippet": "Anthropic's first public S-1 turns the economics of a frontier AI lab into a regulatory record. Revenue reached $16.3 billion in the first...",
+        "source": "MLQ.ai",
+        "title": "Anthropic’s S-1 shows explosive growth, a quarterly profit and enormous compute exposure"
+      }
+    ],
+    "searchParameters": {
+      "allowSuggested": true,
+      "engine": "google",
+      "num": 10,
+      "page": 1,
+      "q": "Anthropic IPO S-1 compute obligations governance",
+      "type": "news"
+    }
+  },
+  "priceCents": 0.2,
+  "quotedPriceCents": 0.2,
+  "requestId": "run_1793312301152_cjr1mj48u4",
+  "success": true
+}

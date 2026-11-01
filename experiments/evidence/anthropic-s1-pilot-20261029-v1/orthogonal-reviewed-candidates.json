@@ -1,0 +1,55 @@
+{
+  "version": "orthogonal-reviewed-candidates-v1",
+  "created_at_utc": "2026-10-29T22:18:43.886746+00:00",
+  "source_response_file": "serper-news-response.json",
+  "source_response_sha256": "72881897eceead94f9bbdc34d64e8c8408e56df955c7da8588114376aaef5cca",
+  "source_operation": {
+    "provider": "Orthogonal",
+    "upstream": "Serper News",
+    "request_id": "run_1793312301152_cjr1mj48u4",
+    "search_parameters": {
+      "allowSuggested": true,
+      "engine": "google",
+      "num": 10,
+      "page": 1,
+      "q": "Anthropic IPO S-1 compute obligations governance",
+      "type": "news"
+    },
+    "provider_charged_price_cents": 0.2
+  },
+  "selection": "Of the 10 returned items, this article was opened and inspected; Reuters page could not be opened. Data Center Dynamics was opened for context, but its aggregated dollar headline is not used as a verified obligation total. The remaining seven results were not independently read or assessed; their snippets alone are discovery leads, not evidence. This selected article itself interprets S-1 and is not independent primary evidence.",
+  "candidates": [
+    {
+      "id": "ON1",
+      "case_ids": [
+        "S1-03-compute"
+      ],
+      "source_url": "https://theaiinsider.tech/2026/10/27/anthropics-s-1-the-bull-case-the-bear-case-and-what-both-mean-for-ai/",
+      "source_name": "The AI Insider",
+      "source_author": "Matt Swayne",
+      "source_publication_date": "2026-10-27",
+      "source_retrieval_date_utc": "2026-10-29",
+      "origin": "Orthogonal Serper News; article text opened via web tool",
+      "kind": "attributed_paraphrase",
+      "text": "The AI Insider presents a bullish case that rapid revenue growth and improvements in compute spending relative to revenue could support better economics if the relationship continues; it explicitly treats persistence as a conditional proposition.",
+      "verification": "Article body read, bull-case section; the article cites the S-1. Do not treat the hypothetical relationship as proven or predictive."
+    },
+    {
+      "id": "ON2",
+      "case_ids": [
+        "S1-03-compute",
+        "S1-04-customers"
+      ],
+      "source_url": "https://theaiinsider.tech/2026/10/27/anthropics-s-1-the-bull-case-the-bear-case-and-what-both-mean-for-ai/",
+      "source_name": "The AI Insider",
+      "source_author": "Matt Swayne",
+      "source_publication_date": "2026-10-27",
+      "source_retrieval_date_utc": "2026-10-29",
+      "origin": "Orthogonal Serper News; article text opened via web tool",
+      "kind": "attributed_paraphrase",
+      "text": "The AI Insider presents a bearish case that long-duration compute obligations, uncertain growth, and reliance on partners that are also competitors could matter for the company and its future valuation.",
+      "verification": "Article body read, bear-case section. This is an attributed risk assessment, not proof of insolvency or a verified quantitative forecast."
+    }
+  ],
+  "status": "candidate_evidence_not_independent_semantic_adjudication"
+}

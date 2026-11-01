@@ -1,0 +1,17 @@
+{
+  "schema": "user-relayed-kalshi-capture-v1",
+  "recorded_at_utc": "2026-10-29T10:52:27.419754+00:00",
+  "origin": {
+    "kind": "user_relay_of_grok_output",
+    "question_item_id": "call_9617a205c96547e3b1ba97a1323cc603",
+    "claimed_request_time_utc": "2026-10-29T10:50:55Z",
+    "claimed_http_status": 200,
+    "claimed_direct_get": true,
+    "claims_independently_verified": false
+  },
+  "raw_file": "kalshi-user-relay-20261029-v1.raw.json",
+  "raw_sha256": "459f460e7da6d6fcd81d837652f0a487cbe70e7d317f7a29907b5f0eb877bdf1",
+  "raw_byte_count": 6820,
+  "raw_limitation": "Copied user message text plus terminal newline; original network-response bytes independently unavailable.",
+  "market_count": 4
+}

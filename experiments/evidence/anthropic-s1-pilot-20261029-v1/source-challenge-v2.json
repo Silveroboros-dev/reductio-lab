@@ -1,0 +1,14 @@
+{
+  "blockers": [],
+  "contract_sha256": "2a9904c9fc16a6d5844878cd8bd05ce93bfa38e2bbf325ffae382beb3905be89",
+  "evidence": [
+    "v2 source contract binds exact source request, reserve, one-attempt ceiling and cumulative predecessor",
+    "transitive local imported code hashes and price evidence matched at challenge",
+    "predecessor snapshot matched: 56609714 micro exposure, 1578 generation attempts, 1500 countTokens; uncertain predecessor hashes retained",
+    "18 offline runtime tests passed, including exact 429 retry, uncertain no-repeat and source settlement",
+    "HTTP transport uses retries=0 and follow_redirects=False; source timeout retains reserve and stops",
+    "readiness is limited to this source operation; observed catalog price is not a provider-enforced upper bound"
+  ],
+  "reviewer": "/root/controller_fix",
+  "status": "ready"
+}

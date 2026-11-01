@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"conclusion\":\"Batch LARK-7 did not meet the target because only 6 of the 10 final checks passed, which is fewer than the required minimum of 7.\"}",
+            "thoughtSignature": "AY89a1+LfgPnkpyVnK3YBakzje+rqzeBm4yq7dgLeERY2JiLmv6SVyzzI3xKOcTrZWLduOb8SaEq/SbGvLevLYBGyuuyljTvDCMBmlfY8UWuudwwKxel"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 196,
+    "candidatesTokenCount": 38,
+    "totalTokenCount": 234,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 196
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 38
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:45:52.973437Z",
+  "responseId": "oFDnav20O6v9vdIP063w-Qk"
+}

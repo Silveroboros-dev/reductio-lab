@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"disc-action-v1-24bf993fdeb165a3e32dfb43\",\n  \"rationale\": \"The action descriptions indicate that disc-action-v1-24bf993fdeb165a3e32dfb43 contains the fragment regarding estimated U.S. total withdrawals in 2015 and the comparison with 2010, which matches the question.\",\n  \"expected_result\": \"The total U.S. water withdrawals in 2015 in billion gallons per day.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "AY89a1/F7035hOPvhArsrnrfJyocJX9FDYbpM2CciOJLzZnlEJ1bPEmmP+BouZd5v4rcerCL8goxYkpDpZ9cXXP/ubY/+riJSPlD2UcEcDRVMU1nltdk4Fr6GJF3TMP2EGAw0XW793jZsF/h0eYOAX6cVlh8cLEvLakWcGkHAFrqFboIvSE72JCECMonsYT7dsX7KvQ1E7c+cst51UqPhhTA7QKrFnn4uVVaTjWGiQeIPOrxBnoPggTucmCJVyXW0zD3Zslt/Cwkjf7nrHcooy0QIOHy5sn/4mzWq2CHMV4os50RhpnYAgPKLEUaAOYwIhJjO/bzEupeOUzgn1iyvohO5i00IGWb0xwzXrl2uzskEhA2rDo3loF35Z2dqXPqP5S290s63m/q2EwQjPoYL9WJF4wDWy1XpIJrJHi0lE1fPCPGSS8Z2MineES5Y0EDKiuqH5Yjcrd9f0hZVORGyh7Vfwei3oBcCEWRxR41KXXMNJn2bY3toG/gdH02zKeckULjYuhvKRkAh2Y7cENAHoavaO+F/LKKJ5K0Y4em9Lfzn90wL+E7BcHDGNdVJKgAM6+4Z8A6mvJShgEwQhIj2Q4gGSJBA00EQu1Xjr5n84i4oIIw0k02Vc/8XLIxrS+dA+apLS7jkBlMfdEuxr8uQ3Iiy2IFPwnYz40bgGJbkeqIaETFHNfAYGGRy4UnCt99zoc+6t/fR+WiIlKX4Moq1GpBPGU+ensK4ozbiKltywEAdYhDwW3/L1JILzL4lSQOypN/vYlI95/Mauebmpk4i3GJzsT36Y+VCCb0cChb+SYVytV9PkcwP8P6FPRrkx/xZa6sp0W9TwhfL3Ov"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 476,
+    "candidatesTokenCount": 167,
+    "totalTokenCount": 820,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 476
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 167
+      }
+    ],
+    "thoughtsTokenCount": 177
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:53:10.297622Z",
+  "responseId": "Vu3iapaVEtWUhcIP_67bmQc"
+}

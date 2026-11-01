@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"action\":\"query\",\"action_id\":\"disc-action-v1-658ae13a8f892ef503d135b9\",\"rationale\":\"The question asks for estimated U.S. consumptive water use in 2015. This action provides a fragment explaining how consumptive use relates to withdrawn water.\",\"expected_result\":\"Information or definitions regarding consumptive water use estimates.\",\"answer\":\"\",\"stop_reason\":\"\",\"uncertainty\":\"Current evidence contains no fragments.\"}",
+            "thoughtSignature": "AY89a1/5Q42kLcc6OmTj3kGYpu6bs/uHnyU7jAlfPAL6azaQTZpUry+agdEDLkpWog2V6nRrBklgEBnGqqbOn9ysMamqFJQSHP9YyW+WyBgPznOGp6syqx8kgCW49rDCMJC8t9WjZ3NVhFLmijAm1rlK5ve5GcwsRsXQHb2n5gb0NPqY+haQ5bgzcHJ6Vv+lcMfC2UsE4z9qH7EM29XWnrHXw1284+fr5ZkZIEpQaGu83c8B3TaEG4SCZm8o8ea6SuU8SbsacFTpPUY6aEf22dxp29X537maz4//srSBI+awUfhk5Fewo5Y+oqUc1ATZq2ksilm0EXVWVQnX+Q12RbO2M/WOZeHKsnsjsP3ao2CgydefCtWmuJl6buwsTCYPQSffFumKwM2BJCaRRMrtyREEEPsqxM2FJiYqD5bDAJO1XgHRviBIhJZysyjnTgWaT8vwPkRgnB+gchSMG+ro9N8Liim9JQqCOCOVK+bY4+fYT+76gqEwtGk92NoZhuLEs756HEKBdE8X1USTjBzZtsa1kmefRockI1lZrSCkuYMt9boNeqWZP/KsCGGf80HaNoF/XpTMoE+Vb49gx5aHtlRVAQmlTDE52hKqCd/LOk6UWKCaERaOEm40VVJ82Vgjm1VWDeaqDsJ9Ys/CjDpQbSI/s7L6f8VYBegxiQMeDdxQcWaYsUFmq8a7+/2Whed4mhcs+0LbC+5rZUmu7NtUcMi8gXrkjt1Jw7tOqsdEo2f7PANtu1t9IhbvtZhyTEOcwXRuDWOB43ADa4dJ5dSAvHY1DghmAp1nqNRojfk6YYWobc1OnvfGQ9keiKNF6OB8uKX8VNW1k2NweqpM1k0OmRUhaIDw8A/2vq6beTCDeX+bIPLrkoIGS+GAadB4LiWi2gI8cyjOoeOZmDvH+zQuz0o+c3JCBQz5cLANnwpKVDnOkZi/wOxZIqZO5/FgRMI3XU41cxONfdWJn4R2sVwEBti6XdSuW5WvP9OeDHVEv4l5QrO//hubucJsuenREOyprFYxNFBofLqYrGZ76vkCNoyq8CqfVWleWiPsy+k81koA90MnlRFta32RCprwC4Bkt+kdknWhH5Hmdwk1MvKmixwP32eXWv7ff6jqPJd+WWbJ4JtM/dU="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 477,
+    "candidatesTokenCount": 109,
+    "totalTokenCount": 879,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 477
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 109
+      }
+    ],
+    "thoughtsTokenCount": 293
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:10:27.059507Z",
+  "responseId": "c__iavPQA8vImLAPocbqmAM"
+}

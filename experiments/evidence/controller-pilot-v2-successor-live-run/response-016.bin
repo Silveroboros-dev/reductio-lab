@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-256732afca0344a1ae6ed270\",\n  \"rationale\": \"The question asks about the annual run rate reported for the combined Trainium, Graviton, and Nitro business, and whether it isolates AI-only revenue. This saved public page about Amazon AI chips business history is highly likely to contain this information.\",\n  \"expected_result\": \"A specific annual run rate figure for Trainium, Graviton, and Nitro combined, and clarification on whether it isolates AI-only revenue.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"The exact figures and whether they isolate AI-only revenue are currently unknown.\"\n}",
+            "thoughtSignature": "AY89a1+Be64fZ87gHpUehQz36I8csqGnsU+QAF3mapxBewXoz6JHiURqMoCuCmOHdGfnCj4V9ODLMFcqDmKgZ3NeugbcALYfstGaakWbsUAAxi84JcF7ozK2zMzESb4GRPeTWvAeosG4dYx3Gkvqy4czPpHkCTr1GsExAAIQgFKMwxmgR6gHnL5k7OHyyaUEcH29KB0xJWZjgkwCkfloWtmt2aEBGfJDXCOrkSUW5AAtFH0CNE1SmT3Qm7Z2mlp1tH4A3Nhg+HfPkMisvYS26FUeFn3+iRPPTsaIxhqeyO+TK0TYHdxx3ofaKM+aB26HdoKw7hv6iajYnS2dohSwaMDEpfeK5RaLDYlMYqiboSv5tBP+DTyqHDZvBpdDjr4NiFaJZ3hW9P5djSJimz+jLhueiPtG+t0u8SkQvuBaKUq/UZOESdLeaiq7UThsPhbjHiiOlwXtAYBBQMuZEby5JItWeY4pvH+9QmmvTiBo3tpv6KJlROjwFzCiYoWe0zpl7OtR73oqQMr6c0Pg/Q0nmKb7hmgb/ucBnYLgLokQXv+YtbV5pLLxTtBO9rKUK3mVPueCXMiFGWtqZP2w9M7RrphbTfFQZSfeRZXpjrWdrb1FYcra3/85xGpD/23h3QcycZRavdiK35y9EEfZ6ENNEjIXRU96/X33YjMJyjC1ywbWlQkrLmnKcl8eBSZ3V54ALiyh2YGSXbAQQU3cQsC+G7Fqcmw1y2Pw5DmM2MKYahzMPmAbw0xepXU5iUPLBMSFQcef0TFXSfEWcdwL7nIB2cK/0RrXjB+6bvVCL9FPP5pDdvl2361jZwyZBz0FycDn6043JldA5Or5Trq9SYrDBGbKcZ0+NG9OKGefD36mWRIyQ0WwnreX3nJjLAgzyW4mnyyD5GBtIROPIDsLkCU3FQ4t4LiEhdXafmG+iPVzPPFjU2VhDHHXEn8Vv/TOJlT8+5AsVvsAOT1lkkV5Xkgu9AO4YZUfyX4HvJhpJ4/Ymz4KZDnY0yCcyUqXR34f2G9YMv2pGFCH1w=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 571,
+    "candidatesTokenCount": 170,
+    "totalTokenCount": 958,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 571
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 170
+      }
+    ],
+    "thoughtsTokenCount": 217
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:37.333522Z",
+  "responseId": "Ne3iatKtFNTnmLAP_LaGmAo"
+}

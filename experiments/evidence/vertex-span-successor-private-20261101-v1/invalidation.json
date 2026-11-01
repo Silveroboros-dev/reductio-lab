@@ -1,0 +1,1 @@
+{"contract_sha256":"daa9fc3053b033784cc57e76ea5ca9a1a84877a223669d3fc2d139d1b3312ed3","live_calls":0,"reason":"uncertain effect incorrectly collapsed into ordinary nonpass; repaired in successor","state":"invalidated"}

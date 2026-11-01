@@ -1,0 +1,55 @@
+{
+  "component_bindings": {
+    "controller/faithful.py": "ac06ac1a8dfea20adae23733fbda54e658f952b7aa20aee089b642455f826c6f",
+    "dataset-draft-20261029/assembled-v3/manifest.json": "0b41030efebf5f8869f0c8994ca411567d872afe7beb9b0b8486cd57cffe7092",
+    "harness/harness.py": "ce0a4355a736daef542fdf9ee8d24f5b6b6ea845bb4c228eded8115ff1653a57",
+    "live-model-experiment-20261029-01/summary.json": "1ab76742825b7d86fee880b918513898d5887a37c761ce38c66bbe1028ae2f43",
+    "model-contract-frozen-v1.json": "12408e79e916ce97f6394d78a0570fc4d9dec97417998159f58f7be9f10d66d8",
+    "source-receipt-manifest-20261029.json": "0b00d587a3d85e5d377023f5785a267913c3ba3a5bb6db6dcde0539bf548fcb7",
+    "successor-protocol/model_protocol_v2.py": "6049b8e2d7dede1aaec34c034190865199831e815bd62a70b385b3c3c1fe0f8b",
+    "successor-protocol/runner_v3.py": "33def8802ddbbaea5f685d46e4b5dfade2074a8c0206602b9d22e50afcc2a5cc"
+  },
+  "limits": {
+    "input_limit": 16384,
+    "max_count_tokens_including_prior": 767,
+    "max_generation_attempts_including_prior": 835,
+    "max_new_source_attempts": 0,
+    "max_output_tokens": 4096,
+    "max_source_attempts_including_prior": 18,
+    "output_reserve_tokens": 8192,
+    "prior_count_tokens_attempts": 27,
+    "prior_exposure_micro_usd": 797567,
+    "prior_generation_attempts": 95,
+    "prior_source_attempts": 8,
+    "timeout_seconds": 420,
+    "total_cap_micro_usd": 40000000
+  },
+  "planned_design": {
+    "arms": [
+      "A",
+      "B",
+      "B_self_check",
+      "C"
+    ],
+    "case_count": 8,
+    "interpretation": "exploratory successor; early cases and failure mechanism were observed before amendment; no independent semantic ground truth",
+    "model": "gemini-3.8-flash",
+    "retry_policy": "no automatic retry of uncertain effects",
+    "selection_fix_post_observation": true,
+    "slots": 32,
+    "source_capture": "reuse eight frozen previously paid captures only; no new retrieval",
+    "source_selection": "exact query/stop/reflect for baseline; exact query/stop for C; source content hidden until selection"
+  },
+  "predecessor_model_summary_sha256": "1ab76742825b7d86fee880b918513898d5887a37c761ce38c66bbe1028ae2f43",
+  "predecessor_stopped_ledger_sha256": "51d295d335baf5673f93f6c2ddee22e7de8b1a254de36a010da7b07581d81a64",
+  "reason": "Fix ambiguous source-selection protocol exposed by technical failures in preceding stopped series; do not silently remap previous responses.",
+  "requirements": [
+    "settled predecessor effects verified and existing stop preserved",
+    "independent accounting successor and carry, no new source effects",
+    "independent ready challenge of frozen successor contract, code and ledger binding",
+    "offline fixtures cannot prove live model compliance; no automatic model calls",
+    "human review is required before reporting semantic accuracy or claiming support"
+  ],
+  "schema": "faithful-model-successor-draft-v1",
+  "status": "draft_not_runnable"
+}

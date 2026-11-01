@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-5065a498a0c50c1e01407234\",\n  \"rationale\": \"Fetching the saved public page for NVIDIA's Fourth Quarter and Fiscal 2026 financial results to verify the reported Data Center revenue, reporting quarter, and if it mentions H100 rental prices.\",\n  \"expected_result\": \"The text of the press release containing the Fourth Quarter and Fiscal 2026 financial results, including Data Center revenue and any mentions of H100 rental prices.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "AY89a1/ghlXmFHCvMNoH4OR8ayUlPrzb0vu6ocU+WrFcZHbL9Zi2tKVW27GG9kkx/zZmVWzAnjWJVxDCYUHoJ5HMaWxSS2IMSXpCCvwYcRI5gXsbCgdndWGLOGQlKsaVDnBAyzXqFBUAQAYqBQ6KljgCWVBnW8GrV3QTmuUOZgK6rfqlLVpSDRYzzhMVvBV4i5UbP+bXB6vbUspqYYi414wsj/emnWheO0+1jLMLY3JkMxP+dtwOTeAly4uDp+N3NqNFP4eyg3zbP36V8OKMuxIaqNbP98pPCX4GiIbkWbsZXU3ldRpJmx7S9ERHzOpR/bBhMN5TCnzQ3hNWw4YwPkVR4fFPJUt4l5ndmsdhd8JM0GlMy0HrYzhpbMMw5GZveCBKz4Jouq/bQ+TBQb+0X3BGY9vxBVUtaCgodDoBXJGJFEPDbqYp8RpAjhBSRUqB6AdESMTYipUfCVhrp8Ut9soNABhkjvH0PGZS9R42bfbLizZLzSTytUdwWvxMBoj0JOABwjncl7rgoZ+Ocp+9TUXCxCumzt4lu2TbIj02nQZ4JAPs9QMXg6iZnz7WXlCOpRJFWXMLNqeUggqPF5qtvAptyD0FQjkwU0s3ZjE03i747qgRnP8ii479tRKG8Qp2Kw1KQOcIqXD4zpIYEtYKU+CnP2qWe9p3zmMeyWpJIdekoyW90IOpGHi66XC917vYaxExhguyx98VvUqJcRF4eqYnOyZCxXHshWj+Sh1U58G1RP56UNEjg9CfUZfLDPG6scg="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2001,
+    "candidatesTokenCount": 160,
+    "totalTokenCount": 2308,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2001
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 160
+      }
+    ],
+    "thoughtsTokenCount": 147
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:55.871054Z",
+  "responseId": "R-3iao6VNfKLhcIP4JjZ2A8"
+}

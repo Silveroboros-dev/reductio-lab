@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"disc-action-v1-24bf993fdeb165a3e32dfb43\",\n  \"rationale\": \"The first fragment only defined consumptive use without providing quantitative estimates for 2015. Querying the remaining USGS fragment to see if it provides or leads to the 2015 consumptive water use estimate.\",\n  \"expected_result\": \"Quantitative data on 2015 water withdrawals and possibly consumptive use.\",\n  \"observed_vs_expected\": \"Expected information or definitions regarding consumptive water use estimates, and retrieved a definition of consumptive use, but no specific 2015 quantitative estimate.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"Exact 2015 consumptive water use figure in billion gallons per day is not present in the current visible fragment.\"\n}",
+            "thoughtSignature": "AY89a19sKPQ1NznkHxXr+Cy24ixyj90fkDdNj4W1SbRnj8mxaRT+NO8YtGDeSgbPbh/HWtpfz+5tBMwijHLYEjnnxVXwMAyHDH4yDzVpFrjDCuO/xiq8"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1402,
+    "candidatesTokenCount": 210,
+    "totalTokenCount": 1612,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1402
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 210
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:10:30.334172Z",
+  "responseId": "dv_iatyyFNTnmLAP_LaGmAo"
+}

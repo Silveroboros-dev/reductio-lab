@@ -1,0 +1,8 @@
+{
+  "catalog_url": "https://www.orthogonal.com/dashboard/discover/serper/91fb13eb-b5bd-4602-849f-a87d7df01e75",
+  "endpoint": "serper POST /news",
+  "evidence_type": "human-readable browser observation; not a binding provider quote",
+  "observed": "$0.0020 per call, displayed in authenticated Orthogonal catalog",
+  "observed_date": "2026-10-29",
+  "schema": "observed-source-price-v1"
+}

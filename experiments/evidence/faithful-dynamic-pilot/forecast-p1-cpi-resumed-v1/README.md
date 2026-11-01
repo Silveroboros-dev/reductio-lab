@@ -1,0 +1,13 @@
+# CPI P1 gate using the resumed P0 receipt
+
+Offline-only; no credentials, provider/market/source calls, ledger mutations or new publication. `gate.verify_p0()` validates the real create-only CPI p0 input, resumed frozen result and receipt, source-time identity and exact SHA-256 of the settled successor ledger. It replays all eight C and eight B historical successful generations locally against their exact request and response bytes, including the recovered B05 linked to the historical `countTokens` receipt. This does not independently authenticate an external venue, price, news, underlying model version, user decision or reviewer.
+
+`gate.prepare(news,status,t1,verify_news,verify_status)` preserves the actual `resumed-original-p0-receipt-v1` and does **not** rename it. It emits a forecast-p1-input-v1 bundle after checking: actual P0 durable time; exact frozen base and each arm's own prior; news publication and capture after that time; fresh post-news active/unresolved status with identical full rules; and separate source/news and status verification callbacks. It never passes status quote or other status fields to either model arm. If data are missing or a check fails, it returns `pending` or raises, without provider calls. The test data are synthetic and do not assert any actual new PCE release; `2026-10-29T12:30Z` in tests is a hypothetical fixture, not a claim about actual publication.
+
+`runner.py` implements an offline-injected four-arm execution scaffold with the original ≤300-second status guard before and after model effects. It requests a separately authorized, receipt-bound status refresh before the observation expires and always requests another after the last model result; at 28 source attempts or an unavailable/invalid status it stops and preserves partial work. It never gives the refreshed prices to the model. `stages.py` composes distinct source/model stages on one shared account, verifies the recorded response/charge and timestamps the local observation at ledger completion. The local receipt time does not prove the response is fresh at the venue: cache and upstream provenance must be independently established by the caller. `runner.py` requires externally injected transport, exact preapproved status operations, decoder, provenance verifiers, pacing, and a reviewed P1 budget stage; none is supplied here. Checking status before and after execution cannot guarantee no transient early resolution during the interval. No actual status is fetched by this package on import or tests.
+
+Run from artifact root:
+
+```
+PYTHONPATH=forecast-p1-cpi-resumed-v1 PYTHONDONTWRITEBYTECODE=1 /Users/rk/Desktop/fitcheck-core/.venv/bin/python -m unittest -v test_gate test_runner test_stages
+```

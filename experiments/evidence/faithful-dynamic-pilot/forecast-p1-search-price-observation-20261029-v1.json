@@ -1,0 +1,21 @@
+{
+  "observations": [
+    {
+      "api": "serper",
+      "observation": "Rendered page after navigation displays POST /news $0.002.",
+      "path": "/news",
+      "rate_usd": "0.002 per call",
+      "url": "https://www.orthogonal.com/discover/serper"
+    },
+    {
+      "api": "you/search",
+      "observation": "Rendered page after reload displays $0.005 per call.",
+      "path": "/v1/search",
+      "rate_usd": "0.005 per call",
+      "url": "https://www.orthogonal.com/discover/you/df932f19-de68-446e-8b8d-3408883b33f6"
+    }
+  ],
+  "observed_at_utc": "2026-10-29T11:28:51.599108+00:00",
+  "qualification": "Visible public UI quotes; actual account billing and platform fees not independently guaranteed. Verify priceCents returned by each call; stop on missing or above quoted price.",
+  "schema": "p1-search-ui-price-observation-v1"
+}

@@ -1,0 +1,17 @@
+# Offline accounting prototype — NOT approved for live execution
+
+This is a local standard-library prototype with an **injected, fake transport**. It has no credentials, network transport, production request construction, callback adapter for either engine, model-output parser, or live source integration. Tests use synthetic responses only. No real requests have been made. Do not connect it to any service.
+
+The journal creates a new owner-only directory and appends fsynced JSONL entries for `prepared`, `started`, `succeeded`, `failed_before_effect`, `uncertain` and accounting. Raw response bytes are captured separately and bound by SHA-256. Request text is not retained, only its SHA-256. Any failure after transport starts is treated as uncertain; no retry or resume is implemented. Response receipt does not imply successful model output or semantic correctness. A journal failure stops that runtime object; after process loss or torn writes, forensic reconciliation is required. It is not a concurrency-safe cross-process ledger.
+
+For each `generate`, the prototype first performs one `countTokens` operation using a copy of the same constructed generation request and the supplied model identity. It rejects `body.model` and requires `maxOutputTokens = 4096`. It blocks generation when the reported input exceeds 16,384 tokens; actual countTokens request compatibility and its billing/semantics must be independently validated against the selected provider. It counts all operations, even ambiguous ones, toward local caps. Raw count operations are separately available. `countTokens` failures stop the runtime. Responses lacking valid usage are billed locally at the retained reservation, and further calls stop.
+
+Default test accounting carries the previously reported $0.721593 and 79 generation/11 count operations. Its totals are 835 generation and 767 count attempts including those earlier operations. One generation reserves $0.086016, computed from 16,384 input and 8,192 combined output/thought tokens at assumed undiscounted rates of $1.50/$7.50 per million tokens. After a response, output is conservatively `totalTokenCount - promptTokenCount`, including thought tokens; the separate thought count is recorded only if returned. Rates and their applicability to the exact chosen model are **assumptions**; the string model identity is not authenticated against a pricing table.
+
+**This is not hard enforcement of the user's $40 aggregate limit.** The default $5 external-source reservation is an accounting assumption, not a source budget controller: real source calls are neither journaled nor atomically checked here. The token reservation is also not a proven provider-side bound on all billable output and thought tokens. If actual billable usage exceeds the reserved amount, the provider cost has already been incurred before the stop is observed, so $40 could be exceeded. A genuine cross-provider ledger, atomic reservations before every source/model effect, confirmed model-specific billable-token limits and prices, durable crash recovery and independent audit are prerequisites for any live execution. The `_request` method is an internal implementation detail, not a security boundary; direct use bypasses the count check. This module does not supply those prerequisites.
+
+Run offline tests:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -q test_vertex_runtime.py
+```

@@ -1,0 +1,7 @@
+{
+  "packet_name": "source-capture-challenge-packet-v1.json",
+  "packet_raw_sha256": "f068e1cac5ce214b509e4cf23c20a50fd4e852c6ab751dd5408bb54c4854a4c1",
+  "packet_byte_count": 6977,
+  "packet_internal_digest": "b9c3268ea20c8503d86cda36a43ad569b6c6b64b03f3c76e139b984b6899106b",
+  "state": "blocked"
+}

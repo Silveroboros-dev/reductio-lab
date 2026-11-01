@@ -1,0 +1,23 @@
+{
+  "actual_micro": 2000,
+  "completed_at_utc": "2026-10-29T22:18:23.256940+00:00",
+  "exposure": {
+    "count_attempts": 1500,
+    "exposure_micro": 56611714,
+    "generation_attempts": 1578,
+    "metadata_attempts": 0,
+    "metadata_retained_micro": 0,
+    "new_count_attempts": 0,
+    "new_exposure_micro": 2000,
+    "new_generation_attempts": 0,
+    "remaining_micro": 3388286,
+    "source_attempts": 1,
+    "stopped": 0
+  },
+  "http_status": 200,
+  "note": "source candidates only; not verified truth",
+  "request_sha256": "5924bfef10ef8684c9552ca605154bed49e204fcb7fd6bb4b244b3038e05c37a",
+  "response_sha256": "27c031f011ca70376dca1bd5436a2fcf1d0e8294907f2377e56737da0f967c31",
+  "started_at_utc": "2026-10-29T22:18:20.697991+00:00",
+  "state": "succeeded"
+}

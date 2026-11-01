@@ -1,0 +1,4252 @@
+{
+  "schema": "hard-si-citation-sufficiency-v1",
+  "run_status": "incomplete",
+  "assignments_recorded": 56,
+  "case_denominator": 12,
+  "assignment_total": 60,
+  "stopped": true,
+  "automatic_resume": false,
+  "summary_sha256": "b4eadc284e6449544f6c1df8fbe5043d801e622d8df812bc8f36b2f9a6577692",
+  "tasks_sha256": "00293e361bd7a046bf259ca9b8b6cbb9b4edbddf53ab745a761b37dc9033b94f",
+  "key_sha256": "4e05e2fdeea13f3d841432a187b6a1a582b6248f9a2f6e19bcce18f99e8faa48",
+  "method": "regex parse source text; BFS over only final-answer cited fact/rule IDs for B and C",
+  "citation_sufficiency_is_not_explanation_or_internal_reasoning_validation": true,
+  "cases": [
+    {
+      "case_id": "hard-f5605cde98d00ab1bf62",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s045",
+                  "s061",
+                  "s016",
+                  "s062",
+                  "s021",
+                  "s019"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided statements:\n- Entity-1 has label XAXMV (s070).\n- If something has label XAXMV, then it has label JTYDP (s045).\n- If something has label JTYDP, then it has label ICUOC (s061).\n- If something has label ICUOC, then it has label TIHDN (s016).\n- If something has label TIHDN, then it has label NGBHQ (s062).\n- If something has label NGBHQ, then it has label JMUDA (s021).\n- If something has label JMUDA, then it is authorized to enter the sanctuary (s019).\n\nTherefore, Entity-1 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s045",
+                "s061",
+                "s016",
+                "s062",
+                "s021",
+                "s019"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "51e4c4b2e27db703a45bf448746c0dee6594a752975664ee341250eb46f3d735.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 7722,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s045",
+                  "s061",
+                  "s016",
+                  "s062",
+                  "s021",
+                  "s019"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-1 is authorized to enter the sanctuary. Specifically, Entity-1 has label XAXMV (s070), which implies label JTYDP (s045), which implies label ICUOC (s061), which implies label TIHDN (s016), which implies label NGBHQ (s062), which implies label JMUDA (s021), which establishes that Entity-1 is authorized to enter the sanctuary (s019).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s045",
+                "s061",
+                "s016",
+                "s062",
+                "s021",
+                "s019"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "caac96da9c2eb5235bde6e9b99e330edf7f578d397a5c68a297bfddd858cb729.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 13662,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s045",
+                  "s061",
+                  "s016",
+                  "s062",
+                  "s021",
+                  "s019"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-1 has label XAXMV (s070). From this, Entity-1 has label JTYDP (s045), which implies label ICUOC (s061). Label ICUOC implies label TIHDN (s016), which leads to label NGBHQ (s062), and label NGBHQ implies label JMUDA (s021). Finally, any entity with label JMUDA is authorized to enter the sanctuary (s019).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s045",
+                "s061",
+                "s016",
+                "s062",
+                "s021",
+                "s019"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "e3998d4cf6873af04a313195d2d16631a122ca642fed9b3633bb2314f8290889.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 27299,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "proposal",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s045",
+                  "s061",
+                  "s016",
+                  "s062",
+                  "s021",
+                  "s019"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES, Entity-1 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s045",
+                "s061",
+                "s016",
+                "s062",
+                "s021",
+                "s019"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "ecc2103483a66e99b619aac0d1b8e9db2f359520532627c1ecdc024ea8170644.outcome.json",
+          "role_calls": 34,
+          "actual_micro_known": 91918,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s016",
+              "s019",
+              "s021",
+              "s045",
+              "s061",
+              "s062",
+              "s070"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s045",
+                  "s061",
+                  "s016",
+                  "s062",
+                  "s021",
+                  "s019"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-1 is authorized to enter the sanctuary. Specifically, Entity-1 has label XAXMV (s070). Label XAXMV implies label JTYDP (s045), which implies label ICUOC (s061). Having label ICUOC implies label TIHDN (s016), which implies label NGBHQ (s062). In turn, label NGBHQ implies label JMUDA (s021), and any entity with label JMUDA is authorized to enter the sanctuary (s019).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s045",
+                "s061",
+                "s016",
+                "s062",
+                "s021",
+                "s019"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "d591d77003e3067fab8890d92cec2659bd3bc1d7c329e3c32753f6c065c01c28.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 101883,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-d1e6225e7a37d4da38eb",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s050",
+                  "s047",
+                  "s060",
+                  "s010",
+                  "s033",
+                  "s020"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules and facts:\n1. Entity-1 has label MXKSX (s070).\n2. MXKSX implies EFVII (s050).\n3. EFVII implies VBZVU (s047).\n4. VBZVU implies TTDIG (s060).\n5. TTDIG implies QRKFM (s010).\n6. QRKFM implies PLEWF (s033).\n7. PLEWF implies that it is not authorized to enter the sanctuary (s020).\n\nTherefore, Entity-1 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s050",
+                "s047",
+                "s060",
+                "s010",
+                "s033",
+                "s020"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "caa5b5e3272b0a4bbf35c411490aed5bb725395331750989e48b8c5630c3160d.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 7479,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s050",
+                  "s047",
+                  "s060",
+                  "s010",
+                  "s033",
+                  "s020"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules and facts, Entity-1 has label MXKSX (s070), which implies it has label EFVII (s050), then VBZVU (s047), then TTDIG (s060), then QRKFM (s010), and then PLEWF (s033). Having label PLEWF establishes that it is not authorized to enter the sanctuary (s020).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s050",
+                "s047",
+                "s060",
+                "s010",
+                "s033",
+                "s020"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "6f711aedb0f985c41081aa794bc2de727f6fd98bab689c415c0c5be37831c567.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 15152,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s050",
+                  "s047",
+                  "s060",
+                  "s010",
+                  "s033",
+                  "s020"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided statements:\n- Entity-1 has label MXKSX (s070).\n- If something has label MXKSX, then it has label EFVII (s050).\n- If something has label EFVII, then it has label VBZVU (s047).\n- If something has label VBZVU, then it has label TTDIG (s060).\n- If something has label TTDIG, then it has label QRKFM (s010).\n- If something has label QRKFM, then it has label PLEWF (s033).\n- If something has label PLEWF, then it is not authorized to enter the sanctuary (s020).\n\nTherefore, Entity-1 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s050",
+                "s047",
+                "s060",
+                "s010",
+                "s033",
+                "s020"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "6f8572323aa8b596e549d86cbcf381e546b390ae287ec6eff363061c2b9b7181.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 29468,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "unknown",
+          "reason": "reasoning_depth_exhausted",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_unknown_status",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s050",
+                "s047",
+                "s060",
+                "s010",
+                "s033",
+                "s020"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "40fee1ef6382bfe0ec7b564a013f43aa7186042b91242096a8ec8fedafbf7c91.outcome.json",
+          "role_calls": 33,
+          "actual_micro_known": 93272,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s020",
+              "s033",
+              "s047",
+              "s050",
+              "s060",
+              "s070"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s070",
+                  "s050",
+                  "s047",
+                  "s060",
+                  "s010",
+                  "s033",
+                  "s020"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Entity-1 is not authorized to enter the sanctuary.\n\nFrom the supplied facts and universal rules:\n1. Entity-1 has label MXKSX (s070).\n2. If something has label MXKSX, then it has label EFVII (s050).\n3. If something has label EFVII, then it has label VBZVU (s047).\n4. If something has label VBZVU, then it has label TTDIG (s060).\n5. If something has label TTDIG, then it has label QRKFM (s010).\n6. If something has label QRKFM, then it has label PLEWF (s033).\n7. If something has label PLEWF, then it is not authorized to enter the sanctuary (s020).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s070",
+                "s050",
+                "s047",
+                "s060",
+                "s010",
+                "s033",
+                "s020"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "4aee0a1fd784ee73f17ce16aaa17ceb4201581238306b6b26e1775be831bfd95.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 94506,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-fb205463462319d410fc",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s022",
+                  "s040",
+                  "s031",
+                  "s073",
+                  "s059",
+                  "s069"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided rules and facts:\n1. Entity-2 has label OJVNS (s027).\n2. OJVNS implies GIAUC (s022).\n3. GIAUC implies PFYBH (s040).\n4. PFYBH implies VVHCS (s031).\n5. VVHCS implies HMIBB (s073).\n6. HMIBB implies LDQRI (s059).\n7. LDQRI implies that the entity is authorized to enter the sanctuary (s069).\n\nTherefore, Entity-2 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s022",
+                "s040",
+                "s031",
+                "s073",
+                "s059",
+                "s069"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "adf28eab6beda3c9d70e637a2e59adc335b75cce1641b642e56bb20be87f21df.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 7448,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s022",
+                  "s040",
+                  "s031",
+                  "s073",
+                  "s059",
+                  "s069"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied statements, Entity-2 has label OJVNS (s027), which implies label GIAUC (s022), which implies label PFYBH (s040), which implies label VVHCS (s031), which implies label HMIBB (s073), which implies label LDQRI (s059). Finally, having label LDQRI implies that it is authorized to enter the sanctuary (s069).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s022",
+                "s040",
+                "s031",
+                "s073",
+                "s059",
+                "s069"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "9ff2c896458d9be0e2f71d56507ab41a1b734e618ff59de2c7d06269671ea446.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 16013,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s022",
+                  "s040",
+                  "s031",
+                  "s073",
+                  "s059",
+                  "s069"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided statements: Entity-2 has label OJVNS (s027). Having label OJVNS implies label GIAUC (s022). Having label GIAUC implies label PFYBH (s040). Having label PFYBH implies label VVHCS (s031). Having label VVHCS implies label HMIBB (s073). Having label HMIBB implies label LDQRI (s059). Finally, having label LDQRI means the entity is authorized to enter the sanctuary (s069).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s022",
+                "s040",
+                "s031",
+                "s073",
+                "s059",
+                "s069"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "c5f2534d29eb2fb1169fbcbe59172f8063e45abc621d8f63d87ddd742e43f94a.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 28141,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "proposal",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s022",
+                  "s040",
+                  "s031",
+                  "s073",
+                  "s059",
+                  "s069"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES, Entity-2 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s022",
+                "s040",
+                "s031",
+                "s073",
+                "s059",
+                "s069"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "ee0456fccee218ccdfa07b10ae7872735e097b0c2bf242cbae8a59bb2fd1633e.outcome.json",
+          "role_calls": 31,
+          "actual_micro_known": 86578,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s022",
+              "s027",
+              "s031",
+              "s040",
+              "s059",
+              "s069",
+              "s073"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s022",
+                  "s040",
+                  "s031",
+                  "s073",
+                  "s059",
+                  "s069"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-2 has label OJVNS (s027). From this, it follows that Entity-2 has label GIAUC (s022), which implies label PFYBH (s040), which implies label VVHCS (s031), which implies label HMIBB (s073), which implies label LDQRI (s059). Finally, having label LDQRI establishes that Entity-2 is authorized to enter the sanctuary (s069).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s022",
+                "s040",
+                "s031",
+                "s073",
+                "s059",
+                "s069"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "3e26df4305a9ae4242bb21b1ce9af251a9d6f93b9e8b5fc6762780d2d9d5d75f.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 102118,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-e2d50ce643f3cc6f5487",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s010",
+                  "s076",
+                  "s033",
+                  "s065",
+                  "s021",
+                  "s013"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Entity-2 has label LIENN (s027), which leads via s010 to DPGFM, and via s076 to PPILA. From PPILA, via s033 we get QVYBO, and via s065 we get XFXIJ. Having label XFXIJ implies label TROSN (s021), which establishes that Entity-2 is not authorized to enter the sanctuary (s013).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s010",
+                "s076",
+                "s033",
+                "s065",
+                "s021",
+                "s013"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "94ebbf78a86e340ee5b612618b587f660874e855a8c47e095c6ca2aaaacaa151.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 6854,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s010",
+                  "s076",
+                  "s033",
+                  "s065",
+                  "s021",
+                  "s013"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the supplied rules, Entity-2 is not authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-2 has label LIENN (s027).\n2. If something has label LIENN, then it has label DPGFM (s010).\n3. If something has label DPGFM, then it has label PPILA (s076).\n4. If something has label PPILA, then it has label QVYBO (s033).\n5. If something has label QVYBO, then it has label XFXIJ (s065).\n6. If something has label XFXIJ, then it has label TROSN (s021).\n7. If something has label TROSN, then it is not authorized to enter the sanctuary (s013).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s010",
+                "s076",
+                "s033",
+                "s065",
+                "s021",
+                "s013"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "3c3511f2df83c018b98ff37b7ef85e9c907c1e99f4aa2f61ba0d2ffe93406a2a.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 14009,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s010",
+                  "s076",
+                  "s033",
+                  "s065",
+                  "s021",
+                  "s013"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Entity-2 is not authorized to enter the sanctuary.\n\nBased on the supplied statements:\n1. Entity-2 has label LIENN (s027).\n2. If something has label LIENN, then it has label DPGFM (s010).\n3. If something has label DPGFM, then it has label PPILA (s076).\n4. If something has label PPILA, then it has label QVYBO (s033).\n5. If something has label QVYBO, then it has label XFXIJ (s065).\n6. If something has label XFXIJ, then it has label TROSN (s021).\n7. If something has label TROSN, then it is not authorized to enter the sanctuary (s013).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s010",
+                "s076",
+                "s033",
+                "s065",
+                "s021",
+                "s013"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "9777f70baa7b60740c14e549af0cf3ea74e7f691441c95d6aefd760d71641a62.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 28172,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "technical_failure",
+          "reason": "formatter citations must be nonempty unique selected evidence IDs",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_technical_failure",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s010",
+                "s076",
+                "s033",
+                "s065",
+                "s021",
+                "s013"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "a70301c48576ef2d2d1366522325f794a0aff2863adc05f176bf9e32a371abe6.outcome.json",
+          "role_calls": 34,
+          "actual_micro_known": 94275,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s010",
+              "s013",
+              "s021",
+              "s027",
+              "s033",
+              "s065",
+              "s076"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s027",
+                  "s010",
+                  "s076",
+                  "s033",
+                  "s065",
+                  "s021",
+                  "s013"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the supplied rules and initial fact, Entity-2 is not authorized to enter the sanctuary:\n1. Entity-2 has label LIENN (s027).\n2. If something has label LIENN, then it has label DPGFM (s010).\n3. If something has label DPGFM, then it has label PPILA (s076).\n4. If something has label PPILA, then it has label QVYBO (s033).\n5. If something has label QVYBO, then it has label XFXIJ (s065).\n6. If something has label XFXIJ, then it has label TROSN (s021).\n7. If something has label TROSN, then it is not authorized to enter the sanctuary (s013).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s027",
+                "s010",
+                "s076",
+                "s033",
+                "s065",
+                "s021",
+                "s013"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "dc4048e89077bcd2a21c5e8369830a0f0eaf7ff2716ccb93faedf6ff73ea925e.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 105408,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-865f2a66a57f30e9ff55",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s054",
+                  "s049",
+                  "s006",
+                  "s013",
+                  "s040",
+                  "s076"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-3 is authorized to enter the sanctuary.\n\nDerivation chain:\n1. Entity-3 has label EBDQQ (s044).\n2. If something has label EBDQQ, then it has label CZAYO (s054).\n3. If something has label CZAYO, then it has label IHSHN (s049).\n4. If something has label IHSHN, then it has label QBTHA (s006).\n5. If something has label QBTHA, then it has label CTVRW (s013).\n6. If something has label CTVRW, then it has label FMNFB (s040).\n7. If something has label FMNFB, then it is authorized to enter the sanctuary (s076).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s054",
+                "s049",
+                "s006",
+                "s013",
+                "s040",
+                "s076"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "79a6673d5e9f90f9b6f2860093fff8cdca5cf89178f74d4b4710580c997c9c7d.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 7230,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s054",
+                  "s049",
+                  "s006",
+                  "s013",
+                  "s040",
+                  "s076"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied statements, Entity-3 is authorized to enter the sanctuary.\n\nChain of deduction:\n1. Entity-3 has label EBDQQ (s044).\n2. If something has label EBDQQ, then it has label CZAYO (s054).\n3. If something has label CZAYO, then it has label IHSHN (s049).\n4. If something has label IHSHN, then it has label QBTHA (s006).\n5. If something has label QBTHA, then it has label CTVRW (s013).\n6. If something has label CTVRW, then it has label FMNFB (s040).\n7. If something has label FMNFB, then it is authorized to enter the sanctuary (s076).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s054",
+                "s049",
+                "s006",
+                "s013",
+                "s040",
+                "s076"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "d8def52f1b1ab6cc9d56db8ad264c55b9687476a93e956c3f176b8c2d21f695c.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 16275,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s054",
+                  "s049",
+                  "s006",
+                  "s013",
+                  "s040",
+                  "s076"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied initial fact and rules, Entity-3 is authorized to enter the sanctuary. Specifically, Entity-3 has label EBDQQ (s044), which leads to label CZAYO (s054), then IHSHN (s049), then QBTHA (s006), then CTVRW (s013), and then FMNFB (s040). Finally, any entity with label FMNFB is authorized to enter the sanctuary (s076).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s054",
+                "s049",
+                "s006",
+                "s013",
+                "s040",
+                "s076"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "281312847b6ccc006fc74a5234a63b65f467bf2cf009789e8a1b493116c527ec.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 32510,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "unknown",
+          "reason": "reasoning_depth_exhausted",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_unknown_status",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s054",
+                "s049",
+                "s006",
+                "s013",
+                "s040",
+                "s076"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "1a2f9c67068986176c51a28874cf7049e64e4ffb415fc75755a6e8c2c704015b.outcome.json",
+          "role_calls": 30,
+          "actual_micro_known": 84217,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s006",
+              "s013",
+              "s040",
+              "s044",
+              "s049",
+              "s054",
+              "s076"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s054",
+                  "s049",
+                  "s006",
+                  "s013",
+                  "s040",
+                  "s076"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-3 is authorized to enter the sanctuary. Specifically, Entity-3 has label EBDQQ (s044), which implies CZAYO (s054), which implies IHSHN (s049), which implies QBTHA (s006), which implies CTVRW (s013), which implies FMNFB (s040), which establishes that Entity-3 is authorized to enter the sanctuary (s076).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s054",
+                "s049",
+                "s006",
+                "s013",
+                "s040",
+                "s076"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "52e1fc2cac591d10173e4a1ea13303ef0f9b6ee9ca521b48517154179830549a.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 95267,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-ab909a8aece1a8b1b863",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s030",
+                  "s038",
+                  "s014",
+                  "s050",
+                  "s063",
+                  "s068"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules, Entity-3 is not authorized to enter the sanctuary.\n\nFrom the statements:\n1. Entity-3 has label XJHIB (s044).\n2. If something has label XJHIB, then it has label QLRFF (s030).\n3. If something has label QLRFF, then it has label ATOSD (s038).\n4. If something has label ATOSD, then it has label NROTS (s014).\n5. If something has label NROTS, then it has label UQJFK (s050).\n6. If something has label UQJFK, then it has label BXZFX (s063).\n7. If something has label BXZFX, then it is not authorized to enter the sanctuary (s068).\n\nTherefore, Entity-3 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s030",
+                "s038",
+                "s014",
+                "s050",
+                "s063",
+                "s068"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "53ace3bfb647f6ff9b089f0668641cbf50155bb1b14a22dc4730f837678629a6.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 8043,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s030",
+                  "s038",
+                  "s014",
+                  "s050",
+                  "s063",
+                  "s068"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules, Entity-3 has label XJHIB (s044), which implies QLRFF (s030), ATOSD (s038), NROTS (s014), UQJFK (s050), and BXZFX (s063). According to s068, any entity with label BXZFX is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s030",
+                "s038",
+                "s014",
+                "s050",
+                "s063",
+                "s068"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "6d793a5cce9ab258f118f091c23e5b6e92e8dc9d30ef019936c56f876258fa63.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 16076,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s030",
+                  "s038",
+                  "s014",
+                  "s050",
+                  "s063",
+                  "s068"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. In this fictional world, Entity-3 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s030",
+                "s038",
+                "s014",
+                "s050",
+                "s063",
+                "s068"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "b3ef6cbccc97921665888af2de4be7e244a1d40f6de8d52512b5423caa4c03fc.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 29021,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "proposal",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s030",
+                  "s038",
+                  "s014",
+                  "s050",
+                  "s063",
+                  "s068"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO, Entity-3 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s030",
+                "s038",
+                "s014",
+                "s050",
+                "s063",
+                "s068"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "e219bb21412ef1b9671486b743ab56b08687cb16c3b3c621fdd293e110224901.outcome.json",
+          "role_calls": 37,
+          "actual_micro_known": 96479,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s014",
+              "s030",
+              "s038",
+              "s044",
+              "s050",
+              "s063",
+              "s068"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s044",
+                  "s030",
+                  "s038",
+                  "s014",
+                  "s050",
+                  "s063",
+                  "s068"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. In this fictional world, Entity-3 is not authorized to enter the sanctuary. Statement s044 establishes that Entity-3 has label XJHIB. Statement s030 establishes that having label XJHIB implies having label QLRFF, which implies label ATOSD by statement s038. Statement s014 indicates that label ATOSD implies label NROTS, which leads to label UQJFK under statement s050. Next, statement s063 states that label UQJFK implies label BXZFX. Finally, statement s068 specifies that if something has label BXZFX, then it is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s044",
+                "s030",
+                "s038",
+                "s014",
+                "s050",
+                "s063",
+                "s068"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "a830b31ce91317c64c206d86ec45b9cde0db33476b01e3f982164e024fd1b7c0.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 105040,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-640fbc98181c48c231e7",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s097",
+                  "s094",
+                  "s041",
+                  "s018",
+                  "s104",
+                  "s107"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided rules and facts, Entity-4 is authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-4 has label AFUPN (s076).\n2. AFUPN implies YRFAC (s097).\n3. YRFAC implies OQJAC (s094).\n4. OQJAC implies BDIEV (s041).\n5. BDIEV implies ZYYNK (s018).\n6. ZYYNK implies KMIUK (s104).\n7. KMIUK implies that Entity-4 is authorized to enter the sanctuary (s107).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s097",
+                "s094",
+                "s041",
+                "s018",
+                "s104",
+                "s107"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "e3ac0b065f68cd330eaad06d0e0ce7d0e23f682f61cb006504bd6a6981de5340.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 11214,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s097",
+                  "s094",
+                  "s041",
+                  "s018",
+                  "s104",
+                  "s107"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-4 is authorized to enter the sanctuary. Entity-4 has label AFUPN (s076), which implies label YRFAC (s097), which implies label OQJAC (s094), which implies label BDIEV (s041), which implies label ZYYNK (s018), which implies label KMIUK (s104). Finally, any entity with label KMIUK is authorized to enter the sanctuary (s107).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s097",
+                "s094",
+                "s041",
+                "s018",
+                "s104",
+                "s107"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "ce9fac5c571c82cfc3e8dd1e1bad5f44aed910ae9c3a33d29d422bef0a13cc69.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 18587,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s097",
+                  "s094",
+                  "s041",
+                  "s018",
+                  "s104",
+                  "s107"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-4 is authorized to enter the sanctuary. Specifically, Entity-4 has label AFUPN (s076), which implies label YRFAC (s097), which implies label OQJAC (s094), which implies label BDIEV (s041), which implies label ZYYNK (s018), which implies label KMIUK (s104). Finally, any entity with label KMIUK is authorized to enter the sanctuary (s107).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s097",
+                "s094",
+                "s041",
+                "s018",
+                "s104",
+                "s107"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "ba6c631d5796a5e0292874b83b757136a552d9e37a13a004f1e3f2b749cc8965.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 33738,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "unknown",
+          "reason": "reasoning_depth_exhausted",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_unknown_status",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s097",
+                "s094",
+                "s041",
+                "s018",
+                "s104",
+                "s107"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "0f3696de09d954628fdb588ff08f4624bbf83355b3341a49463a6b14985c2ff2.outcome.json",
+          "role_calls": 36,
+          "actual_micro_known": 159966,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s018",
+              "s041",
+              "s076",
+              "s094",
+              "s097",
+              "s104",
+              "s107"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s097",
+                  "s094",
+                  "s041",
+                  "s018",
+                  "s104",
+                  "s107"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s097",
+                "s094",
+                "s041",
+                "s018",
+                "s104",
+                "s107"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "c7494ba1b3f440e86720a3afae841a1ebf9e9306d7232173429df39c93fdeca7.outcome.json",
+          "role_calls": 9,
+          "actual_micro_known": 161057,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-1fa230d973953b4dd550",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s081",
+                  "s099",
+                  "s012",
+                  "s087",
+                  "s066",
+                  "s117"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules, Entity-4 is not authorized to enter the sanctuary.\n\nFrom the statements:\n- Entity-4 has label PLACR (s076).\n- If something has label PLACR, then it has label MMLGR (s081).\n- If something has label MMLGR, then it has label PLNAA (s099).\n- If something has label PLNAA, then it has label LNENE (s012).\n- If something has label LNENE, then it has label GNMJX (s087).\n- If something has label GNMJX, then it has label BPQTU (s066).\n- If something has label BPQTU, then it is not authorized to enter the sanctuary (s117).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s081",
+                "s099",
+                "s012",
+                "s087",
+                "s066",
+                "s117"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "14b609863732c8e46fa662a2490a78a02e133a7701f09efaae5c54f376876151.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 11549,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s081",
+                  "s099",
+                  "s012",
+                  "s087",
+                  "s066",
+                  "s117"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s081",
+                "s099",
+                "s012",
+                "s087",
+                "s066",
+                "s117"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "ddd77c57093114b6d97dfbf589e119560ed1d9897d28ec8a1cc2eb4394a34196.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 18359,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s081",
+                  "s099",
+                  "s012",
+                  "s087",
+                  "s066",
+                  "s117"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s081",
+                "s099",
+                "s012",
+                "s087",
+                "s066",
+                "s117"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "dc9d642ab79393898bc0d79e65ca640c88553de2eeec062e091a9477ca7b0fbb.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 43991,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "unknown",
+          "reason": "reasoning_depth_exhausted",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_unknown_status",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s081",
+                "s099",
+                "s012",
+                "s087",
+                "s066",
+                "s117"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "3e366e1c5367dc702d0f8cb881fa040babf1d6fec6366004acae0377c94a20f7.outcome.json",
+          "role_calls": 33,
+          "actual_micro_known": 145842,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s012",
+              "s066",
+              "s076",
+              "s081",
+              "s087",
+              "s099",
+              "s117"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s076",
+                  "s081",
+                  "s099",
+                  "s012",
+                  "s087",
+                  "s066",
+                  "s117"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the supplied rules and initial fact, Entity-4 is not authorized to enter the sanctuary.",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s076",
+                "s081",
+                "s099",
+                "s012",
+                "s087",
+                "s066",
+                "s117"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "563d1a64bb883d36d8a6b1160805e4f8de4352cd9de51a18d7f91603a57b89e6.outcome.json",
+          "role_calls": 8,
+          "actual_micro_known": 153146,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-f9d89e8b7fd44b6a958f",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s068",
+                  "s048",
+                  "s132",
+                  "s030",
+                  "s101",
+                  "s136",
+                  "s082"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided rules, Entity-5 is authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-5 has label FAKBG (s068).\n2. If something has label FAKBG, it has label KSAKE (s048).\n3. If something has label KSAKE, it has label SZOLE (s132).\n4. If something has label SZOLE, it has label RLIQK (s030).\n5. If something has label RLIQK, it has label YZNQO (s101).\n6. If something has label YZNQO, it has label LXGUJ (s136).\n7. If something has label LXGUJ, it is authorized to enter the sanctuary (s082).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s048",
+                "s132",
+                "s030",
+                "s101",
+                "s136",
+                "s082"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "03b28b112b4bc5afbb4e7c826094ab98977a64a8bda8f8587d2d420eb14f7075.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 11468,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s068",
+              "s048",
+              "s132",
+              "s030",
+              "s101",
+              "s136",
+              "s082"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s068",
+                  "s048",
+                  "s132",
+                  "s030",
+                  "s101",
+                  "s136",
+                  "s082"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the provided rules, Entity-5 is authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-5 has label FAKBG (s068).\n2. If something has label FAKBG, then it has label KSAKE (s048).\n3. If something has label KSAKE, then it has label SZOLE (s132).\n4. If something has label SZOLE, then it has label RLIQK (s030).\n5. If something has label RLIQK, then it has label YZNQO (s101).\n6. If something has label YZNQO, then it has label LXGUJ (s136).\n7. If something has label LXGUJ, then it is authorized to enter the sanctuary (s082).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s048",
+                "s132",
+                "s030",
+                "s101",
+                "s136",
+                "s082"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "aa8db8c72f47ed2cf38005554086717cf64933dbf6550d253aba534b828ee5a6.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 18713,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s068",
+                  "s048",
+                  "s132",
+                  "s030",
+                  "s101",
+                  "s136",
+                  "s082"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied universal rules and the fact regarding Entity-5, it is authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-5 has label FAKBG (s068).\n2. If something has label FAKBG, then it has label KSAKE (s048).\n3. If something has label KSAKE, then it has label SZOLE (s132).\n4. If something has label SZOLE, then it has label RLIQK (s030).\n5. If something has label RLIQK, then it has label YZNQO (s101).\n6. If something has label YZNQO, then it has label LXGUJ (s136).\n7. If something has label LXGUJ, then it is authorized to enter the sanctuary (s082).",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s048",
+                "s132",
+                "s030",
+                "s101",
+                "s136",
+                "s082"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "24f59e8213233fddc61bea6d233b303e3118b5a4b4343d33d3eb3b45ef61a35b.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 35417,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "proposal",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "incomplete_citation_set",
+            "citation_ids": [
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "entailed_answers": [],
+            "proofs": {
+              "YES": null,
+              "NO": null
+            },
+            "entails_expected": false,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": null,
+            "answer_text": "The provided texts do not establish whether Entity-5 is authorized to enter the sanctuary, as no relationship between label SZOLE and label RLIQK is specified.",
+            "model_answer": null,
+            "response_origin": "result",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s048",
+                "s132",
+                "s030",
+                "s101",
+                "s136",
+                "s082"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "d730b5270dbf79cf8c6c5e5aa1f02524408fd835a78584490ef2d53c33368197.outcome.json",
+          "role_calls": 40,
+          "actual_micro_known": 172344,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s030",
+              "s048",
+              "s068",
+              "s082",
+              "s101",
+              "s132",
+              "s136"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s068",
+                  "s048",
+                  "s132",
+                  "s030",
+                  "s101",
+                  "s136",
+                  "s082"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-5 is authorized to enter the sanctuary. Specifically, Entity-5 has label FAKBG (s068). From s048, label FAKBG implies label KSAKE; from s132, label KSAKE implies label SZOLE; from s030, label SZOLE implies label RLIQK; from s101, label RLIQK implies label YZNQO; from s136, label YZNQO implies label LXGUJ; and by s082, label LXGUJ entails authorization to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s048",
+                "s132",
+                "s030",
+                "s101",
+                "s136",
+                "s082"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "2d0f0aa8d7c88687dcb6817502e43279b5e94f8a6d9eb21f394404428886d2e4.outcome.json",
+          "role_calls": 9,
+          "actual_micro_known": 172946,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-6c7dcebc79c25a5f137b",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "missing",
+          "reason": null,
+          "citation_audit": {
+            "citation_set_status": "missing_assignment",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "model_answer": null,
+            "answer_text": null,
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s062",
+                "s130",
+                "s129",
+                "s028",
+                "s002",
+                "s128"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": null,
+          "role_calls": null,
+          "actual_micro_known": null,
+          "unsettled_effect": null
+        },
+        "B_medium": {
+          "status": "missing",
+          "reason": null,
+          "citation_audit": {
+            "citation_set_status": "missing_assignment",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "model_answer": null,
+            "answer_text": null,
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s062",
+                "s130",
+                "s129",
+                "s028",
+                "s002",
+                "s128"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": null,
+          "role_calls": null,
+          "actual_micro_known": null,
+          "unsettled_effect": null
+        },
+        "B_self": {
+          "status": "missing",
+          "reason": null,
+          "citation_audit": {
+            "citation_set_status": "missing_assignment",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "model_answer": null,
+            "answer_text": null,
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s062",
+                "s130",
+                "s129",
+                "s028",
+                "s002",
+                "s128"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": null,
+          "role_calls": null,
+          "actual_micro_known": null,
+          "unsettled_effect": null
+        },
+        "C": {
+          "status": "technical_failure",
+          "reason": "callback_failed:UnknownEffect",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_technical_failure",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s062",
+                "s130",
+                "s129",
+                "s028",
+                "s002",
+                "s128"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "263ab79e9958252437cc168b937f8c8a66c8bc78da3cbea2489422dc46fe30d4.outcome.json",
+          "role_calls": 17,
+          "actual_micro_known": 74968,
+          "unsettled_effect": true
+        },
+        "B_budget": {
+          "status": "missing",
+          "reason": null,
+          "citation_audit": {
+            "citation_set_status": "missing_assignment",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "model_answer": null,
+            "answer_text": null,
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s068",
+                "s062",
+                "s130",
+                "s129",
+                "s028",
+                "s002",
+                "s128"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": null,
+          "role_calls": null,
+          "actual_micro_known": null,
+          "unsettled_effect": null
+        }
+      }
+    },
+    {
+      "case_id": "hard-b3f0fb6d95f1ca3a327f",
+      "full_text_answers": [
+        "YES"
+      ],
+      "independently_parsed_expected": "YES",
+      "frozen_key_answer": "YES",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "incomplete_citation_set",
+            "citation_ids": [
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "entailed_answers": [],
+            "proofs": {
+              "YES": null,
+              "NO": null
+            },
+            "entails_expected": false,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": false,
+            "answer_text": "YES. Based on the provided rules, Entity-6 has label UOPMB (s084). Through rule s037, Entity-6 has label LCRTC, which leads to label AXYQQ (s087), then label EIEGE (s134), then label IYLER (s112). From label IYLER, rule s095 establishes that Entity-6 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s037",
+                "s087",
+                "s134",
+                "s112",
+                "s095",
+                "s033"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "aa62550f0c9e2c85abd20971185d8077f73d65403fc23cb4968dc5d759b83c39.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 10928,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "incomplete_citation_set",
+            "citation_ids": [
+              "s084",
+              "s037",
+              "s087",
+              "s134",
+              "s112",
+              "s095"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "entailed_answers": [],
+            "proofs": {
+              "YES": null,
+              "NO": null
+            },
+            "entails_expected": false,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": false,
+            "answer_text": "YES",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s037",
+                "s087",
+                "s134",
+                "s112",
+                "s095",
+                "s033"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "32594bd03cae1483e395a55fd722513b72ff26fc63616715a7ab46e7a7d6942b.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 19590,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "incomplete_citation_set",
+            "citation_ids": [
+              "s084",
+              "s037",
+              "s087",
+              "s134",
+              "s112",
+              "s095"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "entailed_answers": [],
+            "proofs": {
+              "YES": null,
+              "NO": null
+            },
+            "entails_expected": false,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": false,
+            "answer_text": "YES. Based on the supplied rules and initial fact, Entity-6 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s037",
+                "s087",
+                "s134",
+                "s112",
+                "s095",
+                "s033"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "89c6f96f431c8a5a676d8ebf91a2f365bea877324bb4afa679d278d3df0cd070.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 37049,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "proposal",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_yes",
+            "citation_ids": [
+              "s033",
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s033",
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "entailed_answers": [
+              "YES"
+            ],
+            "proofs": {
+              "YES": {
+                "depth": 6,
+                "proof_ids": [
+                  "s084",
+                  "s037",
+                  "s087",
+                  "s134",
+                  "s112",
+                  "s095",
+                  "s033"
+                ],
+                "answer": "YES"
+              },
+              "NO": null
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": true,
+            "answer_text": "YES, Entity-6 is authorized to enter the sanctuary.",
+            "model_answer": "YES",
+            "response_origin": "result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s037",
+                "s087",
+                "s134",
+                "s112",
+                "s095",
+                "s033"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "21ff64fef231e54c92c63c219d84bbeab73a570f40271a24810cca07cbb7eb2d.outcome.json",
+          "role_calls": 28,
+          "actual_micro_known": 130377,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "incomplete_citation_set",
+            "citation_ids": [
+              "s084",
+              "s037",
+              "s087",
+              "s134",
+              "s112",
+              "s095"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s037",
+              "s084",
+              "s087",
+              "s095",
+              "s112",
+              "s134"
+            ],
+            "entailed_answers": [],
+            "proofs": {
+              "YES": null,
+              "NO": null
+            },
+            "entails_expected": false,
+            "entails_opposite": false,
+            "full_corpus_expected": "YES",
+            "entails_model_answer": false,
+            "answer_text": "YES",
+            "model_answer": "YES",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s037",
+                "s087",
+                "s134",
+                "s112",
+                "s095",
+                "s033"
+              ],
+              "answer": "YES"
+            }
+          },
+          "outcome_file": "57015bbab9f9879c2347522b61a5e4115864ee936d0e37f4133e407fb5f166fa.outcome.json",
+          "role_calls": 7,
+          "actual_micro_known": 131147,
+          "unsettled_effect": false
+        }
+      }
+    },
+    {
+      "case_id": "hard-14de32af40cf5105e9d2",
+      "full_text_answers": [
+        "NO"
+      ],
+      "independently_parsed_expected": "NO",
+      "frozen_key_answer": "NO",
+      "full_text_matches_frozen_key": true,
+      "arms": {
+        "B_low": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s084",
+                  "s000",
+                  "s050",
+                  "s098",
+                  "s080",
+                  "s057",
+                  "s011"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules, Entity-6 is not authorized to enter the sanctuary.\n\nFrom the statements:\n1. Entity-6 has label GNJZV (s084).\n2. GNJZV implies CXNTG (s000).\n3. CXNTG implies WEOJL (s050).\n4. WEOJL implies PKMDU (s098).\n5. PKMDU implies POXME (s080).\n6. POXME implies GADQT (s057).\n7. GADQT implies that the entity is not authorized to enter the sanctuary (s011).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s000",
+                "s050",
+                "s098",
+                "s080",
+                "s057",
+                "s011"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "baa504add84a27d3fa8a3f0418df9b27a9bb00ef2bacf2cc4591ae215976b32c.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 11193,
+          "unsettled_effect": false
+        },
+        "B_medium": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s011",
+              "s000",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s084",
+                  "s000",
+                  "s050",
+                  "s098",
+                  "s080",
+                  "s057",
+                  "s011"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the provided rules and facts, Entity-6 has label GNJZV (s084), which implies CXNTG (s000), which implies WEOJL (s050), which implies PKMDU (s098), which implies POXME (s080), which implies GADQT (s057). Finally, having label GADQT means it is not authorized to enter the sanctuary (s011).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s000",
+                "s050",
+                "s098",
+                "s080",
+                "s057",
+                "s011"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "6a4e0f77afc2981870f1f090e4078d9a72ad9056d81c2d49d6f4d58d47d4d863.outcome.json",
+          "role_calls": 1,
+          "actual_micro_known": 17553,
+          "unsettled_effect": false
+        },
+        "B_self": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s084",
+              "s000",
+              "s050",
+              "s098",
+              "s080",
+              "s057",
+              "s011"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s084",
+                  "s000",
+                  "s050",
+                  "s098",
+                  "s080",
+                  "s057",
+                  "s011"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the supplied statements, Entity-6 has label GNJZV (s084). From GNJZV, it has label CXNTG (s000), which implies label WEOJL (s050), which implies label PKMDU (s098), which implies label POXME (s080), which implies label GADQT (s057). Having label GADQT establishes that it is not authorized to enter the sanctuary (s011).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s000",
+                "s050",
+                "s098",
+                "s080",
+                "s057",
+                "s011"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "7114e72bfa26201aacf6d3e39f768bbd955a4b5518075455f8d890688ba9ba28.outcome.json",
+          "role_calls": 2,
+          "actual_micro_known": 37229,
+          "unsettled_effect": false
+        },
+        "C": {
+          "status": "unknown",
+          "reason": "reasoning_depth_exhausted",
+          "citation_audit": {
+            "citation_set_status": "not_evaluated_unknown_status",
+            "citation_ids": null,
+            "entailed_answers": [],
+            "proofs": {},
+            "entails_expected": null,
+            "entails_opposite": null,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": null,
+            "answer_text": null,
+            "model_answer": null,
+            "response_origin": "none",
+            "answer_matches_full_text": null,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s000",
+                "s050",
+                "s098",
+                "s080",
+                "s057",
+                "s011"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "20bf69957d6d1ba350491cc7b405e7d7b37bdeb5d700e43081a027f5c4ca7c25.outcome.json",
+          "role_calls": 33,
+          "actual_micro_known": 147454,
+          "unsettled_effect": false
+        },
+        "B_budget": {
+          "status": "completed",
+          "reason": "model_proposal_requires_semantic_review",
+          "citation_audit": {
+            "citation_set_status": "citation_set_sufficient_for_no",
+            "citation_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "duplicate_ids": [],
+            "unknown_ids": [],
+            "non_source_ids": [],
+            "valid_source_ids": [
+              "s000",
+              "s011",
+              "s050",
+              "s057",
+              "s080",
+              "s084",
+              "s098"
+            ],
+            "entailed_answers": [
+              "NO"
+            ],
+            "proofs": {
+              "YES": null,
+              "NO": {
+                "depth": 6,
+                "proof_ids": [
+                  "s084",
+                  "s000",
+                  "s050",
+                  "s098",
+                  "s080",
+                  "s057",
+                  "s011"
+                ],
+                "answer": "NO"
+              }
+            },
+            "entails_expected": true,
+            "entails_opposite": false,
+            "full_corpus_expected": "NO",
+            "entails_model_answer": true,
+            "answer_text": "NO. Based on the supplied rules and initial fact, Entity-6 is not authorized to enter the sanctuary.\n\nDerivation:\n1. Entity-6 has label GNJZV (s084).\n2. If something has label GNJZV, then it has label CXNTG (s000).\n3. If something has label CXNTG, then it has label WEOJL (s050).\n4. If something has label WEOJL, then it has label PKMDU (s098).\n5. If something has label PKMDU, then it has label POXME (s080).\n6. If something has label POXME, then it has label GADQT (s057).\n7. If something has label GADQT, then it is not authorized to enter the sanctuary (s011).",
+            "model_answer": "NO",
+            "response_origin": "final_result",
+            "answer_matches_full_text": true,
+            "full_text_matches_frozen_key": true
+          },
+          "source_text_proof": {
+            "NOT_AUTHORIZED": {
+              "depth": 6,
+              "proof_ids": [
+                "s084",
+                "s000",
+                "s050",
+                "s098",
+                "s080",
+                "s057",
+                "s011"
+              ],
+              "answer": "NO"
+            }
+          },
+          "outcome_file": "fb70856539efc3053b7721d0b8469ec931dda5dcef60e2a111f474d4b2b27fa0.outcome.json",
+          "role_calls": 9,
+          "actual_micro_known": 166729,
+          "unsettled_effect": false
+        }
+      }
+    }
+  ],
+  "arm_totals": {
+    "B_low": {
+      "status_counts": {
+        "completed": 11,
+        "missing": 1
+      },
+      "citation_status_counts": {
+        "citation_set_sufficient_for_yes": 5,
+        "citation_set_sufficient_for_no": 5,
+        "missing_assignment": 1,
+        "incomplete_citation_set": 1
+      },
+      "entails_expected": 10,
+      "entails_opposite": 0,
+      "role_calls": 11,
+      "known_actual_micro": 101128,
+      "known_cost_records": 11,
+      "denominator": 12,
+      "missing_unknown_and_failures_remain_in_denominator": true
+    },
+    "B_medium": {
+      "status_counts": {
+        "completed": 11,
+        "missing": 1
+      },
+      "citation_status_counts": {
+        "citation_set_sufficient_for_yes": 5,
+        "citation_set_sufficient_for_no": 5,
+        "missing_assignment": 1,
+        "incomplete_citation_set": 1
+      },
+      "entails_expected": 10,
+      "entails_opposite": 0,
+      "role_calls": 11,
+      "known_actual_micro": 183989,
+      "known_cost_records": 11,
+      "denominator": 12,
+      "missing_unknown_and_failures_remain_in_denominator": true
+    },
+    "B_self": {
+      "status_counts": {
+        "completed": 11,
+        "missing": 1
+      },
+      "citation_status_counts": {
+        "citation_set_sufficient_for_yes": 5,
+        "citation_set_sufficient_for_no": 5,
+        "missing_assignment": 1,
+        "incomplete_citation_set": 1
+      },
+      "entails_expected": 10,
+      "entails_opposite": 0,
+      "role_calls": 22,
+      "known_actual_micro": 362035,
+      "known_cost_records": 11,
+      "denominator": 12,
+      "missing_unknown_and_failures_remain_in_denominator": true
+    },
+    "C": {
+      "status_counts": {
+        "proposal": 5,
+        "unknown": 5,
+        "technical_failure": 2
+      },
+      "citation_status_counts": {
+        "citation_set_sufficient_for_yes": 3,
+        "not_evaluated_unknown_status": 5,
+        "not_evaluated_technical_failure": 2,
+        "citation_set_sufficient_for_no": 1,
+        "incomplete_citation_set": 1
+      },
+      "entails_expected": 4,
+      "entails_opposite": 0,
+      "role_calls": 386,
+      "known_actual_micro": 1377690,
+      "known_cost_records": 12,
+      "denominator": 12,
+      "missing_unknown_and_failures_remain_in_denominator": true
+    },
+    "B_budget": {
+      "status_counts": {
+        "completed": 11,
+        "missing": 1
+      },
+      "citation_status_counts": {
+        "citation_set_sufficient_for_yes": 5,
+        "citation_set_sufficient_for_no": 5,
+        "missing_assignment": 1,
+        "incomplete_citation_set": 1
+      },
+      "entails_expected": 10,
+      "entails_opposite": 0,
+      "role_calls": 84,
+      "known_actual_micro": 1389247,
+      "known_cost_records": 11,
+      "denominator": 12,
+      "missing_unknown_and_failures_remain_in_denominator": true
+    }
+  }
+}

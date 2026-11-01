@@ -1,0 +1,74 @@
+{
+  "01-01": {
+    "case_id": "S1-01-liquidity",
+    "arm": "B"
+  },
+  "01-02": {
+    "case_id": "S1-01-liquidity",
+    "arm": "A"
+  },
+  "01-03": {
+    "case_id": "S1-01-liquidity",
+    "arm": "C"
+  },
+  "02-01": {
+    "case_id": "S1-02-loss-cash",
+    "arm": "B"
+  },
+  "02-02": {
+    "case_id": "S1-02-loss-cash",
+    "arm": "A"
+  },
+  "02-03": {
+    "case_id": "S1-02-loss-cash",
+    "arm": "C"
+  },
+  "03-01": {
+    "case_id": "S1-03-compute",
+    "arm": "C"
+  },
+  "03-02": {
+    "case_id": "S1-03-compute",
+    "arm": "A"
+  },
+  "03-03": {
+    "case_id": "S1-03-compute",
+    "arm": "B"
+  },
+  "04-01": {
+    "case_id": "S1-04-customers",
+    "arm": "C"
+  },
+  "04-02": {
+    "case_id": "S1-04-customers",
+    "arm": "B"
+  },
+  "04-03": {
+    "case_id": "S1-04-customers",
+    "arm": "A"
+  },
+  "05-01": {
+    "case_id": "S1-05-market-rules",
+    "arm": "A"
+  },
+  "05-02": {
+    "case_id": "S1-05-market-rules",
+    "arm": "C"
+  },
+  "05-03": {
+    "case_id": "S1-05-market-rules",
+    "arm": "B"
+  },
+  "06-01": {
+    "case_id": "S1-06-governance",
+    "arm": "B"
+  },
+  "06-02": {
+    "case_id": "S1-06-governance",
+    "arm": "C"
+  },
+  "06-03": {
+    "case_id": "S1-06-governance",
+    "arm": "A"
+  }
+}

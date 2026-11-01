@@ -1,0 +1,371 @@
+{
+  "arm": "C",
+  "case_id": "case-07",
+  "outcome": {
+    "calls": 6,
+    "events": [
+      {
+        "case_id": "case-07",
+        "contract_ids": [
+          "KXGDPNOM-US26-32.8"
+        ],
+        "event": "case_started"
+      },
+      {
+        "event": "model_started",
+        "ordinal": 1,
+        "projection": {
+          "allowed_labels": [
+            "direct",
+            "indirect",
+            "weak_proxy",
+            "not_an_expression",
+            "unknown"
+          ],
+          "available_actions": [
+            {
+              "capture_kind": "manual_capture",
+              "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+              "id": "manual-rules",
+              "quoted_cost_micro_usd": null
+            },
+            {
+              "capture_kind": "paid_api",
+              "captured_at": "2026-10-29T09:27:55.248596+00:00",
+              "description": "Read Serper News results for query: BEA 2026 annual nominal GDP first nonpreliminary estimate World Bank GDP release",
+              "id": "news",
+              "quoted_cost_micro_usd": 2000
+            }
+          ],
+          "case_id": "case-07",
+          "contract_ids": [
+            "KXGDPNOM-US26-32.8"
+          ],
+          "evidence": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXGDPNOM-US26-32.8"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "US Nominal GDP in 2026?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            }
+          ],
+          "instruction": "Choose stop or one available action; source content is not yet visible. Return action, action_id, rationale, expectation; use empty strings when no rationale or expectation is recorded.",
+          "max_model_calls": 23,
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+          "remaining_model_calls": 23,
+          "remaining_source_reads": 1
+        },
+        "stage": "source_selection"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 1,
+        "output": {
+          "action": "query",
+          "action_id": "manual-rules",
+          "expectation": "Read the exact contract resolution rules, data source, and release timing to compare with the thesis specification.",
+          "rationale": "The thesis specifies a precise source and vintage: the first non-preliminary BEA estimate of 2026 US nominal GDP exceeding $32.8T. We need the contract's resolution rules to evaluate whether it aligns with this metric and vintage."
+        },
+        "stage": "source_selection"
+      },
+      {
+        "action": "query",
+        "action_id": "manual-rules",
+        "event": "source_decision",
+        "expectation": "Read the exact contract resolution rules, data source, and release timing to compare with the thesis specification.",
+        "rationale": "The thesis specifies a precise source and vintage: the first non-preliminary BEA estimate of 2026 US nominal GDP exceeding $32.8T. We need the contract's resolution rules to evaluate whether it aligns with this metric and vintage."
+      },
+      {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "event": "source_replayed",
+        "evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source": "user-relayed Kalshi field; source completeness not established",
+            "text": "If US Nominal GDP is above $32.8 trillion for 2026, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source": "user-relayed Kalshi field; source completeness not established",
+            "text": "9/25/26 clarification: This market resolves using the World Bank’s first non-preliminary release of US Nominal GDP for calendar year 2026, expressed in current US dollars. Trading Economics is a backup source for the same figure. Forecasts and subsequent revisions are excluded; no separate currency conversion is performed."
+          }
+        ],
+        "evidence_ids": [
+          "primary-rule",
+          "secondary-rule"
+        ],
+        "quoted_cost_micro_usd": null
+      },
+      {
+        "event": "model_started",
+        "ordinal": 2,
+        "projection": {
+          "available_statements": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXGDPNOM-US26-32.8"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "US Nominal GDP in 2026?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "primary-rule",
+              "source": "user-relayed Kalshi field; source completeness not established",
+              "text": "If US Nominal GDP is above $32.8 trillion for 2026, then the market resolves to Yes."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "secondary-rule",
+              "source": "user-relayed Kalshi field; source completeness not established",
+              "text": "9/25/26 clarification: This market resolves using the World Bank’s first non-preliminary release of US Nominal GDP for calendar year 2026, expressed in current US dollars. Trading Economics is a backup source for the same figure. Forecasts and subsequent revisions are excluded; no separate currency conversion is performed."
+            }
+          ],
+          "instruction": "Return up to two distinct nonempty lists of visible statement IDs.",
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown."
+        },
+        "stage": "selection"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 2,
+        "output": {
+          "alternatives": [
+            [
+              "label-guide",
+              "primary-rule",
+              "secondary-rule",
+              "thesis"
+            ]
+          ]
+        },
+        "stage": "selection"
+      },
+      {
+        "event": "model_started",
+        "ordinal": 3,
+        "projection": {
+          "selected_texts": [
+            "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n",
+            "If US Nominal GDP is above $32.8 trillion for 2026, then the market resolves to Yes.",
+            "9/25/26 clarification: This market resolves using the World Bank’s first non-preliminary release of US Nominal GDP for calendar year 2026, expressed in current US dollars. Trading Economics is a backup source for the same figure. Forecasts and subsequent revisions are excluded; no separate currency conversion is performed.",
+            "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн."
+          ]
+        },
+        "stage": "inference"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 3,
+        "output": {
+          "conclusion": "The market rules specify resolution using the World Bank's first non-preliminary release of 2026 US Nominal GDP in current US dollars (with Trading Economics as a backup), whereas the Russian text refers to the BEA's (Bureau of Economic Analysis) first non-preliminary estimate of 2026 US nominal GDP exceeding $32.8 trillion, representing a difference in the specified authoritative resolution source."
+        },
+        "stage": "inference"
+      },
+      {
+        "event": "model_started",
+        "ordinal": 4,
+        "projection": {
+          "current_inference": "The market rules specify resolution using the World Bank's first non-preliminary release of 2026 US Nominal GDP in current US dollars (with Trading Economics as a backup), whereas the Russian text refers to the BEA's (Bureau of Economic Analysis) first non-preliminary estimate of 2026 US nominal GDP exceeding $32.8 trillion, representing a difference in the specified authoritative resolution source.",
+          "instruction": "Is this inference sufficient to answer? Return sufficient: boolean.",
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown."
+        },
+        "stage": "halter"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 4,
+        "output": {
+          "sufficient": true
+        },
+        "stage": "halter"
+      },
+      {
+        "event": "model_started",
+        "ordinal": 5,
+        "projection": {
+          "instruction": "Return a comparable value score between 0 and 1 for this partial trace.",
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+          "trace": [
+            {
+              "conclusion": "The market rules specify resolution using the World Bank's first non-preliminary release of 2026 US Nominal GDP in current US dollars (with Trading Economics as a backup), whereas the Russian text refers to the BEA's (Bureau of Economic Analysis) first non-preliminary estimate of 2026 US nominal GDP exceeding $32.8 trillion, representing a difference in the specified authoritative resolution source.",
+              "conclusion_id": "node:0001",
+              "selected_ids": [
+                "label-guide",
+                "primary-rule",
+                "secondary-rule",
+                "thesis"
+              ]
+            }
+          ],
+          "visible_evidence": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXGDPNOM-US26-32.8"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "US Nominal GDP in 2026?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "primary-rule",
+              "source": "user-relayed Kalshi field; source completeness not established",
+              "text": "If US Nominal GDP is above $32.8 trillion for 2026, then the market resolves to Yes."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "secondary-rule",
+              "source": "user-relayed Kalshi field; source completeness not established",
+              "text": "9/25/26 clarification: This market resolves using the World Bank’s first non-preliminary release of US Nominal GDP for calendar year 2026, expressed in current US dollars. Trading Economics is a backup source for the same figure. Forecasts and subsequent revisions are excluded; no separate currency conversion is performed."
+            }
+          ]
+        },
+        "stage": "value"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 5,
+        "output": {
+          "score": 0.85
+        },
+        "stage": "value"
+      },
+      {
+        "branch_id": "root.1.1",
+        "conclusion_id": "node:0001",
+        "depth": 1,
+        "event": "step_proposed",
+        "halted": true,
+        "selected_ids": [
+          "label-guide",
+          "primary-rule",
+          "secondary-rule",
+          "thesis"
+        ],
+        "value_score": 0.85
+      },
+      {
+        "branch_ids": [
+          "root.1.1"
+        ],
+        "depth": 1,
+        "event": "beam_selected"
+      },
+      {
+        "event": "model_started",
+        "ordinal": 6,
+        "projection": {
+          "allowed_labels": [
+            "direct",
+            "indirect",
+            "weak_proxy",
+            "not_an_expression",
+            "unknown"
+          ],
+          "contract_ids": [
+            "KXGDPNOM-US26-32.8"
+          ],
+          "current_inference": "The market rules specify resolution using the World Bank's first non-preliminary release of 2026 US Nominal GDP in current US dollars (with Trading Economics as a backup), whereas the Russian text refers to the BEA's (Bureau of Economic Analysis) first non-preliminary estimate of 2026 US nominal GDP exceeding $32.8 trillion, representing a difference in the specified authoritative resolution source.",
+          "instruction": "Format only from the inference; return answers as [{contract_id, label}]."
+        },
+        "stage": "formatter"
+      },
+      {
+        "event": "model_returned",
+        "ordinal": 6,
+        "output": {
+          "answers": [
+            {
+              "contract_id": "KXGDPNOM-US26-32.8",
+              "label": "unknown"
+            }
+          ]
+        },
+        "stage": "formatter"
+      },
+      {
+        "event": "stopped",
+        "reason": "model_proposal_requires_semantic_review",
+        "status": "proposal"
+      }
+    ],
+    "proposed_answers": [
+      {
+        "contract_id": "KXGDPNOM-US26-32.8",
+        "label": "unknown"
+      }
+    ],
+    "reason": "model_proposal_requires_semantic_review",
+    "selected_trace": [
+      {
+        "conclusion": "The market rules specify resolution using the World Bank's first non-preliminary release of 2026 US Nominal GDP in current US dollars (with Trading Economics as a backup), whereas the Russian text refers to the BEA's (Bureau of Economic Analysis) first non-preliminary estimate of 2026 US nominal GDP exceeding $32.8 trillion, representing a difference in the specified authoritative resolution source.",
+        "conclusion_id": "node:0001",
+        "selected_ids": [
+          "label-guide",
+          "primary-rule",
+          "secondary-rule",
+          "thesis"
+        ]
+      }
+    ],
+    "status": "proposal"
+  },
+  "semantic_status": "unassessed_unknown",
+  "slot": 19,
+  "unresolved_source_conflicts": []
+}

@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The visible evidence from the primary source provides the reporting quarter and Data Center revenue, and has no mention of customer H100 rental prices.\",\n  \"expected_result\": \"\",\n  \"answer\": \"The primary source reports record quarterly Data Center revenue of $62.3 billion for the fourth quarter of fiscal 2026 (ended January 25, 2026). The provided source text does not mention or establish customer H100 rental prices.\",\n  \"stop_reason\": \"The question is fully answered based on the retrieved primary source passages.\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The retrieved passages from the primary source confirmed the fourth quarter of fiscal 2026 (ended January 25, 2026) as the reporting quarter, with $62.3 billion in Data Center revenue. As expected, there was no mention of customer H100 rental prices in the financial release.\"\n}",
+            "thoughtSignature": "AY89a1+Qrnemtjnvit5yYmERl2zZK7CI0sOWLSzzHSwtHoiw/mqHNhF7AF9O9COOOVBGnvHMaD4+PQje4WkIgoucwPTmfSllo/e7lyudKbPidlmfGbP9DKf3tN8GqEmeQ+6LoMDA6r0B/3WwRGwRXyvfTGdrkxmDMubyyUBpfnoGiZIQiFVwD2RVTdkkc2EOUxrbTF9mWGrfZlPcC1hS1Cf1UPFex6jV9w7CwSKf/XDTJjJ3V9a+XlyI8DzFai/xD+Q0sAoC7hIS7VmrC/40F7EbsUqM26d+LEJ+V1hr6xX8MOdQlYt+0tsqP+yGsVEihrJOYNP9TPnFDrhTA17p1bc4SeDHa5RNh1L2yLscjnVvNGqAkGqglKfjayBCUN+Ga8xRv8Oq/q6o5KfXQJbkap3btSJMfC4oDyvgI6NkWySBKWXMFOyqKjU8ybu+v00BnVdnOwmDuFwJsbKnkkFY75DhFnfFG0RSI0Hfgfk8NpiCxQ4eOclso4cSxG8CdeAFSdp6w0wJ7GQUbUFnKG7XLhMDhr8J8xIjfgigAMcMv5qBYjB0TkoP25hEDT3flaiHs5KnNkbvfhktqf8pQb1mkraO/lEU4Kb91oRUGZLA99RGozcEJ+MMj/bsOpXpJkZTjtkHLtlhFKFIWYABWYnwgudePIxi95QYn6oZiwg24nS8nyTj7PmTxXL0aVa2mgN4FtD3YOLNvYyQoGKDBZIIzJw+ZyV9bcOTbuYtd/RhjfUGPPz+alzssxUeg5ZoHiG50F/O5TZbbfzmmJqkfmtBTRJOaJRMzmYe8I+WNHeUZFrlVOynSiBBoeyS4vo1mot1ArOHu+QD8sdxqsiTQnLi/NhNM03eYVz1xHNjqAw2VxX/Q+dPpcv2hOQEmGWxqfQk3zJgemBMO12FzNGkaVdX1EPyCozXQ4tPVBzx0WWZPOOF88RJqEt9OWJSlY6GdH3VMFJH30TS+2zG94c3rUWzE3FPSoe7uQUNtgBIoRq0Y4nuH9E36forai2CrXcnfrVhfeA6h7P/c4SiuqA69jxick8cv3Usu7uN17CDeJnoA5yf+o4vSW6cgQTlFsHF61hKzwx5KDYLke53rwmIIpjUGdyH0qECHTcvKJe2kMWnk36srhJg"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 11458,
+    "candidatesTokenCount": 233,
+    "totalTokenCount": 11888,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 11458
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 233
+      }
+    ],
+    "thoughtsTokenCount": 197
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:58.682143Z",
+  "responseId": "Su3iap_RKcbPmLAP0YKM4Qs"
+}

@@ -1,0 +1,162 @@
+[
+  {
+    "arm": "A",
+    "case_id": "case-01",
+    "split": "dev"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-01",
+    "split": "dev"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-01",
+    "split": "dev"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-01",
+    "split": "dev"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-02",
+    "split": "dev"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-02",
+    "split": "dev"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-02",
+    "split": "dev"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-02",
+    "split": "dev"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-05",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-05",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-05",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-05",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-06",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-06",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-06",
+    "split": "test"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-06",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-07",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-07",
+    "split": "test"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-07",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-07",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-03",
+    "split": "test"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-03",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-03",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-03",
+    "split": "test"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-08",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-08",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-08",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-08",
+    "split": "test"
+  },
+  {
+    "arm": "C",
+    "case_id": "case-04",
+    "split": "test"
+  },
+  {
+    "arm": "A",
+    "case_id": "case-04",
+    "split": "test"
+  },
+  {
+    "arm": "B",
+    "case_id": "case-04",
+    "split": "test"
+  },
+  {
+    "arm": "B_self_check",
+    "case_id": "case-04",
+    "split": "test"
+  }
+]

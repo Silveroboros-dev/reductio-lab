@@ -1,0 +1,13 @@
+{
+  "classification": "user-relayed Grok claim; provider transport not independently verified",
+  "saved_at_utc": "2026-10-29T09:00:06.863415+00:00",
+  "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+  "size_bytes": 15255,
+  "reported_request_start_utc": "2026-10-29T08:58:06Z",
+  "reported_request_end_utc": "2026-10-29T08:58:07Z",
+  "reported_http_status": 200,
+  "reported_http_date": "Thu, 29 Oct 2026 08:58:06 GMT",
+  "reported_direct_http": true,
+  "source_request_url": "https://external-api.kalshi.com/trade-api/v2/markets?limit=8&tickers=KXFEDDECISION-26DEC-H25%2CKXGDPNOM-US26-32.8%2CKXHIGHINFLATION-26DEC-T4.2%2CKXUSGDPSHARE-27JUL01-T25.7%2CKXIPO-26-ANTHROPIC%2CKXANTHROPICRESCIND-26JUN-27JAN01%2CKXCLAUDE-CLAUDE6-26DEC31%2CKXRSIANNOUNCE-29-27JAN01",
+  "prior_capture_sha256": "782eb55ee53f316ca97a2e1bbc1b979f0cd9b089a9b7acb0408f120e0cb9586a"
+}

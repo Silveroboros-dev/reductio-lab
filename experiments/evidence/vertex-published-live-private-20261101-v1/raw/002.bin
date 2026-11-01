@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"choice\":\"synthetic-final-tally-lark7-v1\",\"expected_result\":\"The final audit tally showing the number of passed checks out of 10 for batch LARK-7.\",\"reason\":\"The rule requires at least 7 of 10 final checks to pass, so retrieving the final tally for batch LARK-7 is necessary to verify whether the target was met.\"}",
+            "thoughtSignature": "AY89a1/iNvmRByY5DUqadKXQ5NfUXr4V8Z0YiBV171Iy8C3UWT2JHqji+pomMe9CL4bouo15pRHL6JieeubgMuBP6E0Nig71PUXTVeamc18zyrejlJ7eeR1t6X6suKbFzAUKF6a8l0W7bnqhufbcxFAA9wqVYIuls7jqJedkyjQob70zCbZhG2nZT/RpV3KKFq2ibYOglGryjTZQScBW23oOgV4z9EKWI8udDUPCR7+O+jiakWl2nA+aZHEwyiAwyzR9ENelsecJRWk77oetLd1TVGShpoUcs0m+H9Er1LIpOo2GILzlX4oYv1zkjgPkU9RtPXHPW9maIki2FrTpDMotGkKcq/sh5KjxyRYngVjc1mg45BaX1CJU6MagqHo5riOe0KomadCXr7buSZM7co04tH4r7i7Jl/Cyu0M/sZLp/zFgSPhc848d4Mzu2GWJnOCAQLoJf2Ae+sHZNLl4aGGvdOioUirngJza0HyrNIteb3LA4hbqUK6Y/CJ3K5jmVZEGex0Rc7h0sX5DeKbznU3Xf+Gcsa5HM3dgT/XqKtJcHMzZQxjA3NmteB/3EI6IKnxACyzKu8IhmTLEMvDqa6zkkeasV48Z9VBZY+tAzWll0l7aFDIRTw+d+VyU7ahkFKd6nFfVH8HPm/nmW6a8LkZuDUZ2MlPBkGm3fKYCxBJon9lzqSw9GrIKGGZzrtNC/YqEwaTM45zSpnwedTPIetc4wRpwRVOvdCl59Bx3M75gbXUjjmP2vBU5F2EtvdE6cQ4C7M8UatI94dUZDkO91duBkfQOGiRUK4iZz4QwswbctfUMfoppHuDBGQ=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 480,
+    "candidatesTokenCount": 84,
+    "totalTokenCount": 712,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 480
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 84
+      }
+    ],
+    "thoughtsTokenCount": 148
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:45:45.064889Z",
+  "responseId": "mVDnavn6A7zPmLAPvsLAwQM"
+}

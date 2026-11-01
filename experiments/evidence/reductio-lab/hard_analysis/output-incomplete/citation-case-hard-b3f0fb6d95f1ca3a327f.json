@@ -1,0 +1,360 @@
+{
+  "schema": "hard-si-citation-case-detail-v1",
+  "scope": "citation-set sufficiency and source-text comparison for one case; explanation assessment is reported separately from citation IDs",
+  "run_summary": {
+    "status": "incomplete",
+    "assignments_recorded": 56,
+    "assignment_total": 60,
+    "stopped": true,
+    "automatic_resume": false,
+    "summary_sha256": "b4eadc284e6449544f6c1df8fbe5043d801e622d8df812bc8f36b2f9a6577692"
+  },
+  "case_id": "hard-b3f0fb6d95f1ca3a327f",
+  "task_question": "In this fictional world, is Entity-6 authorized to enter the sanctuary? Use only the supplied universal rules and the supplied initial fact; ignore real-world assumptions. Answer YES if authorization follows, NO if non-authorization follows, or UNKNOWN if neither follows. Give a brief explanation based on the supplied statement IDs.",
+  "independent_full_text_result": {
+    "answer": "YES",
+    "shortest_depth": 6,
+    "proof_ids": [
+      "s084",
+      "s037",
+      "s087",
+      "s134",
+      "s112",
+      "s095",
+      "s033"
+    ],
+    "proof_texts": {
+      "s084": "Entity-6 has label UOPMB.",
+      "s037": "If something has label UOPMB, then it has label LCRTC.",
+      "s087": "If something has label LCRTC, then it has label AXYQQ.",
+      "s134": "If something has label AXYQQ, then it has label EIEGE.",
+      "s112": "If something has label EIEGE, then it has label IYLER.",
+      "s095": "If something has label IYLER, then it has label WYTNS.",
+      "s033": "If something has label WYTNS, then it is authorized to enter the sanctuary."
+    },
+    "frozen_key_answer": "YES",
+    "matches_frozen_key": true
+  },
+  "baseline_shared_observation": {
+    "arms": [
+      "B_low",
+      "B_medium",
+      "B_self",
+      "B_budget"
+    ],
+    "model_answer_prefix": "YES",
+    "citation_ids_by_arm": {
+      "B_low": [
+        "s037",
+        "s084",
+        "s087",
+        "s095",
+        "s112",
+        "s134"
+      ],
+      "B_medium": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ],
+      "B_self": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ],
+      "B_budget": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ]
+    },
+    "citation_set_entails_expected": false,
+    "citation_set_entails_opposite": false,
+    "missing_required_proof_id": "s033",
+    "missing_terminal_rule_text": "If something has label WYTNS, then it is authorized to enter the sanctuary.",
+    "critical_citation_vs_explanation_difference": "Each baseline cites s095 and its prose/assessment treats s095 as the authorization rule. The source text for s095 only derives IYLER -> WYTNS; it does not authorize entry. The required terminal authorization rule is s033 (WYTNS -> authorized), which is absent from all four baseline citation lists. Thus their YES answers/explanations assert authorization, but the cited source subset alone does not entail it."
+  },
+  "arms": {
+    "B_low": {
+      "status": "completed",
+      "reason": "model_proposal_requires_semantic_review",
+      "answer_text": "YES. Based on the provided rules, Entity-6 has label UOPMB (s084). Through rule s037, Entity-6 has label LCRTC, which leads to label AXYQQ (s087), then label EIEGE (s134), then label IYLER (s112). From label IYLER, rule s095 establishes that Entity-6 is authorized to enter the sanctuary.",
+      "explicit_yes_no": "YES",
+      "full_response": {
+        "answer": "YES. Based on the provided rules, Entity-6 has label UOPMB (s084). Through rule s037, Entity-6 has label LCRTC, which leads to label AXYQQ (s087), then label EIEGE (s134), then label IYLER (s112). From label IYLER, rule s095 establishes that Entity-6 is authorized to enter the sanctuary.",
+        "assessments": [
+          {
+            "id": "user-target",
+            "reason": "Entity-6 is authorized to enter the sanctuary via the deduction chain: s084 (Entity-6 has label UOPMB) -> s037 (LCRTC) -> s087 (AXYQQ) -> s134 (EIEGE) -> s112 (IYLER) -> s095 (authorized to enter the sanctuary).",
+            "status": "assessed"
+          }
+        ],
+        "citations": [
+          "s037",
+          "s084",
+          "s087",
+          "s095",
+          "s112",
+          "s134"
+        ]
+      },
+      "response_origin": "final_result",
+      "citation_ids": [
+        "s037",
+        "s084",
+        "s087",
+        "s095",
+        "s112",
+        "s134"
+      ],
+      "citation_set_status": "incomplete_citation_set",
+      "citation_set_entails_expected": false,
+      "citation_set_entails_opposite": false,
+      "shortest_proof_using_citations": {
+        "YES": null,
+        "NO": null
+      },
+      "required_proof_ids_omitted_from_citations": [
+        "s033"
+      ],
+      "cited_statement_texts": {
+        "s037": "If something has label UOPMB, then it has label LCRTC.",
+        "s084": "Entity-6 has label UOPMB.",
+        "s087": "If something has label LCRTC, then it has label AXYQQ.",
+        "s095": "If something has label IYLER, then it has label WYTNS.",
+        "s112": "If something has label EIEGE, then it has label IYLER.",
+        "s134": "If something has label AXYQQ, then it has label EIEGE."
+      },
+      "packet_sha256": "93e6d6c34f8a939a45e1d4a6c30ec53c8958baf49e8c17bc8fd8a15e8739c756"
+    },
+    "B_medium": {
+      "status": "completed",
+      "reason": "model_proposal_requires_semantic_review",
+      "answer_text": "YES",
+      "explicit_yes_no": "YES",
+      "full_response": {
+        "answer": "YES",
+        "assessments": [
+          {
+            "id": "user-target",
+            "reason": "Entity-6 has label UOPMB (s084). By s037, it has label LCRTC. By s087, it has label AXYQQ. By s134, it has label EIEGE. By s112, it has label IYLER. Finally, by s095, any entity with label IYLER is authorized to enter the sanctuary.",
+            "status": "assessed"
+          }
+        ],
+        "citations": [
+          "s084",
+          "s037",
+          "s087",
+          "s134",
+          "s112",
+          "s095"
+        ]
+      },
+      "response_origin": "final_result",
+      "citation_ids": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ],
+      "citation_set_status": "incomplete_citation_set",
+      "citation_set_entails_expected": false,
+      "citation_set_entails_opposite": false,
+      "shortest_proof_using_citations": {
+        "YES": null,
+        "NO": null
+      },
+      "required_proof_ids_omitted_from_citations": [
+        "s033"
+      ],
+      "cited_statement_texts": {
+        "s084": "Entity-6 has label UOPMB.",
+        "s037": "If something has label UOPMB, then it has label LCRTC.",
+        "s087": "If something has label LCRTC, then it has label AXYQQ.",
+        "s134": "If something has label AXYQQ, then it has label EIEGE.",
+        "s112": "If something has label EIEGE, then it has label IYLER.",
+        "s095": "If something has label IYLER, then it has label WYTNS."
+      },
+      "packet_sha256": "cd57ff99c4b598a3b50203d27f8b7b06d783cb087ad24d6a9f910381be134982"
+    },
+    "B_self": {
+      "status": "completed",
+      "reason": "model_proposal_requires_semantic_review",
+      "answer_text": "YES. Based on the supplied rules and initial fact, Entity-6 is authorized to enter the sanctuary.",
+      "explicit_yes_no": "YES",
+      "full_response": {
+        "answer": "YES. Based on the supplied rules and initial fact, Entity-6 is authorized to enter the sanctuary.",
+        "assessments": [
+          {
+            "id": "user-target",
+            "reason": "Entity-6 has label UOPMB (s084). From s037, having label UOPMB implies label LCRTC. From s087, having label LCRTC implies label AXYQQ. From s134, having label AXYQQ implies label EIEGE. From s112, having label EIEGE implies label IYLER. Finally, from s095, any entity with label IYLER is authorized to enter the sanctuary.",
+            "status": "assessed"
+          }
+        ],
+        "citations": [
+          "s084",
+          "s037",
+          "s087",
+          "s134",
+          "s112",
+          "s095"
+        ]
+      },
+      "response_origin": "final_result",
+      "citation_ids": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ],
+      "citation_set_status": "incomplete_citation_set",
+      "citation_set_entails_expected": false,
+      "citation_set_entails_opposite": false,
+      "shortest_proof_using_citations": {
+        "YES": null,
+        "NO": null
+      },
+      "required_proof_ids_omitted_from_citations": [
+        "s033"
+      ],
+      "cited_statement_texts": {
+        "s084": "Entity-6 has label UOPMB.",
+        "s037": "If something has label UOPMB, then it has label LCRTC.",
+        "s087": "If something has label LCRTC, then it has label AXYQQ.",
+        "s134": "If something has label AXYQQ, then it has label EIEGE.",
+        "s112": "If something has label EIEGE, then it has label IYLER.",
+        "s095": "If something has label IYLER, then it has label WYTNS."
+      },
+      "packet_sha256": "976d617c5ad18be39561ffa1145d7cd8839d0e7200a13a8806c6930f8831792a"
+    },
+    "C": {
+      "status": "proposal",
+      "reason": "model_proposal_requires_semantic_review",
+      "answer_text": "YES, Entity-6 is authorized to enter the sanctuary.",
+      "explicit_yes_no": "YES",
+      "full_response": {
+        "answer": "YES, Entity-6 is authorized to enter the sanctuary.",
+        "citations": [
+          "s033",
+          "s037",
+          "s084",
+          "s087",
+          "s095",
+          "s112",
+          "s134"
+        ]
+      },
+      "response_origin": "result",
+      "citation_ids": [
+        "s033",
+        "s037",
+        "s084",
+        "s087",
+        "s095",
+        "s112",
+        "s134"
+      ],
+      "citation_set_status": "citation_set_sufficient_for_yes",
+      "citation_set_entails_expected": true,
+      "citation_set_entails_opposite": false,
+      "shortest_proof_using_citations": {
+        "YES": {
+          "depth": 6,
+          "proof_ids": [
+            "s084",
+            "s037",
+            "s087",
+            "s134",
+            "s112",
+            "s095",
+            "s033"
+          ],
+          "answer": "YES"
+        },
+        "NO": null
+      },
+      "required_proof_ids_omitted_from_citations": [],
+      "cited_statement_texts": {
+        "s033": "If something has label WYTNS, then it is authorized to enter the sanctuary.",
+        "s037": "If something has label UOPMB, then it has label LCRTC.",
+        "s084": "Entity-6 has label UOPMB.",
+        "s087": "If something has label LCRTC, then it has label AXYQQ.",
+        "s095": "If something has label IYLER, then it has label WYTNS.",
+        "s112": "If something has label EIEGE, then it has label IYLER.",
+        "s134": "If something has label AXYQQ, then it has label EIEGE."
+      },
+      "packet_sha256": "452c5982fa37ccf022fc9022bfbc811af8deb5b8a0836ef4694b055138d99a7c"
+    },
+    "B_budget": {
+      "status": "completed",
+      "reason": "model_proposal_requires_semantic_review",
+      "answer_text": "YES",
+      "explicit_yes_no": "YES",
+      "full_response": {
+        "answer": "YES",
+        "assessments": [
+          {
+            "id": "user-target",
+            "reason": "Entity-6 has label UOPMB (s084). From label UOPMB, it derives label LCRTC (s037), which entails label AXYQQ (s087). Label AXYQQ leads to label EIEGE (s134), which implies label IYLER (s112). Finally, having label IYLER establishes that the entity is authorized to enter the sanctuary (s095).",
+            "status": "assessed"
+          }
+        ],
+        "citations": [
+          "s084",
+          "s037",
+          "s087",
+          "s134",
+          "s112",
+          "s095"
+        ]
+      },
+      "response_origin": "final_result",
+      "citation_ids": [
+        "s084",
+        "s037",
+        "s087",
+        "s134",
+        "s112",
+        "s095"
+      ],
+      "citation_set_status": "incomplete_citation_set",
+      "citation_set_entails_expected": false,
+      "citation_set_entails_opposite": false,
+      "shortest_proof_using_citations": {
+        "YES": null,
+        "NO": null
+      },
+      "required_proof_ids_omitted_from_citations": [
+        "s033"
+      ],
+      "cited_statement_texts": {
+        "s084": "Entity-6 has label UOPMB.",
+        "s037": "If something has label UOPMB, then it has label LCRTC.",
+        "s087": "If something has label LCRTC, then it has label AXYQQ.",
+        "s134": "If something has label AXYQQ, then it has label EIEGE.",
+        "s112": "If something has label EIEGE, then it has label IYLER.",
+        "s095": "If something has label IYLER, then it has label WYTNS."
+      },
+      "packet_sha256": "922847c97e6c9d073a3ff6e8455207a055dc712e5350fd6194667249a9ae0157"
+    }
+  },
+  "interpretation_limits": [
+    "Citation-set sufficiency is computed from cited source statements only.",
+    "The four baseline explanations are stored verbatim; this artifact notes the mismatch between their prose about s095 and source text, but does not score general explanation quality.",
+    "C has all seven source IDs including s033, and that set entails YES; this is not validation of C intermediate inferences or internal reasoning.",
+    "The case result is not a human golden or a broad performance estimate."
+  ]
+}

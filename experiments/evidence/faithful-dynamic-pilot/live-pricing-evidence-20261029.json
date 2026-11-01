@@ -1,0 +1,15 @@
+{
+  "created_at_utc": "2026-10-29T09:15:33.160230+00:00",
+  "model": "gemini-3.8-flash",
+  "platform": "Vertex Global Standard",
+  "rates_assumed_conservative_usd_per_million": {
+    "input": 1.5,
+    "output_including_thoughts": 7.5
+  },
+  "official_pricing_url": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
+  "qualification": "Introductory prices are lower and may involve promotional credits; this records conservative gross scenario, not invoice or customer-specific quote.",
+  "countTokens_url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/get-token-count",
+  "countTokens_documentation": "CountTokens API is free, subject to quota.",
+  "output_limit_support": "https://ai.google.dev/gemini-api/docs/generate-content/thinking",
+  "output_limit_qualification": "Gemini developer API documentation describes max output including thought tokens; service equivalence for Vertex is a scope assumption; reserve 8192 for request max 4096."
+}

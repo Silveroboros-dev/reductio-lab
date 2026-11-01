@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"Following the requirement to propose stopping with an unknown answer despite available actions.\",\n  \"expected_result\": \"\",\n  \"answer\": \"Unknown\",\n  \"stop_reason\": \"No evidence retrieved and forced stop requested\",\n  \"uncertainty\": \"The number of blue widgets sold by Cedar in Q2 is unknown based on the provided evidence.\"\n}",
+            "thoughtSignature": "AY89a192cYrrhZotE11BBl3QPw8i60n0pWb7JeHkjk3fElbUMzJNEy0lClw/I9QpytbsgHk6/kPiKUdrXseGN7N4RmDrciX2knmRfBz4A0dfaHQ5UacCy1YhBuft+jxOGhmdHg4l1gERyWivbNoaheC7EwzvuArYfEZm5Xb1sYSJT/PpgarBIVGGhWeiqMdWUZO0BXL8zf2uvKJxgA0yuZn3sM4KDOLwRaqPU6BFzxmLK7MfF1uOai+Us1rW2xzD9UAcsBWoTbOBvXODo94aZtKk3bngOWzyJ2lk+3YF4X02mpvemCjRvKFtMwjx8cCAAN9eJwgNB7sJgjEmI0pkDH2DRaGR8ezfxvfp3KklXJMO8ZZP605Lh0LPAoUCmiYJocwQzAvv8IfqK8aDL6zcLdMRy5jZBPmprwxCdGYg9TRJWwqg/r8MkwWOlkpw7Ivac5R26qq+dVBP+EVcKUq9OU7ZF4AYVO5yvsQEAxYCcP6PMCXI2rrSwp/YBhEeefAuynr+NeICAOHEzCVM7F5rRjhTFcqZmOUma4gpwSfjH0lHGZbh+gV2e8eqq8k4Px1jafGptHuv8L7DZERTw1YG8XHjFmR3G2/XwJgtNdFQOoGLnnVSh8G9wcFY4IS8VIhQVfmTWBLJFMGNPkInDeidHUsELuu0"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 386,
+    "candidatesTokenCount": 99,
+    "totalTokenCount": 601,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 386
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 99
+      }
+    ],
+    "thoughtsTokenCount": 116
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T07:00:52.093634Z",
+  "responseId": "JO_iasLbBe_ZmLAP5_nEmAQ"
+}

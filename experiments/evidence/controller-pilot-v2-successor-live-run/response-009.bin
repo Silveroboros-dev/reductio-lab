@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"issue\": false,\n  \"critique\": \"The visible evidence fully answers both parts of the question, providing the $25 billion annual revenue run rate (as well as the earlier Q1 $20 billion figure) for the combined chips business and confirming that it does not isolate AI-only revenue since it includes Graviton and Nitro.\"\n}",
+            "thoughtSignature": "AY89a19FiRTzLg1WpjU1u1qv5OMgJoi+OWlMtYwejaKTQh5WhPM+dliExrQy+fezMvHJQQsa8XFM8VnO78U6U/Trnq8RTTx/bx5KNDGyPL0tTDGNMdZgL8sD3nqDEi4Gcqf1qZ7l2DzQbIElFTXf/B8BK4kwFdulv1u1jHMv2q34oR2TVPfZhqEZJ5eucjLzCDI0QIcwJVW/1dIPo/J/YpNgH1rbUOluk9OTRFMOK+YFNaZ+Dk3St53YohdiPbxGGWmLp/jzCFDwNjh1QUJE87fXAZsdkah4ckUNeylA7VVSUN8W2n+x5j50mFV9ozDnI0bkrqvgnEJFwlQQdp1PvkK95aQBz1LVbiIZ8F0soLuzZ2xpFWfcNaY4tTGSq52QYStcZId2oMru/nh+vuXvYTPi4nnU9Nj+WFQiC5hk2UcJmm38CHEdDRKkQK3XX6CoK/Je4yc9fxrbF4KcCYYOYgCmQgmY6P2rSbkTocw2YhJZ/EtZCRzLkqS2uhymfnffl7S3DRJmJCpatO9db8jiO+keWPZQdit76Aj9BWe5OGV9ZMPG+r9EELRPnuFoyBxLOhamB7yIdpwMHaWUqvl4zxRHJslr0xA38mLhO24WVjUAbdAHMlwrkfkqE8/I3XO8WyRkzVlb1XOVv6KbA0K+XVGNLvyJ93g0OPBAllyscZX/MnQLEkW1s7X133b/kDVNaJ4jW5/qrmnMvebnnRm7TVcwL7D5DuOrVSLqVvHQ7oUWULcFqR94/4hKaldBUZ+bwTsySB0wWCpvxBtSyGqf/asFn+3SnWaKWTiVPDyhjZpGPTDHGoH+YnraTr/wZR+PeShMQ04VjIDHaMErN3WMA1lO6V+tLRRXQUE/BGdqr0W4AD9oGPYuiGeNKiemEPQ8b+OUCOedGS0AfkyyB/Z38gCyd+FXdKApCkXKopQShs5km72DKB2kD7wfJ+DGszacPWUm+Gr47mjd7/B3WJm1PMjtgsxj4Vumu+HScfcS/uFpRKazh9L8SK2xaySx7nUSzdQwijsskWi5lU0akQg6ZMa1N2pFnnpV5POkeAy69EdeopT8uAbia8BQ9svxFArKPiFjSdvJpTar0GfDrHo4vUA1ILZbT1SwqZ73RU5elZhzZolPDqZYwv6EWamLbrKO01JCVNMtu16my23LkoNf4YWMn4JI8zSGm0n4i1I3l7WMaKRclEOdYmgtf6r05ipkq0BPPXr1NjTGasVr0L0GOGzcI3IA7iPetPa+g7cuDyL7W8VQbZxpnCDz9jOKWUPWA68UZBCDlcRkVvOTq9MOJvnET3Fu6UBHUqx4nuLULNRx2SKVYJBeS7W0bjCELhKxCdArdGIrUjFWnjHdDqfcV9ftpYy/N0gbXtwxxDO9eZIgOlfrNkISMTimjONB83eD5mszpd4UJbinSEPZkT++PmCFpc39arjUmEfzytMF7zieF1jdn/qqPg1AaVpho/sYTPEyack52/Ta2n4mYfjYOksfPayAs/Wdc2dndIJmgULM8XBJxxHa9puKZhos22WxWmuYQ4S1ZXdEAxmzK+qZ526rHOprEQQmiHHxfO2d0jZy/WGdDn7xlVEduZA7Ie/RjJ7zYVohLZs9nYpRbIwTLhCVipPRcItZhWAQ9uJkmI5wm/LHi1wOo2KE9MJr50NNcNZPJtCcTStq8A6Vm1KzjsMJq/RAO0xeF2SMUzlhY8tyXaLoJKTVhWdkiXuzyxvFOt1xYMVnCURBVWFCEHlrnrJlJRMthb0wFPHrwYTFk4j2cQxns6soVELUZnYHd4/E6W8++vXSzmZZLC6f50nQEnvYQbY3dAzwSdUcsEP6DjfrdgPBXvdvB4fshojRY4jfJER21F0IqluORCmu7qx+c19EMFDwTAEnp5k+Wx/sepr1QYDSSSTJLEPi+rhhiwCtaGF+cGZ90TJqaFpO+5Zlu1xDkRzdgg=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2905,
+    "candidatesTokenCount": 76,
+    "totalTokenCount": 3307,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2905
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 76
+      }
+    ],
+    "thoughtsTokenCount": 326
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:14.520743Z",
+  "responseId": "Hu3iaqfkH47ShcIPzsyi0As"
+}

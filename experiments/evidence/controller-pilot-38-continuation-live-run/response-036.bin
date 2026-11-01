@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"All available actions have been exhausted. The visible evidence provides estimates for total water withdrawals in 2015 (about 322 Bgal/d) and freshwater withdrawals (281 Bgal/d), as well as a definition of consumptive use, but does not state the estimated numerical figure for consumptive water use in 2015.\",\n  \"expected_result\": \"\",\n  \"observed_vs_expected\": \"Expected 2015 consumptive use estimates; however, the fragment only reported total withdrawals (322 Bgal/d) and freshwater withdrawals (281 Bgal/d).\",\n  \"answer\": \"Unknown. Based on the visible fragments, the estimated U.S. consumptive water use in 2015 in billion gallons per day is not provided. The available text only reports total water withdrawals (about 322 billion gallons per day) and freshwater withdrawals (281 billion gallons per day) for 2015.\",\n  \"stop_reason\": \"evidence_exhausted\",\n  \"uncertainty\": \"The visible evidence does not contain the specific numerical estimate for consumptive water use in 2015.\"\n}",
+            "thoughtSignature": "AY89a1/jeEzDyUlAH+fp5e9wmSqdgVgX7DphOQzzpv8vKNxSuBXokst4dL1SAswZuWmAYK84EbW30cGA2SWYpbttJd+kvGFgDWS9A7M+jxW+BGfCZKEL"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2433,
+    "candidatesTokenCount": 280,
+    "totalTokenCount": 2713,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2433
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 280
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:09:49.271030Z",
+  "responseId": "Tf_iarbFENWUhcIP_67bmQc"
+}

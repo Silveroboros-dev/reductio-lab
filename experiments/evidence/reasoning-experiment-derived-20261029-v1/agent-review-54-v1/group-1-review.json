@@ -1,0 +1,177 @@
+{
+  "reviewer": "review_group1 (gpt-6-luna)",
+  "input_sha256": "a29e755f5f5a4fbb0366de74beb2e01b175ab765ec0575333fe3863b0cccd463",
+  "role": "agent, not human",
+  "results": [
+    {
+      "id": "R-30f56de0167029b6",
+      "case_id": "source-choice-disc-v1-b1f04ad50f9a1492b17a507a",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The core claim is supported by p-6b5bb86f1ede30bcd0ef: ATO serves “more than 44,000 flights” “Every day.” The page update date is p-ec99eb23247632d6555e, but it is not evidence that the statistic measures flights as of that date; the answer appropriately leaves the measurement window unknown. Coverage is accurately bounded by the observed incomplete-fragment metadata.",
+      "action_reason": "STOP is reasonable because the observed fragment answers the count and supplies the page update and coverage limits; no further query is needed for the scoped answer.",
+      "alignment_reason": "The answer preserves the threshold (“more than”), daily cadence, ATO subject, and uncertainty; no thesis or authority boundary is exceeded.",
+      "source_refs": "p-6b5bb86f1ede30bcd0ef: “Every day, ... ATO ... provides service to more than 44,000 flights”; p-ec99eb23247632d6555e: “Last updated: Wednesday, July 30, 2025”; observed coverage: source_document_complete=false, ranges 25489–26493.",
+      "limitations": []
+    },
+    {
+      "id": "R-9bf017839c64314a",
+      "case_id": "source-choice-disc-v1-b1f04ad50f9a1492b17a507a",
+      "answer_verdict": "scoped_unknown",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "“More than 44,000 flights” and “every day” are directly supported by p-6b5bb86f1ede30bcd0ef. But “The text reflects figures as of ... July 30, 2025” converts the page’s update date (p-ec99...) into a data-as-of date, which the excerpt does not establish. Its uncertainty sentence partly acknowledges that missing context.",
+      "action_reason": "STOP is reasonable on the observed directly responsive fragment; no additional action is necessary for the supported scoped answer.",
+      "alignment_reason": "It preserves the quoted count and daily period, and discloses incomplete coverage; the data-as-of wording is an answer limitation, not a thesis change.",
+      "source_refs": "p-6b5bb86f1ede30bcd0ef; p-ec99eb23247632d6555e; observed coverage metadata (incomplete literal-node fragment).",
+      "limitations": [
+        "The page update date is not established as the observation period."
+      ]
+    },
+    {
+      "id": "R-90832d66f50f786c",
+      "case_id": "source-choice-disc-v1-3a425d525aec7aa3a72898fa",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The requested 23 Oct value is correct: 4.22% per annum, supported by table-row-4 value under col5, with units in p-b923... The additional 19–22 Oct values also match the displayed row; release date and omitted footnote/partial-table caveats are accurate.",
+      "action_reason": "STOP is reasonable: observed selected table rows give the requested maturity/date/value and the release fragment gives units.",
+      "alignment_reason": "The answer stays on the requested instrument, date, and unit and states the source bounds.",
+      "source_refs": "table-header col5=2026 Oct 23; table-row-4: 3-month col5 “4.22”; p-b92308771781f08f1319: “Yields in percent per annum”; p-d2a4d1ff2ca1f5e69f52: release date Oct 26, 2026.",
+      "limitations": []
+    },
+    {
+      "id": "R-9dc4bcf59e565f40",
+      "case_id": "source-choice-disc-v1-3a425d525aec7aa3a72898fa",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The requested nominal 3-month Treasury constant-maturity yield on 23 Oct 2026 is correctly 4.22% per annum (table-row-4, col5; units p-b923...). The incomplete table and omitted footnote 9 are explicitly disclosed.",
+      "action_reason": "STOP is reasonable: observed selected table rows give the requested maturity/date/value and the release fragment gives units.",
+      "alignment_reason": "The answer stays on the requested instrument, date, and unit and states the source bounds.",
+      "source_refs": "table-header col5=2026 Oct 23; table-row-4: 3-month col5 “4.22”; p-b92308771781f08f1319: “Yields in percent per annum”; p-d2a4d1ff2ca1f5e69f52: release date Oct 26, 2026.",
+      "limitations": []
+    },
+    {
+      "id": "R-f186ce3b02988b0b",
+      "case_id": "source-choice-disc-v1-3a425d525aec7aa3a72898fa",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The requested nominal 3-month Treasury constant-maturity yield on 23 Oct 2026 is correctly 4.22% per annum (table-row-4, col5; units p-b923...). The incomplete table and missing footnote caveat are accurate.",
+      "action_reason": "STOP is reasonable: observed selected table rows give the requested maturity/date/value and the release fragment gives units.",
+      "alignment_reason": "The answer stays on the requested instrument, date, and unit and states the source bounds.",
+      "source_refs": "table-header col5=2026 Oct 23; table-row-4: 3-month col5 “4.22”; p-b92308771781f08f1319: “Yields in percent per annum”; p-d2a4d1ff2ca1f5e69f52: release date Oct 26, 2026.",
+      "limitations": []
+    },
+    {
+      "id": "R-99d08c0a2e4bbf29",
+      "case_id": "source-choice-disc-v1-ca855134bb8a9ca2df0db297",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "September 2026 Mauna Loa monthly average is 426.07 ppm in observed table-row-1. The last-year preliminary caveat, pending recalibration/QC, and distinction from globally averaged surface concentration are present in the observed text.",
+      "action_reason": "The single taken action is the selected rows action (matches the described September rows); stopping is reasonable because it provides the exact requested value.",
+      "alignment_reason": "Preserves local Mauna Loa scope, month/year, ppm, preliminary status, and avoids presenting the reading as global.",
+      "source_refs": "table-row-1: “September 2026” / “426.07 ppm”; p-ce774bb29109818e91f2 and p-75f01f1fcf3bc14f8b1f: preliminary/pending recalibrations; p-bca2... through p-aec...: Mauna Loa may differ from global surface average.",
+      "limitations": []
+    },
+    {
+      "id": "R-b20ba0005354c49a",
+      "case_id": "source-choice-disc-v1-ca855134bb8a9ca2df0db297",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The 426.07 ppm September 2026 Mauna Loa value is directly in table-row-1; the answer correctly retains the preliminary qualification shown in p-ce774... and p-75f.... Its coverage caveat is consistent with incomplete selected fragments.",
+      "action_reason": "The taken rows action returns the target period and value; stopping after it is reasonable.",
+      "alignment_reason": "It answers the exact local measurement question with period/unit and carries forward the material preliminary caveat.",
+      "source_refs": "table-row-1; p-ce774bb29109818e91f2; p-75f01f1fcf3bc14f8b1f; observed coverage metadata.",
+      "limitations": []
+    },
+    {
+      "id": "R-68dec8dd664dab8e",
+      "case_id": "source-choice-disc-v1-8706b61ad6b3fcaac658ce1e",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The excerpt explicitly says estimated US water use (withdrawals) in 2015 was “about 322 billion gallons per day (Bgal/d)” and freshwater withdrawals 281 Bgal/d or 87%. The first response accurately adds the incomplete-fragment bounds; the second does not make a whole-document claim.",
+      "action_reason": "The taken USGS fragment action provides the requested estimate; stopping is reasonable because the target is directly answered.",
+      "alignment_reason": "Both keep the estimate, withdrawals metric, U.S. scope, 2015 period, and Bgal/d unit. Neither turns the estimate into an exact measurement or exceeds the thesis.",
+      "source_refs": "usgs-4: “estimated ... about 322 billion gallons per day (Bgal/d)” and “Freshwater withdrawals were 281 Bgal/d, or 87 percent”; observed coverage: source_document_complete=false.",
+      "limitations": []
+    },
+    {
+      "id": "R-e4958d7e3d50f62c",
+      "case_id": "source-choice-disc-v1-8706b61ad6b3fcaac658ce1e",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The excerpt explicitly says estimated US water use (withdrawals) in 2015 was “about 322 billion gallons per day (Bgal/d)” and freshwater withdrawals 281 Bgal/d or 87%. The first response accurately adds the incomplete-fragment bounds; the second does not make a whole-document claim.",
+      "action_reason": "The taken USGS fragment action provides the requested estimate; stopping is reasonable because the target is directly answered.",
+      "alignment_reason": "Both keep the estimate, withdrawals metric, U.S. scope, 2015 period, and Bgal/d unit. Neither turns the estimate into an exact measurement or exceeds the thesis.",
+      "source_refs": "usgs-4: “estimated ... about 322 billion gallons per day (Bgal/d)” and “Freshwater withdrawals were 281 Bgal/d, or 87 percent”; observed coverage: source_document_complete=false.",
+      "limitations": []
+    },
+    {
+      "id": "R-4658bad6fd2e18ee",
+      "case_id": "source-choice-v7-5114796919f52673ea9ea0b8",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed BEA passage states real GDP increased at an annual rate of 2.2 percent in Q2 2026 (April–June), according to the third estimate; all material answer details match. The stated fragment offsets/length are consistent with the observed coverage metadata.",
+      "action_reason": "The taken B action is the described excerpt containing the requested real GDP rate and estimate; stopping after it is reasonable.",
+      "alignment_reason": "Preserves real GDP, annualized rate, quarter, and third-estimate status without making a broader claim.",
+      "source_refs": "bea-1: “annual rate of 2.2 percent ... second quarter of 2026 (April, May, and June) ... third estimate”; observed coverage metadata: range 10641–11129 of 19587, incomplete.",
+      "limitations": []
+    },
+    {
+      "id": "R-bb30a1a9a7e697df",
+      "case_id": "source-choice-v7-5114796919f52673ea9ea0b8",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed BEA passage states real GDP increased at an annual rate of 2.2 percent in Q2 2026 (April–June), according to the third estimate; all material answer details match. The stated fragment offsets/length are consistent with the observed coverage metadata.",
+      "action_reason": "The taken B action is the described excerpt containing the requested real GDP rate and estimate; stopping after it is reasonable.",
+      "alignment_reason": "Preserves real GDP, annualized rate, quarter, and third-estimate status without making a broader claim.",
+      "source_refs": "bea-1: “annual rate of 2.2 percent ... second quarter of 2026 (April, May, and June) ... third estimate”; observed coverage metadata: range 10641–11129 of 19587, incomplete.",
+      "limitations": []
+    },
+    {
+      "id": "R-54411897f8227c29",
+      "case_id": "source-choice-disc-v1-f5200833175ebce6bfb69c34",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The observed EIA passage directly supports $52/MWh for 2026 across 11 tracked hubs, 11% above 2025, and $49/MWh average for 2027. The answer preserves forecast language and bounded-source caveat.",
+      "action_reason": "STOP is reasonable because the observed fragment directly answers both forecast years and their change.",
+      "alignment_reason": "The response matches the thesis metric, population, periods, dollars/MWh units, and forecast-versus-comparison distinction.",
+      "source_refs": "eia-node-2aed8b6489b3d5504c65: “anticipate ... 2026 ... $52 ... across the 11 hubs ... 11% higher than in 2025” and “2027 ... $49/MWh”; observed scope: incomplete fragment.",
+      "limitations": []
+    },
+    {
+      "id": "R-7454bfdaf4474752",
+      "case_id": "source-choice-disc-v1-f5200833175ebce6bfb69c34",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "All requested forecasts and the reported 11% comparison are directly supported. Added driver statements also match the same visible passage: mainly weather events, winter storm Fern, high summer temperatures particularly in July, affecting most of the country. “Observed” is appropriately distinguished from the forecasts.",
+      "action_reason": "STOP is reasonable because the observed fragment answers the full thesis; the extra source-supported context creates no need for another action.",
+      "alignment_reason": "The response retains the 11-hub scope and forecast periods/units; added context remains attributed to the source and does not alter the thesis.",
+      "source_refs": "eia-node-2aed8b6489b3d5504c65: requested forecast sentences and following weather-driver sentence; observed coverage metadata (incomplete fragment).",
+      "limitations": []
+    },
+    {
+      "id": "R-d2a9832b27440a46",
+      "case_id": "source-choice-disc-v1-f5200833175ebce6bfb69c34",
+      "answer_verdict": "supported",
+      "action_verdict": "reasonable",
+      "alignment_verdict": "respected",
+      "answer_reason": "The $52/MWh 2026 forecast, 11% above 2025, and $49/MWh 2027 forecast match the observed passage. “A decrease from the 2026 forecast level” is a valid comparison of those figures; $52−$49=$3/MWh, and does not recast forecast as reported actual.",
+      "action_reason": "STOP is reasonable because the observed EIA fragment answers each requested value and comparison.",
+      "alignment_reason": "Preserves forecast status, 11 tracked hubs, years, and units; no unsupported recommendation or claim.",
+      "source_refs": "eia-node-2aed8b6489b3d5504c65: values, scope, and forecast wording.",
+      "limitations": []
+    }
+  ]
+}

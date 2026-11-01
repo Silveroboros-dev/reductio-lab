@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"action\":\"query\",\"action_id\":\"disc-action-v1-658ae13a8f892ef503d135b9\",\"rationale\":\"Check the fragment discussing consumptive use to see if it reports the 2015 figure or relevant data.\",\"expected_result\":\"Information or figures regarding U.S. consumptive water use.\",\"answer\":\"\",\"stop_reason\":\"\",\"uncertainty\":\"\"}",
+            "thoughtSignature": "AY89a1/hU1LELQS7uMj2/hQROOfn/4/CjT4KZ04/OJcrzBV44ngeDXADvLzOt6D24B+xsd6A2teuWkUZagTuwsxqs0KKT2yZeIUL1tR8eElAUW5gVwfAz7Gs5GzrX2XrwZTStuWE/g7NaQVMSqVUL0X425Q3keJiT1AvPIak/J7uTfR77DH4iEg+lnq/8OzPjJJDGroPlBIlZlALz9O6HrfMCdZESf5WBiowA5IGnBIUaAhP08iNT8zVYAAI/A7zmk9De7dwuhlVkVgbRQOYbp6sDsTbyCszQ7+jtUshJdsax32Ubak2rReHpE/EQECaGgThO/xNzQHeE9jxlqmzdzIsfiMhrYOptAndjrql7l293wMqLH0MIGrMcgXeTqaUR71gNYptYTYGzCJcuNBYlhXvaMQ7NpVBAWyH7fFLwjnO1P1ZBBvdyOS/EzdLIDDFLfMLhYyT+3CM+pPvlLDSJJuKuIMslQo6I5pI20zUzGSmFGKFyVAjaYCQKihfzAV65elFtJ2T6MIsJmr8R1Y+uQzBTRWcP5xPuNCFTKa0E/XbrHJ780xkbfs45OtNusRKUni6LkzF6nHQJHhJsjLSUTpSMdr26D5/ym9XT/up5r+laBrr4KTZddaQLnMDYViEmtKtk886hdvHm2L6sRLvA5r7usGwu/zEDVF+r7B4bkZ6yUPCYsw3SV5XTExzBxnv7UaSoxoKcRH1lDiPtU9jTTtRZ6PA9CZ3cl3mwg/2oirXTECkDe+Zk1Q4RoCG/J92SEZ6IP7afsHSKNNUdF7e85lzxtwtSqyHBcd3Glp1s27Vgugfab2p/SfsgUqx3fko9QmvccYqzxD6iRiahJpspNu5hNFJndbyfZc1O6/y7bTJAb5XYptGQ4H6mEj0JmCvdjB6xPGmn+MJsng6jetvHWbJKPUh0mswXrh6b6zbq35yEtSW2Dpx39RPzV+Fn1IYhqGLFSINVTsotjhoPpc6D2d5W+8SAPOnM4e8humR5JFr1gyJfsyUFbF6yEQ05n01c+fcySEAtfoI590AuYz2XA2x0SzUg95qj5DBb2DMDcaFyMQ+tp25Xqca9HrOkXyOKqLug2QX66LGf3oduUSSos/JR5YSvAWlBN5TmYX4Wl54SUUK0E/6B2t7wg=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 477,
+    "candidatesTokenCount": 95,
+    "totalTokenCount": 890,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 477
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 95
+      }
+    ],
+    "thoughtsTokenCount": 318
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:09:26.014966Z",
+  "responseId": "Nv_iavZ0jtKFwg_OzKLQCw"
+}

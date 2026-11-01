@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The visible evidence explicitly states that water use in the United States in 2015 was estimated to be about 322 billion gallons per day (Bgal/d), representing total withdrawals.\",\n  \"expected_result\": \"\",\n  \"observed_vs_expected\": \"The retrieved fragment directly matched the expectation by stating that water use (total withdrawals) in the United States in 2015 was estimated to be about 322 billion gallons per day (Bgal/d).\",\n  \"answer\": \"According to the visible USGS fragment, estimated total water use (total withdrawals) in the United States in 2015 was about 322 billion gallons per day (Bgal/d).\",\n  \"stop_reason\": \"The question is fully answered by the visible evidence.\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "AY89a1+y0gWMRMVDHr95fRhaWxn+bOAK6JcPnQ0abM1MfRB4xurOcYLQB7JNMmbH8hXz0gSbQP43W6Y/Ibd3+sDcGOAYdCJdvJtxmJyiOFVpm8nEVUQy"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1477,
+    "candidatesTokenCount": 205,
+    "totalTokenCount": 1682,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1477
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 205
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:05:11.493610Z",
+  "responseId": "N_7iaqqQHpuUhcIP2-6ioAo"
+}

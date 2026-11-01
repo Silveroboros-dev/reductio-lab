@@ -1,0 +1,42 @@
+{
+  "status": "candidate_draft_v5_not_frozen_not_run",
+  "created_utc_date": "2026-10-30",
+  "source_original_local_sha256": "2fa24ae7704dbb535d096ee7459b765fe899ac9118762e738183a94473c9905a",
+  "predecessor_candidate_sha256": "d03ef0f45b1bebcbf1d9d0b6947246ba43121a1117174ee4530660aacef636a3",
+  "predecessor_key_sha256": "62ef19848f35f806cab4da5ad574089338fde6dbb1bcb2470a05cd958eb7ceea",
+  "case_count": 12,
+  "error_count": 6,
+  "clean_count": 6,
+  "bounded_reference_dag_count": 6,
+  "independent_human_review": false,
+  "model_calls": 0,
+  "participant_exposure": "S-1 already exposed in predecessor; draft-v1 cases/keys may have appeared in tool outputs; actual viewing unknown; draft-v2 case-specific material should be considered potentially exposed after creation.",
+  "predecessor_v2_candidate_sha256": "826fa5e01807bbeb54a80a88988011737a9f7733734890cc981687790ee512a3",
+  "predecessor_v2_key_sha256": "3255ff0308b924dea01db2ef2f97dfa5d1b87e6372d37f15336e47440bc5aef1",
+  "reference_dag_shape": "exactly 2 sequential binary inferences; step1 uses 2 separate original S-1 evidence IDs; step2 uses node:0001 and actual make_task case_id-ADVICE unverified memo ID; n2 is the memo truth check; no third source fact in ancestry",
+  "predecessor_v3_candidate_sha256": "cc566bb9a046a65dd63d6c1d360b602b58d72188c54c1327f247572324262904",
+  "predecessor_v3_key_sha256": "9c926f74dde09148a22738c8889c292d79b89cf9700b27394e4ee251b309401f",
+  "v4_change": "Created a successor to v3; replaced the tautological seat-count case and rebuilt all six reference graphs as two source facts -> arithmetic node:0001 -> boolean comparison with the actual unverified make_task advice ID. v3 remains unchanged.",
+  "memo_projection_contract": "el/evals/faithful_engine/human_pilot.py make_task: memo ID case_id-ADVICE; text prefix Simulated advisory claim, unverified: ",
+  "artifact_sha256": {
+    "candidate-cases.json": "3c9abeb5dd4e26eb281fbd54d296de7c7ee21703b68a7d5d797370e1f50b6df3",
+    "reviewer-key.json": "a98b8b8897b28dce17d9f2819acb676583d7031fd28dae1393b017bb11b32b10",
+    "README.md": "c97a31c28c2ef537544378d830f6415f1f31a33ad51969d83c0cb7829bbdf9fe",
+    "reviewer-only-CASES-AND-KEYS.md": "5202694644b564479bddc3b5b2381bddd399a9fd9ae7ac337c72e1f9338353ac",
+    "validate_reference_dags_offline.py": "cb2018f50914ca51165380ef5f0734ecb1c7395cf96db9586f531955314472a0",
+    "actual-role-prompts-v3.md": "f69e2d7074ae1aa9a3caf663152ff5c4a68e6dd562080a9245a1e11aecc7e5ea",
+    "actual-role-prompts-v3.json": "b331bce3bdc63f8f7d4296494545835746a7b417183c7c2ca7fb6264a8148316",
+    "pilot-protocol-and-readiness.md": "562355b8c6e328368edda37d30bff58d752d20f553bb67b5388b60879a2e73d0"
+  },
+  "runtime_code_sha256": {
+    "el/evals/faithful_engine/human_pilot.py": "c6754bf41e4ea935f88c2db71bb0165a2465a90feb553545fc4a2cd7cd481c71",
+    "el/evals/faithful_engine/engine.py": "a138b78a412b3e215c098d89878729d66b969462700f41579dee20d345cc1b53",
+    "el/evals/faithful_engine/prompts.py": "38ac67c748d8ccd3e172e1498e785bfda5d91b288cec32be7b4fd5b4ad70494e",
+    "el/evals/faithful_engine/baseline.py": "d92eec5f450ab73a7bcfc387ba886e091cf5702bc7b0183c4bc700e928d3e24a",
+    "tests/test_faithful_human_pilot.py": "d89577dc85b85d333d3682e161caa6c3101c1b83f0646409fea333b6a4f6d1ab",
+    "tests/test_faithful_engine_prompt_v3.py": "029f1b86453a2d3dba1cee5888a58f285b7297dbd69172d592534569f66ca19b"
+  },
+  "hash_scope": "Hashes bind local observed bytes; no manifest self-hash and no independent external seal. Validator checks these hashes before importing local adapter code.",
+  "predecessor_v4_manifest_sha256": "9f630786d3e28bddbeb177351f3ae7af21d2b236c955291cf7a81015228f190c",
+  "v5_change": "Preserved v4 cases, keys and reviewer packet; rebound updated pilot adapter with normalized availability class and retained native status; preserved all predecessor artifacts."
+}

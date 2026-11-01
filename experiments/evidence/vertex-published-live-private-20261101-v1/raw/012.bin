@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"answer\":\"Batch LARK-7 did not meet the target because only 6 of the 10 final checks passed, which is fewer than the required minimum of 7.\",\"citations\":[\"source:synthetic-final-tally-lark7-v1\",\"source:synthetic-rule-lark7-v1\"]}",
+            "thoughtSignature": "AY89a19zyevtzCiqu9LGcCJ+aLugah0Cn2B6mpWIv0Wx4DLBjw4ObI6kZTxQT+z46Ay4pVp5grGqtgoyGD24wiqegKl1xp/KoWbpO0wDzdeQBjiMQizTOsVwOdLe4tMCc5i1rNNwuqGcWzcdU4OSon0v6+GdemMh48qexxG1Evh/Z/N4V4NbHda+RkzeEgBbMUIytR6VtZuF0OnySMccURd2Piy9lLYoNR+0s1PGB4M0+eZ5dr9dAey4miGmBmdQfnWcwvpXRUxOUe53y2SZI2AWR4rShYy3C2qI/v5Pg9z9VMlgaKpE2YFfzsjHRiNguDaBbd7uyUALTqC93PnVfLoR+Ulvlcqj0wuLvKDSxso09coOAD8FMTyliam95Cn9RnaiAtTaNM36TiPD+83QinhpKPRI53oU1t+++maM2RBrlepmNy92OmHiEzXAPsk1bjg="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 190,
+    "candidatesTokenCount": 69,
+    "totalTokenCount": 319,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 190
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 69
+      }
+    ],
+    "thoughtsTokenCount": 60
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:49:22.505688Z",
+  "responseId": "clHnatjuHo3NmLAP8K_qwAY"
+}

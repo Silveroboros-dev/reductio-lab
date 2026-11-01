@@ -1,0 +1,7 @@
+{
+  "exact_message_timestamp_utc": null,
+  "interpretation": "Resume the previously approved experiment; once per three confirmed HTTP 429 effects, plus necessary unattempted next steps, without repeating successful calls or countTokens; no canary or source calls. Prior 429 responses were received, not unknown outcomes. This attribution is the operator interpretation of the user question; does not assert new limits or change existing ones.",
+  "message": "я не хочу делать новый эксперимент, пока мы не закончили старый. Можно ли повторить только те вызовы, которые не прошли с первого раза?",
+  "recorded_at_utc": "2026-10-29T11:44:27.486255+00:00",
+  "schema": "user-request-evidence-v1"
+}

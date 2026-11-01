@@ -1,0 +1,37 @@
+{
+  "schema": "forecast-source-ui-observations-v1",
+  "observed_at_utc": "2026-10-29T10:25:49.821528+00:00",
+  "origin": "Operator visual inspection of Orthogonal public endpoint pages; not account-specific binding or provider-enforced ceiling",
+  "endpoint_quotes": [
+    {
+      "api": "serper",
+      "path": "/search",
+      "rate_usd": "0.002 per call",
+      "url": "https://www.orthogonal.com/discover/serper"
+    },
+    {
+      "api": "serper",
+      "path": "/news",
+      "rate_usd": "0.002 per call",
+      "url": "https://www.orthogonal.com/discover/serper"
+    },
+    {
+      "api": "linkup",
+      "path": "/search",
+      "rate_usd": "0.01 per call",
+      "url": "https://www.orthogonal.com/discover/linkup/58751bfa-150b-485b-9f33-7bacd67c3c32"
+    },
+    {
+      "api": "linkup",
+      "path": "/fetch",
+      "rate_usd": "0.01 per call",
+      "url": "https://www.orthogonal.com/discover/linkup/3ea281b9-d17c-458c-aa03-e37b580a6888"
+    },
+    {
+      "api": "kalshi",
+      "path": "/markets",
+      "rate_usd": "Free",
+      "url": "https://www.orthogonal.com/discover/kalshi/26336e71-0806-4771-b1e0-2913fcd8cf03"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"disc-action-v1-658ae13a8f892ef503d135b9\",\n  \"rationale\": \"Query the fragment addressing consumptive water use to find the estimated 2015 figure.\",\n  \"expected_result\": \"Information or figures regarding U.S. consumptive water use in 2015.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"Consumptive use figure for 2015 is not yet known.\"\n}",
+            "thoughtSignature": "AY89a1+OAwD3KaFhkJXJh4ICIvDTH6PbsAwT3MT5kiuIvTzrLmNWkR18w/rZDIreHddV58d5XIPrwsFKNq69aNgw9eyfviCx9BOB2ZVovbbH2JdjKK6q"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 556,
+    "candidatesTokenCount": 139,
+    "totalTokenCount": 695,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 556
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 139
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:09:35.789469Z",
+  "responseId": "P__iat2XMIaUhcIP3LCecQ"
+}

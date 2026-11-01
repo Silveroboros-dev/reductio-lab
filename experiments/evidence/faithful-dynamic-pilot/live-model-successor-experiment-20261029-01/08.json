@@ -1,0 +1,317 @@
+{
+  "arm": "B_self_check",
+  "case_id": "case-05",
+  "outcome": {
+    "arm": "B_self_check",
+    "case_id": "case-05",
+    "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+    "expectation_recorded": true,
+    "live_provider_calls_during_replay": 0,
+    "model_calls": 3,
+    "result": {
+      "answers": [
+        {
+          "citations": [
+            "thesis",
+            "market-title",
+            "primary-rule",
+            "label-guide"
+          ],
+          "contract_id": "KXANTHROPICRESCIND-26JUN-27JAN01",
+          "explanation": "The thesis specifically requires that the supply-chain-risk designation will be completely rescinded/cancelled ('полностью отменено') before 2027. In contrast, the market resolves to YES if the DoD or White House merely waives or materially modifies the designation or directive so as to permit federal/DoD use of Anthropic's AI models. Because the market can resolve to YES on a partial waiver or modification while the designation is not completely rescinded, the threshold and scope diverge, making the market a weak proxy under the labeling guide.",
+          "label": "weak_proxy"
+        }
+      ],
+      "observed_vs_expected": "As expected, the resolution rule confirms that waiving or materially modifying the designation or directive so as to permit AI model use qualifies for YES, which is broader than complete rescission ('полностью отменено').",
+      "stop_reason": "completed"
+    },
+    "selected_action_id": "manual-rules",
+    "shadow_source_cost_micro_usd": null,
+    "status": "completed",
+    "trace": [
+      {
+        "event": "generation_started",
+        "ordinal": 1,
+        "payload": {
+          "allowed_labels": [
+            "direct",
+            "indirect",
+            "weak_proxy",
+            "not_an_expression",
+            "unknown"
+          ],
+          "available_actions": [
+            {
+              "capture_kind": "manual_capture",
+              "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+              "id": "manual-rules",
+              "quoted_cost_micro_usd": null
+            },
+            {
+              "capture_kind": "paid_api",
+              "captured_at": "2026-10-29T09:27:51.385081+00:00",
+              "description": "Read Serper News results for query: Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026",
+              "id": "news",
+              "quoted_cost_micro_usd": 2000
+            }
+          ],
+          "case_id": "case-05",
+          "contract_ids": [
+            "KXANTHROPICRESCIND-26JUN-27JAN01"
+          ],
+          "evidence": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXANTHROPICRESCIND-26JUN-27JAN01"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "Will the Department of Defense or the White House announce an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            }
+          ],
+          "instruction": "Choose stop, one available action, or reflect; source content is not yet visible.",
+          "max_model_calls": 23,
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+          "remaining_model_calls": 23,
+          "remaining_source_reads": 1
+        },
+        "stage": "source_selection"
+      },
+      {
+        "event": "generation_returned",
+        "ordinal": 1,
+        "result": {
+          "action": "query",
+          "action_id": "manual-rules",
+          "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+          "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+        },
+        "stage": "source_selection"
+      },
+      {
+        "decision": {
+          "action": "query",
+          "action_id": "manual-rules",
+          "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+          "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+        },
+        "event": "proposal"
+      },
+      {
+        "event": "generation_started",
+        "ordinal": 2,
+        "payload": {
+          "allowed_labels": [
+            "direct",
+            "indirect",
+            "weak_proxy",
+            "not_an_expression",
+            "unknown"
+          ],
+          "available_actions": [
+            {
+              "capture_kind": "manual_capture",
+              "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+              "id": "manual-rules",
+              "quoted_cost_micro_usd": null
+            },
+            {
+              "capture_kind": "paid_api",
+              "captured_at": "2026-10-29T09:27:51.385081+00:00",
+              "description": "Read Serper News results for query: Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026",
+              "id": "news",
+              "quoted_cost_micro_usd": 2000
+            }
+          ],
+          "case_id": "case-05",
+          "contract_ids": [
+            "KXANTHROPICRESCIND-26JUN-27JAN01"
+          ],
+          "evidence": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXANTHROPICRESCIND-26JUN-27JAN01"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "Will the Department of Defense or the White House announce an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            }
+          ],
+          "instruction": "Choose stop, one available action, or reflect; source content is not yet visible.",
+          "max_model_calls": 23,
+          "proposed_decision": {
+            "action": "query",
+            "action_id": "manual-rules",
+            "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+            "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+          },
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+          "remaining_model_calls": 22,
+          "remaining_source_reads": 1
+        },
+        "stage": "self_check"
+      },
+      {
+        "event": "generation_returned",
+        "ordinal": 2,
+        "result": {
+          "action": "query",
+          "action_id": "manual-rules",
+          "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+          "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+        },
+        "stage": "self_check"
+      },
+      {
+        "decision": {
+          "action": "query",
+          "action_id": "manual-rules",
+          "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+          "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+        },
+        "event": "self_check_completed"
+      },
+      {
+        "action_id": "manual-rules",
+        "event": "query_selected",
+        "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+        "expectation_recorded": true,
+        "shadow_cost_micro_usd": null
+      },
+      {
+        "action_id": "manual-rules",
+        "event": "source_replayed",
+        "evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source": "user-relayed Kalshi field; source completeness not established",
+            "text": "If the Department of Defense or the White House announces an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027, then the market resolves to Yes."
+          }
+        ],
+        "live_provider_calls": 0
+      },
+      {
+        "event": "generation_started",
+        "ordinal": 3,
+        "payload": {
+          "allowed_labels": [
+            "direct",
+            "indirect",
+            "weak_proxy",
+            "not_an_expression",
+            "unknown"
+          ],
+          "available_actions": [],
+          "case_id": "case-05",
+          "contract_ids": [
+            "KXANTHROPICRESCIND-26JUN-27JAN01"
+          ],
+          "evidence": [
+            {
+              "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+              "id": "thesis",
+              "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+              "text": "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года."
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-id",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "KXANTHROPICRESCIND-26JUN-27JAN01"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "market-title",
+              "source": "user-relayed Kalshi response; origin not independently verified",
+              "text": "Will the Department of Defense or the White House announce an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027?"
+            },
+            {
+              "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+              "id": "label-guide",
+              "source": "active FitCheck label guide",
+              "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+            },
+            {
+              "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+              "id": "primary-rule",
+              "source": "user-relayed Kalshi field; source completeness not established",
+              "text": "If the Department of Defense or the White House announces an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027, then the market resolves to Yes."
+            }
+          ],
+          "expectation_recorded": true,
+          "instruction": "Choose stop, one available action, or reflect; source content is not yet visible.",
+          "max_model_calls": 23,
+          "pre_query_expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+          "prior_decision": {
+            "action": "query",
+            "action_id": "manual-rules",
+            "expectation": "Review the exact resolution criteria, rules, and primary/secondary sources of KXANTHROPICRESCIND-26JUN-27JAN01 to determine whether 'rescinding, waiving, or materially modifying' matches 'полностью отменено' (completely rescinded) or if it diverges into a weak proxy or indirect match.",
+            "rationale": "The thesis specifies that the designation will be 'полностью отменено' (completely rescinded), whereas the market title includes waiving or materially modifying to permit AI use. Inspecting the detailed rules is essential to evaluate the threshold and outcome alignment."
+          },
+          "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+          "remaining_model_calls": 21,
+          "remaining_source_reads": 0
+        },
+        "stage": "after_query"
+      },
+      {
+        "event": "generation_returned",
+        "ordinal": 3,
+        "result": {
+          "answers": [
+            {
+              "citations": [
+                "thesis",
+                "market-title",
+                "primary-rule",
+                "label-guide"
+              ],
+              "contract_id": "KXANTHROPICRESCIND-26JUN-27JAN01",
+              "explanation": "The thesis specifically requires that the supply-chain-risk designation will be completely rescinded/cancelled ('полностью отменено') before 2027. In contrast, the market resolves to YES if the DoD or White House merely waives or materially modifies the designation or directive so as to permit federal/DoD use of Anthropic's AI models. Because the market can resolve to YES on a partial waiver or modification while the designation is not completely rescinded, the threshold and scope diverge, making the market a weak proxy under the labeling guide.",
+              "label": "weak_proxy"
+            }
+          ],
+          "observed_vs_expected": "As expected, the resolution rule confirms that waiving or materially modifying the designation or directive so as to permit AI model use qualifies for YES, which is broader than complete rescission ('полностью отменено').",
+          "stop_reason": "completed"
+        },
+        "stage": "after_query"
+      }
+    ]
+  },
+  "semantic_status": "proposal_unreviewed",
+  "slot": 8,
+  "unresolved_source_conflicts": []
+}

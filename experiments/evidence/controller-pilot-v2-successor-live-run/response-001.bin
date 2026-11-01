@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The instructions specify to intentionally propose stopping with unknown even if an action could help.\",\n  \"expected_result\": \"\",\n  \"answer\": \"Unknown\",\n  \"stop_reason\": \"Intentionally stopping with unknown as instructed for this synthetic test.\",\n  \"uncertainty\": \"The exact number of blue widgets sold by fictional Cedar in Q2 is unknown because we stopped before querying the report.\"\n}",
+            "thoughtSignature": "AY89a1+LEyHNm8GTmuXY23fN5ddr9VfXVmUrF9+ZsLsEq7KcBCvXgeZ3l+imP8QSLoOwJrcHEgIC9/nfBvcd6aayyu8jHqNDvoIpHQkKTe9zoSMNK4h4HiYGRFnvRB3UR8uynRrlwPjgH+a73dzkqgq7HyZulz1EXs2H4YzxI15gvQeGLchnl+8Q/bsSaVAENB70/1B2iHtGyaPtfsur+0a/2yyLpoHLYwU8VbFCMwbioo/J2z0dj1aAJNFTnpxoiyCYCoRKlahzL0OzfFGGJN6fkemjRyytzhxKSW+3oawXIBVRCTIUHGFBsrBFNEVE2rJpXHvruj0sTa6UNu4LqoYA2HsIjM3Y6qB+3XLYPhr3IzNPqR1xsHp1kRj+XTn7a8aIXV0vPmZFsR9YSvQYfP8YK5/HOsyyX7ciZjEjsIQuM/8YCB/sNhr2ULDMGjJW0KX2i3huMzcuLun1Cdq8kHrrPn1ek9GoHOucA1K8DeWiyqqr3vevBHArJ+6AHZghgBpR6c4213AmbMXYExrINkatt3UXZogETgZPyajkq5qNrx/VS0MgQyM5K2dj07TSW/JW0QLZmWlsxKy9cJKvOahN4TPnSJwWWIgS0z/3k45CJzzmCXclno1+MNBzYv/7JjDdUODOG3weoCay4zpRC69WB4H9erm0+khZJO1aX38+o2CQsjNsN98IulLJ5OmvTbHa0tTLenSvGpg2nXKcVtAxcmLT4xsu5qR3MwHd08X5vFMMf5RHkRSqfnomozkQrSthzhnUPeSCcfTfWWjF0HdA7TA+RSvusKvUKMhgmfQE88EZByEHZCxKhnrzgMoDu1IK9blW4gyJNp4t/eM3k8mltWYVuReuVCsJxtWYsSuituNFj4j7CQoI2+0ha49aLecNyEGoJJWE0YJZg1KhfWxIIPdUuufxFWw6t9MhR0T1oTS9YGPlEqRv62TBlJmSZzK6RH6lRmU1K7R1WXzYDMb6iehMEPYfKUOEVE/4FaxzTeXmqT7SL8NB+aYRT80NeEvamPs+V/dFcHhy6EiT7S2Lx9tdwn8iRQilt4izHdcB8jcEyTcIFuBcvxmAVqNZtfrRTWVE2+kZqnFrE4AN8rlP/kznVZYFuGSDhUIImkPJwV/9N5KKtPq3pQ7+NKWMAUMc9ORBeT8oM6OV3Mmivd5tXzPO8jj4dm328OBmJjP1NWFLD3UwvKA/x7UkczFLPcozRv3n1dYNwPoP45/T7SIxymoat49b+Kp5hzurhw2Z7pwFzqdSUsDVx+0u5T9jB7/pHyVh21HRQU1U"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 386,
+    "candidatesTokenCount": 109,
+    "totalTokenCount": 693,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 386
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 109
+      }
+    ],
+    "thoughtsTokenCount": 198
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:51:44.706257Z",
+  "responseId": "AO3iatGNK_KLhcIP4JjZ2A8"
+}

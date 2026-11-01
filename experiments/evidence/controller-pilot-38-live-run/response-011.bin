@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-256732afca0344a1ae6ed270\",\n  \"rationale\": \"The question asks for the annual run rate reported in the saved primary source for the combined Trainium, Graviton, and Nitro business, and whether it isolates AI-only revenue. The article detailing Amazon AI chips business history directly corresponds to this scope.\",\n  \"expected_result\": \"The reported annual run rate for the combined custom chips business (Trainium, Graviton, Nitro) and details on whether AI-only revenue is isolated.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"The specific metric value and revenue isolation details have not been fetched yet.\"\n}",
+            "thoughtSignature": "AY89a1+y8Taq5f2mocsY9tefQguAviDbi7eF9/C9Gq2/NX1tolcvp/N3GsVsG/jT+zXtnLw4+aPM5nGAoIB+00UW+OvoNrp1yFvqWjDkcStKmEuzNobi"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 689,
+    "candidatesTokenCount": 173,
+    "totalTokenCount": 862,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 689
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 173
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T07:01:34.689274Z",
+  "responseId": "Tu_iavqIKpuUhcIP2-6ioAo"
+}

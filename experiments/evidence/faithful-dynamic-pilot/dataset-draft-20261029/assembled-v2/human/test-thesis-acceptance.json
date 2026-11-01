@@ -1,0 +1,15 @@
+{
+  "kind": "human_test_thesis_acceptance",
+  "origin": "user response to request_user_input_async call_37a17a9ce3754dc9bb302466adbbae2a",
+  "user_response": "Да, принимаю все шесть",
+  "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+  "scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+  "test_theses_ru": [
+    "В одном из отчётов CPI за 2026 год годовая инфляция превысит 4,2%.",
+    "Итоговая пересмотренная оценка World Bank доли США в мировом ВВП за 2026 год превысит 25,7%.",
+    "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года.",
+    "Claude 6+ станет публично доступна бесплатным пользователям до 31 декабря 2026 года.",
+    "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн.",
+    "OpenAI или Anthropic публично продемонстрирует независимо подтверждённое рекурсивное самоулучшение до 2027 года."
+  ]
+}

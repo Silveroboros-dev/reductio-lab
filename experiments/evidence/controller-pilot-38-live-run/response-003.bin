@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"synthetic-report\",\n  \"rationale\": \"In light of the critique, query the available report since it directly targets Cedar's Q2 widget sales and can provide the necessary evidence to answer the question.\",\n  \"expected_result\": \"The number of blue widgets sold by Cedar in Q2.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"The exact sales figure is currently unknown pending report retrieval.\"\n}",
+            "thoughtSignature": "AY89a1//3gOyJbdxr5ob7gNvDmwWDal+mHabburA6f2NG39bhMWpLFgWiCjuUDOW55QzCnnN7LKxVRF44WpDsvKCh3wZ95TA51LUpWr+b3WDMwikakOI"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 476,
+    "candidatesTokenCount": 114,
+    "totalTokenCount": 590,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 476
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 114
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T07:00:56.157377Z",
+  "responseId": "KO_iasHNCdWUhcIP_67bmQc"
+}

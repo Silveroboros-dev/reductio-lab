@@ -1,0 +1,832 @@
+{
+  "created_at_utc": "2026-10-29T09:04:03.771028+00:00",
+  "event_counts": {
+    "development_exposed": 2,
+    "diagnostic_test_candidates": 6
+  },
+  "groups": [
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-01",
+      "contract_ids": [
+        "KXFEDDECISION-26DEC-H25"
+      ],
+      "event_group_id": "KXFEDDECISION-26DEC",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "historical-normalization-approval",
+          "text": "The Federal Reserve does not decrease the upper limit of the Federal Funds target rate range at any point prior to January 1, 2028, as resolved by official Federal Reserve Board of Governors releases."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXFEDDECISION-26DEC-H25"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If the Federal Reserve does a Hike of 25bps on December 09, 2026, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "The outcomes are mutually exclusive: at most one can resolve to Yes. For example, a 50-basis-point hike resolves “Hike   25 bps” to Yes and “Hike 25 bps” to No.\n\nIf the scheduled FOMC meeting is canceled and does not occur on its scheduled date, “Fed maintains rate” resolves to Yes and all other outcomes resolve to No."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether any officially reported cut or policy event has occurred in the relevant window; cannot establish future no-cut proposition or rewrite the contract.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "Federal Reserve interest rate decisions 2026 2027 latest target range changes"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [
+        {
+          "contract_id": "KXFEDDECISION-26DEC-H25",
+          "description": "API payload omits > in example while public indexed Kalshi page shows >25; verification response repeats API text. Origin/cause unresolved; no silent repair.",
+          "field": "rules_secondary",
+          "status": "unresolved"
+        }
+      ],
+      "split": "dev",
+      "thesis": {
+        "authority_scope": "historical advisory normalization approval only; no new human thesis acceptance and no pair label transfer",
+        "language": "en",
+        "original_text": "The Federal Reserve does not decrease the upper limit of the Federal Funds target rate range at any point prior to January 1, 2028, as resolved by official Federal Reserve Board of Governors releases.",
+        "provenance": {
+          "approval_file_sha256": "69274a3f76f782132349eda11cfcd7996795844a27673cf58fa02c7c154909b2",
+          "approval_original_line_sha256": "88b4f0b201916922922072f89a8a9ea15f7fe3bbcfc4eaa9ecb4c1350d9e05f2",
+          "approval_source_path": "/Users/rk/.codex/worktrees/controller-evidence-integration/fitcheck-core/data/review/normalization_holdout_20260827_v1/source_initial_human_decisions_v1.jsonl",
+          "case_ordinal": 18,
+          "final_verdict": "approve",
+          "packet_file_sha256": "0862f3e92634efc3ec776cf2a1dcbce3d3301927083c116268c90d3070a890ad",
+          "packet_id": "pkt_mfta_governance_50_gov_027_eval-v2-013__normrepair_holdout-20260827-v1-exact-approvals-v1",
+          "packet_original_line_sha256": "ce0b0166c4841b8fce043cbd2d1146dc7658fbbb01ac3418d0c3e42583bebdb1",
+          "packet_source_path": "/Users/rk/.codex/worktrees/controller-evidence-integration/fitcheck-core/data/review/review_packets_v0.jsonl",
+          "proposal_digest": "sha256:26bdcca2b99c3a02f902b1ace614a16b332fc5945c8519109e6ea359c6ec0956",
+          "recorded_at_utc": "2026-08-28T18:31:33Z",
+          "status": "approved_exact_proposal"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-02",
+      "contract_ids": [
+        "KXIPO-26-ANTHROPIC"
+      ],
+      "event_group_id": "KXIPO-26",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "historical-normalization-approval",
+          "text": "Anthropic is officially valued at $1,000,000,000,000 ($1 Trillion) or more in a primary funding round or at its initial public offering (IPO) by December 31, 2026, according to SEC filings or major financial press."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXIPO-26-ANTHROPIC"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Who will IPO before 2027?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If Anthropic confirms an IPO before Jan 1, 2027, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "An IPO is confirmed if 1) the SEC declares the company's Form S-1 effective OR 2) the IPO is priced OR 3) a securities exchange has assigned a ticker to it. As long as any of those events occur, the market will immediately resolve to Yes, even if the company does not start trading until after Jan 1, 2027."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether a primary funding round or IPO valuation has been reported and with what date/source; IPO announcement alone does not establish $1T.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "Anthropic funding round valuation IPO announcement 2026 latest"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "dev",
+      "thesis": {
+        "authority_scope": "historical advisory normalization approval only; no new human thesis acceptance and no pair label transfer",
+        "language": "en",
+        "original_text": "Anthropic is officially valued at $1,000,000,000,000 ($1 Trillion) or more in a primary funding round or at its initial public offering (IPO) by December 31, 2026, according to SEC filings or major financial press.",
+        "provenance": {
+          "approval_file_sha256": "69274a3f76f782132349eda11cfcd7996795844a27673cf58fa02c7c154909b2",
+          "approval_original_line_sha256": "8b370f86d1c12dc9e59c60392825403c044c861b298b9a1e8b909bfa2a1973f8",
+          "approval_source_path": "/Users/rk/.codex/worktrees/controller-evidence-integration/fitcheck-core/data/review/normalization_holdout_20260827_v1/source_initial_human_decisions_v1.jsonl",
+          "case_ordinal": 3,
+          "final_verdict": "approve",
+          "packet_file_sha256": "0862f3e92634efc3ec776cf2a1dcbce3d3301927083c116268c90d3070a890ad",
+          "packet_id": "pkt_mfta_governance_50_gov_004_eval-007__normrepair_holdout-20260827-v1-exact-approvals-v1__livefill_holdout-20260827-v1-case03-anthropic-1t-followup-v1",
+          "packet_original_line_sha256": "f64d26c90cbebd417e6540a7c41f56adab188007819543e1c9d606f28f30e6dd",
+          "packet_source_path": "/Users/rk/.codex/worktrees/controller-evidence-integration/fitcheck-core/data/review/review_packets_v0.jsonl",
+          "proposal_digest": "sha256:0bad3e99dcc21ab4adb392506116e7b21f5e522b3637fda8ada8422739ff3a53",
+          "recorded_at_utc": "2026-08-27T21:56:48Z",
+          "status": "approved_exact_proposal"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-03",
+      "contract_ids": [
+        "KXHIGHINFLATION-26DEC-T4.2"
+      ],
+      "event_group_id": "KXHIGHINFLATION-26DEC",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "В одном из отчётов CPI за 2026 год годовая инфляция превысит 4,2%."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXHIGHINFLATION-26DEC-T4.2"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "How high will CPI get this year?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If any Consumer Price Index (CPI YoY) report is above 4.2% for 2026, then the market resolves to Yes."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": true,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether any relevant year-over-year CPI report already exceeded 4.2%; a partial year cannot establish future absence.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "2026 consumer price index year over year inflation reports 4.2 percent official"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "В одном из отчётов CPI за 2026 год годовая инфляция превысит 4,2%.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 0,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-04",
+      "contract_ids": [
+        "KXUSGDPSHARE-27JUL01-T25.7"
+      ],
+      "event_group_id": "KXUSGDPSHARE-27JUL01",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "Итоговая пересмотренная оценка World Bank доли США в мировом ВВП за 2026 год превысит 25,7%."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXUSGDPSHARE-27JUL01-T25.7"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Will U.S. share of global GDP for 2026 be above 25.7%?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If the U.S. share of global GDP for 2026 is above 25.7%, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "The Underlying is the United States’ percentage share of World gross domestic product in current U.S. dollars for 2026, calculated using the World Bank’s World Development Indicators.\n\nThe Expiration Value will be calculated as: 100 × United States GDP ÷ World GDP\n\n“United States GDP” and “World GDP” refer to the values attributed to 2026 for the World Bank indicator “GDP (current US$),” series code NY.GDP.MKTP.CD, for the economies United States and World, respectively.\n\nBoth inputs must be taken from the first World Development Indicators database release in which values attributed to 2026 are available for both the United States and World."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether a 2026 first or revised WDI estimate is published and which version it is; absence or a forecast is not a final revision.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "World Bank 2026 United States world GDP current US dollars WDI latest revision"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "Итоговая пересмотренная оценка World Bank доли США в мировом ВВП за 2026 год превысит 25,7%.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 1,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-05",
+      "contract_ids": [
+        "KXANTHROPICRESCIND-26JUN-27JAN01"
+      ],
+      "event_group_id": "KXANTHROPICRESCIND-26JUN",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXANTHROPICRESCIND-26JUN-27JAN01"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Will the Department of Defense or the White House announce an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If the Department of Defense or the White House announces an official action rescinding, waiving, or materially modifying the supply-chain-risk designation or phaseout directive applicable to Anthropic, so as to permit federal government or Department of Defense use of Anthropic's AI models or services before Jan 1, 2027, then the market resolves to Yes."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": true,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether a documented official action fully rescinds the designation or only waives/modifies it; a headline alone may not establish scope.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "Обозначение Anthropic как риска для цепочки поставок будет полностью отменено до 2027 года.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 2,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-06",
+      "contract_ids": [
+        "KXCLAUDE-CLAUDE6-26DEC31"
+      ],
+      "event_group_id": "KXCLAUDE-CLAUDE6",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "Claude 6+ станет публично доступна бесплатным пользователям до 31 декабря 2026 года."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXCLAUDE-CLAUDE6-26DEC31"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Will Anthropic release Claude 6+ (any family) before Dec 31, 2026?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If Anthropic releases Claude 6+ (any family) before Dec 31, 2026, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "Release must be to the public, outside of a closed beta, though limiting it to a high-cost subscription tier is acceptable.\n\n"
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether an official release occurred, whether it is public and whether free users can access it; announcements and beta do not settle each condition.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "Anthropic Claude 6 release publicly available free tier official 2026"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "Claude 6+ станет публично доступна бесплатным пользователям до 31 декабря 2026 года.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 3,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-07",
+      "contract_ids": [
+        "KXGDPNOM-US26-32.8"
+      ],
+      "event_group_id": "KXGDPNOM-US26",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXGDPNOM-US26-32.8"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "US Nominal GDP in 2026?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If US Nominal GDP is above $32.8 trillion for 2026, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "9/25/26 clarification: This market resolves using the World Bank’s first non-preliminary release of US Nominal GDP for calendar year 2026, expressed in current US dollars. Trading Economics is a backup source for the same figure. Forecasts and subsequent revisions are excluded; no separate currency conversion is performed."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether BEA and World Bank official annual data and their versions are available; avoid equating forecasts, preliminary data and distinct sources.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "BEA 2026 annual nominal GDP first nonpreliminary estimate World Bank GDP release"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "Первая непредварительная оценка BEA номинального ВВП США за 2026 год превысит $32,8 трлн.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 4,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    },
+    {
+      "allowed_labels": [
+        "direct",
+        "indirect",
+        "weak_proxy",
+        "not_an_expression",
+        "unknown"
+      ],
+      "case_id": "case-08",
+      "contract_ids": [
+        "KXRSIANNOUNCE-29-27JAN01"
+      ],
+      "event_group_id": "KXRSIANNOUNCE-29",
+      "initial_evidence": [
+        {
+          "id": "thesis",
+          "source": "human-confirmed-wording",
+          "text": "OpenAI или Anthropic публично продемонстрирует независимо подтверждённое рекурсивное самоулучшение до 2027 года."
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-id",
+          "text": "KXRSIANNOUNCE-29-27JAN01"
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "market-title",
+          "text": "Will OpenAI or Anthropic announces it has achieved recursive self-improvement before Jan 1, 2027?"
+        },
+        {
+          "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+          "id": "label-guide",
+          "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        }
+      ],
+      "manual_rule_capture": {
+        "action_id": "manual-rules",
+        "capture_kind": "manual_capture",
+        "completeness": "not established",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "expected_cost_status": "unknown",
+        "origin_assurance": "user-relayed Grok report; independent provider transport not verified",
+        "quoted_cost_micro_usd": null,
+        "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+        "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "replay_evidence": [
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "primary-rule",
+            "source_field": "rules_primary",
+            "text": "If OpenAI or Anthropic announces it has achieved recursive self-improvement before Jan 1, 2027, then the market resolves to Yes."
+          },
+          {
+            "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+            "id": "secondary-rule",
+            "source_field": "rules_secondary",
+            "text": "The statement must describe an achieved capability in which the company's AI autonomously conducts the research and development needed to materially improve the general capabilities of its most capable or near-frontier AI systems, or produce a more capable successor, with the improved system able to drive further such improvements.\n\nToy, narrow, sandboxed, proof-of-concept, prompt, skill, or benchmark-only improvements do not qualify. Humans may provide high-level goals, resources, oversight, and approval, but must not supply the substantive research choices or technical solution.\n\nThe capability must be affirmatively described as currently achieved in an official company communication or by an executive or research leader speaking about the company's capabilities. Future plans, speculation, offhand remarks, interviewer characterizations, leaks, model outputs, and third-party claims do not qualify.\n\nA public release, named model, technical demonstration, or independent verification is not required."
+          }
+        ],
+        "reported_request_end_utc": "2026-10-29T08:58:07Z",
+        "reported_request_start_utc": "2026-10-29T08:58:06Z",
+        "secondary_field_empty": false,
+        "source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+        "source_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+      },
+      "news_action_draft": {
+        "action_id": "news",
+        "api": "serper",
+        "capture_kind": "paid_api",
+        "endpoint": "/news",
+        "predeclared_relevance_gap": "Whether there is a dated official announcement, a public demonstration and genuinely independent verification; these conditions are distinct.",
+        "provider": "orthogonal",
+        "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+        "quote_status": "not obtained",
+        "quoted_cost_micro_usd": null,
+        "request_body": {
+          "num": 3,
+          "q": "OpenAI Anthropic recursive self improvement independent verification public demonstration 2026"
+        },
+        "response": null,
+        "response_status": "not captured"
+      },
+      "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown.",
+      "source_conflicts": [],
+      "split": "test_candidate",
+      "thesis": {
+        "authority_scope": "Six conditional test thesis wordings only; not forecasts, pair labels, review adjudication or golden promotion",
+        "language": "ru",
+        "original_text": "OpenAI или Anthropic публично продемонстрирует независимо подтверждённое рекурсивное самоулучшение до 2027 года.",
+        "provenance": {
+          "acceptance_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+          "acceptance_source_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/human_test_theses_acceptance.json",
+          "accepted_text": "Да, принимаю все шесть",
+          "recorded_at_utc": "2026-10-29T09:02:35.338187+00:00",
+          "test_thesis_index": 5,
+          "user_message_id": "01a186e5-7149-7d53-b414-6b39d81a0e2c"
+        }
+      }
+    }
+  ],
+  "label_guide": {
+    "path": "/Users/rk/.codex/worktrees/controller-evidence-integration/fitcheck-core/docs/label_guide.md",
+    "sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f"
+  },
+  "limitations": [
+    "No Orthogonal source response or price has been invented.",
+    "No model/provider call has been run.",
+    "This draft is not the runnable manifest; source capture, account price and cohort review remain pending.",
+    "All eight are single-contract cases; pool-level/top-three cannot be evaluated.",
+    "Human acceptance of wordings is not human semantic adjudication.",
+    "Prior dev normalization approvals were scoped advisory and do not automatically attest a new session.",
+    "Source transport provenance is user-relayed, not independently verified.",
+    "Fresh news may not change fit for fixed complete thesis and rules."
+  ],
+  "schema": "faithful-dynamic-draft-v1",
+  "status": "draft_not_frozen_not_runnable",
+  "user_confirmation_scope": "six test wording strings only; not truth, review labels, goldens or product policy",
+  "user_relayed_source": {
+    "bytes": 15255,
+    "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_supplied_targeted_kalshi_markets.json",
+    "receipt_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/kalshi_preflight/user_reported_targeted_capture.json",
+    "receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+    "sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+  }
+}

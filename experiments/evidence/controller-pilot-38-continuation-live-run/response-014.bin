@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"critique\":\"The proposed decision targets the relevant saved public page regarding Amazon AI chips business history to identify the reported annual run rate and whether AI-only revenue is isolated, directly addressing the question without concrete issues.\",\"issue\":false}",
+            "thoughtSignature": "AY89a18cnU9M6vuQ5rzkgpPshak94hZjuJPICRGE3tNGGQSdixPH2F8r8UeKGKgvtFkrn4BS4yUgeYghbco/7nF+MLwcpbTHju7fUstp5KHE5ifm22TR"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 433,
+    "candidatesTokenCount": 48,
+    "totalTokenCount": 481,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 433
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 48
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:02:52.003391Z",
+  "responseId": "rP3iar8a1ZSFwg__rtuZBw"
+}

@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The primary source retrieved details the exact annual revenue run rate for the combined custom chips business and clearly defines its components, showing it is not isolated to AI-only revenue.\",\n  \"expected_result\": \"\",\n  \"answer\": \"The saved primary source reports that the combined Trainium, Graviton, and Nitro business exceeded a $25 billion annual revenue run rate (referred to as \\\"over $25 billion\\\" by CEO Andy Jassy during the Q2 2026 earnings call). This figure does not isolate AI-only revenue, as it includes Graviton (designed for general cloud computing workloads, though increasingly used for agentic AI) and the Nitro System (which powers general networking, storage, and security behind AWS cloud infrastructure).\",\n  \"stop_reason\": \"The question has been fully answered with specific details from the retrieved source text.\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The retrieved source matches the expected content by detailing the $25 billion annual run rate and explaining that the figure spans Graviton and Nitro alongside Trainium, which shows it does not isolate AI-only revenue.\"\n}",
+            "thoughtSignature": "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"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 6501,
+    "candidatesTokenCount": 263,
+    "totalTokenCount": 7105,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 6501
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 263
+      }
+    ],
+    "thoughtsTokenCount": 341
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:21.857371Z",
+  "responseId": "Je3iapuqNJuUhcIP2-6ioAo"
+}

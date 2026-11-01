@@ -1,0 +1,11 @@
+{
+  "schema": "forecast-source-ui-observation-v1",
+  "observed_at_utc": "2026-10-29T10:33:44.296748+00:00",
+  "source": "operator visual inspection of public provider endpoint page; account price not guaranteed",
+  "api": "you/search",
+  "path": "/v1/search",
+  "method": "POST",
+  "rate_usd": "0.005 per call",
+  "endpoint_url": "https://www.orthogonal.com/discover/you/df932f19-de68-446e-8b8d-3408883b33f6",
+  "required_body": "query"
+}

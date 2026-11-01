@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The synthetic report directly provides the exact number of blue widgets sold by fictional Cedar in Q2.\",\n  \"expected_result\": \"\",\n  \"answer\": \"Fictional Cedar sold 27 blue widgets in Q2.\",\n  \"stop_reason\": \"sufficient evidence obtained\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The retrieved report matched the expectation by stating that fictional Cedar sold 27 blue widgets in Q2.\"\n}",
+            "thoughtSignature": "AY89a1+bwQqsl4GR6ZWtHYxaFpULn0ypRRfYdILv7/R9SeIWYF2c/U89M4CL0f+zWWfy+BzY09bfZkaumgzipXqElClGBA0G1XlqpcGdOmmpdDNxopuY"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 541,
+    "candidatesTokenCount": 124,
+    "totalTokenCount": 665,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 541
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 124
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T07:00:59.662968Z",
+  "responseId": "K-_iari7KKaFhcIPkvjt8Qw"
+}

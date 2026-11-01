@@ -1,0 +1,449 @@
+{
+  "version": "anthropic-s1-source-candidates-v1",
+  "status": "candidate_input_not_frozen_or_adjudicated",
+  "created_at_utc": "2026-10-29T22:14:00Z",
+  "source_cutoff_note": "SEC filing Oct 26, 2026; events and market quotations keep their individually indicated date. No current synchronized market quotes were independently obtained.",
+  "s1_raw_file": "sec-s1-original.html",
+  "s1_raw_sha256": "2fa24ae7704dbb535d096ee7459b765fe899ac9118762e738183a94473c9905a",
+  "s1_raw_bytes": 14169255,
+  "selection_note": "These are selected source excerpts and labeled paraphrases; X/Grok content is commentary and does not establish factual truth. All six cases are exposed development cases.",
+  "cases": [
+    {
+      "case_id": "S1-01-liquidity",
+      "question": "Does Anthropic’s large cash position establish that liquidity risk is negligible, and what further information would change that assessment?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "A large cash reserve and available financing can provide resilience during an infrastructure expansion.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "Long-dated commitments and uncertain revenue could still create liquidity pressure even when current cash is large.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "Current cash balance after June 2026",
+        "Timing and net cash payments of future commitments after financing, including contractual conditions",
+        "Demand, future access to financing and cash-flow scenarios"
+      ],
+      "evidence": [
+        {
+          "id": "L1",
+          "text": "As of June 30, 2026 (unaudited), Anthropic reported cash and cash equivalents of $112.389 billion and short-term investments of $19.262 billion.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-06-30",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "L2",
+          "text": "Amazon reported cash and cash equivalents of $78.213 billion as of June 30, 2026 (unaudited).",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm",
+          "origin": "primary_sec_filing",
+          "source_period": "2026-06-30",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "L3",
+          "text": "A saved X post highlights the comparison that Anthropic has more cash and cash equivalents than Amazon and questions bankruptcy concerns. It states an opinion, not a complete liquidity analysis.",
+          "source_url": "https://x.com/jukan05/status/2114869782210326999",
+          "origin": "x_bookmark",
+          "source_period": "2026-10-27",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "L4",
+          "text": "As of June 30, 2026, Anthropic estimated $321.4 billion in undiscounted future obligations for leases not yet commenced, mainly compute and infrastructure; some arrangements depend on conditions, start between 2026 and 2028, and run for less than one year to 20 years. Some obligations may be satisfied using convertible promissory notes.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-06-30",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "L5",
+          "text": "In the preliminary S-1, management states that existing cash and cash equivalents, cash generated from sales and available amounts under its amended and restated credit facility will be sufficient for working capital, operating and finance lease payments and capital expenditure requirements for at least 12 months from the prospectus date. This is management’s belief and does not guarantee the outcome.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "L6",
+          "text": "During the six months ended June 30, 2026, net cash provided by financing activities was $110.774 billion.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        }
+      ]
+    },
+    {
+      "case_id": "S1-02-loss-cash",
+      "question": "What does the first-half net loss reveal about Anthropic’s use of cash and continuing economics?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "A large GAAP loss need not imply an equal cash loss, especially when significant non-cash fair-value adjustments are present.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "Non-cash adjustments do not eliminate operating, investment and future funding risks.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "Cash flow beyond June 30, 2026",
+        "Future profitability and whether financing terms or dilution will affect public investors",
+        "What future compute investment will cost and when cash will be required"
+      ],
+      "evidence": [
+        {
+          "id": "F1",
+          "text": "For the six months ended June 30, 2026, Anthropic reported revenue of $16.286 billion, operating loss of $0.693 billion and net loss of $80.748 billion (unaudited).",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "F2",
+          "text": "For the same six months, change in fair value of convertible notes, derivative liabilities, and SAFEs was a $72.388 billion expense.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "F3",
+          "text": "For the same six months, net cash provided by operating activities was $3.929 billion; net cash used in investing was $17.181 billion; net cash provided by financing was $110.774 billion.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "F4",
+          "text": "The investing cash-flow table for the same period reports $18.972 billion of purchases and $2.610 billion of sales and maturities of short-term investments, and $0.482 billion of purchases of property and equipment.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "F5",
+          "text": "Management states that growing infrastructure investment may cause significant net cash used in operating and investing activities for the foreseeable future; magnitude and timing are uncertain.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "F6",
+          "text": "In a public thread discovered by Grok, KraneShares highlights a positive operating margin in Q2 2026 and improving economics. Its interpretation is a viewpoint, not a guarantee of future results.",
+          "source_url": "https://x.com/KraneShares/status/2114824430799003823",
+          "origin": "grok_discovery",
+          "source_period": "2026-10-26",
+          "transcription": "paraphrase"
+        }
+      ]
+    },
+    {
+      "case_id": "S1-03-compute",
+      "question": "How could Anthropic’s long-term compute commitments support growth or create risk if demand, technology or financing changes?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "Securing compute capacity in advance may support growth when demand and delivery develop as expected.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "Committed compute may be underused, delayed or unaffordable if demand, prices, technology or financing develop differently.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "Breakdown and exact total of all overlapping and subsequently signed obligations",
+        "Contract-by-contract termination, timing, collateral, delivery and financing mechanics",
+        "Future utilization, prices, demand and capacity availability"
+      ],
+      "evidence": [
+        {
+          "id": "C1",
+          "text": "Anthropic says it must forecast compute needs and make commitments months or years before day-to-day use, often with limited ability to adjust them.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "C2",
+          "text": "Anthropic warns that if actual requirements differ materially from its projections, it may have insufficient compute or excess compute that remains underutilized.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "C3",
+          "text": "As of June 30, 2026, the company reported about $265.6 billion of future fixed or minimum purchase obligations under compute and infrastructure agreements with terms from one to 20 years. Other agreements without fixed or minimum dollar commitments are not included in that amount.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-06-30",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "C4",
+          "text": "As of June 30, 2026, estimated future undiscounted obligations for leases not yet commenced were $321.4 billion; some arrangements were subject to contractual conditions.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-06-30",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "C5",
+          "text": "In a bookmarked X thread, Sridhar Ramaswamy compares long-term compute purchases with usage-based sales and discusses funding, utilization and pricing risks as well as how other industries manage similar exposures.",
+          "source_url": "https://x.com/RamaswmySridhar/status/2115159261533929911",
+          "origin": "x_bookmark",
+          "source_period": "2026-10-27",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "C6",
+          "text": "A public post found by Grok argues that Anthropic’s compute contracts differ in flexibility; the author’s contract totals and classification require verification against the actual agreements.",
+          "source_url": "https://x.com/nodiligence/status/2115064985294659605",
+          "origin": "grok_discovery",
+          "source_period": "2026-10-27",
+          "transcription": "paraphrase"
+        }
+      ]
+    },
+    {
+      "case_id": "S1-04-customers",
+      "question": "How should an investor reason about customer concentration, cloud distribution and possible partner dependencies?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "A declining share of revenue from the top five end customers may indicate reduced customer concentration.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "Dependence on a small number of distribution and infrastructure partners can remain material even when end-customer concentration falls.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "Current end-customer concentration and the full economics of partner arrangements",
+        "Whether specific transactions create a circular-funding exposure and how large it is",
+        "Future customer spending and distribution-channel terms"
+      ],
+      "evidence": [
+        {
+          "id": "D1",
+          "text": "Anthropic reports that 79% of revenue in Q3 2026 came from customers outside its top five, compared with 64% in Q1 2026; revenue from each of its top five customers reached a record in Q3.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-Q1 and Q3",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "D2",
+          "text": "A Grok-discovered KraneShares thread interprets the implied change in top-five share, 36% in Q1 to 21% in Q3, as reduced exposure to a handful of customers.",
+          "source_url": "https://x.com/KraneShares/status/2114824193091268854",
+          "origin": "grok_discovery",
+          "source_period": "2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "D3",
+          "text": "Sales to customers through cloud service provider marketplaces represented approximately 48% of total revenue in the six months ended June 30, 2026. The platforms bill end customers, collect payments and remit amounts net of fees.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026-H1",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "D4",
+          "text": "No single customer represented more than 10% of revenue for the nine months ended September 30, 2026; the top five represented approximately 25% of revenue over those nine months.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "2026 first nine months",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "D5",
+          "text": "Anthropic states that some cloud service and chip partners provide capital or credit support, serve as infrastructure vendors, and develop competing AI models and services; it warns this may create conflicts affecting access, cost and terms.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "D6",
+          "text": "Anthropic says many top customers are not subject to long-term contracts or have near-term expirations and may reduce or cease spending.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        }
+      ]
+    },
+    {
+      "case_id": "S1-05-market-rules",
+      "question": "Do the available prediction-market contracts answer the same question about Anthropic’s IPO, and what can or cannot be inferred about an investor’s returns?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "These contracts offer distinct market prices for several observable IPO-related events.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "None of these contract outcomes by itself establishes whether buying the IPO will be profitable for a particular investor.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "Current synchronized quotes and bid–ask spreads for all relevant contracts",
+        "Final IPO price, share count, outcome and investor’s entry/exit assumptions",
+        "Any contract-level developments since the sources were retrieved"
+      ],
+      "evidence": [
+        {
+          "id": "M1",
+          "text": "If Anthropic confirms an IPO before Jan 1, 2027, then the market resolves to Yes.",
+          "source_url": "https://kalshi.com/markets/kxipo/ipos",
+          "origin": "market_rule",
+          "source_period": "rules retrieved 2026-10-29",
+          "transcription": "verbatim_quote",
+          "market_id": "KXIPO-26-ANTHROPIC"
+        },
+        {
+          "id": "M2",
+          "text": "The Kalshi contract considers an IPO confirmed if the SEC declares its Form S-1 effective, or the IPO is priced, or a securities exchange assigns a ticker; any one can resolve Yes even if trading begins after January 1, 2027.",
+          "source_url": "https://kalshi.com/markets/kxipo/ipos",
+          "origin": "market_rule",
+          "source_period": "rules retrieved 2026-10-29",
+          "transcription": "paraphrase",
+          "market_id": "KXIPO-26-ANTHROPIC"
+        },
+        {
+          "id": "M3",
+          "text": "This market will resolve to \"Yes\" if Anthropic shares are listed on a public securities exchange and open for trading by 11:59 PM ET on the listed date.",
+          "source_url": "https://polymarket.com/event/anthropic-ipo-by?marketSlug=will-anthropic-ipo-by-december-31-2026-546-128&outcomeIndex=0",
+          "origin": "market_rule",
+          "source_period": "rules retrieved 2026-10-29",
+          "transcription": "verbatim_quote"
+        },
+        {
+          "id": "M4",
+          "text": "The Polymarket IPO valuation contract resolves according to the implied fully diluted equity valuation at the final IPO offering price; opening, intraday, and first-day closing trading prices and preliminary price ranges are excluded.",
+          "source_url": "https://polymarket.com/event/what-will-anthropics-ipo-valuation-be/will-anthropics-ipo-valuation-be-between-2pt00t-and-2pt25t-12",
+          "origin": "market_rule",
+          "source_period": "rules retrieved 2026-10-29",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "M5",
+          "text": "This market will resolve based on Anthropic's market capitalization at the closing price on its first day of trading.",
+          "source_url": "https://polymarket.com/event/anthropic-ipo-closing-market-cap-higher-strikes?r=cbpm",
+          "origin": "market_rule",
+          "source_period": "rules retrieved 2026-10-29",
+          "transcription": "verbatim_quote"
+        },
+        {
+          "id": "M6",
+          "text": "In the user-provided Grok relay of the Kalshi API response recorded at 2026-10-29T10:50:55Z, KXIPO-26-ANTHROPIC had yes_bid_dollars 0.9100 and yes_ask_dollars 0.9400. This is a historical, user-relayed snapshot, not a current quote.",
+          "source_url": "https://external-api.kalshi.com/trade-api/v2/markets?limit=4&tickers=KXIPO-26-ANTHROPIC%2CKXWTI-26NOV03-T97.99%2CKXGPT-ASTRA61-26NOV13%2CKXCPI-26OCT-T0.2",
+          "origin": "user_relayed_market_api",
+          "source_period": "2026-10-29T10:50:55Z",
+          "transcription": "paraphrase",
+          "capture_provenance": "user-provided complete API JSON and timestamp; response not independently obtained by this worker"
+        },
+        {
+          "id": "M7",
+          "text": "The October 26 preliminary S-1 leaves the IPO price range and number of shares blank and states the prospectus is subject to completion.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        }
+      ]
+    },
+    {
+      "case_id": "S1-06-governance",
+      "question": "What tradeoffs could the planned governance structure present for investors who may prioritize financial return, oversight and AI safety differently?",
+      "contrasting_hypotheses": [
+        {
+          "id": "H1",
+          "text": "A governance structure designed around public benefit and a trust could help preserve a safety mission under commercial pressure.",
+          "status": "hypothesis_not_fact"
+        },
+        {
+          "id": "H2",
+          "text": "Concentrated voting rights and a special trust can constrain public shareholders’ influence and affect how competing objectives are balanced.",
+          "status": "hypothesis_not_fact"
+        }
+      ],
+      "open_questions": [
+        "The participant’s own priorities, risk tolerance and desired influence",
+        "How the trust and board will act when actual safety and commercial priorities conflict",
+        "Final offering details and future changes to the governance structure"
+      ],
+      "evidence": [
+        {
+          "id": "G1",
+          "text": "The preliminary S-1 says Anthropic is a Delaware public benefit corporation whose board must balance pecuniary stockholder interests, the best interests of those materially affected, and its specified public-benefit purpose.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "G2",
+          "text": "The Long-Term Benefit Trust holds the Class T share and generally has authority to elect and remove Class T directors, who constitute a majority of the board; the share generally does not vote on ordinary shareholder matters and has no economic rights.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "G3",
+          "text": "Immediately before completion of the offering, the Founder LLC is to receive a Class F share with 50.1% of the voting power for matters submitted to stockholders generally, including election of directors other than Class T directors; this share has no economic rights.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "G4",
+          "text": "The preliminary prospectus says public Class A common stock ordinarily has one vote per share; the exact number of shares in the offering remains blank in this version.",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+          "origin": "s1",
+          "source_period": "filing 2026-10-26",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "G5",
+          "text": "Anthropic announced an Anthropic Public Benefit Fund, describes an initial five-percent share contribution and a discretionary framework for additional shares as company value rises; these are company disclosures, not independent proof of future effects.",
+          "source_url": "https://www.anthropic.com/news/public-benefit-fund",
+          "origin": "issuer_announcement",
+          "source_period": "2026-10-18",
+          "transcription": "paraphrase"
+        },
+        {
+          "id": "G6",
+          "text": "Reuters describes the planned Founder LLC and PBC governance as potentially preserving mission while insulating leaders from market forces; the consequences are an interpretation rather than an established forecast.",
+          "source_url": "https://www.marketscreener.com/news/anthropic-leaders-to-control-ai-lab-via-founder-llc-to-promote-public-good-over-market-forces-ce785addd98cf621",
+          "origin": "independent_news",
+          "source_period": "2026-09-28",
+          "transcription": "paraphrase"
+        }
+      ]
+    }
+  ]
+}

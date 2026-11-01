@@ -1,0 +1,362 @@
+[
+  {
+    "case_id": "P01",
+    "title": "Кредитная линия",
+    "question": "Как учитывать условия кредитного соглашения при оценке ликвидности?",
+    "prepared_advice": "Увеличение лимита до $15 млрд отменило требование поддерживать минимальную ликвидность; запаса можно не держать.",
+    "evidence": [
+      {
+        "id": "P01-E1",
+        "text": "В сентябре 2026 года revolving commitments увеличены с $3,3 млрд до $15 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать minimum liquidity covenant",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P01-E2",
+        "text": "Минимальное требование к ликвидности увеличено с $0,5 млрд до $5 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать minimum liquidity covenant",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P01-E3",
+        "text": "Компания не ожидает выплаты дивидендов в обозримом будущем; будущие решения находятся в компетенции совета с учётом применимых ограничений.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Dividend Policy, p. 126; искать never declared or paid any cash dividends",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P02",
+    "title": "Акционное вознаграждение",
+    "question": "Как учитывать расходы по RSU при сценарной оценке IPO?",
+    "prepared_advice": "Если бы IPO завершилось 30 июня 2026 года, все $26,6 млрд расходов по RSU были бы единовременно признаны в этом квартале.",
+    "evidence": [
+      {
+        "id": "P02-E1",
+        "text": "В гипотетическом случае завершения IPO 30 июня 2026 года накопленные расходы по RSU на указанную дату составили бы $2,9 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; искать If this offering had been completed",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P02-E2",
+        "text": "Оставшиеся $23,7 млрд ожидаемых расходов признавались бы на протяжении средневзвешенного периода приблизительно 2,1 года.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; искать If this offering had been completed",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P02-E3",
+        "text": "Описанные RSU зависят одновременно от service-based и performance-based условий vesting.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать 91 million RSUs",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P03",
+    "title": "Управление советом",
+    "question": "Как оценить распределение полномочий по назначению совета после IPO?",
+    "prepared_advice": "Поскольку у Founder LLC есть акция F с большинством голосов по общим вопросам акционеров, Founder LLC единолично избирает большинство всех семи директоров.",
+    "evidence": [
+      {
+        "id": "P03-E1",
+        "text": "После завершения IPO предусмотрено семь должностей директоров. Long-Term Benefit Trust как держатель Class T обычно вправе избирать и смещать четырёх директоров Class T с учётом установленных процедур, в том числе специальной процедуры для одного места.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors / Class T directors; искать seven authorized directors",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P03-E2",
+        "text": "Оставшиеся три места избираются держателями Class F и Class A; Class F имеет 50,1% голосов по общим вопросам акционеров.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors / Class T directors; искать seven authorized directors",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P03-E3",
+        "text": "Для определённых общих вопросов при отсутствии инструкции большинства Continuing Founders действует пропорциональное голосование Class F по поданным голосам Class A при кворуме большинства находящихся в обращении акций Class A.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Class F Common Stock Voting Mechanics; искать majority of the Continuing Founders",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P04",
+    "title": "Обязательства по compute",
+    "question": "Как оценить будущие платежи за compute по раскрытым соглашениям?",
+    "prepared_advice": "Все будущие платежи за вычисления уже учтены в $265,6 млрд; последующие расходы по другим контрактам нулевые.",
+    "evidence": [
+      {
+        "id": "P04-E1",
+        "text": "На 30 июня 2026 года ожидаемые будущие фиксированные или гарантированные минимальные обязательства по определённым соглашениям составляли приблизительно $265,6 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 13 Purchase Commitments, F-59; искать 265.6 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P04-E2",
+        "text": "Другие договоры compute и инфраструктуры не содержали фиксированных или минимальных сумм; их неопределённые ожидаемые обязательства в $265,6 млрд не включены.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 13 Purchase Commitments, F-59; искать 265.6 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P04-E3",
+        "text": "За H1 2026 выручка составила $16,286 млрд, расходы compute and infrastructure — $8,945 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 149–150; искать Compute and infrastructure expenses as a percentage of revenue",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P05",
+    "title": "Финансирование аренды",
+    "question": "Как оценить предусмотренный инструмент финансирования инфраструктуры?",
+    "prepared_advice": "На 30 июня компания уже имела $42 млрд свободных денег, доступных для любых расходов.",
+    "evidence": [
+      {
+        "id": "P05-E1",
+        "text": "Соглашение предусматривает при выполнении условий возможность выпуска до $42 млрд конвертируемых векселей исключительно для финансирования арендных платежей по соглашению compute/infrastructure.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 9, Other Note Purchase Agreements 2026, F-43; искать up to $42.0 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P05-E2",
+        "text": "На 30 июня 2026 года период выпуска ещё не начался и по данному соглашению нот в обращении не было.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 9, Other Note Purchase Agreements 2026, F-43; искать up to $42.0 billion",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P05-E3",
+        "text": "В сентябре 2026 года revolving commitments увеличены с $3,3 млрд до $15 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать minimum liquidity covenant",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P06",
+    "title": "Концентрация клиентов",
+    "question": "Как оценить концентрацию клиентской выручки по раскрытым периодам?",
+    "prepared_advice": "Поскольку ни один клиент не превышал 10% выручки за девять месяцев, ни один не превышал 10% и отдельно в третьем квартале; риск концентрации устранён.",
+    "evidence": [
+      {
+        "id": "P06-E1",
+        "text": "За девять месяцев до 30 сентября 2026 года ни один отдельный клиент не составлял более 10% выручки.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать No single customer represented more than 10%",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P06-E2",
+        "text": "Около 79% выручки третьего квартала приходилось на клиентов за пределами пятёрки крупнейших клиентов.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать No single customer represented more than 10%",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P06-E3",
+        "text": "Около 64% выручки Q1 2026 приходилось на клиентов за пределами пятёрки крупнейших.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать 79% and 64%",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P07",
+    "title": "Дивиденды",
+    "question": "Как учитывать дивидендную политику при оценке возможной отдачи акционера?",
+    "prepared_advice": "Проспект не обещает дивиденды в обозримом будущем; это не означает, что их никогда не будет. Сама по себе политика не устанавливает доходность акций: она также зависит от будущей стоимости акции, которая здесь неизвестна.",
+    "evidence": [
+      {
+        "id": "P07-E1",
+        "text": "На дату проспекта компания никогда не объявляла и не выплачивала денежные дивиденды.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Dividend Policy, p. 126; искать never declared or paid any cash dividends",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P07-E2",
+        "text": "Компания не ожидает выплаты дивидендов в обозримом будущем; будущие решения находятся в компетенции совета с учётом применимых ограничений.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Dividend Policy, p. 126; искать never declared or paid any cash dividends",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P07-E3",
+        "text": "За H1 2026 операционный денежный поток +$3,929 млрд, инвестиционный поток −$17,181 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, H1 2026; искать Purchases of short-term investments",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P08",
+    "title": "Голосование Founder LLC",
+    "question": "Как оценить механизм голосования Class F по вопросам акционеров?",
+    "prepared_advice": "По общему вопросу, если большинство Continuing Founders не согласовало указания и соблюдён требуемый кворум акций Class A, голоса Class F распределяются пропорционально голосам Class A; это не означает, что такое правило действует по всем специальным вопросам.",
+    "evidence": [
+      {
+        "id": "P08-E1",
+        "text": "Для определённых общих вопросов при отсутствии инструкции большинства Continuing Founders действует пропорциональное голосование Class F по поданным голосам Class A при кворуме большинства находящихся в обращении акций Class A.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Class F Common Stock Voting Mechanics; искать majority of the Continuing Founders",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P08-E2",
+        "text": "Для других вопросов предусмотрены специальные правила и пороги.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Class F Common Stock Voting Mechanics; искать majority of the Continuing Founders",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P08-E3",
+        "text": "После завершения IPO предусмотрено семь должностей директоров. Long-Term Benefit Trust как держатель Class T обычно вправе избирать и смещать четырёх директоров Class T с учётом установленных процедур, в том числе специальной процедуры для одного места.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Board of Directors / Class T directors; искать seven authorized directors",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P09",
+    "title": "Денежные потоки",
+    "question": "Как интерпретировать денежные потоки компании за первое полугодие?",
+    "prepared_advice": "За первое полугодие операционный поток был положительным, а инвестиционный — отрицательным; нельзя приравнять весь инвестиционный отток $17,181 млрд к затратам на основные средства: покупки PP&E составили $0,482 млрд, и были операции с краткосрочными инвестициями.",
+    "evidence": [
+      {
+        "id": "P09-E1",
+        "text": "За H1 2026 операционный денежный поток +$3,929 млрд, инвестиционный поток −$17,181 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, H1 2026; искать Purchases of short-term investments",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P09-E2",
+        "text": "Покупки PP&E составили $0,482 млрд; покупки краткосрочных инвестиций — $18,972 млрд, поступления от их продажи и погашения — $2,610 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, H1 2026; искать Purchases of short-term investments",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P09-E3",
+        "text": "За тот же период расходы на персонал составили $3,152 млрд; существовали и другие категории операционных расходов.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 149–150; искать Compute and infrastructure expenses as a percentage of revenue",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P10",
+    "title": "Экономика compute",
+    "question": "Как оценить затраты на compute в экономике компании за первое полугодие?",
+    "prepared_advice": "Расходы compute составили приблизительно 55% выручки H1; оставшиеся после них 45% не являются операционной прибылью, поскольку есть и другие операционные расходы.",
+    "evidence": [
+      {
+        "id": "P10-E1",
+        "text": "За H1 2026 выручка составила $16,286 млрд, расходы compute and infrastructure — $8,945 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 149–150; искать Compute and infrastructure expenses as a percentage of revenue",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P10-E2",
+        "text": "За тот же период расходы на персонал составили $3,152 млрд; существовали и другие категории операционных расходов.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Results of Operations, pp. 149–150; искать Compute and infrastructure expenses as a percentage of revenue",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P10-E3",
+        "text": "За H1 2026 операционный денежный поток +$3,929 млрд, инвестиционный поток −$17,181 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Consolidated Statements of Cash Flows, H1 2026; искать Purchases of short-term investments",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P11",
+    "title": "Изменение клиентской базы",
+    "question": "Как оценить изменение клиентской концентрации между кварталами?",
+    "prepared_advice": "Доля пяти крупнейших клиентов по этой метрике снизилась примерно с 36% в первом квартале до 21% в третьем — на 15 процентных пунктов; это не устанавливает полного устранения риска или будущей диверсификации.",
+    "evidence": [
+      {
+        "id": "P11-E1",
+        "text": "Около 64% выручки Q1 2026 приходилось на клиентов за пределами пятёрки крупнейших.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать 79% and 64%",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P11-E2",
+        "text": "Около 79% выручки Q3 2026 приходилось на клиентов за пределами пятёрки крупнейших.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать 79% and 64%",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P11-E3",
+        "text": "За девять месяцев до 30 сентября 2026 года ни один отдельный клиент не составлял более 10% выручки.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Customer Base, p. 144; искать No single customer represented more than 10%",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  },
+  {
+    "case_id": "P12",
+    "title": "Условия vesting",
+    "question": "Как оценить влияние регистрационного заявления на vesting RSU?",
+    "prepared_advice": "Эффективность регистрации выполняет performance-based условие, но не заменяет отдельное условие срока работы; поэтому сама по себе она не гарантирует немедленное полное vesting всех грантов.",
+    "evidence": [
+      {
+        "id": "P12-E1",
+        "text": "Описанные RSU зависят одновременно от service-based и performance-based условий vesting.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать 91 million RSUs",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P12-E2",
+        "text": "Performance-based условие выполняется при вступлении регистрационного заявления в силу; service-based условие предусматривает отдельное выполнение требований к сроку работы.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Note 17 Subsequent Events, F-65; искать 91 million RSUs",
+        "as_of": "2026-10-26"
+      },
+      {
+        "id": "P12-E3",
+        "text": "В гипотетическом случае завершения IPO 30 июня 2026 года накопленные расходы по RSU на указанную дату составили бы $2,9 млрд.",
+        "source": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "source_locator": "Risk Factors, p. 65; искать If this offering had been completed",
+        "as_of": "2026-10-26"
+      }
+    ],
+    "note": "Перевод/парафраз из предварительной формы S-1; не дословная цитата."
+  }
+]

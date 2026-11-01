@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"choice\":\"synthetic-final-tally-lark7-v1\",\"expected_result\":\"The final audit tally showing the number of passed checks out of 10 for batch LARK-7.\",\"reason\":\"We have observed the threshold rule requiring at least 7 of 10 checks to pass, but we need the actual count from the final audit tally to evaluate whether batch LARK-7 met the target.\"}",
+            "thoughtSignature": "AY89a1/hkP9x1WKGvpTFD8tUQD0wyaoo1j6AoGMHVhWIytXEOEpQjKlDrYEj29xeb+EdF9oneKjTxD4GK0kW0fz8QuVP7FObDOmYmPfBninUWoYmNwgJ"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 480,
+    "candidatesTokenCount": 89,
+    "totalTokenCount": 569,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 480
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 89
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:02:55.745422Z",
+  "responseId": "j0bnas6_LdvImLAP1t3w0Qo"
+}

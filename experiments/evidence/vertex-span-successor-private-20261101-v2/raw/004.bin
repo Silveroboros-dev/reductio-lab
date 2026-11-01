@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"alternatives\": [[{\"id\": \"source:synthetic-rule-lark7-v1\", \"spans\": [{\"quote\": \"For batch LARK-7, the target is met only if at least 7 of 10 final checks pass.\"}]}, {\"id\": \"source:synthetic-final-tally-lark7-v1\", \"spans\": [{\"quote\": \"Final audit of batch LARK-7: 6 of 10 checks passed; 4 failed.\"}]}]]}",
+            "thoughtSignature": "AY89a1/kZP6pQlEAXprcnlLH61xBDLC0gemg6gaPLkuEVRgLHUBsGb64KHj4eOnuO4OO6Lflmb6lBzXF07nb7koh96uR4zVkPfSnht0jcc38ozGEwXQJ"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1025,
+    "candidatesTokenCount": 109,
+    "totalTokenCount": 1134,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1025
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 109
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:09:53.549700Z",
+  "responseId": "MUjnasTGIbCxz_IP38KTsQY"
+}

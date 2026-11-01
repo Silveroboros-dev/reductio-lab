@@ -1,0 +1,123 @@
+{
+  "schema": "corrected-fitcheck-report-manifest-v1",
+  "scope": "seed all raw texts; P0 and CPI P1 full answer objects; earlier fit B/B_self_check/C full saved outputs",
+  "created_utc": "2026-10-29T13:52:07.624411+00:00",
+  "no_network_calls": true,
+  "seed_raw_generations": 32,
+  "prior_fit_arm_outcomes": 24,
+  "source_files": {
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-live-ledger-20261029-01/ledger.sqlite3": {
+      "sha256": "ba7f80c158e12448ced843b5ce90114b1e46a424732e4b1e299e369ebbf70da3",
+      "bytes": 536576
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-exploration-seed-20261029-01/00-pair.json": {
+      "sha256": "f7ea5ea94673f3dbf91c3e6fc64c1d62f0db5f130e4cb00f75a19c6306b3d0b4",
+      "bytes": 39167
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-seed-packets-20261029-v3/case-01.json": {
+      "sha256": "ca3fec2b1e2815d9fe9f22f58e9a838cc1e77a5ff6022bf550f3875ed1e9ddc6",
+      "bytes": 2451
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-exploration-seed-20261029-01/01-pair.json": {
+      "sha256": "a8e2cc08655717541e9fea42d5630fa4ea62db8ee0320bef8440de3f28412cba",
+      "bytes": 36752
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-seed-packets-20261029-v3/case-02.json": {
+      "sha256": "c59bd3a5c19a97593e9f23897030357355141228fa301ce18a8de5bd15167598",
+      "bytes": 2326
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-exploration-seed-20261029-01/02-pair.json": {
+      "sha256": "8cce565ed205cdddc902f6cd52de2d2b409789723c1174eccdf3ca8d1e8432db",
+      "bytes": 30748
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-seed-packets-20261029-v3/case-03.json": {
+      "sha256": "19f61e282be1cf8ce5950af6f7dbbad485ae3c8205ed553fcb30a130d66c55a3",
+      "bytes": 2565
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-exploration-seed-20261029-01/03-pair.json": {
+      "sha256": "35ed5450be9bbe350b901c0212fd6c8daf5497cb84ec616bd8c13ea75643c4db",
+      "bytes": 47558
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-seed-packets-20261029-v3/case-04.json": {
+      "sha256": "9e604af4909551c804c4dc1eb9031fa3b7fbb1f534c92a53b44cf0e8347e92dc",
+      "bytes": 2442
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-results-20261029-01/00-p0-c.json": {
+      "sha256": "e7467c953c0f54a9f0e90b500f17896ecb2493339aedfe4f4c9061e55af07a56",
+      "bytes": 25990
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-01-b.json": {
+      "sha256": "4bedf448800d01b9d827df9cca7af98cce09b8db469f41252df09fadcce5a6f7",
+      "bytes": 48886
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-cases-20261029-v2/case-01.json": {
+      "sha256": "e938910db2e8e41874eb209504933b2d2e8ee5f7ae039d82f10100d2fa40e3b0",
+      "bytes": 2635
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-remaining-results-20261029-01/00-p0-c.json": {
+      "sha256": "e8f37e1eeb1d559feead828ad31a904ba9c5cfda9ca9786e3e9527f3f4e3b1e3",
+      "bytes": 26195
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-02-b.json": {
+      "sha256": "45e878b24c5792ab533e2362d58cf55b64a9c1d9a02bea47b3c3cbd415f77608",
+      "bytes": 43953
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-cases-20261029-v2/case-02.json": {
+      "sha256": "86abe98349fea3b53b981c3962bfb77fd1302190ffd20ade24d7b2d51e62df08",
+      "bytes": 2878
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-final-two-results-20261029-01/00-p0-c.json": {
+      "sha256": "c87e492007857ebca84325d21a84fde750b390bf5e1e00dda028610beb45c82d",
+      "bytes": 24422
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-final-two-results-20261029-01/00-p0-b.json": {
+      "sha256": "7b9d805385fc8b33374698f3635c0b9863ffb68b8bae72dc09357c782b3fd61c",
+      "bytes": 43592
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-cases-20261029-v2/case-03.json": {
+      "sha256": "97e33ac7c5a0b2a9b0023a5e8f41b5b67b5788e06809d799eb4f6aa623a3f957",
+      "bytes": 2480
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-04-c.json": {
+      "sha256": "63a2f75f8f4fe49436ed19b0883d6da9a71eab5096f7b1db410a8951e1ebff68",
+      "bytes": 20659
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-04-b.json": {
+      "sha256": "e89a3cc4057a8b18ab730133518e4a5517785f216ac4d87a2e3b5af2b77c5151",
+      "bytes": 40097
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-cases-20261029-v2/case-04.json": {
+      "sha256": "4bbe14a2c9af22a344a9d2b334a72e2a768263cecc1043599bf699c6854b9521",
+      "bytes": 2508
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-38-successor-results-20261029-01/p1-input.json": {
+      "sha256": "2aeb0312e915137f8aa70319e840ca45b86233cdb8ef63847797eaac2cbbeda5",
+      "bytes": 18108
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-38-successor-results-20261029-01/p1-b-no-news.json": {
+      "sha256": "4a84a3921d2a612acbd30ad072ba490b5d8064cac17959b0ea09a46aa7f7b896",
+      "bytes": 49777
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-38-successor-results-20261029-01/p1-c-no-news-posthoc-repair.json": {
+      "sha256": "c4e94fc345fc1d671b9a56cd8af9b8eb08784131a7c8fcf49ceb4c303c0ebd33",
+      "bytes": 34930
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-retry-ledger-20261029-01/ledger.sqlite3": {
+      "sha256": "d185bdb6e46a35d6f1a0bdfc6a4a92bbb9b37da000f7eca5c62e1c2a187ffe9c",
+      "bytes": 155648
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-38-successor-results-20261029-01/p1-b-news.json": {
+      "sha256": "3d459b7cf7f8f0476a2357e0b2ed70d392f636c7db285202406612639f3380e0",
+      "bytes": 58156
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-cpi-p1-38-successor-results-20261029-01/p1-c-news.json": {
+      "sha256": "6c352cd1689edcc542f1f664d02ca0564ba600c7f98ee24cbd7c29e2b9c9e28d",
+      "bytes": 33872
+    },
+    "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/live-model-successor-experiment-20261029-01/summary.json": {
+      "sha256": "8f2ae37a467defc0335a3932c9c0d678dde29592ca3e76e540daefbac34072a5",
+      "bytes": 1102607
+    }
+  },
+  "qualification": "Local hashes identify bytes read; they are not an independent external seal. Primary files were not overwritten."
+}

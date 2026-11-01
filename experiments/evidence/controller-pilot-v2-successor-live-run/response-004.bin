@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"We have successfully retrieved the report which states that fictional Cedar sold 27 blue widgets in Q2.\",\n  \"expected_result\": \"\",\n  \"answer\": \"Fictional Cedar sold 27 blue widgets in Q2.\",\n  \"stop_reason\": \"The question is fully answered by the evidence provided in the synthetic-report.\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The retrieved report perfectly matched the expectation by stating exactly how many blue widgets (27) were sold by Fictional Cedar in Q2.\"\n}",
+            "thoughtSignature": "AY89a19p6B06jQ+AUHIxYE7Frq1oEU5gAnscTvtUdV4ffWgqQjjHGghZPeP3B3t4tRUImETV6joiz2iRxGjLYmYfK97gZEXYXDtnD50o7ZhFDGi/bU5wK8oBT+jn5RO4q+tb5+1vfRYuF8MeHmkRlLiqW/xFycrX7qqi8PKThoVhox2z2xx3a58bgQcXGZp/BHRFNrXi3ZaB239ASdjTSv7Jy8KA2IgyqYiFTsfAdQfISDhgwtyOPHIn1qrsVciJK9urb8Ow6iLk8VGYpqaNq50UuaCkxnygKEE+02L5qKAnOsGIMf9fE63IMMDLXDFCIVwVlWkTTiXjxkVRS+t1URpt4GIWZ+HzkGkueEOaU8wHXwwYFpnQqupBn3Z+2J69+pcS0tV0KcuCmpZCuqUTPC8VjkOcZg7BuLISgOl41kzxDD/G7p6flDyhxdrxx/ypFSSbv4mewmV249rhy4vwPArJCT3Gn3U9xLHdLP6rtm/TGaLk42h2EtwoiurU7j+ctmd43UP/hgAVmT2lZcTDOotkKD5QQySmzJgfkeD/CCWItbVzzul62jxIapEe5ZtHArQH2M+dqnzQHfFHr8/6Tamu2ChLvrptAiPEHBWr1l1MiC1LqQtVeC+9pXCt4EVFs9nZGns2wuwyu9GpoN2TBsW5sSn9rwABJSSpTPBoK7fmXgYYzs7eBAsobYGOOfIAhA=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 541,
+    "candidatesTokenCount": 145,
+    "totalTokenCount": 800,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 541
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 145
+      }
+    ],
+    "thoughtsTokenCount": 114
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:51:53.308078Z",
+  "responseId": "Ce3iau7mEu_ZmLAP5_nEmAQ"
+}

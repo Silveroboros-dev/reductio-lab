@@ -1,0 +1,180 @@
+{
+  "cases": [
+    {
+      "case_id": "case-01",
+      "event_group_id": "KXFEDDECISION-26DEC",
+      "human_attestation_path": "human/case-01-decision-line.json",
+      "human_attestation_sha256": "88b4f0b201916922922072f89a8a9ea15f7fe3bbcfc4eaa9ecb4c1350d9e05f2",
+      "input_path": "cases/case-01.json",
+      "input_sha256": "0bbfadb6079de855d86e30bc20817082691f7f9a8f547d0f2741194ff25b0145",
+      "split": "dev"
+    },
+    {
+      "case_id": "case-02",
+      "event_group_id": "KXIPO-26",
+      "human_attestation_path": "human/case-02-decision-line.json",
+      "human_attestation_sha256": "8b370f86d1c12dc9e59c60392825403c044c861b298b9a1e8b909bfa2a1973f8",
+      "input_path": "cases/case-02.json",
+      "input_sha256": "c87de8359113e87ffa7981e07680697b8bf88aacf143d04ba62483edda0eae68",
+      "split": "dev"
+    },
+    {
+      "case_id": "case-03",
+      "event_group_id": "KXHIGHINFLATION-26DEC",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-03.json",
+      "input_sha256": "ad0252a0d244e1716f9de0d5f9476492432d6122ce9ae0d0ca53e9a437dc2e0d",
+      "split": "test"
+    },
+    {
+      "case_id": "case-04",
+      "event_group_id": "KXUSGDPSHARE-27JUL01",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-04.json",
+      "input_sha256": "29288218ae08b6667286d2a68efab291f0a3051f8cbd3ff06dcf62c08591436a",
+      "split": "test"
+    },
+    {
+      "case_id": "case-05",
+      "event_group_id": "KXANTHROPICRESCIND-26JUN",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-05.json",
+      "input_sha256": "a98b072b4a0b114f728be3678b22a4eeb5ce91d024e576b37887a99c3069edda",
+      "split": "test"
+    },
+    {
+      "case_id": "case-06",
+      "event_group_id": "KXCLAUDE-CLAUDE6",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-06.json",
+      "input_sha256": "0cc2227434dbac41df4340d9a80849a21364368d0af12fdff1984c983bba0e90",
+      "split": "test"
+    },
+    {
+      "case_id": "case-07",
+      "event_group_id": "KXGDPNOM-US26",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-07.json",
+      "input_sha256": "2a07a62c0b3a6dbe9d6bea890cf2c713a51bf76abcabd32cfcec4bcc5228cbe2",
+      "split": "test"
+    },
+    {
+      "case_id": "case-08",
+      "event_group_id": "KXRSIANNOUNCE-29",
+      "human_attestation_path": "human/test-thesis-acceptance.json",
+      "human_attestation_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+      "input_path": "cases/case-08.json",
+      "input_sha256": "5c1e25ea2a8822eb2d7538b5237f1a05734af16ba97a6c11b5804222b301a2e0",
+      "split": "test"
+    }
+  ],
+  "draft_predecessor": {
+    "path": "source/draft.json",
+    "sha256": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845"
+  },
+  "limitations": [
+    "A schema intentionally rejected by runnable preflight prevents a manual-only downgrade.",
+    "Six test wordings approved, not predictions or pair adjudications; two dev approvals are historical advisory normalization only.",
+    "Kalshi transport is user-relayed; Fed rule conflict unresolved; price data capture time is not independently established.",
+    "No source price, news response, human goldens, or final evaluation was invented."
+  ],
+  "master_source_file_sha256": "d0cce97e9b2e2e2ce3e528bbbdd396a01b5f2ede6fc7a88d764cf8f183bb45c6",
+  "pending_sources": [
+    {
+      "case_id": "case-01",
+      "predeclared_query": {
+        "num": 3,
+        "q": "Federal Reserve interest rate decisions 2026 2027 latest target range changes"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-02",
+      "predeclared_query": {
+        "num": 3,
+        "q": "Anthropic funding round valuation IPO announcement 2026 latest"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-03",
+      "predeclared_query": {
+        "num": 3,
+        "q": "2026 consumer price index year over year inflation reports 4.2 percent official"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-04",
+      "predeclared_query": {
+        "num": 3,
+        "q": "World Bank 2026 United States world GDP current US dollars WDI latest revision"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-05",
+      "predeclared_query": {
+        "num": 3,
+        "q": "Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-06",
+      "predeclared_query": {
+        "num": 3,
+        "q": "Anthropic Claude 6 release publicly available free tier official 2026"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-07",
+      "predeclared_query": {
+        "num": 3,
+        "q": "BEA 2026 annual nominal GDP first nonpreliminary estimate World Bank GDP release"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    },
+    {
+      "case_id": "case-08",
+      "predeclared_query": {
+        "num": 3,
+        "q": "OpenAI Anthropic recursive self improvement independent verification public demonstration 2026"
+      },
+      "price": "unknown",
+      "required": "actual Orthogonal response+settled ledger receipt+account-specific fixed quote+request identity+source extraction",
+      "response": "missing"
+    }
+  ],
+  "predecessor_manifest_v1": {
+    "path": "predecessor/manifest-v1.json",
+    "sha256": "831669cc189ea509ea3816f1ea5a356d0f553b9c8bdd10d7dacd1593b82a0feb"
+  },
+  "runnable": false,
+  "schema": "faithful-dynamic-draft-manifest-v1",
+  "source_receipt": {
+    "path": "source/user-reported-capture.json",
+    "sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890"
+  },
+  "status": "blocked_missing_paid_source_capture_and_quote"
+}

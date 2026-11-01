@@ -1,0 +1,78 @@
+{
+  "schema": "corrected-delivery-manifest-v1",
+  "created_at_utc": "2026-10-29T13:54:13.746109+00:00",
+  "artifacts": [
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/01-seed-all-model-outputs.md",
+      "sha256": "0f4bff66af56c16819664240c5ca16f8e8bc575c1afb2ca4ea9a79d9e0c3fe04",
+      "size_bytes": 68240
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/02-forecast-full-answers.md",
+      "sha256": "aac25a110c0495cdbd6eed5ddd1871ba4804310d40b952766127ecebe1e53c53",
+      "size_bytes": 63916
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/03-prior-fit-full-answers.md",
+      "sha256": "dc4c1256443c75d96a6cf8a50372d7e07c4505339115bc1db0559604f36adb18",
+      "size_bytes": 32373
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/04-runtime-inputs.md",
+      "sha256": "5c3413e103bcb03222d95eb4724e05539933785fff9c4bf5c2c99466f97d712f",
+      "size_bytes": 160523
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/05-earlier-38-full-outcomes.md",
+      "sha256": "2dc7fb9c3326c2fe434414f45b42646b2ba223b2def970ed774dc27ef948d3e2",
+      "size_bytes": 88925
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/README.md",
+      "sha256": "1e38c0608b5d2752daa0d2c97de5a58db6a8446845f0fc9fb5ad1c92d4022d36",
+      "size_bytes": 23928
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/corrected-research-report-20261029-v1/manifest.json",
+      "sha256": "4cbd7109f8f5f2780a50693620a116f1bbf2811158f050aee0f617103c9ff922",
+      "size_bytes": 8250
+    }
+  ],
+  "additional_sources": [
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/controller-pilot-38-live-run/summary.json",
+      "sha256": "fcdd19c0339e28f66c33622942a75c280acdcd76c064b5d64dade9d2cd162133",
+      "size_bytes": 9836
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/controller-pilot-38-continuation-live-run/summary.json",
+      "sha256": "75df6061df09ab1546c1b945ea69059318a4419af2c9245a3ab4923f160f6e8f",
+      "size_bytes": 68843
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-01-input.json",
+      "sha256": "6fab37d8999aa9358a165d6a87161a961204585f0b41e13094f55e4f92a6b091",
+      "size_bytes": 5717
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-02-input.json",
+      "sha256": "8c67563dddc6b27c5ec47e97b6823d2194244fe36bd62134644d0fb47dcb8339",
+      "size_bytes": 6206
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-final-two-results-20261029-01/00-p0-input.json",
+      "sha256": "6ff95e7a2cb39f66026af365792640373176045c5ef8594b26981474d9569be6",
+      "size_bytes": 5406
+    },
+    {
+      "path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/forecast-p0-429-resume-results-20261029-01/case-04-input.json",
+      "sha256": "e33060babdd5a0161c759cfc3aacf33e6aae71fbd690dd5e6b1de0d0969db68d",
+      "size_bytes": 5180
+    }
+  ],
+  "notes": [
+    "Other source hashes are in manifest.json.",
+    "Hashes are local integrity metadata, not independently sealed.",
+    "No new network or provider calls."
+  ]
+}

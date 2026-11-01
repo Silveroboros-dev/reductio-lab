@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"synthetic-report\",\n  \"rationale\": \"The critique correctly indicates that the 'synthetic-report' action should be executed to find the number of blue widgets sold by fictional Cedar in Q2.\",\n  \"expected_result\": \"The number of blue widgets sold by fictional Cedar in Q2.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"The exact number is currently unknown until the report is queried.\"\n}",
+            "thoughtSignature": "AY89a19Y2ModvNbagOqewY2dizlsiGHtFEk92wRk0l5QeZRBNGPZmBa3eCBCzWdD7NgSUY3POqO3su4+DOgTx86va6MQ5uHAs6ohgNeqKWn2KDvIBDN+UyWCFEZTqQRN3mTzFqoC/awF+5nRGZz3RyCCmbY+gDJOQJn2l0USGldqcXrac169CcpdW0o+j/8W/NaCPmUu1mWnV6PlXGgISMepW3XLq9nrexzLr3gruVF1aukKFlI+906eNt0mLMnnhLgPPJcIUm8bwe69m3dNodorOtPw6wDfl9ikGiPM9QM17VFNaNmAaipFORwGQ1o4V/Y7DdLIBJRRG3JjcCLF4PP/P8AkDIXh1tUH8BSJqSkwYqPgvVoeXtY8XUROmS7M3C3a0fiTsKOtToBo38LW5SSNexr8X0cpEIDsr8J4neUKBA3gB5Uusegtfp74LdOwANQ0vZK0Dfole4rSLQ4kB4nxtyCx0igSWms+uMSRHbOO5Dx1KCMrIMVTpjcaOwegY+h458f/jO8PqAWUYQW51JrLluj0xZZH0A0YDhP+zYVohFgTGugrxEa453hFXzfPGUl+7w7GdXt71oPyjq+vFIUq9b1OTWArQ7VktrdTW4L02gNtad8DegdHzyRJQFoSErRsReQA+1tVSvr4IpcrORR7aVhW84j4/q+GUxnpgxUYGugPZkt6rcKkJB9iaJWI75qLSM2KlydVWKTD4077i5STc4ufjiu4pG+rVb6nl68kSxxFvl4up2EEupHbfqZkqaF/xEJjMuIkBR0c0s+ZOzT12oCuD7H97dbp/6845bkMEOXLZ5qL10woe2qzFmHUl2Cy/ID82oLrW8BbYxulEvsqhVJxQ40nnfMvAwIiE6zdNDq4AWSyM3Kg1k0vM+2SXp5SVbRd3lc3CbofKqwLGbii9+Mx1yHc0jHOmKrjwLYYnPsEPQoWBAnbYdms2S9OXOXB/gUxwHa8hoIfUF4tgy1QfF5lHGCwFJRtADBVoD0ZCOmEmUR4HHpP7X+wOpDp46YhQZbEIwjBYF4c8GnfxyOSRuqgvPClWBWSaFQ8V8VZ4LDQx7gucZg+r8MeUb3vHDsT/rdG7PdHfxod9ALsE8JqgdT/yWW8Q4SLwXPiKpDvh4PvM0YTWNnQXE7YOSFZ8lIEh3NROtW4Fa30czEd+r4uyPU="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 483,
+    "candidatesTokenCount": 114,
+    "totalTokenCount": 779,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 483
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 114
+      }
+    ],
+    "thoughtsTokenCount": 182
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:51:49.056080Z",
+  "responseId": "Be3iapC2A4aUhcIP3LCecQ"
+}

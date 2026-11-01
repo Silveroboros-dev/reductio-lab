@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"disc-action-v1-24bf993fdeb165a3e32dfb43\",\n  \"rationale\": \"Query the available fragment concerning estimated U.S. total withdrawals in 2015 to see if it reports or allows calculation of 2015 consumptive water use.\",\n  \"expected_result\": \"Numerical data on 2015 water withdrawals and potentially consumptive use.\",\n  \"observed_vs_expected\": \"The retrieved passage defined consumptive use but did not provide the numerical estimate for 2015.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"The exact 2015 U.S. consumptive water use estimate in billion gallons per day is not yet visible in the admitted evidence.\"\n}",
+            "thoughtSignature": "AY89a19ffM4GixZDMCvDqj7N66IxYc9AfCz8AULJp9dvDc9lJcmbfQQton7v6Xa6JcM4ZAGFOKx1IMEcQEf2EOCOVM6vdVbTJj8cp5OjsfvZqu2XHBUv"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1401,
+    "candidatesTokenCount": 197,
+    "totalTokenCount": 1598,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1401
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 197
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:10:19.869762Z",
+  "responseId": "a__iaoKLNfKLhcIP4JjZ2A8"
+}

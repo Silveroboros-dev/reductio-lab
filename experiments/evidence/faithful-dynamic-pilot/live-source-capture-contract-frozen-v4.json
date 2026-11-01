@@ -1,0 +1,191 @@
+{
+  "status": "frozen",
+  "title": "Eight frozen Orthogonal source captures for Faithful dynamic pilot",
+  "created_at_utc": "2026-10-29T09:11:28.377124+00:00",
+  "user_authorization": "User authorized $40 including prior and 8-group experiment; UI account price inspected at user request.",
+  "known_prior_exposure_micro_usd": 721593,
+  "total_cap_micro_usd": 40000000,
+  "source_budget_micro_usd": 5000000,
+  "per_source_reserve_micro_usd": 250000,
+  "ui_price_micro_usd": 2000,
+  "ui_price_evidence_path": "ui-serper-price-20261029-refresh-v2.json",
+  "ui_price_evidence_sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac",
+  "draft_sha256": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845",
+  "source_requests": [
+    {
+      "case_id": "case-02",
+      "event_group_id": "KXIPO-26",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic funding round valuation IPO announcement 2026 latest"
+      },
+      "relevance_gap": "Whether a primary funding round or IPO valuation has been reported and with what date/source; IPO announcement alone does not establish $1T.",
+      "request_sha256": "adb243e320d7204f71864a6ecbcf8edaecc8fef2fc432fd9246884436f9fcb94"
+    },
+    {
+      "case_id": "case-03",
+      "event_group_id": "KXHIGHINFLATION-26DEC",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "2026 consumer price index year over year inflation reports 4.2 percent official"
+      },
+      "relevance_gap": "Whether any relevant year-over-year CPI report already exceeded 4.2%; a partial year cannot establish future absence.",
+      "request_sha256": "213474dd7587b677f6d6520dfccb152b6fac877d3fe3d8f3f0632b51a3f36575"
+    },
+    {
+      "case_id": "case-04",
+      "event_group_id": "KXUSGDPSHARE-27JUL01",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "World Bank 2026 United States world GDP current US dollars WDI latest revision"
+      },
+      "relevance_gap": "Whether a 2026 first or revised WDI estimate is published and which version it is; absence or a forecast is not a final revision.",
+      "request_sha256": "32b3a894d2d837fe364ecdc9ce777e4e3880f23f8b793b17f4f54df09968c127"
+    },
+    {
+      "case_id": "case-05",
+      "event_group_id": "KXANTHROPICRESCIND-26JUN",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic supply chain risk designation rescinded waiver modification White House Department of Defense 2026"
+      },
+      "relevance_gap": "Whether a documented official action fully rescinds the designation or only waives/modifies it; a headline alone may not establish scope.",
+      "request_sha256": "5de440512ca5c4e393e0e579be40a4183f18b4517ce47061d1fb96e8d66054d5"
+    },
+    {
+      "case_id": "case-06",
+      "event_group_id": "KXCLAUDE-CLAUDE6",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "Anthropic Claude 6 release publicly available free tier official 2026"
+      },
+      "relevance_gap": "Whether an official release occurred, whether it is public and whether free users can access it; announcements and beta do not settle each condition.",
+      "request_sha256": "60c3bf0e86df4a0d0ef6fcc04167c78de1eee244607f958ec63c4a7371645b10"
+    },
+    {
+      "case_id": "case-07",
+      "event_group_id": "KXGDPNOM-US26",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "BEA 2026 annual nominal GDP first nonpreliminary estimate World Bank GDP release"
+      },
+      "relevance_gap": "Whether BEA and World Bank official annual data and their versions are available; avoid equating forecasts, preliminary data and distinct sources.",
+      "request_sha256": "569989057f8a22e5a2d424871e09ccd408e19b314b22e6257f0079f606d09cbb"
+    },
+    {
+      "case_id": "case-08",
+      "event_group_id": "KXRSIANNOUNCE-29",
+      "api": "serper",
+      "path": "/news",
+      "body": {
+        "num": 3,
+        "q": "OpenAI Anthropic recursive self improvement independent verification public demonstration 2026"
+      },
+      "relevance_gap": "Whether there is a dated official announcement, a public demonstration and genuinely independent verification; these conditions are distinct.",
+      "request_sha256": "8c0a05c6d6a5571d72d365b1dcaf9726ae193b0d121f1a4d1905adc0bd7cd9b9"
+    }
+  ],
+  "source_capture_operation": "POST https://api.orthogonal.com/v1/run, body {api:serper,path:/news,body:{q,num:3},query:{}}",
+  "source_attempts": 7,
+  "max_source_attempts": 18,
+  "max_generation_attempts_including_prior": 835,
+  "max_countTokens_including_prior": 767,
+  "model": "gemini-3.8-flash",
+  "location": "global",
+  "input_rate_per_million_usd": 1.5,
+  "output_rate_per_million_usd": 7.5,
+  "input_limit": 16384,
+  "max_output_tokens": 4096,
+  "output_reserve": 8192,
+  "retry_policy": "none",
+  "uncertain_policy": "stop and retain reserve",
+  "manual_market_source": "user-relayed Grok, 2026-10-29 08:58:06–07 UTC, captured bytes sha256 2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+  "user_confirmation": "6 explicitly accepted conditional theses, two historical normalization approvals",
+  "quality_limits": "2 exposed dev + 6 diagnostic candidates; novelty unestablished; same-source conditional comparisons; 1 market per group; one chosen source; no clean expression pool claims; human independent semantic labels absent",
+  "blockers_before_start": [
+    "independent ready challenge bound to frozen bytes, code, ledger and context",
+    "live issuer credential identity rechecked per request",
+    "record actual source expenses and stop on >0.002 USD, unknown or error"
+  ],
+  "cost_bound_caveat": "UI price is a direct account context observation; local per-call reserve 0.25 USD is not an enforced provider cap. Bill overruns beyond quoted price are recorded and stop after receipt.",
+  "schema": "faithful-source-capture-contract-v4",
+  "execution_mode": "live",
+  "component_bindings": {
+    "ui-quote-work/source_capture_v4.py": "25cf1b805144b6f292d0e1f28f041716a5a7ebb4105b93b42c9bad21a8baf7a2",
+    "ui-quote-work/ui_quote.py": "dbcfb54246972d763be38305c38b7196cc2780820d395457950529beda437e80",
+    "budget-v2/ledger.py": "7c815111d4fc9aab09cdd25c197cc152924a37600447c7132496a7b5b1b9e2b4",
+    "transport/oneshot.py": "33428fd0aeb5c7315cf35395801deef0b3f50acbf53bcee024e83854ac976040",
+    "source-adapter/serper.py": "be11a09a9962c793eaadd6fc72fc31d1b5b669bf391bcfd92dff92255a5b9528",
+    "dataset-draft-20261029/draft.json": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845",
+    "ui-serper-price-20261029-refresh-v2.json": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac",
+    "ui-quote-work/live_source_dispatch_v4.py": "d7eed1d2ca5e99c8a55ff243f7b2f38f473af640322d34dae6d910d16f003854",
+    "source-successor/bridge.py": "af6ee1febfa00dfcefee08df376e4f2e3b2a31e5c841ddb02fe1c4a7dae170d9",
+    "model-launch/news_projection.py": "10be887df0d516c4b9a592a32dcd17ebf3226dc4fdced462cd8461b95c08fdf7",
+    "live-ledger-successor-contract-20261029.json": "4229f1df2048e37e468aa901ae865f3af80d47caa58d728c0f555ae0ab920b71",
+    "live-pricing-evidence-20261029.json": "3b1357c4754921af5bdf392e6113e2e10cd0a6a17cfb5502ad8afad3ad6f1bb8"
+  },
+  "execution_context": {
+    "artifact_root": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot",
+    "ledger_root": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/live-source-ledger-20261029-02",
+    "output_dir": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/live-source-capture-20261029-02",
+    "cwd": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot",
+    "claim_path": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot/source-successor-claims/aeb9b4b9f6da76bf4df8797b292732a0707148b6cf9210edf1488e27f5bcb5b3.claim.json"
+  },
+  "frozen_at_utc": "2026-10-29T09:26:06.348943+00:00",
+  "predecessor_contract_sha256": "056623ba454b0093900ca7095558408546acc4b6d9abbcab063306b89d8d54d6",
+  "predecessor_binding": {
+    "schema_version": "faithful-source-predecessor-binding-v1",
+    "predecessor_db_sha256": "aeb9b4b9f6da76bf4df8797b292732a0707148b6cf9210edf1488e27f5bcb5b3",
+    "predecessor_source_contract_sha256": "056623ba454b0093900ca7095558408546acc4b6d9abbcab063306b89d8d54d6",
+    "predecessor_started_sha256": "0498f9cd13ee00f6013353060a3463ac42be0d94eebd31e3d3a655fb48146fd5",
+    "predecessor_stopped_sha256": "c29f375285ca596ecbf8e8efffe0c5ab388eb37c720a2125f16941f3a07d2c68",
+    "previous_exposure_micro": 723593,
+    "previous_source_attempts": 1,
+    "previous_generation_attempts": 79,
+    "previous_count_attempts": 11,
+    "previous_source_actual_micro": 2000,
+    "previous_source_id": "source:case-01:serper",
+    "previous_source_request_sha256": "01fa0df49b7045c7de810ad0c1b6d54418891727ebd1564614de1b8f87dc519b",
+    "previous_source_response_sha256": "f93aed7a81230147be971b2192b952e523f3d05e34856aff029e5089f32ec7a3",
+    "previous_source_news_count": 10,
+    "reported_error_type": "PreflightError",
+    "stop_reason_evidence": "source capture halted; >3 news reproduced from immutable response; original exception text not retained",
+    "remaining_source_ids": [
+      "source:case-02:serper",
+      "source:case-03:serper",
+      "source:case-04:serper",
+      "source:case-05:serper",
+      "source:case-06:serper",
+      "source:case-07:serper",
+      "source:case-08:serper"
+    ],
+    "remaining_source_request_sha256": {
+      "source:case-02:serper": "adb243e320d7204f71864a6ecbcf8edaecc8fef2fc432fd9246884436f9fcb94",
+      "source:case-03:serper": "213474dd7587b677f6d6520dfccb152b6fac877d3fe3d8f3f0632b51a3f36575",
+      "source:case-04:serper": "32b3a894d2d837fe364ecdc9ce777e4e3880f23f8b793b17f4f54df09968c127",
+      "source:case-05:serper": "5de440512ca5c4e393e0e579be40a4183f18b4517ce47061d1fb96e8d66054d5",
+      "source:case-06:serper": "60c3bf0e86df4a0d0ef6fcc04167c78de1eee244607f958ec63c4a7371645b10",
+      "source:case-07:serper": "569989057f8a22e5a2d424871e09ccd408e19b314b22e6257f0079f606d09cbb",
+      "source:case-08:serper": "8c0a05c6d6a5571d72d365b1dcaf9726ae193b0d121f1a4d1905adc0bd7cd9b9"
+    }
+  },
+  "projection_policy": {
+    "selection": "provider order, first up to 3; content-independent",
+    "max_returned": 100,
+    "request_num": 3,
+    "date_policy": "preserve verbatim",
+    "amendment": "after observing provider returned 10 for num=3"
+  }
+}

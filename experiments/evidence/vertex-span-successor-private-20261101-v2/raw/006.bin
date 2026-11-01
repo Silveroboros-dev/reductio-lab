@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"conclusion\":\"Batch LARK-7 did not meet the target.\"}",
+            "thoughtSignature": "AY89a180Sonigofjm0ZgSGvISKZpA18GSHlVhTBjFYOm/b4YBmxaRL/A15bVEC5guXL+IuyuRTae0ZBjzoM+ekPe2apg0LrPnU6UxqiTtds/+kup2ABz"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 196,
+    "candidatesTokenCount": 15,
+    "totalTokenCount": 211,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 196
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 15
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:09:56.912214Z",
+  "responseId": "NEjnatbWN5axmPUPtdLygQs"
+}

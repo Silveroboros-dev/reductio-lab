@@ -1,0 +1,21 @@
+{
+  "observations": [
+    {
+      "api": "kalshi",
+      "parameter": "tickers string; limit optional",
+      "path": "/markets",
+      "rate_usd": "Free",
+      "url": "https://www.orthogonal.com/discover/kalshi/26336e71-0806-4771-b1e0-2913fcd8cf03"
+    },
+    {
+      "api": "linkup",
+      "parameter": "body.url required string",
+      "path": "/fetch",
+      "rate_usd": "0.01 per call",
+      "url": "https://www.orthogonal.com/discover/linkup/3ea281b9-d17c-458c-aa03-e37b580a6888"
+    }
+  ],
+  "observed_at_utc": "2026-10-29T12:31:51.641310+00:00",
+  "qualification": "Rendered Orthogonal Chrome UI; displayed price is not a confirmed invoice or enforceable cap. Provider response chargedPriceCents must be accounted and checked. Status quote freshness up to 90 minutes is an operator decision, not a provider price guarantee.",
+  "schema": "cpi-p1-source-ui-prices-v2"
+}

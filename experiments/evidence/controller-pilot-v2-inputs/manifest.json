@@ -1,0 +1,98 @@
+{
+  "schema": "controller-pilot-v2-input-manifest-v1",
+  "source_files": {
+    "worksheet": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/applied-action-review-v1/worksheet.json",
+      "sha256": "a7b1782b6fb715e009b190782111b10ca145d72fffca3cc61e0a1089a931e876",
+      "size_bytes": 282378
+    },
+    "value_replay": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/main-applied-tool-responses.jsonl",
+      "sha256": "9fac14f189e9c2b8d23e2486d8dc2859ba61bd3e3ad8b599ca217c4d5f55a305",
+      "size_bytes": 108275
+    },
+    "source_bundle": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/source-choice-eia-18-discriminating-candidates-v5/bundle.json",
+      "sha256": "3f5c447816cfc114866abaea5c9559a56ff63cd951896af54bcee09b6ca1f238",
+      "size_bytes": 174324
+    },
+    "source_review_records": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/eighteen-provisional-source-reviews-v1-20261027/records.json",
+      "sha256": "3de9d02cd5c317c49be50b61ede1487693ed0be5d655690aa1900cd4cf6e6e97",
+      "size_bytes": 485497
+    },
+    "source_review_proposals": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/source-review-seven-open-questions-v2-20261027.md",
+      "sha256": "b50008ef7b07a944ec1393de472ff8a40f5fc10379493204d87af17f672db674",
+      "size_bytes": 15086
+    },
+    "owner_action_0001": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0001-decision.json",
+      "sha256": "4d17a0aaef8d4a6f7f5bd8164e9eb36e074537c40a7eecf629e648319bb53207",
+      "size_bytes": 1856
+    },
+    "owner_action_0003": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0003-decision.json",
+      "sha256": "c1c9854685bcf9615bbe1003c2c4b69477645d0140ab871c04d107c28cb1f031",
+      "size_bytes": 1830
+    },
+    "owner_action_0015": {
+      "path": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0015-decision.json",
+      "sha256": "28a7e77189f829059f1f0c4f70042ea0d438ddbdafd3294993ef212a9a1feff4",
+      "size_bytes": 2225
+    }
+  },
+  "case_refs": [
+    {
+      "case_id": "amazon_visible",
+      "worksheet_action_review_id": "action-review-e4ac13f0c32dfa582016",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0001-decision.json",
+      "initial_evidence_field": "worksheet.items[].pre_decision_existing_evidence[].observed_payload",
+      "replay_field": "main-applied-tool-responses.jsonl saved_response matched by action_id; duplicate values must be identical"
+    },
+    {
+      "case_id": "amazon_empty",
+      "worksheet_action_review_id": "action-review-f631edcf2063aa263293",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0003-decision.json",
+      "initial_evidence_field": "worksheet.items[].pre_decision_existing_evidence[].observed_payload",
+      "replay_field": "main-applied-tool-responses.jsonl saved_response matched by action_id; duplicate values must be identical"
+    },
+    {
+      "case_id": "nvidia_h100",
+      "worksheet_action_review_id": "action-review-0f8cc585997b5c46e70d",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-value-run-20261026-v3/guided-action-review-v1/0015-decision.json",
+      "initial_evidence_field": "worksheet.items[].pre_decision_existing_evidence[].observed_payload",
+      "replay_field": "main-applied-tool-responses.jsonl saved_response matched by action_id; duplicate values must be identical"
+    },
+    {
+      "case_id": "usgs_withdrawal",
+      "bundle_case_id": "source-choice-disc-v1-8706b61ad6b3fcaac658ce1e",
+      "input_version": "8706b61ad6b3fcaac658ce1e8545960cc60e3107deafc18589d8394517bc5e94",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/eighteen-provisional-source-reviews-v1-20261027/records.json",
+      "owner_record_selector": "cases[].predecessor_item.record.decision.case_id",
+      "bea_initial_note": null
+    },
+    {
+      "case_id": "usgs_consumptive",
+      "bundle_case_id": "source-choice-disc-v1-6f163022466b0539ac21bb8a",
+      "input_version": "6f163022466b0539ac21bb8a1e4bcf9aaf8f5c786854f05136c67da87199d9f6",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/eighteen-provisional-source-reviews-v1-20261027/records.json",
+      "owner_record_selector": "cases[].predecessor_item.record.decision.case_id",
+      "bea_initial_note": null
+    },
+    {
+      "case_id": "bea_state_gdp",
+      "bundle_case_id": "source-choice-v7-df3287ee17ba8235b3df3206",
+      "input_version": "df3287ee17ba8235b3df320609a53c8bf597c98b3ec6b3b59a49741a7d84246a",
+      "owner_decision": "/Users/rk/.codex/visualizations/2026/10/19/01a152a3-fbde-7cc1-acdd-cb13ff14c2d9/controller-evidence-goal-20261027/eighteen-provisional-source-reviews-v1-20261027/records.json",
+      "owner_record_selector": "cases[].predecessor_item.record.decision.case_id",
+      "bea_initial_note": "A replay response shown at start and marked preconsumed; B remains available."
+    }
+  ],
+  "limitations": [
+    "Owner review records and old proposals are assessment references, never initial model input.",
+    "Sources contain bounded saved excerpts; absence in excerpt is not evidence of source-wide absence.",
+    "BEA starts after A; A is preconsumed and B remains available, following the predecessor replay behavior.",
+    "The 6 cases are related, previously reviewed development cases, not a blind independent holdout."
+  ]
+}

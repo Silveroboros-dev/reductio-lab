@@ -1,0 +1,167 @@
+{
+  "schema_version": "eval_contract_challenge_packet_v1",
+  "packet_sequence": 1,
+  "created_at_utc": "2026-10-29T09:12:21.986581+00:00",
+  "witness": {
+    "identity": "/root/audit_go",
+    "implementation_revision": "ad_hoc_offline_review_20261029",
+    "mode": "read_only_offline",
+    "declared_access": [
+      "contract",
+      "source cohort",
+      "local code",
+      "UI observation artifact",
+      "workspace metadata",
+      "challenge packet transaction"
+    ]
+  },
+  "challenged_contract": {
+    "raw_sha256": "fe0f79de196ac930f327acb11d7a040385cb9be14595f3c38cdf6eb3606b4046",
+    "byte_count": 5904,
+    "internal_digest": null
+  },
+  "predecessor": null,
+  "context_binding": {
+    "command_cwd_realpath": "/Users/rk/.codex/worktrees/faithful-dynamic-pilot/fitcheck-core",
+    "repository_root_realpath": "/Users/rk/.codex/worktrees/faithful-dynamic-pilot/fitcheck-core",
+    "branch_or_detached": "detached HEAD",
+    "source_revision": "dccfbb55c7cc4d088e4a82872e72c0cf8a268168",
+    "price_evidence_sha256": "b77cd7bd9f5264879dc3b4b7db3cd73f1d2a836995258c4a206a91671e0e8ac9",
+    "draft_sha256": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845",
+    "code_bindings_at_inspection": {
+      "budget-v2/ledger.py": {
+        "sha256": "7c815111d4fc9aab09cdd25c197cc152924a37600447c7132496a7b5b1b9e2b4",
+        "size": 23812
+      },
+      "transport/oneshot.py": {
+        "sha256": "33428fd0aeb5c7315cf35395801deef0b3f50acbf53bcee024e83854ac976040",
+        "size": 4406
+      },
+      "source-adapter/serper.py": {
+        "sha256": "be11a09a9962c793eaadd6fc72fc31d1b5b669bf391bcfd92dff92255a5b9528",
+        "size": 9781
+      },
+      "dataset-draft-20261029/draft.json": {
+        "sha256": "66125dd9ce9d48e325e2d03f62f080928aa059645a10bdcbf9e5417bd2cac845",
+        "size": 99112
+      }
+    },
+    "runtime": "3.9.6",
+    "artifact_root": "/Users/rk/.codex/visualizations/2026/10/29/01a1865f-6bd2-75a2-abb1-eb14b071bbe0/faithful-dynamic-pilot"
+  },
+  "predicates": [
+    {
+      "id": "P1-each-query-identical",
+      "classification": "computed_definition",
+      "status": "supported",
+      "evidence": "eight case IDs, event IDs, q, num, api, path and relevance gap equal prereg draft"
+    },
+    {
+      "id": "P2-prior-and-limits",
+      "classification": "policy_choice",
+      "status": "supported",
+      "evidence": "conversation authority and contract exact parameters; all 8 source reserves plus prior = 2721593 microUSD"
+    },
+    {
+      "id": "P3-first-page-price",
+      "classification": "empirical_observation",
+      "status": "scoped_observation",
+      "evidence": "direct authenticated account UI $0.002/call, observed 09:10 UTC; cannot guarantee future provider bill"
+    },
+    {
+      "id": "P4-exact-source-dispatch",
+      "classification": "local_invariant",
+      "status": "unsupported",
+      "evidence": "draft contains no final executable adapter, approved hashes, transport, exact canonical request hashes, runtime envelope, ledger root or per-operation price expiry; ui-quote-work was empty at inspection"
+    },
+    {
+      "id": "P5-stop-on-price-drift",
+      "classification": "local_invariant",
+      "status": "unsupported",
+      "evidence": "reserve is $0.25; source ledger only stops automatically when actual > quote.max_micro; if quote.max_micro equals reserve, actual > $0.002 but <= $0.25 will not stop unless capture caller adds durable gate"
+    },
+    {
+      "id": "P6-pre-effect-evidence-boundary",
+      "classification": "unknown",
+      "status": "ambiguous",
+      "evidence": "UI observation record states key match in memory, but source capture runner, immutable authenticated account-binding, final transport and credential retrieval are not bound in this draft"
+    },
+    {
+      "id": "P7-quality-and-denominator",
+      "classification": "policy_choice",
+      "status": "scoped_observation",
+      "evidence": "explicit development/exposed vs diagnostic, 8 distinct event groups, manual source is user-relayed, Fed unresolved; one source choice can hide market rules when news chosen; do not claim pure fresh news benefit"
+    },
+    {
+      "id": "P8-no-automatic-retry",
+      "classification": "policy_choice",
+      "status": "supported",
+      "evidence": "contract says none and uncertain stop; implementation still unbound"
+    }
+  ],
+  "effect_gate_contract": {
+    "effect_states": [
+      "prepared",
+      "started",
+      "succeeded",
+      "failed_before_effect",
+      "uncertain"
+    ],
+    "gate_states": [
+      "not_evaluated",
+      "passed",
+      "failed",
+      "blocked",
+      "invalidated"
+    ],
+    "derivation_binding": "must bind final live runner and its tests before effect"
+  },
+  "authority_assessment": {
+    "authority_present": true,
+    "authority_state": "user authorization in conversation; no approval created or consumed by witness",
+    "permitted_operations": [
+      "offline review",
+      "write create-only challenge packet"
+    ],
+    "prohibited_operations": [
+      "provider API calls",
+      "credential reads",
+      "implementer code edits",
+      "run authorization",
+      "launch",
+      "send messages outside this team"
+    ]
+  },
+  "adversarial_fixture_results": [
+    {
+      "fixture": "alter request body relative to draft",
+      "expected": "predicate fails before source dispatch",
+      "actual": "query equality mechanically checked all 8; runtime enforcement not yet bound",
+      "status": "partial"
+    },
+    {
+      "fixture": "actual $0.003 vs displayed $0.002, below $0.25 reserve",
+      "expected": "durable stop before next source request",
+      "actual": "generic ledger alone does not enforce displayed-price mismatch",
+      "status": "blocker"
+    }
+  ],
+  "findings": [
+    "Source capture code and precise runtime are not fixed or independently challenged in this draft.",
+    "A caller gate must bind and enforce all eight exact request bytes, quote freshness, displayed-price mismatch stop, single ledger, one-shot transport, source response parsing and durable receipts before dispatch.",
+    "User-authorized pricing is evidence for ordinary charges, not proof of hard provider-side maximum; do not claim that local reserve guarantees provider behavior.",
+    "The eight-case dataset is diagnostic, not proven unexposed; expected news mostly changes event facts rather than contract-thesis semantics."
+  ],
+  "overall_state": "blocked",
+  "scope_limitations": [
+    "offline challenge, no provider operations, no independent signing/seal",
+    "source snapshot provenance reported by user from Grok; not independently observed",
+    "not a challenge of proposed model runner or the future source adapter",
+    "not semantic review or a confirmation holdout"
+  ],
+  "notification_keys": [
+    "source-capture-draft-v1-runtime-unbound",
+    "source-capture-draft-v1-price-drift-gate"
+  ],
+  "internal_digest": "b9c3268ea20c8503d86cda36a43ad569b6c6b64b03f3c76e139b984b6899106b"
+}

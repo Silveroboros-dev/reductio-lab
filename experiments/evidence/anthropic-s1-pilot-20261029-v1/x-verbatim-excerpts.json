@@ -1,0 +1,47 @@
+{
+  "version": "x-verbatim-excerpts-v1",
+  "captured_at_utc": "2026-10-29T22:19:20.923147+00:00",
+  "capture_method": "directly viewed public X post through authenticated Chrome UI accessibility state; no model paraphrase in excerpt",
+  "status": "source-excerpt-not-fact-adjudication",
+  "items": [
+    {
+      "id": "X1",
+      "source_url": "https://x.com/jukan05/status/2114869782210326999",
+      "author": "@jukan05",
+      "source_local_display_date": "2026-10-27",
+      "source_local_display_time": "1:00 AM",
+      "source_origin": "user_bookmark",
+      "case_ids": [
+        "S1-01-liquidity"
+      ],
+      "excerpt": "Anthropic has more cash and cash equivalents than Amazon… I don’t understand why people keep spreading fearmongering FUD about Anthropic going bankrupt.",
+      "interpretation": "Author expresses a comparison and opinion; not evidence proving financial safety."
+    },
+    {
+      "id": "X2",
+      "source_url": "https://x.com/RamaswmySridhar/status/2115159261533929911",
+      "author": "@RamaswmySridhar",
+      "source_local_display_date": "2026-10-27",
+      "source_local_display_time": "8:10 PM",
+      "source_origin": "user_bookmark",
+      "case_ids": [
+        "S1-03-compute"
+      ],
+      "excerpt": "1/16 the ai industry is making an unusual bet: buy compute for years, sell intelligence by the token.",
+      "interpretation": "Framing by author, not a specific contract or verified outcome."
+    },
+    {
+      "id": "X3",
+      "source_url": "https://x.com/nodiligence/status/2115064985294659605",
+      "author": "@nodiligence",
+      "source_local_display_date": "2026-10-27",
+      "source_local_display_time": "1:56 PM",
+      "source_origin": "grok_discovery",
+      "case_ids": [
+        "S1-03-compute"
+      ],
+      "excerpt": "the three with spacex, nscale and lambda are maximums anthropic can walk away from or pays only on delivery.",
+      "interpretation": "Author’s asserted classification of contracts; contract-by-contract accuracy not independently adjudicated."
+    }
+  ]
+}

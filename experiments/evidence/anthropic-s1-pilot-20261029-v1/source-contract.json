@@ -1,0 +1,42 @@
+{
+  "code_sha256": {
+    "runtime.py": "747c7f779bdac43635a6cbcc1512d2269e41541b7f9358954b9403c72ec7eb6c",
+    "source_stage.py": "f8952430a6e5aac25aafa0c0df0cef6df0100e742c64beddbbcd54ca8c7c60c1"
+  },
+  "cumulative_cap_micro": 60000000,
+  "on_uncertain": "stop, retain reservation; no retry",
+  "predecessor": {
+    "contract_sha256": "21549f4f6c73265c1accf3d83d3d82555354b466cd3300d7e04e3bdd18c8ac6d",
+    "forbidden_request_hashes": [
+      "17a148b5aeade7252bf07660e16d3c6ffbb4da639aaf31d2332cd88b2a7e10e4",
+      "cbc14ce21dfdabfb14657e14823f19db22e31a6a63bc9136ec949dd868c6094e",
+      "fd2e5bcb4de52dce98b476e54fc8538f291058ecfbb9f832ab4d2e5113690581"
+    ],
+    "ledger_sha256": "990d083b6fc749fabf0c58426a79aae65947bb1e139b18ee282777fb15f91fdc",
+    "state": [
+      1,
+      56609714,
+      1578,
+      1500,
+      0
+    ],
+    "summary_sha256": "b4eadc284e6449544f6c1df8fbe5043d801e622d8df812bc8f36b2f9a6577692"
+  },
+  "prepared_utc": "2026-10-29T22:16:35.650757+00:00",
+  "previous_exposure_micro": 56609714,
+  "request": {
+    "api": "serper",
+    "body": {
+      "num": 3,
+      "q": "Anthropic IPO S-1 compute obligations governance"
+    },
+    "path": "/news",
+    "query": {}
+  },
+  "schema": "anthropic-s1-source-contract-v1",
+  "scope": "one source discovery read, then freeze complete inputs for separate model challenge",
+  "source_list_price_micro": 2000,
+  "source_max_attempts": 1,
+  "source_price_sha256": "221c7f270b1fd3776dfdbf3515a07b432c64cace9eedb6c9a0de81b1799972f8",
+  "source_reserve_micro": 10000
+}

@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"alternatives\":[[{\"id\":\"source:synthetic-rule-lark7-v1\",\"spans\":[{\"start_char\":147,\"end_char\":226}]},{\"id\":\"source:synthetic-final-tally-lark7-v1\",\"spans\":[{\"start_char\":154,\"end_char\":217}]}]]}",
+            "thoughtSignature": "AY89a18pjhbAUyAM4i//YcvBMSjDu2BiNDjf2fCt5th9G2Yv/d64+3Ej/uFLc0jzUoO2MylSbDNrMoUv/yBtN4+GjnWAhewodL5cjKb0gIEN6FNI5ObI"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 984,
+    "candidatesTokenCount": 80,
+    "totalTokenCount": 1064,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 984
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 80
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T14:02:57.911614Z",
+  "responseId": "kUbnav7RN4T7mLAPjeONKA"
+}

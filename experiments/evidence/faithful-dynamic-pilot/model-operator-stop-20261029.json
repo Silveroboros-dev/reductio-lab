@@ -1,0 +1,7 @@
+{
+  "action": "operator_stop",
+  "method": "external SQLite transaction equivalent to Ledger.stop; outside owner lock",
+  "reason": "Operator stop: repeated source-selection action schema mismatch across cases; preserve current effect and prevent further dispatch.",
+  "at_utc": "2026-10-29T09:35:37.998463+00:00",
+  "caveat": "Current started effect may settle or become uncertain; no retries."
+}

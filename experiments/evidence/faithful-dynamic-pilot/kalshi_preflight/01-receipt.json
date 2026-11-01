@@ -1,0 +1,9 @@
+{
+  "url": "https://external-api.kalshi.com/trade-api/v2/events?limit=30&status=open&with_nested_markets=true",
+  "started_utc": "2026-10-29T08:49:40.739320+00:00",
+  "operation": "GET",
+  "attempt": 1,
+  "state": "uncertain",
+  "ended_utc": "2026-10-29T08:50:00.769732+00:00",
+  "exception_type": "URLError"
+}

@@ -1,0 +1,11 @@
+# One-shot Vertex and Orthogonal transport
+
+`oneshot.py` supplies `OneShotTransport(project_id, token_for)` as the injected transport for `budget-v2/ledger.py`. Construction does not call any provider. `token_for(provider)` must return a bearer token in memory for `vertex` or `orthogonal`; credential discovery and refresh are supplied by the caller. Tokens and auth headers must never be passed in request bytes. The transport does not print or deliberately persist tokens, and sanitizes exception messages. Dropping a reference is not secure memory erasure.
+
+The only destinations are the Vertex global `gemini-3.8-flash` `:countTokens` and `:generateContent` operations, and Orthogonal `POST /v1/run`. Input bytes are sent unmodified. Production creates `httpx.HTTPTransport(retries=0)`, disables redirects and environment proxy settings, and uses a 420-second HTTPX timeout for connection/read/write/pool phases. The 420 seconds is not an absolute wall-clock deadline for a streaming response. The request body is bounded at 2,000,000 bytes; raw response capture is bounded at 524,288 bytes. A timeout, incomplete body or exceeded capture limit raises a sanitized error; the ledger must record the operation as uncertain, preserve its reservation and stop.
+
+`http_transport=httpx.MockTransport(...)` is an explicit test seam, not part of a production run; a caller-supplied transport could implement retries and would invalidate the guarantee. The live transport depends on `httpx`; the existing FitCheck venv has version 0.28.1. `trust_env=False` means an environment requiring an explicit proxy may not connect, and this has not been checked against current provider endpoints.
+
+The transport has no price verification, run authorization, budgets or retries/resumption policy. It is not sufficient to launch a live experiment; the exact contract, quote evidence, trusted credentials, cohort, output schema and independent execution review remain the owner's responsibility. Only the unified ledger may call it for billable effects.
+
+Offline check (no network): `PYTHONDONTWRITEBYTECODE=1 /Users/rk/Desktop/fitcheck-core/.venv/bin/python -m unittest -v test_oneshot.py`; 10/10 pass, including fake integration with the unified ledger, capture limits, no-follow/no-retry, unchanged request bytes and checking no mock token appears in its database.

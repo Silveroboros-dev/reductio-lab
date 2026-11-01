@@ -1,0 +1,318 @@
+{
+  "attachments": [
+    {
+      "path": "source/targeted-markets.json",
+      "sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b"
+    },
+    {
+      "path": "source/user-reported-capture.json",
+      "sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890"
+    },
+    {
+      "path": "source/label-guide.md",
+      "sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f"
+    },
+    {
+      "path": "human/test-thesis-acceptance.json",
+      "sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac"
+    },
+    {
+      "path": "source/case-04-serper-response.json",
+      "sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397"
+    },
+    {
+      "path": "source/ui-price-observation-refresh-v2.json",
+      "sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac"
+    }
+  ],
+  "draft_paid_source": {
+    "action_id": "news",
+    "api": "serper",
+    "capture_kind": "paid_api",
+    "endpoint": "/news",
+    "predeclared_relevance_gap": "Whether a 2026 first or revised WDI estimate is published and which version it is; absence or a forecast is not a final revision.",
+    "provider": "orthogonal",
+    "query_fixed_at_utc": "2026-10-29T09:04:03.771028+00:00",
+    "quote_status": "not obtained",
+    "quoted_cost_micro_usd": null,
+    "request_body": {
+      "num": 3,
+      "q": "World Bank 2026 United States world GDP current US dollars WDI latest revision"
+    },
+    "response": null,
+    "response_status": "not captured"
+  },
+  "manual_source_limitations": {
+    "completeness": "not established",
+    "origin": "user-relayed Grok claim; not independently verified",
+    "secondary_field_empty": false
+  },
+  "paid_capture": {
+    "actual_micro_usd": 2000,
+    "news_item_fields": 15,
+    "provider_request_id": "run_1793266067500_v8wwod7gsu",
+    "provider_returned_count": 10,
+    "quote_evidence_sha256": "bb22abd1885a58a5fd317c5167baa1b70621dae6642343cb6c5fd341ca5ab6ac",
+    "response_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+    "selected_count": 3,
+    "selection": "provider order, first up to 3; content-independent",
+    "source_effect_id": "source:case-04:serper"
+  },
+  "replay": {
+    "manual-rules": {
+      "evidence": [
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "primary-rule",
+          "source": "user-relayed Kalshi field; source completeness not established",
+          "text": "If the U.S. share of global GDP for 2026 is above 25.7%, then the market resolves to Yes.",
+          "verbatim_parts": [
+            "If the U.S. share of global GDP for 2026 is above 25.7%, then the market resolves to Yes."
+          ]
+        },
+        {
+          "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+          "id": "secondary-rule",
+          "source": "user-relayed Kalshi field; source completeness not established",
+          "text": "The Underlying is the United States’ percentage share of World gross domestic product in current U.S. dollars for 2026, calculated using the World Bank’s World Development Indicators.\n\nThe Expiration Value will be calculated as: 100 × United States GDP ÷ World GDP\n\n“United States GDP” and “World GDP” refer to the values attributed to 2026 for the World Bank indicator “GDP (current US$),” series code NY.GDP.MKTP.CD, for the economies United States and World, respectively.\n\nBoth inputs must be taken from the first World Development Indicators database release in which values attributed to 2026 are available for both the United States and World.",
+          "verbatim_parts": [
+            "The Underlying is the United States’ percentage share of World gross domestic product in current U.S. dollars for 2026, calculated using the World Bank’s World Development Indicators.\n\nThe Expiration Value will be calculated as: 100 × United States GDP ÷ World GDP\n\n“United States GDP” and “World GDP” refer to the values attributed to 2026 for the World Bank indicator “GDP (current US$),” series code NY.GDP.MKTP.CD, for the economies United States and World, respectively.\n\nBoth inputs must be taken from the first World Development Indicators database release in which values attributed to 2026 are available for both the United States and World."
+          ]
+        }
+      ]
+    },
+    "news": {
+      "evidence": [
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:metadata",
+          "source": "Mechanical projection of captured Serper response",
+          "text": "Provider returned_count=10; selected_count=3. Selection: first up to 3 in provider order.",
+          "verbatim_parts": []
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:0:title",
+          "source": "Serper News via Orthogonal; news:0:title",
+          "text": "World Bank country classifications by income level for 2024-2025",
+          "verbatim_parts": [
+            "World Bank country classifications by income level for 2024-2025"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:0:link",
+          "source": "Serper News via Orthogonal; news:0:link",
+          "text": "https://blogs.worldbank.org/en/opendata/world-bank-country-classifications-by-income-level-for-2024-2025",
+          "verbatim_parts": [
+            "https://blogs.worldbank.org/en/opendata/world-bank-country-classifications-by-income-level-for-2024-2025"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:0:source",
+          "source": "Serper News via Orthogonal; news:0:source",
+          "text": "World Bank Blogs",
+          "verbatim_parts": [
+            "World Bank Blogs"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:0:date",
+          "source": "Serper News via Orthogonal; news:0:date",
+          "text": "Jul 1, 2024",
+          "verbatim_parts": [
+            "Jul 1, 2024"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:0:snippet",
+          "source": "Serper News via Orthogonal; news:0:snippet",
+          "text": "See our 2025-2026 country income classifications in the following blog post. The World Bank Group assigns the world's economies to four...",
+          "verbatim_parts": [
+            "See our 2025-2026 country income classifications in the following blog post. The World Bank Group assigns the world's economies to four..."
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:1:title",
+          "source": "Serper News via Orthogonal; news:1:title",
+          "text": "The size of the world economy in 2019: A baseline from which to measure the impact of COVID-19 and track economic recovery",
+          "verbatim_parts": [
+            "The size of the world economy in 2019: A baseline from which to measure the impact of COVID-19 and track economic recovery"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:1:link",
+          "source": "Serper News via Orthogonal; news:1:link",
+          "text": "https://blogs.worldbank.org/en/opendata/size-world-economy-2019-baseline-which-measure-impact-covid-19-and-track-economic-recovery",
+          "verbatim_parts": [
+            "https://blogs.worldbank.org/en/opendata/size-world-economy-2019-baseline-which-measure-impact-covid-19-and-track-economic-recovery"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:1:source",
+          "source": "Serper News via Orthogonal; news:1:source",
+          "text": "World Bank Blogs",
+          "verbatim_parts": [
+            "World Bank Blogs"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:1:date",
+          "source": "Serper News via Orthogonal; news:1:date",
+          "text": "Jul 28, 2020",
+          "verbatim_parts": [
+            "Jul 28, 2020"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:1:snippet",
+          "source": "Serper News via Orthogonal; news:1:snippet",
+          "text": "The release of results from the International Comparison Program (ICP)'s most recent cycle provided users with a comprehensive view of the...",
+          "verbatim_parts": [
+            "The release of results from the International Comparison Program (ICP)'s most recent cycle provided users with a comprehensive view of the..."
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:2:title",
+          "source": "Serper News via Orthogonal; news:2:title",
+          "text": "The Fed - India and the Global Economy",
+          "verbatim_parts": [
+            "The Fed - India and the Global Economy"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:2:link",
+          "source": "Serper News via Orthogonal; news:2:link",
+          "text": "https://www.federalreserve.gov/econres/notes/feds-notes/india-and-the-global-economy-20260408.html",
+          "verbatim_parts": [
+            "https://www.federalreserve.gov/econres/notes/feds-notes/india-and-the-global-economy-20260408.html"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:2:source",
+          "source": "Serper News via Orthogonal; news:2:source",
+          "text": "Federal Reserve (.gov)",
+          "verbatim_parts": [
+            "Federal Reserve (.gov)"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:2:date",
+          "source": "Serper News via Orthogonal; news:2:date",
+          "text": "Apr 8, 2026",
+          "verbatim_parts": [
+            "Apr 8, 2026"
+          ]
+        },
+        {
+          "captured_at": "2026-10-29T09:27:49.632168+00:00",
+          "content_sha256": "031e53d1b47f513c91f21b71bbf8b8844ad5bfbec0066c522c8016dac9b7f397",
+          "id": "news:2:snippet",
+          "source": "Serper News via Orthogonal; news:2:snippet",
+          "text": "With a population of 1.4 billion, India is the world's most populous country. It is also now the world's fastest growing economy and is...",
+          "verbatim_parts": [
+            "With a population of 1.4 billion, India is the world's most populous country. It is also now the world's fastest growing economy and is..."
+          ]
+        }
+      ]
+    }
+  },
+  "source_conflicts": [],
+  "task": {
+    "actions": [
+      {
+        "capture_kind": "manual_capture",
+        "description": "Read this market's stored primary and secondary rule fields as available in the user-relayed Kalshi response.",
+        "id": "manual-rules",
+        "manual_receipt_path": "source/user-reported-capture.json",
+        "manual_receipt_sha256": "a2cb95eb0102076ac213d0350e2c7dc99cb16c0ec1fccc72eada5a28fa330890",
+        "quoted_cost_micro_usd": null
+      },
+      {
+        "capture_kind": "paid_api",
+        "captured_at": "2026-10-29T09:27:49.632168+00:00",
+        "description": "Read Serper News results for query: World Bank 2026 United States world GDP current US dollars WDI latest revision",
+        "id": "news",
+        "quoted_cost_micro_usd": 2000,
+        "source_effect_id": "source:case-04:serper"
+      }
+    ],
+    "allowed_labels": [
+      "direct",
+      "indirect",
+      "weak_proxy",
+      "not_an_expression",
+      "unknown"
+    ],
+    "case_id": "case-04",
+    "contract_ids": [
+      "KXUSGDPSHARE-27JUL01-T25.7"
+    ],
+    "initial_evidence": [
+      {
+        "content_sha256": "953888277ca7de855ae1f514400831a8f69c01816c40b4056c5ad51ef14652ac",
+        "id": "thesis",
+        "source": "user-approved conditional thesis wording, original Russian; no truth or pair-label attestation",
+        "text": "Итоговая пересмотренная оценка World Bank доли США в мировом ВВП за 2026 год превысит 25,7%.",
+        "verbatim_parts": [
+          "Итоговая пересмотренная оценка World Bank доли США в мировом ВВП за 2026 год превысит 25,7%."
+        ]
+      },
+      {
+        "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+        "id": "market-id",
+        "source": "user-relayed Kalshi response; origin not independently verified",
+        "text": "KXUSGDPSHARE-27JUL01-T25.7",
+        "verbatim_parts": [
+          "KXUSGDPSHARE-27JUL01-T25.7"
+        ]
+      },
+      {
+        "content_sha256": "2f6932c840ecbfc4bc3dac1f52a4f27aeac250f66fe345d0ad371c50be57363b",
+        "id": "market-title",
+        "source": "user-relayed Kalshi response; origin not independently verified",
+        "text": "Will U.S. share of global GDP for 2026 be above 25.7%?",
+        "verbatim_parts": [
+          "Will U.S. share of global GDP for 2026 be above 25.7%?"
+        ]
+      },
+      {
+        "content_sha256": "2ecfeb6227848627c06c365258f5bce61aa0172af770c6979d9b978a955db76f",
+        "id": "label-guide",
+        "source": "active FitCheck label guide",
+        "text": "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n",
+        "verbatim_parts": [
+          "# Labeling Guide: Market Expression Quality\n\nStatus: active labeling semantics under\n`fitcheck-product-discovery-spec-v3.md`\n\nThis guide defines two different decisions that must not be collapsed:\n\n1. the expression quality of one human-approved thesis and one immutable\n   market snapshot; and\n2. whether the exact, non-empty, fully assessed displayed pool contains a\n   clean expression.\n\nFalse confidence is the critical error: a merely related market must not be\npresented as a `direct` or `indirect` expression.\n\n## 1. Pair-Level Fit Classes\n\nEvery candidate in a fully labeled top-three evaluation pool receives exactly\none pair-level class.\n\n### `direct`\n\nA market's resolution event is materially equivalent to the thesis event.\nThe target entity, event stage, measured outcome, time window, threshold, and\nresolution evidence align closely enough that resolving the market settles the\nmarket-testable part of the thesis.\n\nExample: the thesis says a Gemini model will rank first on a named leaderboard\nby the end of 2026, and the market resolves on that same entity, ranking,\nleaderboard, and deadline.\n\n### `indirect`\n\nThe market settles the core thesis despite a bounded, explicitly recorded\ndifference that does not change the event being tested. Typical differences\ninclude a reasonably close horizon or a different but equivalent authoritative\nsource.\n\n`indirect` is not a bucket for topical similarity. In particular, an event\nstage change such as *release* versus *announcement* usually changes the\nresolving event and is therefore a `weak_proxy`, unless the contract rules make\nthe two stages equivalent for that specific case.\n\n### `weak_proxy`\n\nThe market is relevant but can resolve YES while the thesis is false, or NO\nwhile the thesis is true, because it measures a different event, stage,\nmetric, entity, threshold, mechanism, scope, or materially different horizon.\nIt may be shown as a diagnostic alternative, but never disguised as a clean\nexpression.\n\nExamples include stock price as a proxy for product adoption, consumer usage\nas a proxy for enterprise traction, or an announcement market for a thesis\nabout an actual release.\n\n### `not_an_expression`\n\nThe market is not a meaningful expression of the thesis. It may have appeared\nbecause retrieval found lexical or topical overlap. This is a pair-level\nnegative, not a statement about the rest of the market catalog.\n\n## 2. Pool-Level Outcome\n\n`no_clean_expression` is an aggregate result, not a pair class. Three scopes\nmust be recorded separately: the bounded `retrieved_pool`, the terminally\nevaluated `assessed_pool`, and the ordered `displayed_pool` of at most three\ncontracts. The v3 result means that no `direct` or policy-permitted `indirect`\nexpression was found in the exact, fully assessed displayed pool. The record\nmust bind all three pool identities, ordered displayed IDs, immutable\nsnapshot/content identities, retrieval policy, display policy, fit policy, and\nobservation time.\n\nThe phrase must be rendered to users with its scope, for example:\n\n> No clean expression among the checked candidates.\n\nIt must not be interpreted as proof that no suitable market exists anywhere.\nAn empty, failed, or partially assessed displayed pool cannot produce this\noutcome. A human-acceptable market outside the displayed pool is a retrieval or\nranking miss, not support for a correct no-clean result.\n\n## 3. Decision Dimensions\n\nReview the dimensions separately before choosing a class:\n\n| Dimension | Strong alignment | Material mismatch |\n| --- | --- | --- |\n| Entity | Same target or contractually equivalent target | Different actor, asset, product, or population |\n| Event stage | Same event: announced, released, adopted, measured, resolved | One stage used as evidence for another |\n| Metric/outcome | Same observable outcome and direction | Correlated but different measure |\n| Horizon | Same window or a bounded non-material shift | A window that can reverse the answer |\n| Threshold/scope | Same threshold, geography, population, and exclusions | Different success condition or coverage |\n| Resolution evidence | Same or equivalent authoritative evidence | Subjective, unavailable, or non-equivalent evidence |\n| Mechanism | Market tests the asserted mechanism when it is essential | Market tests only an endpoint or proxy |\n\nDeterministic checks may expose mismatches and enforce schemas, but they do not\nown the semantic label. A named human review decision supplies the semantic\nlabel under an identified product policy. It becomes a governed golden only\nafter the required owner disposition and create-only successor export.\n\n## 4. Top-Three Review\n\nFor each displayed candidate, preserve:\n\n- `retrieval_rank`: where retrieval placed it;\n- `fit_class`: the pair-level decision;\n- `display_rank`: where the product showed it; and\n- human selection: that market's stable ID or explicit `none`.\n\nDo not pad the list to three. Do not infer labels for unreviewed candidates.\nMetrics such as precision at three are valid only when every candidate in the\nscored pool has an individual human label. A selected-market label supports\nselected-pair scoring; it does not silently label the other candidates.\n\nMarket/pool membership identity is content-based and order-independent.\nRetrieval order and display order are separately digest-bound observations.\nReordering does not invalidate pair labels, but it creates a new ranking or\npresentation observation and may change rank- or choice-dependent metrics.\n\n## 5. Contract Drafting\n\nA draft contract may be generated as a separately labeled product aid after a\nweak or no-clean result. Drafting is outside the first v3 critical path and is\nnever required to make `no_clean_expression` valid. A generated draft is a\nproposal, not an existing market and not a verified clean expression.\n\nIf enabled in a later policy, a draft must define an unambiguous binary\noutcome, observable threshold, precise deadline and timezone, scope, and an\nauthoritative public resolution source. Its generation and review have their\nown provenance and acceptance decision.\n\n## 6. Monitoring and Thesis Revision\n\nA monitoring observation, material-change trigger, revisit packet, or human\nrevisit decision is not a pair-fit label. Each must bind the exact thesis\nrevision, old and new market/source evidence, observation time, and applicable\npolicies. New evidence or a price change may prompt review, but it does not\nsilently change the fit class, thesis meaning, human confidence, commitment\ncontext, or market choice.\n"
+        ]
+      }
+    ],
+    "question": "Assess how well the market contract expresses the human thesis using the visible evidence and active pair-label guide. If essential evidence is missing, use unknown."
+  }
+}

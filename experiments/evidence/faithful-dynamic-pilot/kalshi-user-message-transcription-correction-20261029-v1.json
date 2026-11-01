@@ -1,0 +1,62 @@
+{
+  "origin": {
+    "claimed_http_status": 200,
+    "claimed_request_time_utc": "2026-10-29T10:50:55Z",
+    "claims_independently_verified": false,
+    "kind": "original_user_question_reply_in_task_history",
+    "message_id": "01a18749-7394-7f63-8034-05974119e235",
+    "question_item_id": "call_9617a205c96547e3b1ba97a1323cc603",
+    "thread_id": "01a1865f-6bd2-75a2-abb1-eb14b071bbe0",
+    "turn_id": "01a1872c-1e7b-72b2-afcd-7a7886b1c8fd"
+  },
+  "original_message_json": {
+    "basis": "exact JSON substring extracted from original user message, not independently captured network bytes",
+    "byte_count": 6774,
+    "file": "kalshi-original-user-message-json-20261029-v1.raw.json",
+    "sha256": "93e201de87ee68504baafdafbf88ff8730e9d01e5cbf26359e49e93752768d37"
+  },
+  "p0_checks": {
+    "cases": [
+      {
+        "case_id": "case-01",
+        "input_file": "forecast-p0-results-20261029-01/00-p0-input.json",
+        "projected_rules_close_status_and_quote_match_original": true,
+        "spurious_value_present_in_task": false
+      },
+      {
+        "case_id": "case-02",
+        "input_file": "forecast-p0-remaining-results-20261029-01/00-p0-input.json",
+        "projected_rules_close_status_and_quote_match_original": true,
+        "spurious_value_present_in_task": false
+      },
+      {
+        "case_id": "case-03",
+        "input_file": "forecast-p0-final-two-results-20261029-01/00-p0-input.json",
+        "projected_rules_close_status_and_quote_match_original": true,
+        "spurious_value_present_in_task": false
+      },
+      {
+        "case_id": "case-04",
+        "input_file": "forecast-p0-final-two-results-20261029-01/01-p0-input.json",
+        "projected_rules_close_status_and_quote_match_original": true,
+        "spurious_value_present_in_task": false
+      }
+    ],
+    "generation_request_count": 67,
+    "spurious_field_or_value_in_any_generation_request": false
+  },
+  "prior_copy": {
+    "byte_count": 6820,
+    "file": "kalshi-user-relay-20261029-v1.raw.json",
+    "sha256": "459f460e7da6d6fcd81d837652f0a487cbe70e7d317f7a29907b5f0eb877bdf1"
+  },
+  "qualification": "Old snapshot, hashes, model records and ledgers remain unchanged. Their 459f... hash identifies the transcribed copy with an added field, not the exact original user-message JSON or proven direct HTTP bytes. Model-visible source metadata referenced that copy hash. No result or outcome is validated as truth by this correction.",
+  "recorded_at_utc": "2026-10-29T12:17:12.032140+00:00",
+  "schema": "user-relay-manual-transcription-correction-v1",
+  "transcription_error": {
+    "other_structural_differences": 0,
+    "path": "$.markets[3].occurrence_datetime",
+    "present_in_original_user_message": false,
+    "value_added": "2026-10-09T04:30:00Z"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-256732afca0344a1ae6ed270\",\n  \"rationale\": \"The source 'amazon-ai-chips-business-history' likely contains information about the combined Trainium, Graviton, and Nitro business run rate and whether it isolates AI-only revenue.\",\n  \"expected_result\": \"Details on the annual run rate of Trainium, Graviton, and Nitro, and clarification on whether it isolates AI-only revenue.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"Currently unknown without looking at the source.\"\n}",
+            "thoughtSignature": "AY89a1+eQgSqLxCtsNy1cN6okyvVl40B7Dhn4MW9Du14hUAOls/RhaNSPkByR+rGt5QPwSxxjG8+UdNccq3RC36YSqw+t86GJmM1zW3QtDZIDhGLUQ7lwFtiduZ3Gw4WEjPKKlu153H10NWZIdHKDxa+kM5vO60/T0K0EJ+1odpJQjUJt6KdKjjm2heTyyhQSWYVfcO0JcL2gLsW4dUd3wKrguGx4RnSTDEpJ4T6OGi4VheMKvHanChcBw4Pyx4OrPoKILUpyZs6W6hsfhjFGS3TTD7Ig0Tb2SNk+i/sB9LrlaFPmF2qONVQ64rfFurI0loOIKfcaMR6VDuws0dm2uuyRpTLcaELTIR//9XggyEhAtc0CU1JnN+lpwSNnPn3pVOeCnv8PindZS9VbZA/elBQGR8/UEl5Ixi3BKnliYhOG0Gds5VGVJGGbZQXipoIG56iQRuUPEDh+MOXCAkisoPptkgz7NmMYOD29F/Xq312IenS4HUSrKEvWQY5Zdm16D90BxPqyniavba65VKpbD60/tc4Qmx5Pg6CY5VIyGuGVrX4CWmrBP3lkqr+nDHBH18mjwMpUHEhvawOd72Y5uo8iyNvbM6Ba1CWzQ7pew6qcajTLaY+7xj8WWO9+0o89muL2/v67W/DMQ9f6WZKd9DLPetGAA+VZ5zDHszL6xxCkrzqNXRsDcwF74C1wYfE3+r9xCyGj2pUSFOcAfXpFy++b0pS/q24bOvcduB8rcGYvW0bHvnbAtRImHCgUzc="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 571,
+    "candidatesTokenCount": 152,
+    "totalTokenCount": 854,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 571
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 152
+      }
+    ],
+    "thoughtsTokenCount": 131
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:17.359290Z",
+  "responseId": "Ie3iavr2FYaUhcIP3LCecQ"
+}

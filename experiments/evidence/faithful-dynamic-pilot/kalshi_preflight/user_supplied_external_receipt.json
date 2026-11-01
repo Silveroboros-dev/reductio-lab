@@ -1,0 +1,8 @@
+{
+  "classification": "user-provided candidate source; capture time and HTTP receipt unknown",
+  "saved_at_utc": "2026-10-29T08:53:58.360729+00:00",
+  "content_sha256": "782eb55ee53f316ca97a2e1bbc1b979f0cd9b089a9b7acb0408f120e0cb9586a",
+  "size_bytes": 456254,
+  "market_source_claim": "Kalshi API JSON supplied by user; transport not independently attested",
+  "source_file": "kalshi_events_external.json"
+}

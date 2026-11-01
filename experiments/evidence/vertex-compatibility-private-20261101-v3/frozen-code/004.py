@@ -1,0 +1,314 @@
+"""Strict-input SI-style engine with bounded, preserved reasoning branches.
+
+Selection and Halter see the user target. Inference receives only selected
+premises; Formatter receives only the final inference and allowable source IDs.
+None of these structural checks establishes semantic entailment or truth.
+"""
+from __future__ import annotations
+
+import copy
+import json
+import math
+from typing import Any, Callable
+
+from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, InvalidOutput,
+                                     _Branch, _ancestry, prepare_task)
+from faithful_v3.excerpts import resolve_selection, source_registry
+from reasoning_engine.journal_callback import JournaledCallError
+
+VERSION = 'faithful-v3-strict-5'
+
+
+def _stop_kind(status: str, reason: str) -> str:
+    if reason == 'journal_call_uncertain':
+        return 'effect_uncertain'
+    if 'callback_interrupted' in reason:
+        return 'callback_interrupted'
+    if 'callback_effect_uncertain' in reason:
+        # Preserve rendering of older outcomes; current callbacks are neutral.
+        return 'effect_uncertain'
+    if reason == 'source_decision_uncertain':
+        return 'model_decision'
+    if status == 'technical_failure':
+        return 'technical_failure'
+    if reason in {'generation_cap_exhausted', 'episode_call_cap', 'reasoning_depth_exhausted'}:
+        return 'execution_limit'
+    return 'input_or_process'
+
+
+class StrictEngine(Engine):
+    def __init__(self, generate: Callable[[str, dict], dict], config: EngineConfig | None = None,
+                 *, candidate_findings: list[dict] | None = None):
+        super().__init__(generate, config)
+        self.candidate_findings = copy.deepcopy(candidate_findings or [])
+        self._ready: list[_Branch] = []
+        self._active_final: _Branch | None = None
+        self._halter_feedback: dict[str, dict] = {}
+        self._failure_receipt: dict | None = None
+
+    def _outcome(self, task: dict, status: str, reason: str, **extra: Any) -> dict:
+        out = super()._outcome(task, status, reason, **extra)
+        out['version'] = VERSION
+        # The user's target is metadata, not an established source premise.
+        out['evidence'] = copy.deepcopy(task['evidence'])
+        out['user_target'] = copy.deepcopy(task.get('thesis'))
+        out['candidate_findings'] = copy.deepcopy(self.candidate_findings)
+        if status in {'unknown', 'technical_failure'}:
+            out['unknown_explanation'] = self._explain_stop(task, status, reason)
+            if self._failure_receipt is not None:
+                out['unknown_explanation']['effect_receipt'] = copy.deepcopy(self._failure_receipt)
+            elif self.events and self.events[-1].get('event') == 'callback_failed':
+                out['unknown_explanation']['callback_effect_state'] = 'not_established'
+        return out
+
+    def _explain_stop(self, task: dict, status: str, reason: str) -> dict:
+        """Expose recorded observations, never infer that an unseen source is empty."""
+        branches = {branch['branch_id']: branch for branch in self._branches}
+        evidence = {item['id']: item for item in task['evidence']}
+        beam_ids = {ident for event in self.events if event.get('event') == 'beam_selected'
+                    for ident in event.get('branch_ids', [])}
+        assessments = []
+        for event in self.events:
+            if status != 'unknown' or _stop_kind(status, reason) not in {'execution_limit', 'input_or_process'}:
+                break
+            if event.get('event') != 'step_proposed' or event.get('sufficient') is not False:
+                continue
+            branch = branches.get(event['branch_id'])
+            if branch is None:
+                continue
+            trace, leaves, _ = _ancestry(branch['steps'], event['conclusion_id'])
+            refs, seen_refs = [], set()
+            for step in trace:
+                for ref in step.get('selected_source_refs', []):
+                    key = json.dumps(ref, sort_keys=True, ensure_ascii=False)
+                    if key not in seen_refs:
+                        refs.append(copy.deepcopy(ref))
+                        seen_refs.add(key)
+            # Historical traces do not contain span metadata.
+            if not refs:
+                for ident in sorted(leaves & evidence.keys()):
+                    item = evidence[ident]
+                    refs.append({'id': ident, 'source': item.get('source'), 'raw_ref': item.get('raw_ref'),
+                                 'scope': 'whole_saved_response'})
+            assessments.append({
+                'branch_id': event['branch_id'], 'conclusion_id': event['conclusion_id'],
+                'reason': event['halter_reason'], 'origin': 'model_unverified',
+                'evidence_assessment': event.get('evidence_assessment', 'not_determined'),
+                'halter_call_ordinal': event['halter_call_ordinal'],
+                'ever_in_beam': event['branch_id'] in beam_ids,
+                'selected_source_refs': refs, 'selected_trace': trace,
+            })
+        return {
+            'status': status, 'stop_reason': reason, 'stop_kind': _stop_kind(status, reason),
+            'unresolved_questions': [{'id': q['id'], 'question': q['question']}
+                                     for q in task['required_questions']],
+            'model_assessments': assessments,
+            'scope_note': ('Assessments cover recorded candidate branches and may include pruned branches. '
+                           'Selected spans are checked against saved passages or evidence text, not the original document; '
+                           'they do not establish entailment or absence from other material.'),
+        }
+
+    def _unknown(self, task: dict, reason: str) -> dict:
+        return self._outcome(task, 'unknown', reason, result=None,
+            coverage=[{'question_id': q['id'], 'status': 'not_assessed',
+                       'reason': 'No final answer was produced; see the recorded stopping condition',
+                       'assessment_origin': 'structural'}
+                      for q in task['required_questions']],
+            selected_trace=[], branches=copy.deepcopy(self._branches))
+
+    def run(self, task: dict) -> dict:
+        """Retain completed branch evidence even if the final callback fails."""
+        if self._used:
+            raise ValueError('engine instances are single use')
+        self._used = True
+        prepared = prepare_task(task)
+        try:
+            return self._run(prepared)
+        except BudgetExhausted:
+            status, reason = 'unknown', 'generation_cap_exhausted'
+        except JournaledCallError as exc:
+            self._failure_receipt = copy.deepcopy(exc.receipt)
+            if exc.kind in {'uncertain', 'journal_error'}:
+                status, reason = 'unknown', 'journal_call_' + exc.kind
+            else:
+                status, reason = 'technical_failure', 'journal_call_' + exc.kind
+        except (TimeoutError, ConnectionError) as exc:
+            # Callback entry does not prove dispatch; the effect is not established.
+            if self.events and self.events[-1].get('event') == 'callback_failed':
+                status, reason = 'unknown', 'callback_interrupted:' + type(exc).__name__
+            else:
+                status, reason = 'technical_failure', 'local_error:' + type(exc).__name__
+        except InvalidOutput as exc:
+            if self._failure_receipt is None and self.events and self.events[-1].get('event') == 'model_returned':
+                self._failure_receipt = copy.deepcopy(self.events[-1].get('operation_receipt'))
+            status, reason = 'technical_failure', str(exc)
+        except Exception as exc:
+            status, reason = 'technical_failure', 'callback_failed:' + type(exc).__name__
+        partial = []
+        branch_id = None
+        preserved = self._active_final
+        if preserved is None and self._ready:
+            preserved = sorted(self._ready, key=lambda b: (-b.score, b.ident))[0]
+        if preserved is not None and preserved.latest is not None:
+            partial, _, _ = _ancestry(preserved.steps, preserved.latest)
+            branch_id = preserved.ident
+        return self._outcome(prepared, status, reason, result=None,
+            coverage=[{'question_id': q['id'], 'status': 'not_assessed',
+                       'reason': 'Final answer was not produced', 'assessment_origin': 'structural'}
+                      for q in prepared['required_questions']],
+            selected_trace=[], partial_trace=partial, selected_branch=branch_id,
+            branches=copy.deepcopy(self._branches))
+
+    def _run(self, task: dict) -> dict:
+        if not task['required_questions']:
+            return self._unknown(task, 'required_target_missing')
+        # The current small slice handles one literal user target; it never
+        # copies a single model judgment across multiple distinct obligations.
+        if len(task['required_questions']) != 1:
+            return self._unknown(task, 'multiple_targets_not_supported')
+        target = task['required_questions'][0]['question']
+        if target not in task['question'] or ('thesis' in task and task['thesis']['text'] != target):
+            return self._unknown(task, 'user_target_not_bound_to_question')
+        # Unlike v1, a user question/thesis never becomes a selectable fact.
+        if any(item.get('kind') == 'derived_claim' for item in task['evidence']):
+            raise InvalidOutput('caller-supplied derived claims cannot be used as source evidence')
+        common = {x['id']: copy.deepcopy(x) for x in task['evidence']}
+        source_ids = {x['id'] for x in task['evidence'] if x.get('kind') != 'derived_claim'}
+        registry = source_registry(task['evidence'])
+        if not common:
+            return self._unknown(task, 'no_source_evidence')
+        beam = [_Branch('root', copy.deepcopy(common))]
+        budget_pruned = False
+        for depth in range(1, self.config.max_depth + 1):
+            candidates: list[_Branch] = []
+            for branch in beam:
+                if branch.halted:
+                    candidates.append(branch)
+                    continue
+                # Selection + inference + halter + value + final formatter.
+                if self.config.max_calls - self.calls < 5:
+                    budget_pruned = True
+                    self.events.append({'event': 'budget_pruned', 'branch_id': branch.ident, 'depth': depth})
+                    continue
+                selected = self._call('selection', {
+                    'question': task['question'], 'task_type': task['task_type'],
+                    'as_of_utc': task['as_of_utc'], 'required_questions': copy.deepcopy(task['required_questions']),
+                    'available_statements': list(branch.nodes.values()),
+                    'candidate_findings': copy.deepcopy(self.candidate_findings),
+                    'halter_feedback': copy.deepcopy(self._halter_feedback.get(branch.ident)),
+                }, branch.ident)
+                selection_call = self.calls
+                alternatives = selected.get('alternatives')
+                if not isinstance(alternatives, list) or len(alternatives) > self.config.max_alternatives:
+                    raise InvalidOutput('invalid selection alternatives')
+                signatures = set()
+                for position, selected_items in enumerate(alternatives, 1):
+                    try:
+                        if not isinstance(selected_items, list) or not selected_items:
+                            raise InvalidOutput('selection has unknown, duplicate or empty IDs')
+                        ids, texts, refs = resolve_selection(selected_items, branch.nodes, source_ids, registry)
+                    except InvalidOutput:
+                        # This alternative came from the earlier Selection call,
+                        # even if other roles have run since it returned.
+                        event = next((e for e in reversed(self.events)
+                                      if e.get('event') == 'model_returned'
+                                      and e.get('ordinal') == selection_call), {})
+                        self._failure_receipt = copy.deepcopy(event.get('operation_receipt'))
+                        raise
+                    signature = json.dumps({'ids': ids, 'refs': refs}, sort_keys=True, ensure_ascii=False)
+                    if signature in signatures:
+                        continue
+                    signatures.add(signature)
+                    # Reserve a formatter call even when exploring alternatives.
+                    if self.config.max_calls - self.calls < 4:
+                        budget_pruned = True
+                        self.events.append({'event': 'budget_pruned', 'branch_id': branch.ident,
+                                            'depth': depth, 'alternative': position})
+                        break
+                    inference = self._call('inference', {'selected_texts': texts}, branch.ident)
+                    inference_call = self.calls
+                    conclusion = inference.get('conclusion')
+                    if not isinstance(conclusion, str) or not conclusion.strip():
+                        raise InvalidOutput('inference conclusion must be nonempty')
+                    self._next_node += 1
+                    node_id = f'node:{self._next_node:04d}'
+                    ident = f'{branch.ident}.{depth}.{position}'
+                    steps = copy.deepcopy(branch.steps) + [{
+                        'selected_ids': list(ids), 'conclusion_id': node_id, 'conclusion': conclusion,
+                        'selected_source_refs': copy.deepcopy(refs),
+                        'depth': depth, 'verification': 'unreviewed',
+                        'selection_call_ordinal': selection_call, 'inference_call_ordinal': inference_call,
+                    }]
+                    nodes = copy.deepcopy(branch.nodes)
+                    nodes[node_id] = {'id': node_id, 'text': conclusion, 'kind': 'derived_claim',
+                                      'source': 'model inference, not source fact'}
+                    halt = self._call('halter', {'question': task['question'], 'current_inference': conclusion}, ident)
+                    halter_call = self.calls
+                    if type(halt.get('sufficient')) is not bool or not isinstance(halt.get('reason'), str) or not halt['reason'].strip():
+                        raise InvalidOutput('halter requires boolean sufficient and nonempty reason')
+                    evidence_assessment = halt.get('evidence_assessment', 'not_determined')
+                    if not isinstance(evidence_assessment, str) or evidence_assessment not in {'insufficient', 'conflicting', 'not_determined'}:
+                        raise InvalidOutput('invalid unverified evidence assessment')
+                    value = self._call('value', {'question': task['question'], 'task_type': task['task_type'],
+                        'as_of_utc': task['as_of_utc'], 'visible_evidence': list(common.values()), 'trace': steps}, ident)
+                    value_call = self.calls
+                    score = value.get('score')
+                    if type(score) not in (int, float) or not math.isfinite(score) or not 0 <= score <= 1:
+                        raise InvalidOutput('value score must be finite in [0,1]')
+                    candidate = _Branch(ident, nodes, steps, float(score), halt['sufficient'], node_id)
+                    if not halt['sufficient']:
+                        self._halter_feedback[ident] = {
+                            'branch_id': ident, 'conclusion_id': node_id,
+                            'reason': halt['reason'], 'origin': 'model_unverified',
+                            'halter_call_ordinal': halter_call,
+                        }
+                    candidates.append(candidate)
+                    self.events.append({'event': 'step_proposed', 'branch_id': ident, 'depth': depth,
+                        'selected_ids': list(ids), 'conclusion_id': node_id, 'sufficient': halt['sufficient'],
+                        'halter_reason': halt['reason'], 'value_score': float(score),
+                        'evidence_assessment': evidence_assessment,
+                        'selection_call_ordinal': selection_call, 'inference_call_ordinal': inference_call,
+                        'halter_call_ordinal': halter_call, 'value_call_ordinal': value_call})
+                    self._branches.append({'branch_id': ident, 'steps': copy.deepcopy(steps),
+                                           'score': float(score), 'halted': halt['sufficient']})
+                    if candidate.halted:
+                        self._ready.append(copy.deepcopy(candidate))
+            if not candidates:
+                if self._ready:
+                    break
+                return self._unknown(task, 'generation_cap_exhausted' if budget_pruned else 'no_valid_candidate')
+            candidates.sort(key=lambda b: (-b.score, b.ident))
+            beam = candidates[:self.config.beam_width]
+            self.events.append({'event': 'beam_selected', 'depth': depth, 'branch_ids': [b.ident for b in beam]})
+            if all(b.halted for b in beam):
+                break
+        # Retain fully evaluated halted candidates even if a higher-scoring
+        # incomplete branch displaced them from the active beam.
+        ready = sorted((b for b in self._ready if b.latest is not None),
+                       key=lambda b: (-b.score, b.ident))
+        if not ready:
+            return self._unknown(task, 'generation_cap_exhausted' if budget_pruned else 'reasoning_depth_exhausted')
+        best = ready[0]
+        self._active_final = copy.deepcopy(best)
+        trace, leaves, effective_depth = _ancestry(best.steps, best.latest)
+        selected_evidence = [copy.deepcopy(item) for item in task['evidence'] if item['id'] in leaves]
+        if not selected_evidence:
+            return self._unknown(task, 'no_selected_source_ancestry')
+        # Only the final inference and opaque source IDs enter answer generation.
+        raw = self._call('formatter', {'final_inference': best.nodes[best.latest]['text'],
+                                      'allowed_citation_ids': sorted(leaves)}, best.ident)
+        answer, citations = raw.get('answer'), raw.get('citations')
+        if not isinstance(answer, str) or not answer.strip():
+            raise InvalidOutput('formatter answer must be nonempty')
+        if (not isinstance(citations, list) or not citations or any(not isinstance(x, str) for x in citations)
+                or len(set(citations)) != len(citations) or any(x not in leaves for x in citations)):
+            raise InvalidOutput('formatter citations must be nonempty unique selected evidence IDs')
+        # A Halter decision is model-origin evidence, not a semantic verdict.
+        ready_event = next(e for e in reversed(self.events) if e.get('event') == 'step_proposed' and e['branch_id'] == best.ident)
+        coverage = [{'question_id': q['id'], 'status': 'model_says_answerable',
+                     'reason': ready_event['halter_reason'], 'assessment_origin': 'model_unverified'}
+                    for q in task['required_questions']]
+        return self._outcome(task, 'proposal', 'model_proposal_requires_semantic_review', result=raw,
+            coverage=coverage, selected_trace=trace, selected_branch=best.ident,
+            inference_dependency_depth=effective_depth, selected_evidence=selected_evidence,
+            branches=copy.deepcopy(self._branches))

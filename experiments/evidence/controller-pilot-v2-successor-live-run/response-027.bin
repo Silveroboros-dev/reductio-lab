@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"stop\",\n  \"action_id\": null,\n  \"rationale\": \"The retrieved fragment explicitly states that water use in the United States in 2015 was estimated to be about 322 billion gallons per day (Bgal/d).\",\n  \"expected_result\": \"\",\n  \"answer\": \"Estimated total U.S. water withdrawals in 2015 were about 322 billion gallons per day (Bgal/d).\",\n  \"stop_reason\": \"The question is fully answered by the visible text in the retrieved fragment.\",\n  \"uncertainty\": \"\",\n  \"observed_vs_expected\": \"The retrieved text matched the expected result perfectly, confirming that total U.S. water withdrawals in 2015 were estimated to be about 322 billion gallons per day.\"\n}",
+            "thoughtSignature": "AY89a19bj3I8WKA67MCfgj71ghugJ7nuGEFXcwHqNg+T3vPhnsNSY8157O1OtpXlPOVT782ItmFgprGz1FDUNyf80guEbfAiugBB57ZlV//LvdTzM383ypcJi6mO2CvR5Me+nH26Hyqp5ggNf7AQ6hWAfZcATdFmi89o+i2fTL/4Qmjx5+XJEJlRs5YCHdwv7oNcya/+cEZFfjWGYTSR2TUvZ/LNAAnEzLhAsEzYwZWkFTlbC9wcbm5tD0ba6o4j0pTxQbjuE5CRE8mJ9bzfysoshghkKJSfQvI8nXWYPoWNZ9XjT5KAkNcH9mNI6e/hjAB75VXtIlnT1beWxgJOXCEBTWBCGDgPjR2259xbGfrVwNQGOhxaCaGt0CsPqa4PJ8BVERXzsEeXIZfk5Sx4awSRejiTW9XWSGUkPH2kOdtWwLiT+38pOsVp9Sa2cpfPnygHJ/Z8GjbP7zjvGZwipq4gESqOgtyeF2Y+Zwli0Onxz6wNVcuJRGE7hihTZA9TAVa+9NZTKdGpPjmmEvht8a5bkg=="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1511,
+    "candidatesTokenCount": 187,
+    "totalTokenCount": 1784,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 1511
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 187
+      }
+    ],
+    "thoughtsTokenCount": 86
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:53:13.339200Z",
+  "responseId": "We3iaoDaFI7ShcIPzsyi0As"
+}

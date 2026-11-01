@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"choice\":\"synthetic-final-tally-lark7-v1\",\"expected_result\":\"The final audit tally showing the number of checks passed out of 10 for batch LARK-7.\",\"reason\":\"The rule requires at least 7 of 10 final checks to pass to meet the target, so retrieving the final audit tally for batch LARK-7 is necessary to verify if the thesis is supported.\"}",
+            "thoughtSignature": "AY89a1+jPHSUKKIcz9nVVYlr6SFLgVCADkU6Q+S7MN+hJ72U2KC8hXCTr0LKmnHWKMskicuo4N//h0UtbB6DnrsfraM7kDBPOj4WWApDnv0q3+XPU1/E"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 480,
+    "candidatesTokenCount": 89,
+    "totalTokenCount": 569,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 480
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 89
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-11-01T13:30:32.688056Z",
+  "responseId": "-D7narj_KY3NmLAP8K_qwAY"
+}

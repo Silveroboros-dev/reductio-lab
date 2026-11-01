@@ -1,0 +1,812 @@
+[
+  {
+    "case_id": "C-D7DC65",
+    "status": "clean",
+    "expected_review": "Net short-term investment purchases are $16.362bn and the gap to $17.181bn net investing cash used is $0.819bn. The gap cannot be assigned to one line without the rest of the cash-flow statement.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-D7DC65",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "c",
+          "n1"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-4A4334C7",
+          "value": 18.972
+        },
+        "b": {
+          "evidence": "E-7F25A9BE",
+          "value": 2.61
+        },
+        "c": {
+          "evidence": "E-8383474E",
+          "value": 17.181
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 16.362
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "c",
+            "n1"
+          ],
+          "value": 0.819
+        }
+      ],
+      "target": "n2",
+      "target_unit": "USD billions",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 17.972,
+        "b": 3.61,
+        "c": 18.181
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 17.972,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "The first step nets investment purchases against sale/maturity proceeds; the second finds the magnitude gap to total investing cash used. It does not allocate that gap to a specific line.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "less_than",
+        "threshold": 1.0
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P09",
+    "evidence_id_mapping_reviewer_only": {
+      "P09-E1": "E-4A4334C7",
+      "P09-E2": "E-7F25A9BE",
+      "P09-E3": "E-8383474E"
+    },
+    "source_bindings_reviewer_only": {
+      "E-4A4334C7": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Statements of Cash Flows (In millions)",
+        "window_chars": 2600,
+        "period_marker": "Six Months Ended June 30, 2023 2024 2025 2025 2026 (unaudited)",
+        "row_label": "Purchases of short-term investments",
+        "next_row_label": "Sales and maturities of short-term investments",
+        "atomic_source_cell": "(18,972)"
+      },
+      "E-7F25A9BE": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Statements of Cash Flows (In millions)",
+        "window_chars": 2600,
+        "period_marker": "Six Months Ended June 30, 2023 2024 2025 2025 2026 (unaudited)",
+        "row_label": "Sales and maturities of short-term investments",
+        "next_row_label": "Other investing activities",
+        "atomic_source_cell": "2,610"
+      },
+      "E-8383474E": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Statements of Cash Flows (In millions)",
+        "window_chars": 2600,
+        "period_marker": "Six Months Ended June 30, 2023 2024 2025 2025 2026 (unaudited)",
+        "row_label": "Net cash used in investing activities",
+        "next_row_label": "Cash flows from financing activities",
+        "atomic_source_cell": "(17,181)"
+      }
+    }
+  },
+  {
+    "case_id": "C-86837B",
+    "status": "error",
+    "expected_review": "The nine-month threshold does not establish the same threshold separately for Q3. The Q3 claim is unsupported by this evidence, not proven historically false.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P06",
+    "evidence_id_mapping_reviewer_only": {
+      "P06-E1": "E-3DEF1799",
+      "P06-E2": "E-4FAD6A0C",
+      "P06-E3": "E-07055694"
+    }
+  },
+  {
+    "case_id": "C-DC1D56",
+    "status": "clean",
+    "expected_review": "Оба условия применяются совместно; одного события effectiveness недостаточно для гарантии полного vesting всех грантов. Некоторые service-порции могут уже быть выполнены; никаких фактических продаж из этого не следует.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P12",
+    "evidence_id_mapping_reviewer_only": {
+      "P12-E1": "E-743176CE",
+      "P12-E2": "E-3F0C147A",
+      "P12-E3": "E-D102983D"
+    }
+  },
+  {
+    "case_id": "C-355345",
+    "status": "error",
+    "expected_review": "The commitment increase exceeds the amended covenant level by $6.7bn in a numerical comparison. The memo reverses the ordering; neither figure alone establishes available cash.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-355345",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "n1",
+          "c"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-217F182B",
+          "value": 15.0
+        },
+        "b": {
+          "evidence": "E-766176DD",
+          "value": 3.3
+        },
+        "c": {
+          "evidence": "E-6AF0ADF6",
+          "value": 5.0
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 11.7
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 6.7
+        }
+      ],
+      "target": "n2",
+      "target_unit": "USD billions",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 7.0,
+        "b": 12.0,
+        "c": 13.0
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 7.0,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "The first subtraction yields the disclosed commitment increase; the second finds its dollar excess over the amended liquidity covenant. This compares figures, not spendable cash.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "less_than",
+        "threshold": 0.0
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P01",
+    "evidence_id_mapping_reviewer_only": {
+      "P01-E1": "E-766176DD",
+      "P01-E2": "E-217F182B",
+      "P01-E3": "E-6AF0ADF6"
+    },
+    "source_bindings_reviewer_only": {
+      "E-766176DD": {
+        "kind": "prose",
+        "section_start": "In September 2026, the Company amended and restated the Credit Agreement",
+        "window_chars": 380,
+        "period_marker": "In September 2026",
+        "atomic_source_phrase": "from $3.3 billion"
+      },
+      "E-217F182B": {
+        "kind": "prose",
+        "section_start": "In September 2026, the Company amended and restated the Credit Agreement",
+        "window_chars": 380,
+        "period_marker": "In September 2026",
+        "atomic_source_phrase": "to $15.0 billion"
+      },
+      "E-6AF0ADF6": {
+        "kind": "prose",
+        "section_start": "In September 2026, the Company amended and restated the Credit Agreement",
+        "window_chars": 380,
+        "period_marker": "In September 2026",
+        "atomic_source_phrase": "to $5.0 billion"
+      }
+    }
+  },
+  {
+    "case_id": "C-BF6785",
+    "status": "error",
+    "expected_review": "Это условная возможность финансирования целевого назначения, а не уже имеющиеся свободные деньги; на дату по конкретному соглашению нот не было.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P05",
+    "evidence_id_mapping_reviewer_only": {
+      "P05-E1": "E-F77F3878",
+      "P05-E2": "E-2B8C8F63",
+      "P05-E3": "E-6FF4FA8D"
+    }
+  },
+  {
+    "case_id": "C-E698ED",
+    "status": "error",
+    "expected_review": "The proposed Class T and remaining F/A allocations sum to seven, matching seven authorized seats; the difference is zero, so the memo’s exceedance claim is false.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-E698ED",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "n1",
+          "c"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-704998D6",
+          "value": 4
+        },
+        "b": {
+          "evidence": "E-AA87C188",
+          "value": 3
+        },
+        "c": {
+          "evidence": "E-78E21B3C",
+          "value": 7
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "add",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 7
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 0
+        }
+      ],
+      "target": "n2",
+      "target_unit": "seat count difference: allocated minus authorized",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 5,
+        "b": 4,
+        "c": 6
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 5,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "First add the two proposed allocation counts; then subtract the disclosed authorized total. The result is zero, so the memo’s exceedance claim is false. This does not establish occupied seats.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "greater_than",
+        "threshold": 0
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P03",
+    "evidence_id_mapping_reviewer_only": {
+      "P03-E1": "E-78E21B3C",
+      "P03-E2": "E-704998D6",
+      "P03-E3": "E-AA87C188"
+    },
+    "source_bindings_reviewer_only": {
+      "E-78E21B3C": {
+        "kind": "prose",
+        "section_start": "Upon the completion of this offering, our board of directors will consist",
+        "window_chars": 1100,
+        "period_marker": "Upon the completion of this offering",
+        "atomic_source_phrase": "seven authorized directors"
+      },
+      "E-704998D6": {
+        "kind": "prose",
+        "section_start": "Upon the completion of this offering, our board of directors will consist",
+        "window_chars": 1100,
+        "period_marker": "Upon the completion of this offering",
+        "atomic_source_phrase": "four Class T directors"
+      },
+      "E-AA87C188": {
+        "kind": "prose",
+        "section_start": "Upon the completion of this offering, our board of directors will consist",
+        "window_chars": 1100,
+        "period_marker": "Upon the completion of this offering",
+        "atomic_source_phrase": "remaining three directors"
+      }
+    }
+  },
+  {
+    "case_id": "C-6AE3F7",
+    "status": "error",
+    "expected_review": "Из суммы исключены договоры без фиксированного минимума. Исключение из оценки не означает нулевые расходы; величина оставшихся платежей неизвестна.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P04",
+    "evidence_id_mapping_reviewer_only": {
+      "P04-E1": "E-73D0FC3C",
+      "P04-E2": "E-C4E81143",
+      "P04-E3": "E-896A44DB"
+    }
+  },
+  {
+    "case_id": "C-F015DA",
+    "status": "clean",
+    "expected_review": "Совет допустим в пределах данных: ближайшее ожидание не является бессрочным запретом; отсутствие ожидаемых дивидендов не устанавливает общую доходность. Не интерпретировать его как прогноз роста.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P07",
+    "evidence_id_mapping_reviewer_only": {
+      "P07-E1": "E-99CD51A6",
+      "P07-E2": "E-55D5F747",
+      "P07-E3": "E-CBD90C82"
+    }
+  },
+  {
+    "case_id": "C-F75743",
+    "status": "clean",
+    "expected_review": "$112.389bn plus $19.262bn is $131.651bn; divided by $147.358bn total assets is about 89.34%. This is a balance-sheet share, not unrestricted cash.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-F75743",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "n1",
+          "c"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-80FE3ED0",
+          "value": 112.389
+        },
+        "b": {
+          "evidence": "E-2CBAD120",
+          "value": 19.262
+        },
+        "c": {
+          "evidence": "E-EF027A63",
+          "value": 147.358
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "add",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 131.651
+        },
+        {
+          "id": "n2",
+          "op": "divide",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 0.8934092482254102
+        }
+      ],
+      "target": "n2",
+      "target_unit": "fraction of total assets",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 90.389,
+        "b": 5.262,
+        "c": 160.358
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 90.389,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "The first step combines two balance-sheet lines; the second divides by total assets of the same date. It is an accounting share, not a claim about unrestricted spendability.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "greater_than",
+        "threshold": 0.85
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P11",
+    "evidence_id_mapping_reviewer_only": {
+      "P11-E1": "E-80FE3ED0",
+      "P11-E2": "E-2CBAD120",
+      "P11-E3": "E-EF027A63"
+    },
+    "source_bindings_reviewer_only": {
+      "E-80FE3ED0": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Balance Sheets (In millions",
+        "window_chars": 1650,
+        "period_marker": "As of December 31, As of June 30, 2024 2025 2026 (unaudited)",
+        "row_label": "Cash and cash equivalents $",
+        "next_row_label": "Short-term investments",
+        "atomic_source_cell": "112,389"
+      },
+      "E-2CBAD120": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Balance Sheets (In millions",
+        "window_chars": 1650,
+        "period_marker": "As of December 31, As of June 30, 2024 2025 2026 (unaudited)",
+        "row_label": "Short-term investments",
+        "next_row_label": "Accounts receivable, net",
+        "atomic_source_cell": "19,262"
+      },
+      "E-EF027A63": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Balance Sheets (In millions",
+        "window_chars": 1650,
+        "period_marker": "As of December 31, As of June 30, 2024 2025 2026 (unaudited)",
+        "row_label": "Total assets $",
+        "next_row_label": "Liabilities, Redeemable Convertible Preferred Stock",
+        "atomic_source_cell": "147,358"
+      }
+    }
+  },
+  {
+    "case_id": "C-3ED506",
+    "status": "clean",
+    "expected_review": "Совет верен для указанных условий. Нельзя переносить fallback на все специальные вопросы или опускать условие кворума.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P08",
+    "evidence_id_mapping_reviewer_only": {
+      "P08-E1": "E-92424CBE",
+      "P08-E2": "E-BDADAA49",
+      "P08-E3": "E-C56DEB2E"
+    }
+  },
+  {
+    "case_id": "C-63BC31",
+    "status": "error",
+    "expected_review": "The two illustrative RSU components total $26.6bn. Relative to the separately disclosed $3.1bn other-award figure, that is about 8.58 times, not less than eight times; recognition timing differs.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-63BC31",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "n1",
+          "c"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-EB1FF671",
+          "value": 2.9
+        },
+        "b": {
+          "evidence": "E-9789E114",
+          "value": 23.7
+        },
+        "c": {
+          "evidence": "E-0EE2F3DD",
+          "value": 3.1
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "add",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 26.6
+        },
+        {
+          "id": "n2",
+          "op": "divide",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 8.580645161290322
+        }
+      ],
+      "target": "n2",
+      "target_unit": "ratio of disclosed nominal amounts",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 0.9,
+        "b": 21.7,
+        "c": 3.5
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 0.9,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "The first step totals the two illustrated RSU components; the second divides by the separate other-award figure. The ratio is a comparison of disclosed nominal amounts, not equal recognition periods.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "less_than",
+        "threshold": 8.0
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P02",
+    "evidence_id_mapping_reviewer_only": {
+      "P02-E1": "E-EB1FF671",
+      "P02-E2": "E-9789E114",
+      "P02-E3": "E-0EE2F3DD"
+    },
+    "source_bindings_reviewer_only": {
+      "E-EB1FF671": {
+        "kind": "prose",
+        "section_start": "If this offering had been completed on June 30, 2026",
+        "window_chars": 950,
+        "period_marker": "June 30, 2026",
+        "atomic_source_phrase": "$2.9 billion of cumulative stock-based compensation expense"
+      },
+      "E-9789E114": {
+        "kind": "prose",
+        "section_start": "If this offering had been completed on June 30, 2026",
+        "window_chars": 950,
+        "period_marker": "June 30, 2026",
+        "atomic_source_phrase": "$23.7 billion of unrecognized stock-based compensation expense"
+      },
+      "E-0EE2F3DD": {
+        "kind": "prose",
+        "section_start": "If this offering had been completed on June 30, 2026",
+        "window_chars": 950,
+        "period_marker": "June 30, 2026",
+        "atomic_source_phrase": "approximately $3.1 billion related to other outstanding equity awards"
+      }
+    }
+  },
+  {
+    "case_id": "C-D6998A",
+    "status": "clean",
+    "expected_review": "$16.286bn less $8.945bn less $3.152bn is $4.189bn before other expenses, not operating profit.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "All three numerical source leaves and local original S-1 anchors agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "exact_two_step_three_source_leaf_reference_DAG_checked_offline",
+    "reference_dag": {
+      "case_id": "C-D6998A",
+      "formalism": "Two-step typed arithmetic DAG; exactly one binary primitive per step; at most two premise IDs selected for each inference; first step uses two original source facts, second uses its output and the third original source fact. No hidden operations, constants, derived-source shortcut, or direct final-answer premise.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "distinct_source_leaves_in_ancestry": 3,
+        "step1_parents": [
+          "a",
+          "b"
+        ],
+        "step2_parents": [
+          "n1",
+          "c"
+        ]
+      },
+      "inputs": {
+        "a": {
+          "evidence": "E-7CEAD064",
+          "value": 16.286
+        },
+        "b": {
+          "evidence": "E-3488BC71",
+          "value": 8.945
+        },
+        "c": {
+          "evidence": "E-DB13187E",
+          "value": 3.152
+        }
+      },
+      "nodes": [
+        {
+          "id": "n1",
+          "op": "subtract",
+          "inputs": [
+            "a",
+            "b"
+          ],
+          "value": 7.341
+        },
+        {
+          "id": "n2",
+          "op": "subtract",
+          "inputs": [
+            "n1",
+            "c"
+          ],
+          "value": 4.189
+        }
+      ],
+      "target": "n2",
+      "target_unit": "USD billions",
+      "critical_source_inputs": [
+        "a",
+        "b",
+        "c"
+      ],
+      "counterfactuals": {
+        "a": 15.286,
+        "b": 9.945,
+        "c": 4.152
+      },
+      "excluded_node_counterexamples": {
+        "n1": {
+          "changed_source_input": "a",
+          "alternative_value": 15.286,
+          "meaning": "Without n1, raw input variation can change the final result while a guessed n2 remains unsupported."
+        }
+      },
+      "interpretation": "This is the remainder after only two expense categories. Other expenses make it distinct from operating profit.",
+      "scope_limit": "This is a lower bound only for the declared binary operation/evidence-projection grammar. One LLM call may perform both elementary operations. No actual SI model trace or semantic correctness is inferred.",
+      "memo_check_reviewer_only": {
+        "op": "greater_than",
+        "threshold": 4.0
+      }
+    },
+    "predecessor_case_id_reviewer_only": "P10",
+    "evidence_id_mapping_reviewer_only": {
+      "P10-E1": "E-7CEAD064",
+      "P10-E2": "E-3488BC71",
+      "P10-E3": "E-DB13187E"
+    },
+    "source_bindings_reviewer_only": {
+      "E-7CEAD064": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Revenue $",
+        "next_row_label": "Operating expenses:",
+        "atomic_source_cell": "16,286"
+      },
+      "E-3488BC71": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Compute and infrastructure",
+        "next_row_label": "Personnel (1)",
+        "atomic_source_cell": "8,945"
+      },
+      "E-DB13187E": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Personnel (1)",
+        "next_row_label": "Bartz settlement",
+        "atomic_source_cell": "3,152"
+      }
+    }
+  }
+]

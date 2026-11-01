@@ -1,0 +1,38 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\n  \"action\": \"query\",\n  \"action_id\": \"action-5065a498a0c50c1e01407234\",\n  \"rationale\": \"I need to inspect the saved primary source (the Q4 Fiscal 2026 press release) to find the exact Data Center revenue, reporting quarter, and check if it mentions or establishes customer H100 rental prices.\",\n  \"expected_result\": \"The full text of the NVIDIA press release for Fourth Quarter and Fiscal 2026.\",\n  \"answer\": \"\",\n  \"stop_reason\": \"\",\n  \"uncertainty\": \"\"\n}",
+            "thoughtSignature": "AY89a18BfKxJTyMJjgiv+jVvECPLEV4NEC4KeXMoyJiYVD/zA4y9M4CeYMASy+bY3TNyELsCjS5/mvnkWQBFMwPanf6Zk+EVqnMIvW23PPP+HRgIkEWkfoxeImifKQVxim3Ktc0VwW6w82/dvpaCQUobkCWAi5U8ET9lOKuy/b/m/1cOP+HRmvGV/7C6Qwts47LP6yJeqWe40PxEnqB51lHpcZrFgoRfffUBKR5eLerZOkMjrCgnrp9jvAfWcO/okdR4Aonl/KdQ6LYwfWU+DXDM+/rxjkoh9gYzHzCYdIjKZ2RAQennvXcA/0tEMIHXKLk57uqDv4cnws2WvVcf63Pb+MV/ZRP+lFUAE2p9VpzW1aq9FOJAuf9C/UORSpvwsmD0sGfFAJIFdYtAQD8oSrQVICsOMqXL1VdgP60Jr7mc8BJx2zP6AUBkQcyZJ3E2KrXddxKiUF0u5O86VRv3N40fKZLz6OM8dO6yuPsvH8fCQ+pV1yBFvn6dXeiznP86Mqz2cmd2/Yc7O6AK7GGPC6GENF0Ayc/nDd/XnlUaBGvAqdx2xCgrRdQW8BcJE4ZlqbjNO5wtXQ2mYC44mrAe1XPPn2QxM16psdpGM4If4fnkSOeaisaTZE2oROO30frF2eHAk4RsZxaPBXeo57AM+ta8JqoRAnfsqC0HiorZGpH0tGYvctDFM4kUVwGS+rBNeQKSOfibFrs7Rtj4xLwLv4LGS6sGXPAYRiWT2XAPxKHFKxh03/eqCMf1PDc20eTKzviPYboZ7+6N57lmmYnsFkuIc6Ws67LcvvHL15fqYzamZydCISgDxq7btl2v26FgcWv0zD+v+VQ6Lwt3hyA7Ud+SaevP1eZdanVSg00UXq4ZuH5S12W9yj8NLMm81dyQFznzruI="
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2001,
+    "candidatesTokenCount": 148,
+    "totalTokenCount": 2335,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2001
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 148
+      }
+    ],
+    "thoughtsTokenCount": 186
+  },
+  "modelVersion": "gemini-3.5-flash",
+  "createTime": "2026-10-29T06:52:43.563025Z",
+  "responseId": "O-3iatGuIo7ShcIPzsyi0As"
+}

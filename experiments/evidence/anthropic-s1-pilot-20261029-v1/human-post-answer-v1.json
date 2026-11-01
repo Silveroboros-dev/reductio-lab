@@ -1,0 +1,47 @@
+{
+  "recorded_at_utc": "2026-10-29T22:38:02.550066+00:00",
+  "source": "User reply to request_user_input_async call_1a03265d2cde41dcb93a5a3c49dce778",
+  "exposure": "User was sent human-first-packet.md; any additional exposure to other answers is unknown. Mapping was consulted after feedback.",
+  "raw_reply": "По ликвидности - мнение осталось. По 2 вопросу - опасения увеличилсь (не знал про PBC, T-share). По 3 - осталось также, спасибо за уточнение по value capture. По  4 полезные детали, нр мнение не поменялось. Очень интересно увидеть цифры 3 квартала, в частности удалось ли удержать прибыльность. По 5 - . По 6 - можно спросить грок заполнить инфо",
+  "mapping": [
+    {
+      "question": 1,
+      "case_id": "S1-01-liquidity",
+      "arm": "C",
+      "feedback": "мнение осталось"
+    },
+    {
+      "question": 2,
+      "case_id": "S1-06-governance",
+      "arm": "B",
+      "feedback": "опасения увеличилсь (не знал про PBC, T-share)"
+    },
+    {
+      "question": 3,
+      "case_id": "S1-03-compute",
+      "arm": "A",
+      "feedback": "осталось также, спасибо за уточнение по value capture"
+    },
+    {
+      "question": 4,
+      "case_id": "S1-02-loss-cash",
+      "arm": "A",
+      "feedback": "полезные детали, нр мнение не поменялось. Очень интересно увидеть цифры 3 квартала, в частности удалось ли удержать прибыльность"
+    },
+    {
+      "question": 5,
+      "case_id": "S1-04-customers",
+      "arm": "C",
+      "feedback": ".",
+      "note": "No model response: selection schema failure. No substantive human assessment recorded."
+    },
+    {
+      "question": 6,
+      "case_id": "S1-05-market-rules",
+      "arm": "B",
+      "feedback": "можно спросить грок заполнить инфо",
+      "note": "Request for additional information; no judgment change reported."
+    }
+  ],
+  "limitations": "Single participant, different cases and different first-seen arms; changes are self-reported, not randomized same-case comparison or causal proof of preserving agency."
+}

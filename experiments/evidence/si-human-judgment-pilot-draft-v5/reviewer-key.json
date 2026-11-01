@@ -1,0 +1,750 @@
+[
+  {
+    "case_id": "C-D7DC65",
+    "status": "clean",
+    "expected_review": "The arithmetic source subtotal is 16.362 billion; the memo threshold comparison is supported. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-D7DC65",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-4A4334C7",
+          "E-7F25A9BE"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-D7DC65-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-4A4334C7": {
+          "role": "primary_source",
+          "value": 18.972
+        },
+        "E-7F25A9BE": {
+          "role": "primary_source",
+          "value": 2.61
+        },
+        "C-D7DC65-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 17.0,
+          "text": "Simulated advisory claim, unverified: Net purchases of short-term investments were less than $17 billion in H1 2026. This does not allocate the rest of investing cash flow."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "subtract",
+          "inputs": [
+            "E-4A4334C7",
+            "E-7F25A9BE"
+          ],
+          "value": 16.362
+        },
+        {
+          "id": "node:0002",
+          "op": "less_than",
+          "inputs": [
+            "node:0001",
+            "C-D7DC65-ADVICE"
+          ],
+          "value": true
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-4A4334C7",
+        "E-7F25A9BE"
+      ],
+      "source_counterfactuals": {
+        "E-4A4334C7": 19.972,
+        "E-7F25A9BE": 1.61
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-D7DC65-ADVICE",
+        "new_threshold": 16.0
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-4A4334C7",
+        "alternative_value": 19.972,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Subtract sale/maturity proceeds from purchases in the H1 cash-flow table; then test the unverified memo threshold. Do not equate this net amount with capex.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P09",
+    "evidence_id_mapping_reviewer_only": {
+      "P09-E1": "E-4A4334C7",
+      "P09-E2": "E-7F25A9BE"
+    },
+    "source_bindings_reviewer_only": {
+      "E-4A4334C7": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Statements of Cash Flows (In millions)",
+        "window_chars": 2600,
+        "period_marker": "Six Months Ended June 30, 2023 2024 2025 2025 2026 (unaudited)",
+        "row_label": "Purchases of short-term investments",
+        "next_row_label": "Sales and maturities of short-term investments",
+        "atomic_source_cell": "(18,972)"
+      },
+      "E-7F25A9BE": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Statements of Cash Flows (In millions)",
+        "window_chars": 2600,
+        "period_marker": "Six Months Ended June 30, 2023 2024 2025 2025 2026 (unaudited)",
+        "row_label": "Sales and maturities of short-term investments",
+        "next_row_label": "Other investing activities",
+        "atomic_source_cell": "2,610"
+      }
+    }
+  },
+  {
+    "case_id": "C-86837B",
+    "status": "error",
+    "expected_review": "The nine-month threshold does not establish the same threshold separately for Q3. The Q3 claim is unsupported by this evidence, not proven historically false.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P06",
+    "evidence_id_mapping_reviewer_only": {
+      "P06-E1": "E-3DEF1799",
+      "P06-E2": "E-4FAD6A0C",
+      "P06-E3": "E-07055694"
+    }
+  },
+  {
+    "case_id": "C-DC1D56",
+    "status": "clean",
+    "expected_review": "Оба условия применяются совместно; одного события effectiveness недостаточно для гарантии полного vesting всех грантов. Некоторые service-порции могут уже быть выполнены; никаких фактических продаж из этого не следует.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P12",
+    "evidence_id_mapping_reviewer_only": {
+      "P12-E1": "E-743176CE",
+      "P12-E2": "E-3F0C147A",
+      "P12-E3": "E-D102983D"
+    }
+  },
+  {
+    "case_id": "C-355345",
+    "status": "error",
+    "expected_review": "The arithmetic source subtotal is 11.7 billion; the memo threshold comparison is false. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-355345",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-217F182B",
+          "E-766176DD"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-355345-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-766176DD": {
+          "role": "primary_source",
+          "value": 3.3
+        },
+        "E-217F182B": {
+          "role": "primary_source",
+          "value": 15.0
+        },
+        "C-355345-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 10.0,
+          "text": "Simulated advisory claim, unverified: The increase in revolving commitments was less than $10 billion. This numerical comparison does not establish available cash."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "subtract",
+          "inputs": [
+            "E-217F182B",
+            "E-766176DD"
+          ],
+          "value": 11.7
+        },
+        {
+          "id": "node:0002",
+          "op": "less_than",
+          "inputs": [
+            "node:0001",
+            "C-355345-ADVICE"
+          ],
+          "value": false
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-766176DD",
+        "E-217F182B"
+      ],
+      "source_counterfactuals": {
+        "E-766176DD": 6.0,
+        "E-217F182B": 12.0
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-355345-ADVICE",
+        "new_threshold": 12.0
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-766176DD",
+        "alternative_value": 6.0,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Subtract the earlier commitment from the amended commitment; then test the unverified memo threshold. No liquidity balance is inferred.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P01",
+    "evidence_id_mapping_reviewer_only": {
+      "P01-E1": "E-766176DD",
+      "P01-E2": "E-217F182B"
+    },
+    "source_bindings_reviewer_only": {
+      "E-766176DD": {
+        "kind": "prose",
+        "section_start": "In September 2026, the Company amended and restated the Credit Agreement",
+        "window_chars": 380,
+        "period_marker": "In September 2026",
+        "atomic_source_phrase": "from $3.3 billion"
+      },
+      "E-217F182B": {
+        "kind": "prose",
+        "section_start": "In September 2026, the Company amended and restated the Credit Agreement",
+        "window_chars": 380,
+        "period_marker": "In September 2026",
+        "atomic_source_phrase": "to $15.0 billion"
+      }
+    }
+  },
+  {
+    "case_id": "C-BF6785",
+    "status": "error",
+    "expected_review": "Это условная возможность финансирования целевого назначения, а не уже имеющиеся свободные деньги; на дату по конкретному соглашению нот не было.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P05",
+    "evidence_id_mapping_reviewer_only": {
+      "P05-E1": "E-F77F3878",
+      "P05-E2": "E-2B8C8F63",
+      "P05-E3": "E-6FF4FA8D"
+    }
+  },
+  {
+    "case_id": "C-E698ED",
+    "status": "error",
+    "expected_review": "The arithmetic source subtotal is 4.882 billion; the memo threshold comparison is false. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-E698ED",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-78E21B3C",
+          "E-704998D6"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-E698ED-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-78E21B3C": {
+          "role": "primary_source",
+          "value": 3.168
+        },
+        "E-704998D6": {
+          "role": "primary_source",
+          "value": 1.714
+        },
+        "C-E698ED-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 5.0,
+          "text": "Simulated advisory claim, unverified: The two named H1 operating-expense categories together exceed $5 billion. This is not a measure of total operating expense."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "add",
+          "inputs": [
+            "E-78E21B3C",
+            "E-704998D6"
+          ],
+          "value": 4.882
+        },
+        {
+          "id": "node:0002",
+          "op": "greater_than",
+          "inputs": [
+            "node:0001",
+            "C-E698ED-ADVICE"
+          ],
+          "value": false
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-78E21B3C",
+        "E-704998D6"
+      ],
+      "source_counterfactuals": {
+        "E-78E21B3C": 3.468,
+        "E-704998D6": 2.014
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-E698ED-ADVICE",
+        "new_threshold": 4.5
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-78E21B3C",
+        "alternative_value": 3.468,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Add two distinct operating-expense rows of the same H1 period; then test the unverified memo threshold. The computed subtotal does not equal total expenses.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P03",
+    "evidence_id_mapping_reviewer_only": {
+      "P03-E1": "E-78E21B3C",
+      "P03-E2": "E-704998D6"
+    },
+    "source_bindings_reviewer_only": {
+      "E-78E21B3C": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Sales, marketing, and partnerships",
+        "next_row_label": "Other operating and administrative",
+        "atomic_source_cell": "3,168"
+      },
+      "E-704998D6": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Other operating and administrative",
+        "next_row_label": "Total operating expenses",
+        "atomic_source_cell": "1,714"
+      }
+    }
+  },
+  {
+    "case_id": "C-6AE3F7",
+    "status": "error",
+    "expected_review": "Из суммы исключены договоры без фиксированного минимума. Исключение из оценки не означает нулевые расходы; величина оставшихся платежей неизвестна.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P04",
+    "evidence_id_mapping_reviewer_only": {
+      "P04-E1": "E-73D0FC3C",
+      "P04-E2": "E-C4E81143",
+      "P04-E3": "E-896A44DB"
+    }
+  },
+  {
+    "case_id": "C-F015DA",
+    "status": "clean",
+    "expected_review": "Совет допустим в пределах данных: ближайшее ожидание не является бессрочным запретом; отсутствие ожидаемых дивидендов не устанавливает общую доходность. Не интерпретировать его как прогноз роста.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P07",
+    "evidence_id_mapping_reviewer_only": {
+      "P07-E1": "E-99CD51A6",
+      "P07-E2": "E-55D5F747",
+      "P07-E3": "E-CBD90C82"
+    }
+  },
+  {
+    "case_id": "C-F75743",
+    "status": "clean",
+    "expected_review": "The arithmetic source subtotal is 25.095 billion; the memo threshold comparison is supported. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-F75743",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-80FE3ED0",
+          "E-2CBAD120"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-F75743-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-80FE3ED0": {
+          "role": "primary_source",
+          "value": 19.262
+        },
+        "E-2CBAD120": {
+          "role": "primary_source",
+          "value": 5.833
+        },
+        "C-F75743-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 25.0,
+          "text": "Simulated advisory claim, unverified: Short-term investments and net accounts receivable together exceeded $25 billion at June 30, 2026. This is not a claim that both lines are immediately spendable."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "add",
+          "inputs": [
+            "E-80FE3ED0",
+            "E-2CBAD120"
+          ],
+          "value": 25.095
+        },
+        {
+          "id": "node:0002",
+          "op": "greater_than",
+          "inputs": [
+            "node:0001",
+            "C-F75743-ADVICE"
+          ],
+          "value": true
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-80FE3ED0",
+        "E-2CBAD120"
+      ],
+      "source_counterfactuals": {
+        "E-80FE3ED0": 18.262,
+        "E-2CBAD120": 4.833
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-F75743-ADVICE",
+        "new_threshold": 26.0
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-80FE3ED0",
+        "alternative_value": 18.262,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Add two distinct current-asset balance-sheet lines at June 30; then test the unverified memo threshold. Accounting value is not free cash.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P11",
+    "evidence_id_mapping_reviewer_only": {
+      "P11-E1": "E-80FE3ED0",
+      "P11-E2": "E-2CBAD120"
+    },
+    "source_bindings_reviewer_only": {
+      "E-80FE3ED0": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Balance Sheets (In millions",
+        "window_chars": 1650,
+        "period_marker": "As of December 31, As of June 30, 2024 2025 2026 (unaudited)",
+        "row_label": "Short-term investments",
+        "next_row_label": "Accounts receivable, net",
+        "atomic_source_cell": "19,262"
+      },
+      "E-2CBAD120": {
+        "kind": "table",
+        "section_start": "Anthropic, PBC Consolidated Balance Sheets (In millions",
+        "window_chars": 1650,
+        "period_marker": "As of December 31, As of June 30, 2024 2025 2026 (unaudited)",
+        "row_label": "Accounts receivable, net",
+        "next_row_label": "Prepaid expenses and other current assets",
+        "atomic_source_cell": "5,833"
+      }
+    }
+  },
+  {
+    "case_id": "C-3ED506",
+    "status": "clean",
+    "expected_review": "Совет верен для указанных условий. Нельзя переносить fallback на все специальные вопросы или опускать условие кворума.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Original S-1 anchor agent-checked; independent human source/semantic review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "not claimed as necessary two-step",
+    "reference_dag": null,
+    "predecessor_case_id_reviewer_only": "P08",
+    "evidence_id_mapping_reviewer_only": {
+      "P08-E1": "E-92424CBE",
+      "P08-E2": "E-BDADAA49",
+      "P08-E3": "E-C56DEB2E"
+    }
+  },
+  {
+    "case_id": "C-63BC31",
+    "status": "error",
+    "expected_review": "The arithmetic source subtotal is 26.6 billion; the memo threshold comparison is false. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "one prepared memo with one principal material error",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-63BC31",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-EB1FF671",
+          "E-9789E114"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-63BC31-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-EB1FF671": {
+          "role": "primary_source",
+          "value": 2.9
+        },
+        "E-9789E114": {
+          "role": "primary_source",
+          "value": 23.7
+        },
+        "C-63BC31-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 25.0,
+          "text": "Simulated advisory claim, unverified: The two illustrated RSU expense components total less than $25 billion. They have different recognition timing."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "add",
+          "inputs": [
+            "E-EB1FF671",
+            "E-9789E114"
+          ],
+          "value": 26.6
+        },
+        {
+          "id": "node:0002",
+          "op": "less_than",
+          "inputs": [
+            "node:0001",
+            "C-63BC31-ADVICE"
+          ],
+          "value": false
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-EB1FF671",
+        "E-9789E114"
+      ],
+      "source_counterfactuals": {
+        "E-EB1FF671": 0.9,
+        "E-9789E114": 21.7
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-63BC31-ADVICE",
+        "new_threshold": 28.0
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-EB1FF671",
+        "alternative_value": 0.9,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Add only the two RSU components in the stated hypothetical; then compare their combined nominal amount with the unverified memo threshold. This is not one-period expense.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P02",
+    "evidence_id_mapping_reviewer_only": {
+      "P02-E1": "E-EB1FF671",
+      "P02-E2": "E-9789E114"
+    },
+    "source_bindings_reviewer_only": {
+      "E-EB1FF671": {
+        "kind": "prose",
+        "section_start": "If this offering had been completed on June 30, 2026",
+        "window_chars": 950,
+        "period_marker": "June 30, 2026",
+        "atomic_source_phrase": "$2.9 billion of cumulative stock-based compensation expense"
+      },
+      "E-9789E114": {
+        "kind": "prose",
+        "section_start": "If this offering had been completed on June 30, 2026",
+        "window_chars": 950,
+        "period_marker": "June 30, 2026",
+        "atomic_source_phrase": "$23.7 billion of unrecognized stock-based compensation expense"
+      }
+    }
+  },
+  {
+    "case_id": "C-D6998A",
+    "status": "clean",
+    "expected_review": "The arithmetic source subtotal is 7.341 billion; the memo threshold comparison is supported. This is a candidate reviewer interpretation, not human-adjudicated.",
+    "materiality": "candidate reviewer interpretation, not independently human-adjudicated",
+    "source_status": "Two distinct source atoms, period, and original S-1 phrase/cell agent-checked; independent human semantic/source review absent.",
+    "error_unit": "no intentionally planted error; any new issue must be adjudicated without rewriting this draft",
+    "two_step_status": "two_source_plus_unverified_memo_exact_two_inference_reference_DAG_offline_checked",
+    "reference_dag": {
+      "case_id": "C-D6998A",
+      "formalism": "Exactly two model inferences. Step 1 computes one binary arithmetic operation from two separate original S-1 evidence IDs. Step 2 applies one binary comparison to node:0001 and the exact unverified advice ID emitted by make_task. The advice leaf is a claim, not source evidence.",
+      "engine_shape": {
+        "max_depth": 2,
+        "beam_width": 1,
+        "max_premise_ids_per_inference": 2,
+        "ordered_local_inferences": 2,
+        "source_leaf_count": 2,
+        "memo_leaf_count": 1,
+        "step1_selected_ids": [
+          "E-7CEAD064",
+          "E-3488BC71"
+        ],
+        "step2_selected_ids": [
+          "node:0001",
+          "C-D6998A-ADVICE"
+        ]
+      },
+      "inputs": {
+        "E-7CEAD064": {
+          "role": "primary_source",
+          "value": 16.286
+        },
+        "E-3488BC71": {
+          "role": "primary_source",
+          "value": 8.945
+        },
+        "C-D6998A-ADVICE": {
+          "role": "unverified_memo_claim",
+          "value": 7.0,
+          "text": "Simulated advisory claim, unverified: More than $7 billion of H1 revenue remained after compute/infrastructure expense, before other expenses. This is not operating profit."
+        }
+      },
+      "nodes": [
+        {
+          "id": "node:0001",
+          "op": "subtract",
+          "inputs": [
+            "E-7CEAD064",
+            "E-3488BC71"
+          ],
+          "value": 7.341
+        },
+        {
+          "id": "node:0002",
+          "op": "greater_than",
+          "inputs": [
+            "node:0001",
+            "C-D6998A-ADVICE"
+          ],
+          "value": true
+        }
+      ],
+      "target": "node:0002",
+      "target_meaning": "Is the unverified numeric prepared-advice claim supported by the two projected source facts?",
+      "critical_source_ids": [
+        "E-7CEAD064",
+        "E-3488BC71"
+      ],
+      "source_counterfactuals": {
+        "E-7CEAD064": 15.286,
+        "E-3488BC71": 9.945
+      },
+      "memo_counterfactual": {
+        "memo_id": "C-D6998A-ADVICE",
+        "new_threshold": 8.0
+      },
+      "n1_exclusion_witness": {
+        "changed_parent_id": "E-7CEAD064",
+        "alternative_value": 15.286,
+        "meaning": "Without node:0001, the second inference cannot distinguish the baseline from this changed source fact; the memo judgement flips under the complete graph."
+      },
+      "interpretation": "Subtract compute/infrastructure expense from H1 revenue; then test the unverified memo threshold. Other expenses still apply.",
+      "scope_limit": "This establishes a bounded two-inference reference trace under the actual adapter ID projection, not that one LLM call cannot do both operations or that the runtime will select or semantically validate this trace."
+    },
+    "predecessor_case_id_reviewer_only": "P10",
+    "evidence_id_mapping_reviewer_only": {
+      "P10-E1": "E-7CEAD064",
+      "P10-E2": "E-3488BC71"
+    },
+    "source_bindings_reviewer_only": {
+      "E-7CEAD064": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Revenue $",
+        "next_row_label": "Operating expenses:",
+        "atomic_source_cell": "16,286"
+      },
+      "E-3488BC71": {
+        "kind": "table",
+        "section_start": "Results of Operations The following table sets forth our consolidated statements of operations data",
+        "window_chars": 1500,
+        "period_marker": "Six Months Ended June 30, (in millions) 2023 2024 2025 2025 2026",
+        "row_label": "Compute and infrastructure",
+        "next_row_label": "Personnel (1)",
+        "atomic_source_cell": "8,945"
+      }
+    }
+  }
+]

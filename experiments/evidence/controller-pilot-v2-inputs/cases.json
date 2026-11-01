@@ -1,0 +1,834 @@
+{
+  "schema": "controller-pilot-v2-cases-v1",
+  "cases": [
+    {
+      "id": "amazon_visible",
+      "question": "What annual run rate does the saved primary source report for the combined Trainium, Graviton and Nitro business, and does that figure isolate AI-only revenue?",
+      "initial_evidence": [
+        {
+          "action_id": "action-e45c96cb03b3303cab02a426",
+          "response": {
+            "absence_limit": "Not observed here does not establish absence from the full source.",
+            "admitted_evidence_scope": "bounded_verbatim_excerpts_not_complete_source",
+            "full_payload_sha256": "f6e228b6d4111e88f954bf4a823caf9f2db0d265f652f57715b985dd322333ab",
+            "original_text_chars": 8485,
+            "passages": [
+              {
+                "end_char": 1000,
+                "id": "view-f6e228b6d411-0",
+                "start_char": 0,
+                "text": "{\"results\":[{\"content\":\"## A different bet on AI infrastructure  \\nA decade later, that bet has become one of the fastest-growing businesses in Amazon’s history.  \\n[Amazon’s chip business](https://www.aboutamazon.com/what-we-do/amazon-custom-chips)—spanning  \\n[Trainium](https://www.aboutamazon.com/stories/ai-chips-aws-Trainium2-explain)for AI training and inference and  \\n[Graviton](https://www.aboutamazon.com/news/aws/what-is-aws-graviton)for general cloud computing (and increasingly, agentic AI)—all based on the Nitro System for security and networking—recently exceeded a $25 billion annual revenue run rate, growing triple-digit percentages year over year.  \\n> We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton).  \\nAndy Jassy  \\nAmazon CEO\\n- Nitro powers the networking, storage, and security behind AWS cloud infrastructure.  \\nAs CEO Andy Jassy noted on the company’s  \\n[Q2 2026 earni"
+              },
+              {
+                "end_char": 2000,
+                "id": "view-f6e228b6d411-1000",
+                "start_char": 1000,
+                "text": "ngs](https://www.aboutamazon.com/news/company-news/amazon-earnings-q2-2026-report)call: \\\"Our Chips revenue run rate is now over $25 billion. We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton). In addition to the two leading AI labs in the world in Anthropic and OpenAI making multi-year, multi-gigawatt commitments to Trainium, an increasing number of AI start-ups are also adopting Trainium.”\\n## AI chips built to meet customer demands at unprecedented scale  \\n[Amazon Bedrock](https://aws.amazon.com/bedrock/), the company’s managed AI service used by hundreds of thousands of customers, runs most of its inference on Trainium. An increasing number of AI start-ups are also adopting Trainium as well, including unicorns like Neura Robotics (which chose Trainium for physical AI) and Odyssey, which chose Trainium to build world models that simulate physics, getting nearly twice the useful compute"
+              },
+              {
+                "end_char": 3000,
+                "id": "view-f6e228b6d411-2000",
+                "start_char": 2000,
+                "text": " per dollar compared to alternatives. They join other startups like TwelveLabs, DeCart, Poolside, Karakuri, Matagenomi, NetoAI, and Splash music, as well as larger companies Uber and  \\nOn the Graviton side, more than 130,000 customers use Graviton-based servers today. Over half of all new processing power added to  \\n[AWS](https://www.aboutamazon.com/what-we-do/amazon-web-services)runs on Graviton chips.  \\nThe demand reflects a shift in how AI infrastructure gets built. As AI systems move from answering questions to taking actions—real-time reasoning, code generation, and multi-step task orchestration—the compute required pulls heavily on both AI accelerators and CPUs. Amazon is positioned across both.  \\nBut individual chips are only part of the story. Amazon connects them into increasingly powerful systems:\",\"favicon\":\"https://favicons.linkup.so?domain=www.aboutamazon.com\",\"name\":\"How Amazon&#x27;s AI chip business reached a $25B revenue run rate\",\"type\":\"text\",\"url\":\"https://www.a"
+              },
+              {
+                "end_char": 4000,
+                "id": "view-f6e228b6d411-3000",
+                "start_char": 3000,
+                "text": "boutamazon.com/news/aws/amazon-ai-chips-business-history\"},{\"content\":\"Secured a commitment from OpenAI to consume approximately two gigawatts (GW) of Trainium capacity through AWS infrastructure to power its frontier models and advanced workloads, which begins ramping in 2027.\\nPartnered with Uber to put Graviton4 chips to work on millions of daily rides and deliveries—matching riders with drivers in fractions of a second at lower cost—and leveraging Trainium3 to train the Al models that make every ride smarter over time. Signed an agreement with Meta, already an Amazon Bedrock customer at scale, to deploy tens of millions of AWS Graviton cores to power CPU-intensive workloads behind its agentic AI efforts, including real-time reasoning, code generation, and multi-step agent workflows.\\nLanded 2.1 million+ AI chips over the past 12 months, more than half of which were Trainium, and announced one million+ NVIDIA GPUs to be deployed starting in 2026, giving customers the widest range of"
+              },
+              {
+                "end_char": 5000,
+                "id": "view-f6e228b6d411-4000",
+                "start_char": 4000,
+                "text": " accelerated compute options. Announced a collaboration with Cerebras and plans to deliver through Amazon Bedrock the fastest AI inference speeds available for large language models, becoming the only cloud provider to offer a solution like this.\\nSecured a commitment from OpenAI to consume approximately two gigawatts (GW) of Trainium capacity through AWS infrastructure to power its frontier models and advanced workloads, which begins ramping in 2027.\\nExceeded $20 billion annual revenue run rate for Amazon’s chips business—inclusive of Graviton, Trainium, and Nitro—which is growing triple-digit percentages year-over-year.\",\"favicon\":\"https://favicons.linkup.so?domain=www.aboutamazon.com\",\"name\":\"Amazon Q1 2026 earnings report: Read the release\",\"type\":\"text\",\"url\":\"https://www.aboutamazon.com/news/company-news/amazon-earnings-q1-2026-report\"},{\"content\":\"[compelling offerings for model-building](https://www.aboutamazon.com/news/aws/amazon-sagemaker-ai-amazon-bedrock-aws-ai-agents)(Sag"
+              },
+              {
+                "end_char": 6000,
+                "id": "view-f6e228b6d411-5000",
+                "start_char": 5000,
+                "text": "eMaker), high-performance inference with leading selection of frontier models (Bedrock), lower-cost inference (on our custom silicon, Trainium), agent-building (Strands), scalable and secure agent environments (AgentCore), and turnkey agents for coding, software migrations, and most tasks knowledge workers use in their daily routines (Kiro, Transform, and Quick). Second, as customers expand their use of AI, they want their inference to reside near their other applications and data (for latency reasons), and much more of it resides in AWS than anywhere else. Third, as customers expand their AI usage, they consume a lot of additional non-AI services, where AWS also has the broadest and most capable offerings. And fourth, AWS has the strongest security and operational performance of any AI and infrastructure provider. We spend a lot of time listening to customers, and they continue to remark about AWS’s advantaged performance as they increasingly move their AI to AWS.\\n4/ Our chips busine"
+              },
+              {
+                "end_char": 7000,
+                "id": "view-f6e228b6d411-6000",
+                "start_char": 6000,
+                "text": "ss is on fire, changes the economics for AWS, and will be much larger than most think. Virtually all AI thus far has been done on NVIDIA chips, but a new shift has started. We have a strong partnership with NVIDIA, will always have customers who choose to run NVIDIA, and we will continue to make AWS the best place to run NVIDIA. However, customers want better price-performance. We’ve seen this movie before. In the CPU space, virtually all of the workloads ran on Intel chips until we invented Graviton in 2018. Graviton, which has up to 40% better price-performance than other x86 processors, is now used expansively by 98% of the top 1,000 EC2 customers. The same story arc is unfolding in AI. Our second version of our custom AI silicon (Trainium2) had about 30% better price-performance than comparable GPUs, and has largely sold out. Trainium3, which just started shipping at the start of 2026 and is 30-40% more price-performant than Trainium2, is nearly fully-subscribed. A significant chun"
+              },
+              {
+                "end_char": 8000,
+                "id": "view-f6e228b6d411-7000",
+                "start_char": 7000,
+                "text": "k of Trainium4, which is still about 18 months from broad availability, has already been reserved. And, Amazon Bedrock, AWS’s primary (and very fast-growing) inference service, runs most of its inference on Trainium. Demand for Trainium is booming.\\nHaving our own hotly demanded AI chip opens up many possibilities, but perhaps none larger than the ability to lower costs for customers and secure better economics for AWS. At scale, we expect Trainium will save us tens of billions of capex dollars per year, and provide several hundred basis points of operating margin advantage versus relying on others’ chips for inference.  \\nOur annual revenue run rate for our chips business (inclusive of Graviton, Trainium, and Nitro—our EC2 NIC) is now over $20 billion, and growing triple digit percentages YoY. To dimensionalize this versus other chips companies, that run rate is somewhat understated by our currently only monetizing our chips through EC2. If our chips business was a stand-alone busines"
+              }
+            ],
+            "selected_text_chars": 8000,
+            "selection_vocabulary": [
+              "revenue",
+              "capex",
+              "capital",
+              "capacity",
+              "paid",
+              "utilization",
+              "rent",
+              "h100",
+              "energy",
+              "electricity",
+              "data center",
+              "trainium",
+              "graviton",
+              "nitro",
+              "quarter",
+              "billion",
+              "million"
+            ],
+            "source_text_field": "canonical_payload_json",
+            "view_version": "fixed-metric-vocabulary-1000char-windows-v1"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-256732afca0344a1ae6ed270",
+          "description": "Fetch saved public page: https://www.aboutamazon.com/news/aws/amazon-ai-chips-business-history (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        },
+        {
+          "id": "action-c57a898463a36dcbb83a6a3c",
+          "description": "Read saved quarterly company financial line items for AMZN (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        }
+      ],
+      "saved_replay": {
+        "action-256732afca0344a1ae6ed270": {
+          "payload": {
+            "absence_limit": "Not observed here does not establish absence from the full source.",
+            "admitted_evidence_scope": "bounded_verbatim_excerpts_not_complete_source",
+            "full_payload_sha256": "622642c0c4bafb6220bfdfdc0fb24390892e4c7524f81162856269d87efdc402",
+            "original_text_chars": 21074,
+            "passages": [
+              {
+                "end_char": 1000,
+                "id": "view-622642c0c4ba-0",
+                "start_char": 0,
+                "text": "Amazon's AI chip business—Trainium, Graviton, and Nitro—exceeded $25B in annual revenue run rate and secured deals with Anthropic, OpenAI, Meta, and Uber.\n\n1.  [News](https://www.aboutamazon.com/amazon-news-today)\n2.  [AWS](https://www.aboutamazon.com/news/aws)\n\n# How Amazon became one of the world’s top chip companies in a decade\n\nAmazon’s custom silicon business exceeded a $25 billion annual revenue run rate—here’s what that means for customers and the future of AI.\n\nShare\n\n![Amazon AI innovation scenes including quantum computing hardware, the inside of a data center, engineering teamwork, and custom chips](https://assets.aboutamazon.com/46/c9/e10bdc484dc39405653a59ae04b5/aws-chips-timeline-amazon-news-jp-062526.jpeg)\n\n![Isaac Schultz](https://assets.aboutamazon.com/dims4/default/db6faa9/2147483647/strip/true/crop/1024x1024+0+56/resize/84x84!/quality/90/?url=https%3A%2F%2Fassets.aboutamazon.com%2F1d%2Fb0%2F9a16ce7f46f38551bf95244fb9c6%2Fisaacschultz-amazon-ck040326.jpeg)\n\nWritten by"
+              },
+              {
+                "end_char": 2000,
+                "id": "view-622642c0c4ba-1000",
+                "start_char": 1000,
+                "text": " [Isaac Schultz](https://www.aboutamazon.com/author/isaac-schultz)\n\n4 min read\n\n* * *\n\n## Key takeaways\n\n-   Amazon's custom chips business exceeded a $25 billion annual revenue run rate with triple-digit growth year over year.\n-   Trainium3 delivers up to 40% better price-performance than Trainium2.\n-   Graviton serves 98% of the top 1,000 EC2 customers with up to 40% better price-performance.\n\n* * *\n\nWhen Amazon acquired chip design company [Annapurna Labs](https://www.aboutamazon.com/news/aws/take-a-look-inside-the-lab-where-aws-makes-custom-chips) in 2015, the AI boom was still years away. The bet was straightforward: if you design chips specifically for cloud workloads rather than relying on general-purpose hardware, you can deliver better performance at lower cost.\n\n## A different bet on AI infrastructure\n\nA decade later, that bet has become one of the fastest-growing businesses in Amazon’s history.\n\n[Amazon’s chip business](https://www.aboutamazon.com/what-we-do/amazon-custom-ch"
+              },
+              {
+                "end_char": 3000,
+                "id": "view-622642c0c4ba-2000",
+                "start_char": 2000,
+                "text": "ips)—spanning [Trainium](https://www.aboutamazon.com/stories/ai-chips-aws-Trainium2-explain) for AI training and inference and [Graviton](https://www.aboutamazon.com/news/aws/what-is-aws-graviton) for general cloud computing (and increasingly, agentic AI)—all based on the Nitro System for security and networking—recently exceeded a $25 billion annual revenue run rate, growing triple-digit percentages year over year.\n\n> We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton).\n\nAndy Jassy\n\nAmazon CEO\n\n## Chronology of Amazon Designed Chips\n\nThe below chronology details the multiple generations of Amazon's purpose-built chips.\n\nFilter by family\n\nAll Nitro Graviton Inferentia Trainium\n\n## Why Amazon builds its own chips\n\nThe [AI chip](https://www.aboutamazon.com/news/aws/ai-chip-terms-explained) market hasn’t historically been in a hurry to lower costs. Market leaders rarely disrupt themselves. Ama"
+              },
+              {
+                "end_char": 4000,
+                "id": "view-622642c0c4ba-3000",
+                "start_char": 3000,
+                "text": "zon chose a different path.\n\nRather than relying solely on off-the-shelf processors, [Amazon designs chips from the ground up](https://www.aboutamazon.com/news/aws/aws-trainium-graviton-ai-chips-explained) for specific workloads. The approach is vertically integrated: hardware and software engineers collaborate from chip design through server deployment, working backwards from the system to create silicon tailored for the workloads customers actually run.\n\n![AWS Trainium 3 AI chip on a green circuit board](https://assets.aboutamazon.com/dims4/default/6b4dc30/2147483647/strip/true/crop/1596x900+0+0/resize/1318x743!/quality/90/?url=https%3A%2F%2Fassets.aboutamazon.com%2Fb0%2Fad%2F8a93cf6644b096f1345bb54cbf03%2Fabout-amazon-inline-aws-trainium-3.jpg)[AWS Trainium3 chip](https://www.aboutamazon.com/news/aws/trainium-3-ultraserver-faster-ai-training-lower-cost)\n\nThe result is three chip families that serve distinct but complementary roles:  \n\n-   Trainium is purpose-built for AI training an"
+              },
+              {
+                "end_char": 5000,
+                "id": "view-622642c0c4ba-4000",
+                "start_char": 4000,
+                "text": "d inference—the computationally intensive work of teaching AI models and then running them at scale.\n-   Graviton handles general cloud computing—the websites, applications, databases, and increasingly, the agentic AI workloads that power modern software. Graviton is used by 98% of our top 1,000 [EC2](https://aws.amazon.com/pm/ec2) customers, and revenue commitments have increased nearly three times quarter over quarter. [Graviton5](https://www.aboutamazon.com/news/aws/aws-graviton-5-cpu-amazon-ec2), the latest generation, delivers up to 25% better performance than its predecessor, and is growing nearly two times faster than Graviton4 did.\n-   Nitro powers the networking, storage, and security behind AWS cloud infrastructure.\n\nAs CEO Andy Jassy noted on the company’s [Q2 2026 earnings](https://www.aboutamazon.com/news/company-news/amazon-earnings-q2-2026-report) call: \"Our Chips revenue run rate is now over $25 billion. We're unusually well-positioned for this AI inflection given our l"
+              },
+              {
+                "end_char": 6000,
+                "id": "view-622642c0c4ba-5000",
+                "start_char": 5000,
+                "text": "eading price-performance chips in both AI (with Trainium) and CPUs (with Graviton). In addition to the two leading AI labs in the world in Anthropic and OpenAI making multi-year, multi-gigawatt commitments to Trainium, an increasing number of AI start-ups are also adopting Trainium.”\n\n## What Amazon’s chips mean for AI customers\n\nFor companies building with AI, the economics of chips matter enormously. Training a frontier AI model can require hundreds of thousands of chips running for weeks or months. Running that model at scale—answering millions of queries per day—demands efficient inference infrastructure. Even small improvements in price-performance translate into significant savings at scale.\n\n[![Trainium2 chip](https://assets.aboutamazon.com/f3/9b/960ee2e04df2b6fad88f898b67a8/trainium2chip.png)](https://www.aboutamazon.com/news/aws/why-ai-startups-choose-amazon-trainium-chips)\n\n[## The AI startups building beyond chatbots are choosing Amazon’s custom chips. Here's why.](https://w"
+              },
+              {
+                "end_char": 7000,
+                "id": "view-622642c0c4ba-6000",
+                "start_char": 6000,
+                "text": "ww.aboutamazon.com/news/aws/why-ai-startups-choose-amazon-trainium-chips)\n\nBeyond Anthropic and OpenAI, a new wave of AI startups is choosing Trainium to train models that simulate the physical world.\n\nThat’s why the world’s leading AI labs and tech companies are making major commitments to Amazon’s silicon:  \n\n-   [Anthropic has committed](https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai) to using up to five gigawatts of current and future generations of Trainium chips to train and power its Claude models, which run on more than one million Trainium2 chips. Anthropic is also using tens of millions of Graviton cores to deliver scalable performance and cost efficiency across a broad range of generative AI workloads.\n-   [OpenAI has committed](https://www.aboutamazon.com/news/aws/amazon-open-ai-strategic-partnership-investment) to consuming two gigawatts of Trainium capacity through AWS infrastructure to power its frontier models, beginning i"
+              },
+              {
+                "end_char": 11000,
+                "id": "view-622642c0c4ba-10000",
+                "start_char": 10000,
+                "text": "s within a data center.](https://assets.aboutamazon.com/d6/fd/0abaf5854964b9ff3b67759b7848/aa-inline-2-ranier-interior-1600-900.gif)Inside Project Rainier: One of the world’s largest AI compute clusters.\n\n## AI, silicon, and quantum: The future of Amazon’s chips business\n\nAmazon’s chip roadmap continues to accelerate. Trainium4 is already in development. Graviton continues to evolve for the agentic AI era. And under Peter DeSantis, who now [leads a new organization spanning AI models](https://www.aboutamazon.com/news/innovation-at-amazon/peter-desantis-amazon-artificial-general-intelligence), custom silicon, and quantum computing, the company is integrating these technologies so they reinforce each other.\n\n“One of the ways that we can give ourselves an advantage in how we build these models is by using our deep investments in chips to deliver both performance and cost efficiency that will allow us to differentiate our model development,” said Peter DeSantis, SVP, Amazon AI Models, Chip"
+              }
+            ],
+            "selected_text_chars": 8000,
+            "selection_vocabulary": [
+              "revenue",
+              "capex",
+              "capital",
+              "capacity",
+              "paid",
+              "utilization",
+              "rent",
+              "h100",
+              "energy",
+              "electricity",
+              "data center",
+              "trainium",
+              "graviton",
+              "nitro",
+              "quarter",
+              "billion",
+              "million"
+            ],
+            "source_text_field": "markdown",
+            "view_version": "fixed-metric-vocabulary-1000char-windows-v1"
+          },
+          "response_sha256": "a0a93b5bcacd5cd362fb807cc4cc4f9e7b62de913d764d8afd08e3eb8ec77113"
+        },
+        "action-c57a898463a36dcbb83a6a3c": {
+          "payload": {
+            "search_results": [
+              {
+                "capital_expenditure": -43234000000,
+                "currency": "USD",
+                "net_income": 30255000000,
+                "operating_income": 23852000000,
+                "period": "quarterly",
+                "report_period": "2026-03-31",
+                "revenue": 181519000000,
+                "ticker": "AMZN"
+              },
+              {
+                "capital_expenditure": -38469000000,
+                "currency": "USD",
+                "net_income": 21192000000,
+                "operating_income": 24977000000,
+                "period": "quarterly",
+                "report_period": "2025-12-31",
+                "revenue": 213386000000,
+                "ticker": "AMZN"
+              }
+            ]
+          },
+          "response_sha256": "ee34d6be36e37ffe67534c347cabc3b201dadb6798d0e9dd9fef42f5ee5bae7f"
+        }
+      }
+    },
+    {
+      "id": "amazon_empty",
+      "question": "What annual run rate does the saved primary source report for the combined Trainium, Graviton and Nitro business, and does that figure isolate AI-only revenue?",
+      "initial_evidence": [],
+      "actions": [
+        {
+          "id": "action-256732afca0344a1ae6ed270",
+          "description": "Fetch saved public page: https://www.aboutamazon.com/news/aws/amazon-ai-chips-business-history (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        },
+        {
+          "id": "action-c57a898463a36dcbb83a6a3c",
+          "description": "Read saved quarterly company financial line items for AMZN (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        },
+        {
+          "id": "action-e45c96cb03b3303cab02a426",
+          "description": "Search saved public-source results: AWS 2026 paid AI compute utilization new Trainium cohort revenue run rate power activation Bedrock disclosure (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        }
+      ],
+      "saved_replay": {
+        "action-256732afca0344a1ae6ed270": {
+          "payload": {
+            "absence_limit": "Not observed here does not establish absence from the full source.",
+            "admitted_evidence_scope": "bounded_verbatim_excerpts_not_complete_source",
+            "full_payload_sha256": "622642c0c4bafb6220bfdfdc0fb24390892e4c7524f81162856269d87efdc402",
+            "original_text_chars": 21074,
+            "passages": [
+              {
+                "end_char": 1000,
+                "id": "view-622642c0c4ba-0",
+                "start_char": 0,
+                "text": "Amazon's AI chip business—Trainium, Graviton, and Nitro—exceeded $25B in annual revenue run rate and secured deals with Anthropic, OpenAI, Meta, and Uber.\n\n1.  [News](https://www.aboutamazon.com/amazon-news-today)\n2.  [AWS](https://www.aboutamazon.com/news/aws)\n\n# How Amazon became one of the world’s top chip companies in a decade\n\nAmazon’s custom silicon business exceeded a $25 billion annual revenue run rate—here’s what that means for customers and the future of AI.\n\nShare\n\n![Amazon AI innovation scenes including quantum computing hardware, the inside of a data center, engineering teamwork, and custom chips](https://assets.aboutamazon.com/46/c9/e10bdc484dc39405653a59ae04b5/aws-chips-timeline-amazon-news-jp-062526.jpeg)\n\n![Isaac Schultz](https://assets.aboutamazon.com/dims4/default/db6faa9/2147483647/strip/true/crop/1024x1024+0+56/resize/84x84!/quality/90/?url=https%3A%2F%2Fassets.aboutamazon.com%2F1d%2Fb0%2F9a16ce7f46f38551bf95244fb9c6%2Fisaacschultz-amazon-ck040326.jpeg)\n\nWritten by"
+              },
+              {
+                "end_char": 2000,
+                "id": "view-622642c0c4ba-1000",
+                "start_char": 1000,
+                "text": " [Isaac Schultz](https://www.aboutamazon.com/author/isaac-schultz)\n\n4 min read\n\n* * *\n\n## Key takeaways\n\n-   Amazon's custom chips business exceeded a $25 billion annual revenue run rate with triple-digit growth year over year.\n-   Trainium3 delivers up to 40% better price-performance than Trainium2.\n-   Graviton serves 98% of the top 1,000 EC2 customers with up to 40% better price-performance.\n\n* * *\n\nWhen Amazon acquired chip design company [Annapurna Labs](https://www.aboutamazon.com/news/aws/take-a-look-inside-the-lab-where-aws-makes-custom-chips) in 2015, the AI boom was still years away. The bet was straightforward: if you design chips specifically for cloud workloads rather than relying on general-purpose hardware, you can deliver better performance at lower cost.\n\n## A different bet on AI infrastructure\n\nA decade later, that bet has become one of the fastest-growing businesses in Amazon’s history.\n\n[Amazon’s chip business](https://www.aboutamazon.com/what-we-do/amazon-custom-ch"
+              },
+              {
+                "end_char": 3000,
+                "id": "view-622642c0c4ba-2000",
+                "start_char": 2000,
+                "text": "ips)—spanning [Trainium](https://www.aboutamazon.com/stories/ai-chips-aws-Trainium2-explain) for AI training and inference and [Graviton](https://www.aboutamazon.com/news/aws/what-is-aws-graviton) for general cloud computing (and increasingly, agentic AI)—all based on the Nitro System for security and networking—recently exceeded a $25 billion annual revenue run rate, growing triple-digit percentages year over year.\n\n> We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton).\n\nAndy Jassy\n\nAmazon CEO\n\n## Chronology of Amazon Designed Chips\n\nThe below chronology details the multiple generations of Amazon's purpose-built chips.\n\nFilter by family\n\nAll Nitro Graviton Inferentia Trainium\n\n## Why Amazon builds its own chips\n\nThe [AI chip](https://www.aboutamazon.com/news/aws/ai-chip-terms-explained) market hasn’t historically been in a hurry to lower costs. Market leaders rarely disrupt themselves. Ama"
+              },
+              {
+                "end_char": 4000,
+                "id": "view-622642c0c4ba-3000",
+                "start_char": 3000,
+                "text": "zon chose a different path.\n\nRather than relying solely on off-the-shelf processors, [Amazon designs chips from the ground up](https://www.aboutamazon.com/news/aws/aws-trainium-graviton-ai-chips-explained) for specific workloads. The approach is vertically integrated: hardware and software engineers collaborate from chip design through server deployment, working backwards from the system to create silicon tailored for the workloads customers actually run.\n\n![AWS Trainium 3 AI chip on a green circuit board](https://assets.aboutamazon.com/dims4/default/6b4dc30/2147483647/strip/true/crop/1596x900+0+0/resize/1318x743!/quality/90/?url=https%3A%2F%2Fassets.aboutamazon.com%2Fb0%2Fad%2F8a93cf6644b096f1345bb54cbf03%2Fabout-amazon-inline-aws-trainium-3.jpg)[AWS Trainium3 chip](https://www.aboutamazon.com/news/aws/trainium-3-ultraserver-faster-ai-training-lower-cost)\n\nThe result is three chip families that serve distinct but complementary roles:  \n\n-   Trainium is purpose-built for AI training an"
+              },
+              {
+                "end_char": 5000,
+                "id": "view-622642c0c4ba-4000",
+                "start_char": 4000,
+                "text": "d inference—the computationally intensive work of teaching AI models and then running them at scale.\n-   Graviton handles general cloud computing—the websites, applications, databases, and increasingly, the agentic AI workloads that power modern software. Graviton is used by 98% of our top 1,000 [EC2](https://aws.amazon.com/pm/ec2) customers, and revenue commitments have increased nearly three times quarter over quarter. [Graviton5](https://www.aboutamazon.com/news/aws/aws-graviton-5-cpu-amazon-ec2), the latest generation, delivers up to 25% better performance than its predecessor, and is growing nearly two times faster than Graviton4 did.\n-   Nitro powers the networking, storage, and security behind AWS cloud infrastructure.\n\nAs CEO Andy Jassy noted on the company’s [Q2 2026 earnings](https://www.aboutamazon.com/news/company-news/amazon-earnings-q2-2026-report) call: \"Our Chips revenue run rate is now over $25 billion. We're unusually well-positioned for this AI inflection given our l"
+              },
+              {
+                "end_char": 6000,
+                "id": "view-622642c0c4ba-5000",
+                "start_char": 5000,
+                "text": "eading price-performance chips in both AI (with Trainium) and CPUs (with Graviton). In addition to the two leading AI labs in the world in Anthropic and OpenAI making multi-year, multi-gigawatt commitments to Trainium, an increasing number of AI start-ups are also adopting Trainium.”\n\n## What Amazon’s chips mean for AI customers\n\nFor companies building with AI, the economics of chips matter enormously. Training a frontier AI model can require hundreds of thousands of chips running for weeks or months. Running that model at scale—answering millions of queries per day—demands efficient inference infrastructure. Even small improvements in price-performance translate into significant savings at scale.\n\n[![Trainium2 chip](https://assets.aboutamazon.com/f3/9b/960ee2e04df2b6fad88f898b67a8/trainium2chip.png)](https://www.aboutamazon.com/news/aws/why-ai-startups-choose-amazon-trainium-chips)\n\n[## The AI startups building beyond chatbots are choosing Amazon’s custom chips. Here's why.](https://w"
+              },
+              {
+                "end_char": 7000,
+                "id": "view-622642c0c4ba-6000",
+                "start_char": 6000,
+                "text": "ww.aboutamazon.com/news/aws/why-ai-startups-choose-amazon-trainium-chips)\n\nBeyond Anthropic and OpenAI, a new wave of AI startups is choosing Trainium to train models that simulate the physical world.\n\nThat’s why the world’s leading AI labs and tech companies are making major commitments to Amazon’s silicon:  \n\n-   [Anthropic has committed](https://www.aboutamazon.com/news/company-news/amazon-invests-additional-5-billion-anthropic-ai) to using up to five gigawatts of current and future generations of Trainium chips to train and power its Claude models, which run on more than one million Trainium2 chips. Anthropic is also using tens of millions of Graviton cores to deliver scalable performance and cost efficiency across a broad range of generative AI workloads.\n-   [OpenAI has committed](https://www.aboutamazon.com/news/aws/amazon-open-ai-strategic-partnership-investment) to consuming two gigawatts of Trainium capacity through AWS infrastructure to power its frontier models, beginning i"
+              },
+              {
+                "end_char": 11000,
+                "id": "view-622642c0c4ba-10000",
+                "start_char": 10000,
+                "text": "s within a data center.](https://assets.aboutamazon.com/d6/fd/0abaf5854964b9ff3b67759b7848/aa-inline-2-ranier-interior-1600-900.gif)Inside Project Rainier: One of the world’s largest AI compute clusters.\n\n## AI, silicon, and quantum: The future of Amazon’s chips business\n\nAmazon’s chip roadmap continues to accelerate. Trainium4 is already in development. Graviton continues to evolve for the agentic AI era. And under Peter DeSantis, who now [leads a new organization spanning AI models](https://www.aboutamazon.com/news/innovation-at-amazon/peter-desantis-amazon-artificial-general-intelligence), custom silicon, and quantum computing, the company is integrating these technologies so they reinforce each other.\n\n“One of the ways that we can give ourselves an advantage in how we build these models is by using our deep investments in chips to deliver both performance and cost efficiency that will allow us to differentiate our model development,” said Peter DeSantis, SVP, Amazon AI Models, Chip"
+              }
+            ],
+            "selected_text_chars": 8000,
+            "selection_vocabulary": [
+              "revenue",
+              "capex",
+              "capital",
+              "capacity",
+              "paid",
+              "utilization",
+              "rent",
+              "h100",
+              "energy",
+              "electricity",
+              "data center",
+              "trainium",
+              "graviton",
+              "nitro",
+              "quarter",
+              "billion",
+              "million"
+            ],
+            "source_text_field": "markdown",
+            "view_version": "fixed-metric-vocabulary-1000char-windows-v1"
+          },
+          "response_sha256": "a0a93b5bcacd5cd362fb807cc4cc4f9e7b62de913d764d8afd08e3eb8ec77113"
+        },
+        "action-c57a898463a36dcbb83a6a3c": {
+          "payload": {
+            "search_results": [
+              {
+                "capital_expenditure": -43234000000,
+                "currency": "USD",
+                "net_income": 30255000000,
+                "operating_income": 23852000000,
+                "period": "quarterly",
+                "report_period": "2026-03-31",
+                "revenue": 181519000000,
+                "ticker": "AMZN"
+              },
+              {
+                "capital_expenditure": -38469000000,
+                "currency": "USD",
+                "net_income": 21192000000,
+                "operating_income": 24977000000,
+                "period": "quarterly",
+                "report_period": "2025-12-31",
+                "revenue": 213386000000,
+                "ticker": "AMZN"
+              }
+            ]
+          },
+          "response_sha256": "ee34d6be36e37ffe67534c347cabc3b201dadb6798d0e9dd9fef42f5ee5bae7f"
+        },
+        "action-e45c96cb03b3303cab02a426": {
+          "payload": {
+            "absence_limit": "Not observed here does not establish absence from the full source.",
+            "admitted_evidence_scope": "bounded_verbatim_excerpts_not_complete_source",
+            "full_payload_sha256": "f6e228b6d4111e88f954bf4a823caf9f2db0d265f652f57715b985dd322333ab",
+            "original_text_chars": 8485,
+            "passages": [
+              {
+                "end_char": 1000,
+                "id": "view-f6e228b6d411-0",
+                "start_char": 0,
+                "text": "{\"results\":[{\"content\":\"## A different bet on AI infrastructure  \\nA decade later, that bet has become one of the fastest-growing businesses in Amazon’s history.  \\n[Amazon’s chip business](https://www.aboutamazon.com/what-we-do/amazon-custom-chips)—spanning  \\n[Trainium](https://www.aboutamazon.com/stories/ai-chips-aws-Trainium2-explain)for AI training and inference and  \\n[Graviton](https://www.aboutamazon.com/news/aws/what-is-aws-graviton)for general cloud computing (and increasingly, agentic AI)—all based on the Nitro System for security and networking—recently exceeded a $25 billion annual revenue run rate, growing triple-digit percentages year over year.  \\n> We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton).  \\nAndy Jassy  \\nAmazon CEO\\n- Nitro powers the networking, storage, and security behind AWS cloud infrastructure.  \\nAs CEO Andy Jassy noted on the company’s  \\n[Q2 2026 earni"
+              },
+              {
+                "end_char": 2000,
+                "id": "view-f6e228b6d411-1000",
+                "start_char": 1000,
+                "text": "ngs](https://www.aboutamazon.com/news/company-news/amazon-earnings-q2-2026-report)call: \\\"Our Chips revenue run rate is now over $25 billion. We're unusually well-positioned for this AI inflection given our leading price-performance chips in both AI (with Trainium) and CPUs (with Graviton). In addition to the two leading AI labs in the world in Anthropic and OpenAI making multi-year, multi-gigawatt commitments to Trainium, an increasing number of AI start-ups are also adopting Trainium.”\\n## AI chips built to meet customer demands at unprecedented scale  \\n[Amazon Bedrock](https://aws.amazon.com/bedrock/), the company’s managed AI service used by hundreds of thousands of customers, runs most of its inference on Trainium. An increasing number of AI start-ups are also adopting Trainium as well, including unicorns like Neura Robotics (which chose Trainium for physical AI) and Odyssey, which chose Trainium to build world models that simulate physics, getting nearly twice the useful compute"
+              },
+              {
+                "end_char": 3000,
+                "id": "view-f6e228b6d411-2000",
+                "start_char": 2000,
+                "text": " per dollar compared to alternatives. They join other startups like TwelveLabs, DeCart, Poolside, Karakuri, Matagenomi, NetoAI, and Splash music, as well as larger companies Uber and  \\nOn the Graviton side, more than 130,000 customers use Graviton-based servers today. Over half of all new processing power added to  \\n[AWS](https://www.aboutamazon.com/what-we-do/amazon-web-services)runs on Graviton chips.  \\nThe demand reflects a shift in how AI infrastructure gets built. As AI systems move from answering questions to taking actions—real-time reasoning, code generation, and multi-step task orchestration—the compute required pulls heavily on both AI accelerators and CPUs. Amazon is positioned across both.  \\nBut individual chips are only part of the story. Amazon connects them into increasingly powerful systems:\",\"favicon\":\"https://favicons.linkup.so?domain=www.aboutamazon.com\",\"name\":\"How Amazon&#x27;s AI chip business reached a $25B revenue run rate\",\"type\":\"text\",\"url\":\"https://www.a"
+              },
+              {
+                "end_char": 4000,
+                "id": "view-f6e228b6d411-3000",
+                "start_char": 3000,
+                "text": "boutamazon.com/news/aws/amazon-ai-chips-business-history\"},{\"content\":\"Secured a commitment from OpenAI to consume approximately two gigawatts (GW) of Trainium capacity through AWS infrastructure to power its frontier models and advanced workloads, which begins ramping in 2027.\\nPartnered with Uber to put Graviton4 chips to work on millions of daily rides and deliveries—matching riders with drivers in fractions of a second at lower cost—and leveraging Trainium3 to train the Al models that make every ride smarter over time. Signed an agreement with Meta, already an Amazon Bedrock customer at scale, to deploy tens of millions of AWS Graviton cores to power CPU-intensive workloads behind its agentic AI efforts, including real-time reasoning, code generation, and multi-step agent workflows.\\nLanded 2.1 million+ AI chips over the past 12 months, more than half of which were Trainium, and announced one million+ NVIDIA GPUs to be deployed starting in 2026, giving customers the widest range of"
+              },
+              {
+                "end_char": 5000,
+                "id": "view-f6e228b6d411-4000",
+                "start_char": 4000,
+                "text": " accelerated compute options. Announced a collaboration with Cerebras and plans to deliver through Amazon Bedrock the fastest AI inference speeds available for large language models, becoming the only cloud provider to offer a solution like this.\\nSecured a commitment from OpenAI to consume approximately two gigawatts (GW) of Trainium capacity through AWS infrastructure to power its frontier models and advanced workloads, which begins ramping in 2027.\\nExceeded $20 billion annual revenue run rate for Amazon’s chips business—inclusive of Graviton, Trainium, and Nitro—which is growing triple-digit percentages year-over-year.\",\"favicon\":\"https://favicons.linkup.so?domain=www.aboutamazon.com\",\"name\":\"Amazon Q1 2026 earnings report: Read the release\",\"type\":\"text\",\"url\":\"https://www.aboutamazon.com/news/company-news/amazon-earnings-q1-2026-report\"},{\"content\":\"[compelling offerings for model-building](https://www.aboutamazon.com/news/aws/amazon-sagemaker-ai-amazon-bedrock-aws-ai-agents)(Sag"
+              },
+              {
+                "end_char": 6000,
+                "id": "view-f6e228b6d411-5000",
+                "start_char": 5000,
+                "text": "eMaker), high-performance inference with leading selection of frontier models (Bedrock), lower-cost inference (on our custom silicon, Trainium), agent-building (Strands), scalable and secure agent environments (AgentCore), and turnkey agents for coding, software migrations, and most tasks knowledge workers use in their daily routines (Kiro, Transform, and Quick). Second, as customers expand their use of AI, they want their inference to reside near their other applications and data (for latency reasons), and much more of it resides in AWS than anywhere else. Third, as customers expand their AI usage, they consume a lot of additional non-AI services, where AWS also has the broadest and most capable offerings. And fourth, AWS has the strongest security and operational performance of any AI and infrastructure provider. We spend a lot of time listening to customers, and they continue to remark about AWS’s advantaged performance as they increasingly move their AI to AWS.\\n4/ Our chips busine"
+              },
+              {
+                "end_char": 7000,
+                "id": "view-f6e228b6d411-6000",
+                "start_char": 6000,
+                "text": "ss is on fire, changes the economics for AWS, and will be much larger than most think. Virtually all AI thus far has been done on NVIDIA chips, but a new shift has started. We have a strong partnership with NVIDIA, will always have customers who choose to run NVIDIA, and we will continue to make AWS the best place to run NVIDIA. However, customers want better price-performance. We’ve seen this movie before. In the CPU space, virtually all of the workloads ran on Intel chips until we invented Graviton in 2018. Graviton, which has up to 40% better price-performance than other x86 processors, is now used expansively by 98% of the top 1,000 EC2 customers. The same story arc is unfolding in AI. Our second version of our custom AI silicon (Trainium2) had about 30% better price-performance than comparable GPUs, and has largely sold out. Trainium3, which just started shipping at the start of 2026 and is 30-40% more price-performant than Trainium2, is nearly fully-subscribed. A significant chun"
+              },
+              {
+                "end_char": 8000,
+                "id": "view-f6e228b6d411-7000",
+                "start_char": 7000,
+                "text": "k of Trainium4, which is still about 18 months from broad availability, has already been reserved. And, Amazon Bedrock, AWS’s primary (and very fast-growing) inference service, runs most of its inference on Trainium. Demand for Trainium is booming.\\nHaving our own hotly demanded AI chip opens up many possibilities, but perhaps none larger than the ability to lower costs for customers and secure better economics for AWS. At scale, we expect Trainium will save us tens of billions of capex dollars per year, and provide several hundred basis points of operating margin advantage versus relying on others’ chips for inference.  \\nOur annual revenue run rate for our chips business (inclusive of Graviton, Trainium, and Nitro—our EC2 NIC) is now over $20 billion, and growing triple digit percentages YoY. To dimensionalize this versus other chips companies, that run rate is somewhat understated by our currently only monetizing our chips through EC2. If our chips business was a stand-alone busines"
+              }
+            ],
+            "selected_text_chars": 8000,
+            "selection_vocabulary": [
+              "revenue",
+              "capex",
+              "capital",
+              "capacity",
+              "paid",
+              "utilization",
+              "rent",
+              "h100",
+              "energy",
+              "electricity",
+              "data center",
+              "trainium",
+              "graviton",
+              "nitro",
+              "quarter",
+              "billion",
+              "million"
+            ],
+            "source_text_field": "canonical_payload_json",
+            "view_version": "fixed-metric-vocabulary-1000char-windows-v1"
+          },
+          "response_sha256": "b773699ca3620828d5ef490bfb53bb66b06c51f4a3ba21eaccf98bae364c3f39"
+        }
+      }
+    },
+    {
+      "id": "nvidia_h100",
+      "question": "What NVIDIA Data Center revenue and reporting quarter does the saved primary source report, and does it establish customer H100 rental prices?",
+      "initial_evidence": [
+        {
+          "action_id": "action-f2eb5a2885b17d10aea47465",
+          "response": {
+            "results": [
+              {
+                "content": "Record quarterly revenue of $68.1 billion, up 20% from Q3 and up 73% from a year ago Record quarterly Data Center revenue of $62.3 billion, up 22% from Q3 and up 75% from a year ago Record full-year revenue of $215.9 billion, up 65% SANTA CLARA, ...\nRecord quarterly revenue of $68.1 billion, up 20% from Q3 and up 73% from a year ago Record quarterly Data Center revenue of $62.3 billion, up 22% from Q3 and up 75% from a year ago Record full-year revenue of $215.9 billion, up 65% SANTA CLARA, Calif., Feb. 25, 2026 (GLOBE NEWSWIRE) - NVIDIA (NASDAQ: NVDA) today reported record revenue for the fourth quarter ended January 25, 2026, of $68.1 billion, up 20% from the previous quarter and up 73% from a year ago.\nSANTA CLARA, Calif., Feb. 25, 2026 (GLOBE NEWSWIRE) -- NVIDIA (NASDAQ: NVDA) today reported record revenue for the fourth quarter ended January 25, 2026, of $68.1 billion, up 20% from the previous quarter and up 73% from a year ago.\nNVIDIA will conduct a conference call with analysts and investors to discuss its fourth quarter and fiscal 2026 financial results and current financial prospects today at 2 p.m. Pacific time (5 p.m. Eastern time). A live webcast (listen-only mode) of the conference call will be accessible at NVIDIA’s investor relations website, https://investor.nvidia.com.\nThe reconciliations for fiscal years 2025 and 2026 adjust the related GAAP financial measures to exclude stock-based compensation expense, acquisition-related and other costs, other, gains/losses from non-marketable and publicly-held equity securities, net, interest expense related to amortization of debt discount, and the associated tax impact of these items where applicable.",
+                "favicon": "https://favicons.linkup.so?domain=investor.nvidia.com",
+                "name": "NVIDIA Corporation - NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+                "type": "text",
+                "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/default.aspx"
+              },
+              {
+                "content": "Record revenue of $57.0 billion, up 22% from Q2 and up 62% from a year ago Record Data Center revenue of $51.2 billion, up 25% from Q2 and up 66% from a year ago NVIDIA (NASDAQ: NVDA) today ...\nConference Call and Webcast Information NVIDIA will conduct a conference call with analysts and investors to discuss its third quarter fiscal 2026 financial results and current financial prospects today at 2 p.m. Pacific time (5 p.m. Eastern time). A live webcast (listen-only mode) of the conference call will be accessible at NVIDIA’s investor relations website, https://investor.nvidia.com.\nCertain statements in this press release including, but not limited to, statements as to: compute demand keeping accelerating and compounding across training and inference — each growing exponentially; the AI ecosystem scaling fast — with more new foundation model makers, more AI startups, across more industries, and in more countries; AI going everywhere, doing everything, all at once; expectations with respect to growth, performance and benefits of NVIDIA’s products, services and technologies, including Blackwell, and related trends and drivers; expectations with respect to supply and\nDuring the first nine months of fiscal 2026, NVIDIA returned $37.0 billion to shareholders in the form of shares repurchased and cash dividends.\nThe webcast will be recorded and available for replay until NVIDIA’s conference call to discuss its financial results for its fourth quarter and fiscal 2026.",
+                "favicon": "https://favicons.linkup.so?domain=nvidianews.nvidia.com",
+                "name": "NVIDIA Announces Financial Results for Third Quarter Fiscal 2026 | NVIDIA Newsroom",
+                "type": "text",
+                "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2026"
+              },
+              {
+                "content": "Revenue of $96.2 billion, up 106% from a year ago Data Center revenue of $89.0 billion, up 117% from a year ago SANTA CLARA, Calif., Aug. 26, 2026 (GLOBE NEWSWIRE) - NVIDIA (NASDAQ: NVDA) today reported revenue for the second quarter ended July ...\nRevenue of $96.2 billion, up 106% from a year ago Data Center revenue of $89.0 billion, up 117% from a year ago SANTA CLARA, Calif., Aug. 26, 2026 (GLOBE NEWSWIRE) - NVIDIA (NASDAQ: NVDA) today reported revenue for the second quarter ended July 26, 2026, of $96.2 billion, up 18% from the previous quarter and up 106% from a year ago.\nSANTA CLARA, Calif., Aug. 26, 2026 (GLOBE NEWSWIRE) -- NVIDIA (NASDAQ: NVDA) today reported revenue for the second quarter ended July 26, 2026, of $96.2 billion, up 18% from the previous quarter and up 106% from a year ago.\nNVIDIA will pay its next quarterly cash dividend of $0.25 per share on October 1, 2026, to all shareholders of record on September 10, 2026.\n© 2026 NVIDIA Corporation. All rights reserved.",
+                "favicon": "https://favicons.linkup.so?domain=investor.nvidia.com",
+                "name": "NVIDIA Corporation - NVIDIA Announces Financial Results for Second Quarter Fiscal 2027",
+                "type": "text",
+                "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/default.aspx"
+              }
+            ]
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-2d2eb344a8041db0cac0ba41",
+          "description": "Read saved quarterly company financial line items for NVDA (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        },
+        {
+          "id": "action-5065a498a0c50c1e01407234",
+          "description": "Fetch saved public page: https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Fourth-Quarter-and-Fiscal-2026/default.aspx (retained bounded source view; incomplete passages do not establish source-wide absence)"
+        }
+      ],
+      "saved_replay": {
+        "action-2d2eb344a8041db0cac0ba41": {
+          "payload": {
+            "search_results": [
+              {
+                "capital_expenditure": -1284000000,
+                "currency": "USD",
+                "net_income": 42960000000,
+                "operating_income": 44299000000,
+                "period": "quarterly",
+                "report_period": "2026-01-25",
+                "revenue": 68127000000,
+                "ticker": "NVDA"
+              },
+              {
+                "capital_expenditure": -1636000000,
+                "currency": "USD",
+                "net_income": 31910000000,
+                "operating_income": 36010000000,
+                "period": "quarterly",
+                "report_period": "2025-10-26",
+                "revenue": 57006000000,
+                "ticker": "NVDA"
+              }
+            ]
+          },
+          "response_sha256": "54ac0060afd08b8daf50e4c4e6fa086ff56d2dda185e8537cca8b4293ac609a1"
+        },
+        "action-5065a498a0c50c1e01407234": {
+          "payload": {
+            "absence_limit": "Not observed here does not establish absence from the full source.",
+            "admitted_evidence_scope": "bounded_verbatim_excerpts_not_complete_source",
+            "full_payload_sha256": "ba3ff43d7222e2db43abbd7aeb0200e245e18305ecacdab8ed3cdee144fe6361",
+            "original_text_chars": 54665,
+            "passages": [
+              {
+                "end_char": 1000,
+                "id": "view-ba3ff43d7222-0",
+                "start_char": 0,
+                "text": "Record quarterly revenue of $68.1 billion, up 20% from Q3 and up 73% from a year ago Record quarterly Data Center revenue of $62.3 billion, up 22% from Q3 and up 75% from a year ago Record full-year revenue of $215.9 billion, up 65% SANTA CLARA, Calif., Feb. 25, 2026 (GLOBE NEWSWIRE) - NVIDIA (NASDAQ: NVDA) today reported record revenue for the fourth quarter ended January 25, 2026, of $68.1 billion, up 20% from the previous quarter and up 73% from a year ago. For fiscal 2026, revenue was $215.9 billion, up 65% from a year ago. For the quarter, GAAP and non-GAAP gross margins were 75.0% and 75.2%, respectively. For fiscal 2026, GAAP and non-GAAP gross margins were 71.1% and 71.3%, respectively. For the quarter, GAAP and non-GAAP earnings per diluted share were $1.76 and $1.62, respectively. For fiscal 2026, GAAP and non-GAAP earnings per diluted share were $4.90 and $4.77, respectively. “Computing demand is growing exponentially — the agentic AI inflection point has\n\n[Skip to main cont"
+              },
+              {
+                "end_char": 11000,
+                "id": "view-ba3ff43d7222-10000",
+                "start_char": 10000,
+                "text": "estor.nvidia.com/investor-resources/request-information/default.aspx)\n    -   [FAQs](https://investor.nvidia.com/investor-resources/faqs/default.aspx)\n    -   [Email Alerts](https://investor.nvidia.com/investor-resources/email-alerts/default.aspx)\n    -   [RSS](https://investor.nvidia.com/investor-resources/rss/default.aspx)\n    -   [Application Catalog](https://www.nvidia.com/en-us/gpu-accelerated-applications/)\n\n[View all news](/investors/news/default.aspx)\n\n### NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026\n\nFebruary 25, 2026\n\nDownload this Press Release PDF Format (opens in new window)\n\n-   Record quarterly revenue of $68.1 billion, up 20% from Q3 and up 73% from a year ago\n-   Record quarterly Data Center revenue of $62.3 billion, up 22% from Q3 and up 75% from a year ago\n-   Record full-year revenue of $215.9 billion, up 65%  \n      \n    \n\nSANTA CLARA, Calif., Feb. 25, 2026 (GLOBE NEWSWIRE) -- NVIDIA (NASDAQ: NVDA) today reported record revenue for the four"
+              },
+              {
+                "end_char": 12000,
+                "id": "view-ba3ff43d7222-11000",
+                "start_char": 11000,
+                "text": "th quarter ended January 25, 2026, of $68.1 billion, up 20% from the previous quarter and up 73% from a year ago. For fiscal 2026, revenue was $215.9 billion, up 65% from a year ago.\n\nFor the quarter, GAAP and non-GAAP gross margins were 75.0% and 75.2%, respectively. For fiscal 2026, GAAP and non-GAAP gross margins were 71.1% and 71.3%, respectively.\n\nFor the quarter, GAAP and non-GAAP earnings per diluted share were $1.76 and $1.62, respectively. For fiscal 2026, GAAP and non-GAAP earnings per diluted share were $4.90 and $4.77, respectively.\n\n“Computing demand is growing exponentially — the agentic AI inflection point has arrived. Grace Blackwell with NVLink is the king of inference today — delivering an order-of-magnitude lower cost per token — and Vera Rubin will extend that leadership even further,” said Jensen Huang, founder and CEO of NVIDIA. “Enterprise adoption of agents is skyrocketing. Our customers are racing to invest in AI compute — the factories powering the AI industri"
+              },
+              {
+                "end_char": 13000,
+                "id": "view-ba3ff43d7222-12000",
+                "start_char": 12000,
+                "text": "al revolution and their future growth.”\n\nDuring fiscal 2026, NVIDIA returned $41.1 billion to shareholders in the form of shares repurchased and cash dividends. As of the end of the fourth quarter, the company had $58.5 billion remaining under its share repurchase authorization.\n\nNVIDIA will pay its next quarterly cash dividend of $0.01 per share on April 1, 2026, to all shareholders of record on March 11, 2026.\n\n**Q4 Fiscal 2026 Summary**\n\n**GAAP**\n\n*($ in millions, except earnings per share)*\n\n \n\n**Q4 FY26**\n\n**Q3 FY26**\n\n**Q4 FY25**\n\n**Q/Q**\n\n**Y/Y**\n\nRevenue\n\n \n\n$68,127\n\n \n\n$57,006\n\n \n\n$39,331\n\n \n\n        20 %\n\n \n\n        73 %\n\n \n\nGross margin\n\n \n\n        75.0 %  \n\n \n\n        73.4 %  \n\n \n\n        73.0 %  \n\n \n\n1.6 pts\n\n \n\n2.0 pts\n\n \n\nOperating expenses\n\n \n\n$6,794\n\n \n\n$5,839\n\n \n\n$4,689\n\n \n\n        16 %\n\n \n\n        45 %\n\n \n\nOperating income\n\n \n\n$44,299\n\n \n\n$36,010\n\n \n\n$24,034\n\n \n\n        23 %\n\n \n\n        84 %\n\n \n\nNet income\n\n \n\n$42,960\n\n \n\n$31,910\n\n \n\n$22,091\n\n \n\n        35 %\n\n \n\n    "
+              },
+              {
+                "end_char": 15000,
+                "id": "view-ba3ff43d7222-14000",
+                "start_char": 14000,
+                "text": "\n\n \n\nGross margin  \n\n \n\n \n\n71.1 %\n\n \n\n \n\n75.0 %\n\n \n\n(3.9) pts\n\n \n\n \n\nOperating expenses  \n\n \n\n$23,076\n\n \n\n$16,405\n\n \n\n41 %\n\n \n\nOperating income  \n\n \n\n$130,387\n\n \n\n$81,453\n\n \n\n60 %\n\n \n\nNet income  \n\n \n\n$120,067\n\n \n\n$72,880\n\n \n\n65 %\n\n \n\nDiluted earnings per share  \n\n \n\n$4.90\n\n \n\n$2.94\n\n \n\n67 %\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n**Non-GAAP**\n\n*($ in millions, except earnings per share)*  \n\n \n\n**FY26**\n\n**FY25**\n\n**Y/Y**\n\nRevenue  \n\n \n\n$215,938\n\n \n\n$130,497\n\n \n\n65 %\n\n \n\nGross margin  \n\n \n\n \n\n71.3 %\n\n \n\n \n\n75.5 %\n\n \n\n(4.2) pts\n\n \n\n \n\nOperating expenses  \n\n \n\n$16,694\n\n \n\n$11,716\n\n \n\n42 %\n\n \n\nOperating income  \n\n \n\n$137,300\n\n \n\n$86,789\n\n \n\n58  %\n\n \n\nNet income  \n\n \n\n$116,997\n\n \n\n$74,265\n\n \n\n58 %\n\n \n\nDiluted earnings per share  \n\n \n\n$4.77\n\n \n\n$2.99\n\n \n\n60 %\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n**Outlook**\n\nBeginning in the first quarter of fiscal 2027, NVIDIA will include stock-based compensation expense in non-GAAP financial measures. Stock-based compensation is a foundational component of NVIDIA’s compensation pr"
+              },
+              {
+                "end_char": 16000,
+                "id": "view-ba3ff43d7222-15000",
+                "start_char": 15000,
+                "text": "ogram to attract and retain world-class talent.\n\nNVIDIA’s outlook for the first quarter of fiscal 2027 is as follows:\n\n-   Revenue is expected to be $78.0 billion, plus or minus 2%. NVIDIA is not assuming any Data Center compute revenue from China in its outlook.\n-   GAAP and non-GAAP gross margins are expected to be 74.9% and 75.0%, respectively, plus or minus 50 basis points, inclusive of a 0.1% impact from stock-based compensation expense.\n-   GAAP and non-GAAP operating expenses are expected to be approximately $7.7 billion and $7.5 billion, respectively, inclusive of $1.9 billion of stock-based compensation expense.  \n      \n    \n\nFor the full year fiscal 2027, GAAP and non-GAAP tax rates are expected to be between 17.0% and 19.0%, excluding any discrete items and material changes to NVIDIA’s tax environment.\n\n**Highlights**\n\n**Data Center**\n\n-   Fourth-quarter revenue was a record $62.3 billion, up 22% from the previous quarter and up 75% from a year ago, driven by the major plat"
+              },
+              {
+                "end_char": 23000,
+                "id": "view-ba3ff43d7222-22000",
+                "start_char": 22000,
+                "text": " \n\n**Professional Visualization**\n\n-   Fourth-quarter revenue was $1.3 billion, up 74% from the previous quarter and up 159% from a year ago, driven by exceptional demand for Blackwell. Full-year revenue rose 70% to a record $3.2 billion.\n-   Launched the [NVIDIA RTX PRO™ 5000 72GB Blackwell GPU](https://blogs.nvidia.com/blog/rtx-pro-5000-72gb-blackwell-gpu/) to power larger models and agentic workflows.\n-   Expanded global availability of [NVIDIA DGX Spark™](https://blogs.nvidia.com/blog/dgx-spark-and-station-open-source-frontier-models/) for the latest open models and delivered updates for improved performance.  \n      \n    \n\n**Automotive and Robotics**\n\n-   Fourth-quarter Automotive revenue was $604 million, up 2% from the previous quarter and up 6% from a year ago, driven by continued adoption of NVIDIA’s self-driving platforms. Full-year revenue rose 39% to a record $2.3 billion.\n-   Unveiled the [NVIDIA Alpamayo](https://nvidianews.nvidia.com/news/alpamayo-autonomous-vehicle-deve"
+              },
+              {
+                "end_char": 42000,
+                "id": "view-ba3ff43d7222-41000",
+                "start_char": 41000,
+                "text": "t).*\n\n*\\*\\*Includes H20 charges/(releases), net, which were $4.5 billion and ($180 million) for the first and second quarter of fiscal 2026, respectively, and insignificant for both the third and fourth quarter of fiscal 2026.*\n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n \n\n(A) Acquisition-related and other costs are comprised of amortization of intangible assets, transaction costs, and certain compensation charges and are included in the following line items:\n\n \n\n \n\n \n\n**Three Months Ended**\n\n \n\n**Twelve Months Ended**\n\n \n\n \n\n \n\n**January 25,**\n\n \n\n**October 26,**\n\n \n\n**January 26,**\n\n \n\n**January 25,**\n\n \n\n**January 26,**\n\n \n\n \n\n \n\n \n\n**2026**\n\n \n\n \n\n \n\n**2025**\n\n \n\n \n\n \n\n**2025**\n\n \n\n \n\n \n\n**2026**\n\n \n\n \n\n \n\n**2025**\n\n \n\n \n\nCost of revenue\n\n$\n\n48\n\n \n\n \n\n$\n\n48\n\n \n\n \n\n$\n\n118\n\n \n\n \n\n$\n\n267\n\n \n\n \n\n$\n\n472\n\n \n\n \n\nResearch and development\n\n$\n\n83\n\n \n\n \n\n$\n\n35\n\n \n\n \n\n$\n\n27\n\n \n\n \n\n$\n\n176\n\n \n\n \n\n$\n\n79\n\n \n\n \n\nSales, general and administrative\n\n$\n\n7\n\n \n\n \n\n$\n\n4\n\n \n\n \n\n$\n\n16\n\n \n\n \n\n$\n\n28\n\n \n\n \n\n$\n\n51\n\n \n\n "
+              }
+            ],
+            "selected_text_chars": 8000,
+            "selection_vocabulary": [
+              "revenue",
+              "capex",
+              "capital",
+              "capacity",
+              "paid",
+              "utilization",
+              "rent",
+              "h100",
+              "energy",
+              "electricity",
+              "data center",
+              "trainium",
+              "graviton",
+              "nitro",
+              "quarter",
+              "billion",
+              "million"
+            ],
+            "source_text_field": "markdown",
+            "view_version": "fixed-metric-vocabulary-1000char-windows-v1"
+          },
+          "response_sha256": "70ffe75251cbd2d9193d88b0ed0757e9f79276d0434d4442a01d2340822b63df"
+        }
+      }
+    },
+    {
+      "id": "usgs_withdrawal",
+      "question": "Using only the available fragments, what were estimated total U.S. water withdrawals in 2015, in billion gallons per day?",
+      "initial_evidence": [],
+      "actions": [
+        {
+          "id": "disc-action-v1-24bf993fdeb165a3e32dfb43",
+          "description": "Read a bounded USGS fragment about estimated U.S. total withdrawals in 2015 and the comparison with 2010."
+        },
+        {
+          "id": "disc-action-v1-658ae13a8f892ef503d135b9",
+          "description": "Read a bounded USGS fragment explaining how consumptive use relates to withdrawn water."
+        }
+      ],
+      "saved_replay": {
+        "disc-action-v1-24bf993fdeb165a3e32dfb43": {
+          "payload": {
+            "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+            "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+            "coverage": {
+              "range_unit": "unicode_code_points",
+              "saved_object_complete": false,
+              "source_document_complete": false,
+              "visible_char_ranges": [
+                [
+                  138871,
+                  139267
+                ]
+              ]
+            },
+            "passages": [
+              {
+                "end_char": 139267,
+                "id": "usgs-4",
+                "start_char": 138871,
+                "text": "  Water use in the United States in 2015 was estimated to be about 322 billion gallons per day (Bgal/d), which was 9 percent less than in 2010. The 2015 estimates put total withdrawals at the lowest level since before 1970, following the same overall trend of decreasing total withdrawals observed from 2005 to 2010. Freshwater withdrawals were 281 Bgal/d, or 87 percent of total withdrawals...\n\n"
+              }
+            ],
+            "provenance": {
+              "captured_at": "2026-10-27T10:41:48.743454+00:00",
+              "source_url": "https://www.usgs.gov/mission-areas/water-resources/science/water-use-united-states"
+            },
+            "source_document_char_count": 164006,
+            "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+          },
+          "response_sha256": "55f13e3818bfee00ac99f11ee5a1c3f2a30eac5d9c5258190bd7447002422365"
+        },
+        "disc-action-v1-658ae13a8f892ef503d135b9": {
+          "payload": {
+            "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+            "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+            "coverage": {
+              "range_unit": "unicode_code_points",
+              "saved_object_complete": false,
+              "source_document_complete": false,
+              "visible_char_ranges": [
+                [
+                  35567,
+                  35974
+                ]
+              ]
+            },
+            "passages": [
+              {
+                "end_char": 35974,
+                "id": "usgs-2",
+                "start_char": 35567,
+                "text": "Not all water withdrawn for human use is lost, much of it returns to the environment. Water that does not return to local water bodies or groundwater is called \"consumptive use.\" Consumptive use includes water that evaporates into the atmosphere, is consumed by humans or livestock, or is incorporated into products or crops. USGS water use data include both total withdrawals and consumptive use estimates."
+              }
+            ],
+            "provenance": {
+              "captured_at": "2026-10-27T10:41:48.743454+00:00",
+              "source_url": "https://www.usgs.gov/mission-areas/water-resources/science/water-use-united-states"
+            },
+            "source_document_char_count": 164006,
+            "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+          },
+          "response_sha256": "270ae227fcae8fec1f032dcaabc5646ee23f64fe892295d60d397f38b8ed1eeb"
+        }
+      },
+      "preconsumed_action_ids": []
+    },
+    {
+      "id": "usgs_consumptive",
+      "question": "Using only the available fragments, what was estimated U.S. consumptive water use in 2015, in billion gallons per day?",
+      "initial_evidence": [],
+      "actions": [
+        {
+          "id": "disc-action-v1-24bf993fdeb165a3e32dfb43",
+          "description": "Read a bounded USGS fragment about estimated U.S. total withdrawals in 2015 and the comparison with 2010."
+        },
+        {
+          "id": "disc-action-v1-658ae13a8f892ef503d135b9",
+          "description": "Read a bounded USGS fragment explaining how consumptive use relates to withdrawn water."
+        }
+      ],
+      "saved_replay": {
+        "disc-action-v1-24bf993fdeb165a3e32dfb43": {
+          "payload": {
+            "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+            "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+            "coverage": {
+              "range_unit": "unicode_code_points",
+              "saved_object_complete": false,
+              "source_document_complete": false,
+              "visible_char_ranges": [
+                [
+                  138871,
+                  139267
+                ]
+              ]
+            },
+            "passages": [
+              {
+                "end_char": 139267,
+                "id": "usgs-4",
+                "start_char": 138871,
+                "text": "  Water use in the United States in 2015 was estimated to be about 322 billion gallons per day (Bgal/d), which was 9 percent less than in 2010. The 2015 estimates put total withdrawals at the lowest level since before 1970, following the same overall trend of decreasing total withdrawals observed from 2005 to 2010. Freshwater withdrawals were 281 Bgal/d, or 87 percent of total withdrawals...\n\n"
+              }
+            ],
+            "provenance": {
+              "captured_at": "2026-10-27T10:41:48.743454+00:00",
+              "source_url": "https://www.usgs.gov/mission-areas/water-resources/science/water-use-united-states"
+            },
+            "source_document_char_count": 164006,
+            "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+          },
+          "response_sha256": "55f13e3818bfee00ac99f11ee5a1c3f2a30eac5d9c5258190bd7447002422365"
+        },
+        "disc-action-v1-658ae13a8f892ef503d135b9": {
+          "payload": {
+            "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+            "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+            "coverage": {
+              "range_unit": "unicode_code_points",
+              "saved_object_complete": false,
+              "source_document_complete": false,
+              "visible_char_ranges": [
+                [
+                  35567,
+                  35974
+                ]
+              ]
+            },
+            "passages": [
+              {
+                "end_char": 35974,
+                "id": "usgs-2",
+                "start_char": 35567,
+                "text": "Not all water withdrawn for human use is lost, much of it returns to the environment. Water that does not return to local water bodies or groundwater is called \"consumptive use.\" Consumptive use includes water that evaporates into the atmosphere, is consumed by humans or livestock, or is incorporated into products or crops. USGS water use data include both total withdrawals and consumptive use estimates."
+              }
+            ],
+            "provenance": {
+              "captured_at": "2026-10-27T10:41:48.743454+00:00",
+              "source_url": "https://www.usgs.gov/mission-areas/water-resources/science/water-use-united-states"
+            },
+            "source_document_char_count": 164006,
+            "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+          },
+          "response_sha256": "270ae227fcae8fec1f032dcaabc5646ee23f64fe892295d60d397f38b8ed1eeb"
+        }
+      },
+      "preconsumed_action_ids": []
+    },
+    {
+      "id": "bea_state_gdp",
+      "question": "For the second quarter of 2026, what state real-GDP change range is reported in the saved BEA excerpt, and what is the numerical spread in percentage points?",
+      "initial_evidence": [
+        {
+          "action_id": "action-v5-b7846a1886845ba867ba8e4f",
+          "response": {
+            "payload": {
+              "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+              "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+              "coverage": {
+                "range_unit": "unicode_code_points",
+                "saved_object_complete": false,
+                "source_document_complete": false,
+                "visible_char_ranges": [
+                  [
+                    11133,
+                    11259
+                  ]
+                ]
+              },
+              "passages": [
+                {
+                  "end_char": 11259,
+                  "id": "bea-2",
+                  "start_char": 11133,
+                  "text": "\r\nAt the state level, real GDP ranged from a 4.0 percent increase in New York to a 2.3 percent decrease in West Virginia.\n    "
+                }
+              ],
+              "provenance": {
+                "captured_at": "2026-10-27T06:48:04.739854+00:00",
+                "source_url": "https://www.bea.gov/data/gdp/gross-domestic-product"
+              },
+              "source_document_char_count": 19587,
+              "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+            },
+            "response_sha256": "fbc305891d8f3e4800510d0743eaf7194b3ab1df6f49b9a0e4c1921aa42832e5"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "id": "action-v5-74183265a852e7812ab117e6",
+          "description": "Read a bounded saved fragment: BEA: Q2 2026 GDP release headline and US real GDP change."
+        }
+      ],
+      "saved_replay": {
+        "action-v5-74183265a852e7812ab117e6": {
+          "payload": {
+            "absence_limit": "No absence or whole-document claim follows from this fragment. The character count and offsets describe only the literal projection; human semantic review is required.",
+            "admitted_evidence_scope": "captured_fragment_literal_nodes_not_rendered_or_complete",
+            "coverage": {
+              "range_unit": "unicode_code_points",
+              "saved_object_complete": false,
+              "source_document_complete": false,
+              "visible_char_ranges": [
+                [
+                  10129,
+                  10253
+                ],
+                [
+                  10641,
+                  11129
+                ]
+              ]
+            },
+            "passages": [
+              {
+                "end_char": 10253,
+                "id": "bea-0",
+                "start_char": 10129,
+                "text": "GDP (Third Estimate), Industries, Corporate Profits, State GDP, and State Personal Income, 2nd Quarter 2026; State PCE, 2025"
+              },
+              {
+                "end_char": 11129,
+                "id": "bea-1",
+                "start_char": 10641,
+                "text": "\n            Real gross domestic product (GDP) increased at an annual rate of 2.2 percent in the second quarter of 2026 (April, May, and June), according to the third estimate released today by the U.S. Bureau of Economic Analysis (BEA). In the first quarter, real GDP increased 2.5 percent (revised). The contributors to the increase in real GDP in the second quarter were consumer spending, investment, and exports. Imports, which are a subtraction in the calculation of GDP, increased."
+              }
+            ],
+            "provenance": {
+              "captured_at": "2026-10-27T06:48:04.739854+00:00",
+              "source_url": "https://www.bea.gov/data/gdp/gross-domestic-product"
+            },
+            "source_document_char_count": 19587,
+            "source_text_field": "captured_fragment_literal_nodes_not_rendered"
+          },
+          "response_sha256": "3626a147cc3d4b0df0dc2096379269500e6e5fae9132320ff9be287355518f23"
+        }
+      },
+      "preconsumed_action_ids": [
+        "action-v5-b7846a1886845ba867ba8e4f"
+      ]
+    }
+  ]
+}

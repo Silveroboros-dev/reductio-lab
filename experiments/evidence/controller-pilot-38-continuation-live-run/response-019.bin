@@ -1,0 +1,37 @@
+{
+  "candidates": [
+    {
+      "content": {
+        "role": "model",
+        "parts": [
+          {
+            "text": "{\"critique\":\"The evidence explicitly states that 'incomplete passages do not establish source-wide absence'. Therefore, relying solely on snippets to assert that the source does not establish customer H100 rental prices is an unsupported conclusion of absence. To determine whether the primary source actually contains or does not contain rental pricing information, action-5065a498a0c50c1e01407234 should be fetched to view the full press release.\",\"issue\":true}",
+            "thoughtSignature": "AY89a19PRLt9R6Wbgwgyg+Oiye92sQLyRyT7auCTaWFnjpXyrW2eE0pzqjHgrFRrzF3NXBmChrZ+3ZLmGQlF/bNLMnHmmylcQTfMmsxzIYp9I7A029ls"
+          }
+        ]
+      },
+      "finishReason": "STOP"
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 2051,
+    "candidatesTokenCount": 105,
+    "totalTokenCount": 2156,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 2051
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 105
+      }
+    ]
+  },
+  "modelVersion": "gemini-3.8-flash",
+  "createTime": "2026-10-29T08:04:46.188158Z",
+  "responseId": "Hv7iav69C8vImLAPocbqmAM"
+}

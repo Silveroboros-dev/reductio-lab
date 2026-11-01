@@ -1,0 +1,11 @@
+{
+  "schema": "forecast-source-ui-observation-v1",
+  "observed_at_utc": "2026-10-29T10:47:16.474990+00:00",
+  "source": "operator visual inspection public detail; no account-specific guarantee",
+  "api": "kalshi",
+  "path": "/markets",
+  "method": "POST",
+  "provider_method": "GET",
+  "rate_usd": "Free",
+  "endpoint_url": "https://www.orthogonal.com/discover/kalshi/26336e71-0806-4771-b1e0-2913fcd8cf03"
+}

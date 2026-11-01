@@ -22,7 +22,7 @@ python3 -m reasoning_engine.demo
 python3 -m unittest discover -s tests -p test_strict_v3.py -v
 ```
 
-See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and limitations. The live-run harness and historical private data are not included.
+See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and limitations. The published experiment archive includes historical live-run harnesses and records.
 
 ## Architecture
 
@@ -33,9 +33,10 @@ See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and li
 - [Experiment history: English](research-briefs-20261030/01-experiment-history-en.md) · [Русский](research-briefs-20261030/01-experiment-history-ru.md)
 - [Anthropic S-1 FAQ: English](research-briefs-20261030/02-anthropic-s1-faq-en.md) · [Русский](research-briefs-20261030/02-anthropic-s1-faq-ru.md)
 - [Source index and availability](research-briefs-20261030/source-index.md)
+- [Experiment evidence: English and Russian](experiments/README.md) · [file-level change manifest](experiments/manifest.json)
 
 ## Status and limitations
 
 This is exploratory research, not evidence that a controller improves decisions or protects independent judgment. Earlier experiments were small and included technical and methodological limitations. The FAQ is an illustration, not investment advice.
 
-The primary experiment logs and full model answers are retained separately and are not included here. The source index records identifiers and hashes, but does not make those materials independently reproducible.
+The [experiment archive](experiments/README.md) includes tasks, prompts, full recorded answers, rubrics, and operation logs, including incomplete and failed runs. These records permit inspection; hashes alone are not independent certification, and generative outputs may not be exactly reproducible. Some sources or human reviews were not captured, as documented in the archive.

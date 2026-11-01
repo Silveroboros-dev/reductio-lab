@@ -1,0 +1,20 @@
+{
+  "run_id": "faithful-dynamic-pilot-20261029-source-01",
+  "cap_micro": 40000000,
+  "prior_micro": 721593,
+  "prior_generations": 79,
+  "prior_counts": 11,
+  "max_generations": 835,
+  "max_counts": 767,
+  "max_sources": 18,
+  "source_cap_micro": 5000000,
+  "model": "gemini-3.8-flash",
+  "location": "global",
+  "input_limit": 16384,
+  "output_reserve": 8192,
+  "max_output_tokens": 4096,
+  "input_rate_half_micro": 3,
+  "output_rate_half_micro": 15,
+  "model_price_evidence_sha256": "3b1357c4754921af5bdf392e6113e2e10cd0a6a17cfb5502ad8afad3ad6f1bb8",
+  "count_price_evidence_sha256": "3b1357c4754921af5bdf392e6113e2e10cd0a6a17cfb5502ad8afad3ad6f1bb8"
+}

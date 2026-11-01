@@ -1,0 +1,13 @@
+{
+  "kind": "user-relayed Grok report",
+  "content_sha256": "c7a14b2312c7c818341391eb4af5bdfe59075950ab1e385ba5dc49807fbe9ea6",
+  "size_bytes": 1778,
+  "url": "https://external-api.kalshi.com/trade-api/v2/markets/KXFEDDECISION-26DEC-H25",
+  "reported_start_utc": "2026-10-29T09:01:24Z",
+  "reported_end_utc": "2026-10-29T09:01:25Z",
+  "reported_status": 200,
+  "reported_http_date": "Thu, 29 Oct 2026 09:01:25 GMT",
+  "page_comparison": "user reports Grok encountered Vercel Security Checkpoint Code 21",
+  "independent_origin_verification": false,
+  "saved_at_utc": "2026-10-29T09:02:50.499527+00:00"
+}
