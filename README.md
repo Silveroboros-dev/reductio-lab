@@ -8,6 +8,15 @@ The project investigates whether structured reasoning and contrary-case analysis
 
 This repository includes an experimental Python controller and a stricter v3 variant. The included demonstration and tests use scripted callbacks and saved-source fixtures; they make no model or source calls. The code is a research prototype, not a production system or a reproduction of the papers.
 
+The prototype makes several design choices explicit and inspectable:
+
+- **Separated reasoning roles.** Python orchestrates Selection, Inference, Halter, Value and Formatter as distinct callbacks. In the strict v3 controller, Inference receives selected premises rather than the full question or evidence bundle.
+- **Recorded evidence and decisions.** Outcomes retain evidence identifiers, input hashes, role events and selected dependency paths. These records support inspection; their presence does not establish that an inference is valid or that a model's internal reasoning followed the recorded path.
+- **Bounded execution.** The optional local executor records attempts and can apply a pre-authorized, bounded backoff with jitter to confirmed HTTP 429 responses. It records uncertain effects separately and does not automatically retry them. It is a single-runner research component, not a production reliability guarantee.
+- **Comparisons and human review.** The repository contains baseline runners and reporting helpers that preserve failed and unknown outcomes. Semantic assessments and human judgments remain separate from model scores and structural checks.
+
+A scripted sensitivity fixture changes a selected premise; there is no general causal-intervention benchmark or automated proof that an explanation is faithful. The Vertex adapter builds and parses requests using caller-supplied transport and accounting; it is not a ready-to-run live service or production batch pipeline. Untrusted source content remains a prompt-injection risk: structured requests and role boundaries alone do not prove resistance.
+
 ```sh
 python3 -m reasoning_engine.demo
 python3 -m unittest discover -s tests -p test_strict_v3.py -v
