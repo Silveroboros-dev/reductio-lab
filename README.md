@@ -15,14 +15,14 @@ The prototype makes several design choices explicit and inspectable:
 - **Bounded execution.** The optional local executor records attempts and can apply a pre-authorized, bounded backoff with jitter to confirmed HTTP 429 responses. It records uncertain effects separately and does not automatically retry them. It is a single-runner research component, not a production reliability guarantee.
 - **Comparisons and human review.** The repository contains baseline runners and reporting helpers that preserve failed and unknown outcomes. Semantic assessments and human judgments remain separate from model scores and structural checks.
 
-A scripted sensitivity fixture changes a selected premise; there is no general causal-intervention benchmark or automated proof that an explanation is faithful. The Vertex bridge uses caller-supplied single-shot transports and explicit per-run budget and price settings; it is not a ready-to-run live service or production batch pipeline. An earlier, experiment-specific version completed one synthetic end-to-end Vertex run; the generalized public version has been checked offline, not independently live-tested. Untrusted source content remains a prompt-injection risk: structured requests and role boundaries alone do not prove resistance.
+A scripted sensitivity fixture changes a selected premise; there is no general causal-intervention benchmark or automated proof that an explanation is faithful. At commit `47fb684`, the public controller completed one end-to-end Vertex run with Gemini 3.8 Flash on a synthetic saved-source case, from source decision through Formatter. This is a single technical compatibility check, not evidence of general reliability, semantic correctness, faithful internal reasoning, or improved human judgment. The Vertex bridge uses caller-supplied single-shot transports and explicit per-run budget and price settings; it is not a ready-to-run live service or production batch pipeline. Untrusted source content remains a prompt-injection risk: structured requests and role boundaries alone do not prove resistance.
 
 ```sh
 python3 -m reasoning_engine.demo
 python3 -m unittest discover -s tests -p test_strict_v3.py -v
 ```
 
-See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and limitations. Live provider use and historical private data are not included.
+See the [prototype notes](docs/faithful-engine-prototype-v1.md) for scope and limitations. The live-run harness and historical private data are not included.
 
 ## Architecture
 
