@@ -19,6 +19,14 @@ def digest(value: Any) -> str:
     return hashlib.sha256(canonical(value)).hexdigest()
 
 
+class MissingReplayCapture(ValueError):
+    """Validated checkpoint references a capture absent from the supplied catalog."""
+
+    def __init__(self, missing_action_ids):
+        super().__init__('incomplete replay catalog')
+        self.missing_action_ids = tuple(sorted(missing_action_ids))
+
+
 class ReplayCase:
     def __init__(self, checkpoint: dict, replay_catalog: list[dict]):
         self._task = copy.deepcopy(checkpoint['input'])
@@ -59,7 +67,7 @@ class ReplayCase:
                 raise ValueError('saved response hash mismatch')
             self._sources[aid] = copy.deepcopy(saved)
         if set(self._sources) != set(self._catalog):
-            raise ValueError('incomplete replay catalog')
+            raise MissingReplayCapture(set(self._catalog) - set(self._sources))
         self._used: set[str] = set()
         self._spent = 0
 

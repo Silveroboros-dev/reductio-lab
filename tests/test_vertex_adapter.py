@@ -115,7 +115,7 @@ class VertexAdapterTests(unittest.TestCase):
                          canonical_json(ledger.generations[0][1]))
 
     def test_timeout_and_429_errors_propagate_without_retry(self):
-        for error in (TimeoutError("timeout"), RuntimeError("HTTP 429")):
+        for error in (TimeoutError("timeout"), ConnectionError("disconnect"), RuntimeError("HTTP 429")):
             with self.subTest(error=type(error).__name__):
                 ledger = FakeLedger(count_error=error)
                 adapter = VertexAdapter(ledger, lambda *_: (200, b""))
@@ -126,7 +126,7 @@ class VertexAdapterTests(unittest.TestCase):
                 self.assertEqual(len(ledger.generations), 0)
 
     def test_generation_timeout_and_429_errors_propagate(self):
-        for error in (TimeoutError("timeout"), RuntimeError("HTTP 429")):
+        for error in (TimeoutError("timeout"), ConnectionError("disconnect"), RuntimeError("HTTP 429")):
             with self.subTest(error=type(error).__name__):
                 ledger = FakeLedger(generate_error=error)
                 adapter = VertexAdapter(ledger, lambda *_: (200, b""))

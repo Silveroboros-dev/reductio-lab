@@ -95,6 +95,7 @@ def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any], *, k
     """Use per-render aliases; raw IDs, content and hashes remain private."""
     labels = {
         'execution_limit': 'execution limit reached', 'effect_uncertain': 'callback effect uncertain',
+        'callback_interrupted': 'callback interrupted; effect not established',
         'model_decision': 'model declined a source decision', 'technical_failure': 'technical failure',
         'input_or_process': 'input or process boundary',
     }
@@ -105,7 +106,19 @@ def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any], *, k
     status_text = _STATUSES.get(status, 'Unknown') if isinstance(status, str) else 'Unknown'
     lines = ['# Faithful Engine outcome', '', '**Status:** ' + status_text]
     if isinstance(status, str) and status in {'unknown', 'technical_failure'}:
-        lines += ['No final answer was produced.', 'Stopping condition: ' + labels.get(kind, 'unknown')]
+        stop_reason = explanation.get('stop_reason')
+        details = {'generation_cap_exhausted': 'generation-call limit reached',
+                   'episode_call_cap': 'episode-call limit reached',
+                   'reasoning_depth_exhausted': 'reasoning-depth limit reached',
+                   'replay_capture_missing': 'saved capture missing from supplied replay catalog',
+                   'no_source_evidence': 'no source evidence supplied'}
+        detail = details.get(stop_reason) if isinstance(stop_reason, str) else None
+        condition = 'Stopping condition: ' + labels.get(kind, 'unknown')
+        if detail:
+            condition += ' (' + detail + ')'
+        lines += ['No final answer was produced.', condition]
+        if explanation.get('callback_effect_state') == 'not_established':
+            lines.append('Callback effect state is not established; dispatch is not proven.')
     else:
         lines.append('Result withheld from the default view.')
     lines.append('')

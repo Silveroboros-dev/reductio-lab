@@ -238,7 +238,7 @@ class RoleAndControlTests(unittest.TestCase):
             called.append(stage)
             raise TimeoutError('fixture only')
         out = run_case(checkpoint, catalog, model)
-        self.assertEqual((out['status'], out['reason']), ('unknown', 'source_callback_effect_uncertain:TimeoutError'))
+        self.assertEqual((out['status'], out['reason']), ('unknown', 'source_callback_interrupted:TimeoutError'))
         self.assertEqual(called, ['source_decision'])
         self.assertEqual(out['history'][0]['kind'], 'model_decision_failed')
         self.assertEqual(out['history'][0]['exception_type'], 'TimeoutError')

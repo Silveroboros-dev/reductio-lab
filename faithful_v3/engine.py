@@ -15,11 +15,14 @@ from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, Inva
                                      _Branch, _ancestry, prepare_task)
 from faithful_v3.excerpts import resolve_selection, source_registry
 
-VERSION = 'faithful-v3-strict-4'
+VERSION = 'faithful-v3-strict-5'
 
 
 def _stop_kind(status: str, reason: str) -> str:
+    if 'callback_interrupted' in reason:
+        return 'callback_interrupted'
     if 'callback_effect_uncertain' in reason:
+        # Preserve rendering of older outcomes; current callbacks are neutral.
         return 'effect_uncertain'
     if reason == 'source_decision_uncertain':
         return 'model_decision'
@@ -48,6 +51,8 @@ class StrictEngine(Engine):
         out['candidate_findings'] = copy.deepcopy(self.candidate_findings)
         if status in {'unknown', 'technical_failure'}:
             out['unknown_explanation'] = self._explain_stop(task, status, reason)
+            if self.events and self.events[-1].get('event') == 'callback_failed':
+                out['unknown_explanation']['callback_effect_state'] = 'not_established'
         return out
 
     def _explain_stop(self, task: dict, status: str, reason: str) -> dict:
@@ -58,7 +63,7 @@ class StrictEngine(Engine):
                     for ident in event.get('branch_ids', [])}
         assessments = []
         for event in self.events:
-            if status != 'unknown' or 'uncertain' in reason:
+            if status != 'unknown' or _stop_kind(status, reason) not in {'execution_limit', 'input_or_process'}:
                 break
             if event.get('event') != 'step_proposed' or event.get('sufficient') is not False:
                 continue
@@ -115,8 +120,12 @@ class StrictEngine(Engine):
             return self._run(prepared)
         except BudgetExhausted:
             status, reason = 'unknown', 'generation_cap_exhausted'
-        except TimeoutError:
-            status, reason = 'unknown', 'callback_effect_uncertain:TimeoutError'
+        except (TimeoutError, ConnectionError) as exc:
+            # Callback entry does not prove dispatch; the effect is not established.
+            if self.events and self.events[-1].get('event') == 'callback_failed':
+                status, reason = 'unknown', 'callback_interrupted:' + type(exc).__name__
+            else:
+                status, reason = 'technical_failure', 'local_error:' + type(exc).__name__
         except InvalidOutput as exc:
             status, reason = 'technical_failure', str(exc)
         except Exception as exc:

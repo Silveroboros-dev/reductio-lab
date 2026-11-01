@@ -68,8 +68,8 @@ class FeedbackAndUnknownTests(unittest.TestCase):
         self.assertEqual(out['unknown_explanation']['stop_kind'], 'execution_limit')
         self.assertEqual(out['unknown_explanation']['model_assessments'][0]['origin'], 'model_unverified')
         timed = StrictEngine(lambda s, p: (_ for _ in ()).throw(TimeoutError())).run(engine_task())
-        self.assertEqual(timed['reason'], 'callback_effect_uncertain:TimeoutError')
-        self.assertEqual(timed['unknown_explanation']['stop_kind'], 'effect_uncertain')
+        self.assertEqual(timed['reason'], 'callback_interrupted:TimeoutError')
+        self.assertEqual(timed['unknown_explanation']['stop_kind'], 'callback_interrupted')
         self.assertEqual(timed['unknown_explanation']['model_assessments'], [])
 
     def test_source_unknown_and_nested_unknown_are_exposed(self):
@@ -122,7 +122,7 @@ class FeedbackAndUnknownTests(unittest.TestCase):
             out = StrictEngine(callback, EngineConfig(max_calls=10, max_depth=2)).run(engine_task())
             self.assertEqual(out['unknown_explanation']['model_assessments'], [])
             self.assertEqual(out['unknown_explanation']['stop_kind'],
-                             'effect_uncertain' if failure is TimeoutError else 'technical_failure')
+                             'callback_interrupted' if failure is TimeoutError else 'technical_failure')
             self.assertEqual(len([e for e in out['events'] if e.get('event') == 'step_proposed']), 1)
 
     def test_invalid_halter_is_technical_failure_and_inputs_are_strict(self):

@@ -123,6 +123,23 @@ class EffectExecutorTests(unittest.TestCase):
         # Timeout exposure is held, not released, and remains counted.
         self.assertEqual(self.executor.accounting()["exposure_units"], 4)
 
+    def test_connection_error_is_durably_uncertain_and_not_retried(self):
+        self.register('disconnect')
+        calls = []
+        def disconnected(_request):
+            calls.append('attempt')
+            raise ConnectionResetError('fixture only')
+        policy = RetryPolicy(allow_429=True, max_attempts=4)
+        first = self.executor.execute('disconnect', callback=disconnected, retry=policy)
+        self.assertEqual((first.state, first.attempts), ('uncertain', 1))
+        self.executor.close()
+        self.executor = EffectExecutor(self.db, exposure_cap=100, call_cap=20,
+                                       sleep=self.sleeps.append, rng=lambda: 0.5)
+        resumed = self.executor.execute('disconnect', callback=disconnected, retry=policy)
+        self.assertEqual((resumed.state, resumed.attempts), ('uncertain', 1))
+        self.assertEqual(calls, ['attempt'])
+        self.assertEqual(self.executor.accounting()['exposure_units'], 2)
+
     def test_200_invalid_json_is_successful_effect_without_retry(self):
         self.register("bad-json")
         calls = []

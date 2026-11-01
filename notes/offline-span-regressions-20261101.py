@@ -39,6 +39,15 @@ def adapt_run_case(checkpoint, catalog, generate, **kwargs):
 
 
 historical.run_case = adapt_run_case
+# The predecessor asserted an effect-uncertain label solely from TimeoutError.
+# The successor intentionally reports an interrupted callback without claiming
+# dispatch. Its replacement is in tests/test_v3_missing_uncertain.py; retain the
+# old test source and mark this incompatible expectation explicitly as skipped.
+from faithful_v3.engine import VERSION as STRICT_VERSION
+if STRICT_VERSION == 'faithful-v3-strict-5':
+    old_test = historical.RoleAndControlTests.test_source_callback_failure_is_visible_without_retry
+    historical.RoleAndControlTests.test_source_callback_failure_is_visible_without_retry = unittest.skip(
+        'predecessor timeout label superseded; see test_v3_missing_uncertain')(old_test)
 suite = unittest.defaultTestLoader.loadTestsFromModule(historical)
 result = unittest.TextTestRunner(verbosity=1).run(suite)
 if not result.wasSuccessful():

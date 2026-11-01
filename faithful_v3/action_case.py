@@ -11,10 +11,10 @@ import json
 from typing import Callable, Any
 
 from reasoning_engine.engine import EngineConfig, prepare_task
-from reasoning_engine.replay_sources import ReplayCase, digest
+from reasoning_engine.replay_sources import MissingReplayCapture, ReplayCase, digest
 from faithful_v3.engine import StrictEngine, _stop_kind
 
-VERSION = 'faithful-v3-source-loop-4'
+VERSION = 'faithful-v3-source-loop-5'
 
 
 def _utc_timestamp(value: Any) -> str | None:
@@ -88,7 +88,38 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
     """
     if not callable(generate) or type(max_calls) is not int or max_calls < 1:
         raise ValueError('valid callback and positive call budget required')
-    replay = ReplayCase(checkpoint, catalog)
+    try:
+        replay = ReplayCase(checkpoint, catalog)
+    except MissingReplayCapture as exc:
+        # All supplied bindings have already been checked; no callback has run.
+        # A missing saved capture is not proof that the external source lacks data.
+        question = checkpoint['input'].get('thesis')
+        questions = ([{'id': 'user-target', 'question': question}]
+                     if isinstance(question, str) and question.strip() else [])
+        timestamp_presence = {}
+        for item in checkpoint['input'].get('initial_evidence', []):
+            payload = item['response']['payload']
+            provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
+            stamp = provenance.get('captured_at') if isinstance(provenance, dict) else None
+            timestamp_presence['source:' + item['action_id']] = 'known_utc' if _utc_timestamp(stamp) else 'unknown'
+        return {'version': VERSION, 'arm': 'C_v3_spans_v5', 'status': 'unknown',
+                'reason': 'replay_capture_missing', 'result': None, 'calls': 0,
+                'case_id': checkpoint['case_id'], 'input_version': checkpoint['input_version'],
+                'case_catalog_sha256': digest([item for item in catalog if item.get('case_id') == checkpoint['case_id']]),
+                'case_catalog_complete': False,
+                'user_target': question, 'captured_timestamp_presence': timestamp_presence,
+                'cutoff_mode': ('structured_utc' if _utc_timestamp(checkpoint['input'].get('information_cutoff'))
+                                else 'unstructured_or_missing_not_enforced'),
+                'simulated_replay_spent_micro_usd': 0,
+                'semantic_status': 'unreviewed',
+                'history': [{'kind': 'replay_preflight', 'reason': 'replay_capture_missing'}],
+                'missing_action_ids': list(exc.missing_action_ids),
+                'unknown_explanation': {
+                    'status': 'unknown', 'stop_reason': 'replay_capture_missing',
+                    'stop_kind': 'input_or_process', 'unresolved_questions': questions,
+                    'model_assessments': [],
+                    'scope_note': 'A capture is missing from this supplied replay catalog; external source availability is unknown.',
+                }}
     case_id = checkpoint['case_id']
     case_catalog = [copy.deepcopy(item) for item in catalog if item.get('case_id') == case_id]
     history: list[dict] = []
@@ -103,7 +134,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
             provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
             stamp = provenance.get('captured_at') if isinstance(provenance, dict) else None
             timestamp_presence['source:' + item['action_id']] = 'known_utc' if _utc_timestamp(stamp) else 'unknown'
-        result_packet = {'version': VERSION, 'arm': 'C_v3_spans_v4', 'status': status, 'reason': reason,
+        result_packet = {'version': VERSION, 'arm': 'C_v3_spans_v5', 'status': status, 'reason': reason,
                 'result': copy.deepcopy(result), 'history': copy.deepcopy(history),
                 'calls': model_calls, 'semantic_status': 'unreviewed',
                 'case_id': case_id, 'input_version': checkpoint['input_version'],
@@ -124,6 +155,8 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                  'raw_ref': 'sha256:' + item['response']['response_sha256']}
                 for item in current['observed']
             ]
+            if history and history[-1].get('kind') == 'model_decision_failed':
+                explanation['callback_effect_state'] = 'not_established'
             if reason == 'source_decision_uncertain':
                 last = next((x for x in reversed(history) if x.get('kind') == 'model_decision'
                              and x.get('output', {}).get('choice') == 'UNKNOWN'), None)
@@ -198,7 +231,9 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
         history.append({'kind': 'final', 'outcome': final})
         extra = {'unknown_explanation': final['unknown_explanation']} if 'unknown_explanation' in final else {}
         return outcome(final['status'], final['reason'], final.get('result'), **extra)
-    except TimeoutError:
-        return outcome('unknown', 'source_callback_effect_uncertain:TimeoutError')
+    except (TimeoutError, ConnectionError) as exc:
+        if history and history[-1].get('kind') == 'model_decision_failed':
+            return outcome('unknown', 'source_callback_interrupted:' + type(exc).__name__)
+        return outcome('technical_failure', 'local_error:' + type(exc).__name__)
     except Exception as exc:
         return outcome('technical_failure', type(exc).__name__)
