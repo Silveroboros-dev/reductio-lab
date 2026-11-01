@@ -90,12 +90,67 @@ def _answer(result: Any) -> str:
     return ""
 
 
-def render_outcome(outcome: dict[str, Any]) -> str:
+def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any]) -> str:
+    """Minimal summary; hashes can still be linkable identifiers."""
+    labels = {
+        'execution_limit': 'execution limit reached', 'effect_uncertain': 'callback effect uncertain',
+        'model_decision': 'model declined a source decision', 'technical_failure': 'technical failure',
+        'input_or_process': 'input or process boundary',
+    }
+    kind = explanation.get('stop_kind')
+    if not isinstance(kind, str):
+        kind = 'unknown'
+    status = data.get('status')
+    status_text = _STATUSES.get(status, 'Unknown') if isinstance(status, str) else 'Unknown'
+    lines = ['# Faithful Engine outcome', '', '**Status:** ' + status_text]
+    if status in {'unknown', 'technical_failure'}:
+        lines += ['No final answer was produced.', 'Stopping condition: ' + labels.get(kind, 'unknown')]
+    else:
+        lines.append('Result withheld from the default view.')
+    lines.append('')
+    assessments = _items(explanation.get('model_assessments'))
+    for raw in assessments:
+        item = _mapping(raw)
+        assessment = item.get('evidence_assessment')
+        if not isinstance(assessment, str):
+            assessment = 'not_determined'
+        label = {'insufficient': 'insufficient evidence', 'conflicting': 'conflicting evidence',
+                 'not_determined': 'not determined'}.get(assessment, 'not determined')
+        lines.append('- Unverified model assessment of a recorded inference: ' + label)
+        for raw_ref in _items(item.get('selected_source_refs')):
+            ref = _mapping(raw_ref)
+            sha = ref.get('saved_payload_sha256')
+            if not isinstance(sha, str) or not re.fullmatch(r'[0-9a-f]{64}', sha):
+                raw_hash = ref.get('raw_ref')
+                sha = raw_hash[7:] if isinstance(raw_hash, str) and re.fullmatch(r'sha256:[0-9a-f]{64}', raw_hash) else None
+            if sha:
+                lines.append('  - Recorded input SHA-256 (not independently verified): ' + sha)
+            excerpt_hash = ref.get('excerpt_sha256')
+            if isinstance(excerpt_hash, str) and re.fullmatch(r'[0-9a-f]{64}', excerpt_hash):
+                lines.append('  - Selected text SHA-256: ' + excerpt_hash)
+            start, end = ref.get('start_char'), ref.get('end_char')
+            if (ref.get('scope') == 'saved_passage_span' and ref.get('offset_unit') == 'unicode_code_points'
+                    and type(start) is int and type(end) is int and 0 <= start < end):
+                lines.append(f'  - Source-reported Unicode offsets: {start}–{end} (not independently verified)')
+    if _mapping(explanation.get('source_decision')):
+        lines.append('- A source decision was uncertain (model assessment, unverified).')
+    lines.extend(['', 'Model text, source text and user input are omitted from this view.',
+                  'A saved fragment does not establish absence elsewhere or semantic support.'])
+    return '\n'.join(lines) + '\n'
+
+
+def render_outcome(outcome: dict[str, Any], *, include_private: bool = False) -> str:
     """Render one engine outcome using an explicit field allowlist.
 
     Unknown keys and model call payload/result objects are never serialized.
     """
     data = _mapping(outcome)
+    version = data.get('version')
+    strict_packet = isinstance(version, str) and version.startswith('faithful-v3-')
+    status = data.get('status')
+    if not include_private and (strict_packet or (isinstance(status, str) and status in {'unknown', 'technical_failure'})):
+        explanation = _mapping(data.get('unknown_explanation'))
+        return _render_bounded_stop(data, explanation)
     # A source-loop packet nests its engine outcome in the final history event.
     # Project it for display without rewriting the recorded outer packet.
     if 'coverage' not in data:
@@ -141,6 +196,13 @@ def render_outcome(outcome: dict[str, Any]) -> str:
                 refs = [x for x in refs if x]
                 lines.append("- Unverified Halter assessment (" + branch + ", " + beam + "): " + reason_text
                              + ("; selected source IDs: " + ", ".join(refs) if refs else ""))
+                for raw_ref in _items(item.get("selected_source_refs")):
+                    ref = _mapping(raw_ref)
+                    if ref.get("scope") == "saved_passage_span":
+                        passage = _safe_text(ref.get("passage_id")) or "unknown"
+                        start, end = ref.get("start_char"), ref.get("end_char")
+                        if type(start) is int and type(end) is int and 0 <= start < end:
+                            lines.append(f"  - Passage {passage}, reported offsets {start}–{end} (not independently verified).")
         source_decision = _mapping(explanation.get("source_decision"))
         if _safe_text(source_decision.get("reason")):
             lines.append("- Unverified source-decision assessment: " + _safe_text(source_decision.get("reason")))

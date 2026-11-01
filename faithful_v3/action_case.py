@@ -14,7 +14,7 @@ from reasoning_engine.engine import EngineConfig, prepare_task
 from reasoning_engine.replay_sources import ReplayCase, digest
 from faithful_v3.engine import StrictEngine, _stop_kind
 
-VERSION = 'faithful-v3-source-loop-2'
+VERSION = 'faithful-v3-source-loop-3'
 
 
 def _utc_timestamp(value: Any) -> str | None:
@@ -101,7 +101,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
             provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
             stamp = provenance.get('captured_at') if isinstance(provenance, dict) else None
             timestamp_presence['source:' + item['action_id']] = 'known_utc' if _utc_timestamp(stamp) else 'unknown'
-        result_packet = {'version': VERSION, 'arm': 'C_v3_feedback_v2', 'status': status, 'reason': reason,
+        result_packet = {'version': VERSION, 'arm': 'C_v3_spans_v3', 'status': status, 'reason': reason,
                 'result': copy.deepcopy(result), 'history': copy.deepcopy(history),
                 'calls': model_calls, 'semantic_status': 'unreviewed',
                 'case_id': case_id, 'input_version': checkpoint['input_version'],

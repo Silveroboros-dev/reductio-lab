@@ -7,13 +7,15 @@ None of these structural checks establishes semantic entailment or truth.
 from __future__ import annotations
 
 import copy
+import json
 import math
 from typing import Any, Callable
 
 from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, InvalidOutput,
                                      _Branch, _ancestry, prepare_task)
+from faithful_v3.excerpts import resolve_selection, source_registry
 
-VERSION = 'faithful-v3-strict-2'
+VERSION = 'faithful-v3-strict-3'
 
 
 def _stop_kind(status: str, reason: str) -> str:
@@ -64,13 +66,23 @@ class StrictEngine(Engine):
             if branch is None:
                 continue
             trace, leaves, _ = _ancestry(branch['steps'], event['conclusion_id'])
-            refs = []
-            for ident in sorted(leaves & evidence.keys()):
-                item = evidence[ident]
-                refs.append({'id': ident, 'source': item.get('source'), 'raw_ref': item.get('raw_ref')})
+            refs, seen_refs = [], set()
+            for step in trace:
+                for ref in step.get('selected_source_refs', []):
+                    key = json.dumps(ref, sort_keys=True, ensure_ascii=False)
+                    if key not in seen_refs:
+                        refs.append(copy.deepcopy(ref))
+                        seen_refs.add(key)
+            # Historical traces do not contain span metadata.
+            if not refs:
+                for ident in sorted(leaves & evidence.keys()):
+                    item = evidence[ident]
+                    refs.append({'id': ident, 'source': item.get('source'), 'raw_ref': item.get('raw_ref'),
+                                 'scope': 'whole_saved_response'})
             assessments.append({
                 'branch_id': event['branch_id'], 'conclusion_id': event['conclusion_id'],
                 'reason': event['halter_reason'], 'origin': 'model_unverified',
+                'evidence_assessment': event.get('evidence_assessment', 'not_determined'),
                 'halter_call_ordinal': event['halter_call_ordinal'],
                 'ever_in_beam': event['branch_id'] in beam_ids,
                 'selected_source_refs': refs, 'selected_trace': trace,
@@ -81,7 +93,7 @@ class StrictEngine(Engine):
                                      for q in task['required_questions']],
             'model_assessments': assessments,
             'scope_note': ('Assessments cover recorded candidate branches and may include pruned branches. '
-                           'References identify selected saved responses, not exact passages; '
+                           'Passage spans are checked against saved response text, not the original document; '
                            'they do not establish entailment or absence from other material.'),
         }
 
@@ -135,7 +147,11 @@ class StrictEngine(Engine):
         if target not in task['question'] or ('thesis' in task and task['thesis']['text'] != target):
             return self._unknown(task, 'user_target_not_bound_to_question')
         # Unlike v1, a user question/thesis never becomes a selectable fact.
+        if any(item.get('kind') == 'derived_claim' for item in task['evidence']):
+            raise InvalidOutput('caller-supplied derived claims cannot be used as source evidence')
         common = {x['id']: copy.deepcopy(x) for x in task['evidence']}
+        source_ids = {x['id'] for x in task['evidence'] if x.get('kind') != 'derived_claim'}
+        registry = source_registry(task['evidence'])
         if not common:
             return self._unknown(task, 'no_source_evidence')
         beam = [_Branch('root', copy.deepcopy(common))]
@@ -163,11 +179,11 @@ class StrictEngine(Engine):
                 if not isinstance(alternatives, list) or len(alternatives) > self.config.max_alternatives:
                     raise InvalidOutput('invalid selection alternatives')
                 signatures = set()
-                for position, ids in enumerate(alternatives, 1):
-                    if (not isinstance(ids, list) or not ids or any(not isinstance(x, str) or not x for x in ids)
-                            or len(ids) != len(set(ids)) or any(x not in branch.nodes for x in ids)):
+                for position, selected_items in enumerate(alternatives, 1):
+                    if not isinstance(selected_items, list) or not selected_items:
                         raise InvalidOutput('selection has unknown, duplicate or empty IDs')
-                    signature = tuple(sorted(ids))
+                    ids, texts, refs = resolve_selection(selected_items, branch.nodes, source_ids, registry)
+                    signature = json.dumps({'ids': ids, 'refs': refs}, sort_keys=True, ensure_ascii=False)
                     if signature in signatures:
                         continue
                     signatures.add(signature)
@@ -177,9 +193,6 @@ class StrictEngine(Engine):
                         self.events.append({'event': 'budget_pruned', 'branch_id': branch.ident,
                                             'depth': depth, 'alternative': position})
                         break
-                    texts = [{'text': branch.nodes[x]['text'],
-                              'source': branch.nodes[x].get('source', 'model inference, not source fact'),
-                              'kind': branch.nodes[x].get('kind', 'derived_claim')} for x in ids]
                     inference = self._call('inference', {'selected_texts': texts}, branch.ident)
                     inference_call = self.calls
                     conclusion = inference.get('conclusion')
@@ -190,6 +203,7 @@ class StrictEngine(Engine):
                     ident = f'{branch.ident}.{depth}.{position}'
                     steps = copy.deepcopy(branch.steps) + [{
                         'selected_ids': list(ids), 'conclusion_id': node_id, 'conclusion': conclusion,
+                        'selected_source_refs': copy.deepcopy(refs),
                         'depth': depth, 'verification': 'unreviewed',
                         'selection_call_ordinal': selection_call, 'inference_call_ordinal': inference_call,
                     }]
@@ -200,6 +214,9 @@ class StrictEngine(Engine):
                     halter_call = self.calls
                     if type(halt.get('sufficient')) is not bool or not isinstance(halt.get('reason'), str) or not halt['reason'].strip():
                         raise InvalidOutput('halter requires boolean sufficient and nonempty reason')
+                    evidence_assessment = halt.get('evidence_assessment', 'not_determined')
+                    if not isinstance(evidence_assessment, str) or evidence_assessment not in {'insufficient', 'conflicting', 'not_determined'}:
+                        raise InvalidOutput('invalid unverified evidence assessment')
                     value = self._call('value', {'question': task['question'], 'task_type': task['task_type'],
                         'as_of_utc': task['as_of_utc'], 'visible_evidence': list(common.values()), 'trace': steps}, ident)
                     value_call = self.calls
@@ -217,6 +234,7 @@ class StrictEngine(Engine):
                     self.events.append({'event': 'step_proposed', 'branch_id': ident, 'depth': depth,
                         'selected_ids': list(ids), 'conclusion_id': node_id, 'sufficient': halt['sufficient'],
                         'halter_reason': halt['reason'], 'value_score': float(score),
+                        'evidence_assessment': evidence_assessment,
                         'selection_call_ordinal': selection_call, 'inference_call_ordinal': inference_call,
                         'halter_call_ordinal': halter_call, 'value_call_ordinal': value_call})
                     self._branches.append({'branch_id': ident, 'steps': copy.deepcopy(steps),

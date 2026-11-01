@@ -6,7 +6,7 @@ from typing import Any, Callable
 
 from reasoning_engine.prompts import build_request as old_build_request
 
-VERSION = 'faithful-v3-prompts-2'
+VERSION = 'faithful-v3-prompts-3'
 
 
 def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
@@ -27,8 +27,12 @@ def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
             'Descriptions say what an action may retrieve; they are not retrieved facts.'
         )
     elif stage == 'selection':
-        request['instruction'] += (
-            ' The question is the user target, not an established fact. '
+        request['instruction'] = (
+            "Return {'alternatives': [[item, ...], ...]}. For each structured saved source, "
+            "select {'id': source_id, 'spans': [{'passage_id': id, 'start_char': start, 'end_char': end}]}; "
+            'offsets must lie within a supplied passage, with an exclusive end. '
+            'Select derived statements and unstructured saved responses by their ID string. '
+            'Do not invent IDs, passage IDs or offsets. The question is the user target, not an established fact. '
             'candidate_findings are unverified source-decision notes with context references, '
             'not evidence. Select only IDs in available_statements and independently '
             'derive any relevant finding from those selected statements. '
@@ -39,6 +43,8 @@ def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
         request['instruction'] = (
             'Given the exact question and the current inference, determine whether the '
             'inference answers that question. Return {"sufficient": boolean, "reason": string}. '
+            'Optionally add evidence_assessment: "insufficient", "conflicting", or "not_determined"; '
+            'this is an unverified model judgment about the current inference, not a stopping reason. '
             'Do not treat a nearby metric, entity, period, or a proxy as the requested answer. '
             'If the inference is insufficient, say so; this judgment is unverified.'
         )

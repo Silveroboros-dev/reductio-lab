@@ -52,7 +52,7 @@ class FeedbackAndUnknownTests(unittest.TestCase):
         for item in explanation['model_assessments']:
             self.assertEqual(item['origin'], 'model_unverified')
             self.assertEqual([r['id'] for r in item['selected_source_refs']], ['s1' if item['reason'] == 'feedback A' else 's2'])
-        rendered = render_outcome(out)
+        rendered = render_outcome(out, include_private=True)
         self.assertIn('Unverified Halter assessment', rendered)
         self.assertIn('feedback A', rendered)
 
@@ -82,8 +82,8 @@ class FeedbackAndUnknownTests(unittest.TestCase):
         self.assertEqual(x['source_decision']['origin'], 'model_unverified')
         self.assertEqual(x['available_saved_sources'][0]['id'], 'source:initial')
         self.assertNotIn('DATA_A', json.dumps(x))
-        self.assertIn('Unverified source-decision assessment', render_outcome(source_unknown))
-        self.assertIn('Saved responses available in this run: source:initial', render_outcome(source_unknown))
+        self.assertIn('Unverified source-decision assessment', render_outcome(source_unknown, include_private=True))
+        self.assertIn('Saved responses available in this run: source:initial', render_outcome(source_unknown, include_private=True))
 
         def callback(stage, payload):
             if stage == 'source_decision': return {'choice': 'STOP', 'reason': 'stop acquiring', 'expected_result': 'none'}
@@ -100,7 +100,7 @@ class FeedbackAndUnknownTests(unittest.TestCase):
         self.assertEqual(outer['model_assessments'][0]['selected_source_refs'][0]['id'], 'source:initial')
         self.assertEqual(out['status'], 'unknown')
         self.assertIsNone(out['result'])
-        rendered = render_outcome(out)
+        rendered = render_outcome(out, include_private=True)
         self.assertIn('requested metric is missing', rendered)
         self.assertNotIn('No coverage records were saved', rendered)
 
