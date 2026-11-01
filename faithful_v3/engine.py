@@ -13,7 +13,19 @@ from typing import Any, Callable
 from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, InvalidOutput,
                                      _Branch, _ancestry, prepare_task)
 
-VERSION = 'faithful-v3-strict-1'
+VERSION = 'faithful-v3-strict-2'
+
+
+def _stop_kind(status: str, reason: str) -> str:
+    if 'callback_effect_uncertain' in reason:
+        return 'effect_uncertain'
+    if reason == 'source_decision_uncertain':
+        return 'model_decision'
+    if status == 'technical_failure':
+        return 'technical_failure'
+    if reason in {'generation_cap_exhausted', 'episode_call_cap', 'reasoning_depth_exhausted'}:
+        return 'execution_limit'
+    return 'input_or_process'
 
 
 class StrictEngine(Engine):
@@ -23,6 +35,7 @@ class StrictEngine(Engine):
         self.candidate_findings = copy.deepcopy(candidate_findings or [])
         self._ready: list[_Branch] = []
         self._active_final: _Branch | None = None
+        self._halter_feedback: dict[str, dict] = {}
 
     def _outcome(self, task: dict, status: str, reason: str, **extra: Any) -> dict:
         out = super()._outcome(task, status, reason, **extra)
@@ -31,12 +44,51 @@ class StrictEngine(Engine):
         out['evidence'] = copy.deepcopy(task['evidence'])
         out['user_target'] = copy.deepcopy(task.get('thesis'))
         out['candidate_findings'] = copy.deepcopy(self.candidate_findings)
+        if status in {'unknown', 'technical_failure'}:
+            out['unknown_explanation'] = self._explain_stop(task, status, reason)
         return out
+
+    def _explain_stop(self, task: dict, status: str, reason: str) -> dict:
+        """Expose recorded observations, never infer that an unseen source is empty."""
+        branches = {branch['branch_id']: branch for branch in self._branches}
+        evidence = {item['id']: item for item in task['evidence']}
+        beam_ids = {ident for event in self.events if event.get('event') == 'beam_selected'
+                    for ident in event.get('branch_ids', [])}
+        assessments = []
+        for event in self.events:
+            if status != 'unknown' or 'uncertain' in reason:
+                break
+            if event.get('event') != 'step_proposed' or event.get('sufficient') is not False:
+                continue
+            branch = branches.get(event['branch_id'])
+            if branch is None:
+                continue
+            trace, leaves, _ = _ancestry(branch['steps'], event['conclusion_id'])
+            refs = []
+            for ident in sorted(leaves & evidence.keys()):
+                item = evidence[ident]
+                refs.append({'id': ident, 'source': item.get('source'), 'raw_ref': item.get('raw_ref')})
+            assessments.append({
+                'branch_id': event['branch_id'], 'conclusion_id': event['conclusion_id'],
+                'reason': event['halter_reason'], 'origin': 'model_unverified',
+                'halter_call_ordinal': event['halter_call_ordinal'],
+                'ever_in_beam': event['branch_id'] in beam_ids,
+                'selected_source_refs': refs, 'selected_trace': trace,
+            })
+        return {
+            'status': status, 'stop_reason': reason, 'stop_kind': _stop_kind(status, reason),
+            'unresolved_questions': [{'id': q['id'], 'question': q['question']}
+                                     for q in task['required_questions']],
+            'model_assessments': assessments,
+            'scope_note': ('Assessments cover recorded candidate branches and may include pruned branches. '
+                           'References identify selected saved responses, not exact passages; '
+                           'they do not establish entailment or absence from other material.'),
+        }
 
     def _unknown(self, task: dict, reason: str) -> dict:
         return self._outcome(task, 'unknown', reason, result=None,
             coverage=[{'question_id': q['id'], 'status': 'not_assessed',
-                       'reason': 'No answerable inference selected; see recorded model halt events',
+                       'reason': 'No final answer was produced; see the recorded stopping condition',
                        'assessment_origin': 'structural'}
                       for q in task['required_questions']],
             selected_trace=[], branches=copy.deepcopy(self._branches))
@@ -104,6 +156,7 @@ class StrictEngine(Engine):
                     'as_of_utc': task['as_of_utc'], 'required_questions': copy.deepcopy(task['required_questions']),
                     'available_statements': list(branch.nodes.values()),
                     'candidate_findings': copy.deepcopy(self.candidate_findings),
+                    'halter_feedback': copy.deepcopy(self._halter_feedback.get(branch.ident)),
                 }, branch.ident)
                 selection_call = self.calls
                 alternatives = selected.get('alternatives')
@@ -154,6 +207,12 @@ class StrictEngine(Engine):
                     if type(score) not in (int, float) or not math.isfinite(score) or not 0 <= score <= 1:
                         raise InvalidOutput('value score must be finite in [0,1]')
                     candidate = _Branch(ident, nodes, steps, float(score), halt['sufficient'], node_id)
+                    if not halt['sufficient']:
+                        self._halter_feedback[ident] = {
+                            'branch_id': ident, 'conclusion_id': node_id,
+                            'reason': halt['reason'], 'origin': 'model_unverified',
+                            'halter_call_ordinal': halter_call,
+                        }
                     candidates.append(candidate)
                     self.events.append({'event': 'step_proposed', 'branch_id': ident, 'depth': depth,
                         'selected_ids': list(ids), 'conclusion_id': node_id, 'sufficient': halt['sufficient'],

@@ -12,9 +12,9 @@ from typing import Callable, Any
 
 from reasoning_engine.engine import EngineConfig, prepare_task
 from reasoning_engine.replay_sources import ReplayCase, digest
-from faithful_v3.engine import StrictEngine
+from faithful_v3.engine import StrictEngine, _stop_kind
 
-VERSION = 'faithful-v3-source-loop-1'
+VERSION = 'faithful-v3-source-loop-2'
 
 
 def _utc_timestamp(value: Any) -> str | None:
@@ -101,7 +101,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
             provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
             stamp = provenance.get('captured_at') if isinstance(provenance, dict) else None
             timestamp_presence['source:' + item['action_id']] = 'known_utc' if _utc_timestamp(stamp) else 'unknown'
-        return {'version': VERSION, 'arm': 'C_v3', 'status': status, 'reason': reason,
+        result_packet = {'version': VERSION, 'arm': 'C_v3_feedback_v2', 'status': status, 'reason': reason,
                 'result': copy.deepcopy(result), 'history': copy.deepcopy(history),
                 'calls': model_calls, 'semantic_status': 'unreviewed',
                 'case_id': case_id, 'input_version': checkpoint['input_version'],
@@ -110,6 +110,29 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                 'cutoff_mode': ('structured_utc' if _utc_timestamp(current.get('information_cutoff'))
                                 else 'unstructured_or_missing_not_enforced'),
                 'simulated_replay_spent_micro_usd': current['simulated_spent_micro_usd'], **extra}
+        if status in {'unknown', 'technical_failure'}:
+            explanation = copy.deepcopy(extra.get('unknown_explanation'))
+            if not isinstance(explanation, dict):
+                explanation = {'status': status, 'stop_reason': reason, 'stop_kind': _stop_kind(status, reason),
+                               'unresolved_questions': [{'id': 'user-target', 'question': current['thesis']}],
+                               'model_assessments': [],
+                               'scope_note': 'Only saved responses available in this run are recorded.'}
+            explanation['available_saved_sources'] = [
+                {'id': 'source:' + item['action_id'],
+                 'raw_ref': 'sha256:' + item['response']['response_sha256']}
+                for item in current['observed']
+            ]
+            if reason == 'source_decision_uncertain':
+                last = next((x for x in reversed(history) if x.get('kind') == 'model_decision'
+                             and x.get('output', {}).get('choice') == 'UNKNOWN'), None)
+                if last:
+                    explanation['source_decision'] = {
+                        'reason': last['output']['reason'], 'origin': 'model_unverified',
+                        'input_sha256': last['callback_input_sha256'],
+                        'output_sha256': last['callback_output_sha256'],
+                    }
+            result_packet['unknown_explanation'] = explanation
+        return result_packet
 
     def call(stage, payload):
         nonlocal model_calls
@@ -169,7 +192,8 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                             beam_width=beam_width, max_alternatives=max_alternatives),
                             candidate_findings=findings).run(factual)
         history.append({'kind': 'final', 'outcome': final})
-        return outcome(final['status'], final['reason'], final.get('result'))
+        extra = {'unknown_explanation': final['unknown_explanation']} if 'unknown_explanation' in final else {}
+        return outcome(final['status'], final['reason'], final.get('result'), **extra)
     except TimeoutError:
         return outcome('unknown', 'source_callback_effect_uncertain:TimeoutError')
     except Exception as exc:

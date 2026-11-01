@@ -96,6 +96,17 @@ def render_outcome(outcome: dict[str, Any]) -> str:
     Unknown keys and model call payload/result objects are never serialized.
     """
     data = _mapping(outcome)
+    # A source-loop packet nests its engine outcome in the final history event.
+    # Project it for display without rewriting the recorded outer packet.
+    if 'coverage' not in data:
+        final = next((_mapping(event).get('outcome') for event in reversed(_items(data.get('history')))
+                      if _mapping(event).get('kind') == 'final'), None)
+        if isinstance(final, dict):
+            nested = dict(final)
+            for key in ('status', 'reason', 'result', 'unknown_explanation'):
+                if key in data:
+                    nested[key] = data[key]
+            data = nested
     lines: list[str] = [f"# Faithful Engine outcome — {_safe_text(data.get('case_id')) or 'Unknown'}", ""]
 
     answer = _answer(data.get("result"))
@@ -110,6 +121,38 @@ def render_outcome(outcome: dict[str, Any]) -> str:
     if semantic_status == "unreviewed":
         lines.append("**Semantic status:** unreviewed")
     lines.append("")
+
+    explanation = _mapping(data.get("unknown_explanation"))
+    if explanation:
+        lines.append("## Why no answer was produced")
+        lines.append("Stopping condition: " + (_safe_text(explanation.get("stop_reason")) or "unknown")
+                     + "; type: " + (_safe_text(explanation.get("stop_kind")) or "unknown"))
+        for raw in _items(explanation.get("unresolved_questions")):
+            question = _safe_text(_mapping(raw).get("question"))
+            if question:
+                lines.append("- Unresolved question: " + question)
+        for raw in _items(explanation.get("model_assessments")):
+            item = _mapping(raw)
+            reason_text = _safe_text(item.get("reason"))
+            if reason_text:
+                branch = _safe_text(item.get("branch_id")) or "unknown branch"
+                beam = "ever in beam" if item.get("ever_in_beam") is True else "not recorded in beam"
+                refs = [_safe_text(_mapping(x).get("id")) for x in _items(item.get("selected_source_refs"))]
+                refs = [x for x in refs if x]
+                lines.append("- Unverified Halter assessment (" + branch + ", " + beam + "): " + reason_text
+                             + ("; selected source IDs: " + ", ".join(refs) if refs else ""))
+        source_decision = _mapping(explanation.get("source_decision"))
+        if _safe_text(source_decision.get("reason")):
+            lines.append("- Unverified source-decision assessment: " + _safe_text(source_decision.get("reason")))
+        available = [_safe_text(_mapping(item).get("id"))
+                     for item in _items(explanation.get("available_saved_sources"))]
+        available = [ident for ident in available if ident]
+        if available:
+            lines.append("- Saved responses available in this run: " + ", ".join(available))
+        scope_note = _safe_text(explanation.get("scope_note"))
+        if scope_note:
+            lines.append(scope_note)
+        lines.append("")
 
     coverage = _items(data.get("coverage"))
     lines.append("## Required-question coverage")
