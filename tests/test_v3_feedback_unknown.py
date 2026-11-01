@@ -80,6 +80,8 @@ class FeedbackAndUnknownTests(unittest.TestCase):
         self.assertEqual(x['stop_reason'], 'source_decision_uncertain')
         self.assertEqual(x['stop_kind'], 'model_decision')
         self.assertEqual(x['source_decision']['origin'], 'model_unverified')
+        self.assertEqual(x['source_decision']['call_ordinal'], 1)
+        self.assertIn('source call #1', render_outcome(source_unknown))
         self.assertEqual(x['available_saved_sources'][0]['id'], 'source:initial')
         self.assertNotIn('DATA_A', json.dumps(x))
         self.assertIn('Unverified source-decision assessment', render_outcome(source_unknown, include_private=True))

@@ -19,10 +19,23 @@ def source_registry(evidence: list[dict]) -> dict[str, dict]:
     for item in evidence:
         if item.get('kind') == 'derived_claim':
             continue
+        if item.get('text_representation') == 'caller_text':
+            continue
+        if item.get('text_representation') == 'saved_payload_text':
+            raw_ref = item.get('raw_ref')
+            if raw_ref is not None and raw_ref != 'sha256:' + digest(item['text']):
+                raise InvalidOutput('saved response hash mismatch')
+            continue
         try:
             payload = json.loads(item['text'])
-        except (ValueError, TypeError):
+        except (ValueError, TypeError) as exc:
+            if item.get('text_representation') == 'saved_payload_json':
+                raise InvalidOutput('invalid saved JSON text representation') from exc
             continue
+        if item.get('text_representation') == 'saved_payload_json':
+            raw_ref = item.get('raw_ref')
+            if raw_ref is not None and raw_ref != 'sha256:' + digest(payload):
+                raise InvalidOutput('saved response hash mismatch')
         if not isinstance(payload, dict) or 'passages' not in payload:
             continue
         passages, coverage, size = payload['passages'], payload.get('coverage'), payload.get('source_document_char_count')
@@ -78,8 +91,8 @@ def resolve_selection(items: list, nodes: dict, source_ids: set[str], registry: 
             spans = None
         elif isinstance(item, dict) and set(item) == {'id', 'spans'}:
             ident, spans = item['id'], item['spans']
-            if not isinstance(ident, str) or ident not in source_ids or ident not in registry:
-                raise InvalidOutput('span selection requires a registered source')
+            if not isinstance(ident, str) or ident not in source_ids:
+                raise InvalidOutput('span selection requires a source')
             if not isinstance(spans, list) or not spans:
                 raise InvalidOutput('source spans must be nonempty')
         else:
@@ -97,6 +110,39 @@ def resolve_selection(items: list, nodes: dict, source_ids: set[str], registry: 
             continue
         seen = set()
         for span in spans:
+            if ident not in registry:
+                if not isinstance(span, dict) or set(span) != {'start_char', 'end_char'}:
+                    raise InvalidOutput('invalid unstructured text span')
+                start, end = span['start_char'], span['end_char']
+                if not _int(start) or not _int(end) or not 0 <= start < end <= len(node['text']) or (start, end) in seen:
+                    raise InvalidOutput('unstructured text span is duplicate or out of bounds')
+                seen.add((start, end))
+                representation = node.get('text_representation', 'caller_text')
+                raw_ref = node.get('raw_ref')
+                payload_sha = None
+                try:
+                    surface_hash = hashlib.sha256(node['text'].encode('utf-8')).hexdigest()
+                    if representation == 'saved_payload_text':
+                        payload_sha = digest(node['text'])
+                    elif representation == 'saved_payload_json':
+                        payload_sha = digest(json.loads(node['text']))
+                    if payload_sha is not None and raw_ref is not None and raw_ref != 'sha256:' + payload_sha:
+                        raise InvalidOutput('saved response hash mismatch')
+                    text = node['text'][start:end]
+                    excerpt_hash = hashlib.sha256(text.encode('utf-8')).hexdigest()
+                except InvalidOutput:
+                    raise
+                except (UnicodeError, ValueError, TypeError) as exc:
+                    raise InvalidOutput('invalid saved text encoding or representation') from exc
+                selected.append({'text': text, 'source': node.get('source'), 'kind': node.get('kind')})
+                refs.append({'id': ident, 'source': node.get('source'), 'raw_ref': raw_ref,
+                             'scope': 'saved_response_text_span', 'text_representation': representation,
+                             'start_char': start, 'end_char': end, 'offset_unit': 'unicode_code_points',
+                             'offset_basis': 'saved_evidence_text_not_original_document',
+                             'evidence_text_sha256': surface_hash, 'excerpt_sha256': excerpt_hash,
+                             'saved_payload_sha256': payload_sha,
+                             'binding': 'caller_supplied_hash_consistency' if payload_sha and raw_ref else 'caller_supplied_text'})
+                continue
             if not isinstance(span, dict) or set(span) != {'passage_id', 'start_char', 'end_char'}:
                 raise InvalidOutput('invalid source span')
             passage_id, start, end = span['passage_id'], span['start_char'], span['end_char']

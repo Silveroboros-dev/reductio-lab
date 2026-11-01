@@ -7,6 +7,7 @@ engine or independently assess the meaning of its claims.
 from __future__ import annotations
 
 import re
+import hashlib
 from typing import Any
 from urllib.parse import urlsplit, urlunsplit
 
@@ -90,8 +91,8 @@ def _answer(result: Any) -> str:
     return ""
 
 
-def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any]) -> str:
-    """Minimal summary; hashes can still be linkable identifiers."""
+def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any], *, key_only: bool = False) -> str:
+    """Use per-render aliases; raw IDs, content and hashes remain private."""
     labels = {
         'execution_limit': 'execution limit reached', 'effect_uncertain': 'callback effect uncertain',
         'model_decision': 'model declined a source decision', 'technical_failure': 'technical failure',
@@ -103,39 +104,98 @@ def _render_bounded_stop(data: dict[str, Any], explanation: dict[str, Any]) -> s
     status = data.get('status')
     status_text = _STATUSES.get(status, 'Unknown') if isinstance(status, str) else 'Unknown'
     lines = ['# Faithful Engine outcome', '', '**Status:** ' + status_text]
-    if status in {'unknown', 'technical_failure'}:
+    if isinstance(status, str) and status in {'unknown', 'technical_failure'}:
         lines += ['No final answer was produced.', 'Stopping condition: ' + labels.get(kind, 'unknown')]
     else:
         lines.append('Result withheld from the default view.')
     lines.append('')
-    assessments = _items(explanation.get('model_assessments'))
+    all_questions = _items(explanation.get('unresolved_questions'))
+    questions = all_questions[:100]
+    for i, _ in enumerate(questions, 1):
+        lines.append(f'- Unresolved question Q{i} (wording withheld).')
+    if len(all_questions) > len(questions):
+        lines.append('- Additional unresolved questions omitted from this bounded view.')
+    sources: dict[str, str] = {}
+    branches: dict[str, str] = {}
+    passages: dict[tuple[str, str], str] = {}
+
+    def alias(table, key, prefix):
+        if key not in table:
+            table[key] = prefix + str(len(table) + 1)
+        return table[key]
+
+    shown_sources = set()
+    all_sources = _items(explanation.get('available_saved_sources'))
+    for raw in all_sources[:100]:
+        ident = _mapping(raw).get('id')
+        if isinstance(ident, str) and 0 < len(ident) <= 1024 and ident not in shown_sources:
+            shown_sources.add(ident)
+            lines.append('- Available saved response ' + alias(sources, ident, 'R') + ' (identifier withheld).')
+    if len(all_sources) > 100:
+        lines.append('- Additional saved responses omitted from this bounded view.')
+    all_assessments = (_items(explanation.get('model_assessments'))
+                       if status == 'unknown' and kind in {'execution_limit', 'input_or_process'} else [])
+    assessments = all_assessments[:100]
+    if len(all_assessments) > len(assessments):
+        lines.append('- Additional model assessments omitted from this bounded view.')
     for raw in assessments:
         item = _mapping(raw)
+        if item.get('origin') != 'model_unverified':
+            continue
         assessment = item.get('evidence_assessment')
         if not isinstance(assessment, str):
             assessment = 'not_determined'
         label = {'insufficient': 'insufficient evidence', 'conflicting': 'conflicting evidence',
                  'not_determined': 'not determined'}.get(assessment, 'not determined')
-        lines.append('- Unverified model assessment of a recorded inference: ' + label)
-        for raw_ref in _items(item.get('selected_source_refs')):
+        branch = item.get('branch_id')
+        branch_label = alias(branches, branch, 'B') if isinstance(branch, str) and 0 < len(branch) <= 1024 else 'unknown branch'
+        ordinal = item.get('halter_call_ordinal')
+        call_label = f', SI call #{ordinal}' if type(ordinal) is int and 0 < ordinal <= 1000000 else ''
+        lines.append('- ' + branch_label + call_label + ': unverified model assessment of a recorded inference: ' + label)
+        all_refs = _items(item.get('selected_source_refs'))
+        for raw_ref in all_refs[:100]:
             ref = _mapping(raw_ref)
-            sha = ref.get('saved_payload_sha256')
-            if not isinstance(sha, str) or not re.fullmatch(r'[0-9a-f]{64}', sha):
-                raw_hash = ref.get('raw_ref')
-                sha = raw_hash[7:] if isinstance(raw_hash, str) and re.fullmatch(r'sha256:[0-9a-f]{64}', raw_hash) else None
-            if sha:
-                lines.append('  - Recorded input SHA-256 (not independently verified): ' + sha)
-            excerpt_hash = ref.get('excerpt_sha256')
-            if isinstance(excerpt_hash, str) and re.fullmatch(r'[0-9a-f]{64}', excerpt_hash):
-                lines.append('  - Selected text SHA-256: ' + excerpt_hash)
+            ident = ref.get('id')
+            source_label = alias(sources, ident, 'R') if isinstance(ident, str) and 0 < len(ident) <= 1024 else 'unknown source'
             start, end = ref.get('start_char'), ref.get('end_char')
-            if (ref.get('scope') == 'saved_passage_span' and ref.get('offset_unit') == 'unicode_code_points'
-                    and type(start) is int and type(end) is int and 0 <= start < end):
-                lines.append(f'  - Source-reported Unicode offsets: {start}–{end} (not independently verified)')
-    if _mapping(explanation.get('source_decision')):
-        lines.append('- A source decision was uncertain (model assessment, unverified).')
-    lines.extend(['', 'Model text, source text and user input are omitted from this view.',
+            scope = ref.get('scope')
+            valid_bounds = (ref.get('offset_unit') == 'unicode_code_points' and type(start) is int and type(end) is int
+                            and 0 <= start < end <= 1000000000)
+            if scope == 'saved_passage_span' and valid_bounds:
+                passage = ref.get('passage_id')
+                passage_label = alias(passages, (source_label, passage), 'P') if isinstance(passage, str) and 0 < len(passage) <= 1024 else 'unknown passage'
+                lines.append(f'  - {source_label} / {passage_label}: source-reported offsets {start}–{end} (not independently verified).')
+            elif scope == 'saved_response_text_span' and valid_bounds:
+                lines.append(f'  - {source_label}: saved-text offsets {start}–{end}, not original-document offsets.')
+            else:
+                lines.append(f'  - {source_label}: saved response or span details unavailable.')
+        if len(all_refs) > 100:
+            lines.append('  - Additional selected references omitted from this bounded view.')
+    source_decision = _mapping(explanation.get('source_decision'))
+    if status == 'unknown' and kind == 'model_decision' and source_decision.get('origin') == 'model_unverified':
+        ordinal = source_decision.get('call_ordinal')
+        call_label = f' (source call #{ordinal})' if type(ordinal) is int and 0 < ordinal <= 1000000 else ''
+        lines.append('- A source decision was uncertain' + call_label + ' (model assessment, unverified).')
+    lines.extend(['', 'Q, R, P and B are aliases within this view; original identifiers, text and hashes are withheld.',
                   'A saved fragment does not establish absence elsewhere or semantic support.'])
+    if key_only:
+        def key_text(value):
+            if not isinstance(value, str):
+                return 'identifier unavailable'
+            try:
+                fingerprint = hashlib.sha256(value.encode('utf-8')).hexdigest()
+            except UnicodeError:
+                return 'identifier cannot be encoded'
+            return (_safe_text(value) or '[empty or redacted]') + ' (identifier SHA-256: ' + fingerprint + ')'
+        lines = ['## Alias key (private)', '', 'Displayed identifiers may be sanitized; fingerprints bind the original values.']
+        for i, raw in enumerate(questions, 1):
+            lines.append(f'- Q{i}: {key_text(_mapping(raw).get("id"))}')
+        for ident, label in sources.items():
+            lines.append(f'- {label}: {key_text(ident)}')
+        for (source_label, ident), label in passages.items():
+            lines.append(f'- {source_label} / {label}: {key_text(ident)}')
+        for ident, label in branches.items():
+            lines.append(f'- {label}: {key_text(ident)}')
     return '\n'.join(lines) + '\n'
 
 
@@ -179,6 +239,8 @@ def render_outcome(outcome: dict[str, Any], *, include_private: bool = False) ->
 
     explanation = _mapping(data.get("unknown_explanation"))
     if explanation:
+        if include_private:
+            lines.append(_render_bounded_stop(data, explanation, key_only=True))
         lines.append("## Why no answer was produced")
         lines.append("Stopping condition: " + (_safe_text(explanation.get("stop_reason")) or "unknown")
                      + "; type: " + (_safe_text(explanation.get("stop_kind")) or "unknown"))

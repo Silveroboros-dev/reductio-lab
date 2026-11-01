@@ -212,8 +212,11 @@ class ExcerptTests(unittest.TestCase):
         for secret in ('SECRET_FRAGMENT', 'PRIVATE_MODEL_REASON', 'PRIVATE_MODEL_CONCLUSION', 'PRIVATE_HALTER_REASON', 'USER_TARGET_SENTINEL', 'café'):
             self.assertNotIn(secret, safe)
         self.assertIn('execution limit reached', safe)
-        self.assertIn('Unverified model assessment of a recorded inference: insufficient evidence', safe)
-        self.assertIn(digest(payload), safe)
+        self.assertIn('unverified model assessment of a recorded inference: insufficient evidence', safe)
+        self.assertIn('Unresolved question Q1', safe)
+        self.assertIn('R1 / P1', safe)
+        self.assertIn('SI call #3', safe)
+        self.assertNotIn(digest(payload), safe)
         private = render_outcome(out, include_private=True)
         self.assertIn(r'PRIVATE\_HALTER\_REASON', private)
 

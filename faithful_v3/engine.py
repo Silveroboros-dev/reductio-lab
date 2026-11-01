@@ -15,7 +15,7 @@ from reasoning_engine.engine import (BudgetExhausted, Engine, EngineConfig, Inva
                                      _Branch, _ancestry, prepare_task)
 from faithful_v3.excerpts import resolve_selection, source_registry
 
-VERSION = 'faithful-v3-strict-3'
+VERSION = 'faithful-v3-strict-4'
 
 
 def _stop_kind(status: str, reason: str) -> str:
@@ -93,7 +93,7 @@ class StrictEngine(Engine):
                                      for q in task['required_questions']],
             'model_assessments': assessments,
             'scope_note': ('Assessments cover recorded candidate branches and may include pruned branches. '
-                           'Passage spans are checked against saved response text, not the original document; '
+                           'Selected spans are checked against saved passages or evidence text, not the original document; '
                            'they do not establish entailment or absence from other material.'),
         }
 

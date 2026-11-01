@@ -20,7 +20,7 @@ STAGES = ("selection", "inference", "halter", "value", "formatter")
 EVIDENCE_KINDS = {"contract_rule", "news", "observation", "quote", "prior", "derived_claim"}
 TASK_TYPES = {"exploration", "fit", "evidence_impact", "forecast"}
 EVIDENCE_FIELDS = {"id", "text", "kind", "source", "captured_at_utc", "available_at_utc",
-                   "published_at_utc", "raw_ref", "content_sha256"}
+                   "published_at_utc", "raw_ref", "content_sha256", "text_representation"}
 
 
 class InvalidTask(ValueError):
@@ -85,7 +85,14 @@ def prepare_task(task: Any) -> dict[str, Any]:
         if item.get("kind") not in EVIDENCE_KINDS:
             raise InvalidTask("unsupported evidence kind")
         _text(item.get("text"), "evidence.text")
+        try:
+            item["text"].encode("utf-8")
+        except UnicodeError as exc:
+            raise InvalidTask("evidence text must be valid UTF-8") from exc
         _text(item.get("source"), "evidence.source")
+        representation = item.get("text_representation", "caller_text")
+        if not isinstance(representation, str) or representation not in {"caller_text", "saved_payload_text", "saved_payload_json"}:
+            raise InvalidTask("unsupported evidence text representation")
         entry = {k: copy.deepcopy(v) for k, v in item.items() if k in EVIDENCE_FIELDS and v is not None}
         times = {}
         for key in ("captured_at_utc", "available_at_utc", "published_at_utc"):

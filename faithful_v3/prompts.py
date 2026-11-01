@@ -6,7 +6,7 @@ from typing import Any, Callable
 
 from reasoning_engine.prompts import build_request as old_build_request
 
-VERSION = 'faithful-v3-prompts-3'
+VERSION = 'faithful-v3-prompts-4'
 
 
 def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
@@ -31,7 +31,9 @@ def build_request(stage: str, payload: dict[str, Any]) -> dict[str, Any]:
             "Return {'alternatives': [[item, ...], ...]}. For each structured saved source, "
             "select {'id': source_id, 'spans': [{'passage_id': id, 'start_char': start, 'end_char': end}]}; "
             'offsets must lie within a supplied passage, with an exclusive end. '
-            'Select derived statements and unstructured saved responses by their ID string. '
+            "For an unstructured source select {'id': source_id, 'spans': [{'start_char': start, 'end_char': end}]}; "
+            'offsets are Unicode code points into the supplied evidence text, with an exclusive end. '
+            'Derived statements and whole unstructured responses may also be selected by ID string. '
             'Do not invent IDs, passage IDs or offsets. The question is the user target, not an established fact. '
             'candidate_findings are unverified source-decision notes with context references, '
             'not evidence. Select only IDs in available_statements and independently '

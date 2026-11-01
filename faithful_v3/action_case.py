@@ -14,7 +14,7 @@ from reasoning_engine.engine import EngineConfig, prepare_task
 from reasoning_engine.replay_sources import ReplayCase, digest
 from faithful_v3.engine import StrictEngine, _stop_kind
 
-VERSION = 'faithful-v3-source-loop-3'
+VERSION = 'faithful-v3-source-loop-4'
 
 
 def _utc_timestamp(value: Any) -> str | None:
@@ -39,10 +39,12 @@ def _factual_task(visible: dict, *, case_id: str) -> dict:
     evidence = []
     for item in visible['observed']:
         payload = item['response']['payload']
+        raw_text = isinstance(payload, str) and bool(payload.strip())
         entry = {'id': 'source:' + item['action_id'], 'kind': 'observation',
                  'source': 'saved response for ' + item['action_id'],
                  'raw_ref': 'sha256:' + item['response']['response_sha256'],
-                 'text': json.dumps(payload, ensure_ascii=False, sort_keys=True)}
+                 'text': payload if raw_text else json.dumps(payload, ensure_ascii=False, sort_keys=True),
+                 'text_representation': 'saved_payload_text' if raw_text else 'saved_payload_json'}
         provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
         if not isinstance(provenance, dict):
             raise ValueError('source provenance must be an object')
@@ -101,7 +103,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
             provenance = payload.get('provenance', {}) if isinstance(payload, dict) else {}
             stamp = provenance.get('captured_at') if isinstance(provenance, dict) else None
             timestamp_presence['source:' + item['action_id']] = 'known_utc' if _utc_timestamp(stamp) else 'unknown'
-        result_packet = {'version': VERSION, 'arm': 'C_v3_spans_v3', 'status': status, 'reason': reason,
+        result_packet = {'version': VERSION, 'arm': 'C_v3_spans_v4', 'status': status, 'reason': reason,
                 'result': copy.deepcopy(result), 'history': copy.deepcopy(history),
                 'calls': model_calls, 'semantic_status': 'unreviewed',
                 'case_id': case_id, 'input_version': checkpoint['input_version'],
@@ -128,6 +130,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                 if last:
                     explanation['source_decision'] = {
                         'reason': last['output']['reason'], 'origin': 'model_unverified',
+                        'call_ordinal': last.get('call_ordinal'),
                         'input_sha256': last['callback_input_sha256'],
                         'output_sha256': last['callback_output_sha256'],
                     }
@@ -161,6 +164,7 @@ def run_case(checkpoint: dict, catalog: list[dict], generate: Callable[[str, dic
                                 'input': copy.deepcopy(visible), 'exception_type': type(exc).__name__})
                 raise
             history.append({'kind': 'model_decision', 'stage': 'source_decision',
+                            'call_ordinal': model_calls,
                             'input': copy.deepcopy(visible), 'output': copy.deepcopy(raw),
                             'callback_input_sha256': digest(visible),
                             'callback_output_sha256': digest(raw)})
